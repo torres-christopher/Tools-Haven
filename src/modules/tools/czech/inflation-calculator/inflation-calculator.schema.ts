@@ -8,7 +8,7 @@ const isAverageMode = (month: number | 'average'): month is 'average' => {
 }
 
 // Helper function for monthly key
-const monthlyKey = (year: number, month: number): string => {
+export const monthlyKey = (year: number, month: number): string => {
   return `${year}-${String(month).padStart(2, '0')}`
 }
 

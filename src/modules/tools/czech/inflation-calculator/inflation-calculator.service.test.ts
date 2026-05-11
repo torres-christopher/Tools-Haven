@@ -33,10 +33,22 @@ describe('calculateInflationAdjustedValue', () => {
     const result: InflationOutput = calculateInflationAdjustedValue(input)
     expect(result).toBeCloseTo(108.66)
   })
+
+  it('Calculates correctly inflation output in in average mode', () => {
+    const input: InflationRealInput = {
+      value: 100,
+      startYear: 1997,
+      startMonth: 'average',
+      endYear: 1998,
+      endMonth: 'average',
+    }
+    const result: InflationOutput = calculateInflationAdjustedValue(input)
+    expect(result).toBeCloseTo(110.69)
+  })
 })
 
 describe('calculateCustomInflation', () => {
-  it('Calculates correctly custom inflation output', () => {
+  it('Calculates correctly custom inflation output forward', () => {
     const input: InflationCustomInput = {
       value: 100,
       inflationRate: 3,
@@ -45,5 +57,25 @@ describe('calculateCustomInflation', () => {
     }
     const result: InflationOutput = calculateCustomInflation(input)
     expect(result).toBeCloseTo(134.39)
+  })
+  it('Calculates correctly custom inflation output backward', () => {
+    const input: InflationCustomInput = {
+      value: 100,
+      inflationRate: 3,
+      years: 10,
+      type: 'backward',
+    }
+    const result: InflationOutput = calculateCustomInflation(input)
+    expect(result).toBeCloseTo(74.41)
+  })
+
+  it('Throws error for out of bounds custom inflation', () => {
+    const input: InflationCustomInput = {
+      value: 10000,
+      inflationRate: 99999,
+      years: 10000,
+      type: 'forward',
+    }
+    expect(() => calculateCustomInflation(input)).toThrow()
   })
 })

@@ -1,17 +1,13 @@
-import type {
-  InflationRealInput,
-  InflationCustomInput,
-  InflationOutput,
+import {
+  type InflationRealInput,
+  type InflationCustomInput,
+  type InflationOutput,
+  monthlyKey,
 } from './inflation-calculator.schema.js'
-
 import { cpiMonthly, cpiYearly } from '../../../../shared/data/tools/czech/cpi.js'
+import { AppError, HttpStatus } from '../../../../shared/types/errors.js'
 
 // -------- Helper Functions --------------- //
-// Helper function for monthly key
-const monthlyKey = (year: number, month: number): string => {
-  return `${year}-${String(month).padStart(2, '0')}`
-}
-
 // Helper function get CPI value
 const getCpiValue = (year: number, month: number | 'average'): number => {
   if (month === 'average') {
@@ -47,10 +43,15 @@ export const calculateInflationAdjustedValue = function (
 // Custom inflation calculation
 export const calculateCustomInflation = function (input: InflationCustomInput): InflationOutput {
   const factor = (100 + input.inflationRate) / 100
+  let result: number
 
   if (input.type === 'forward') {
-    return input.value * factor ** input.years
+    result = input.value * factor ** input.years
+  } else {
+    result = input.value / factor ** input.years
   }
 
-  return input.value / factor ** input.years
+  if (result > Number.MAX_SAFE_INTEGER)
+    throw new AppError('Result out of bounds', HttpStatus.BAD_REQUEST)
+  return result
 }
