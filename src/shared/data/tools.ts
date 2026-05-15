@@ -38,14 +38,15 @@ export const tools: ToolsDetails[] = [
     featured: 1,
   },
   {
-    title: 'BMI kalkulačka',
-    description: 'Spočítejte si BMI (Body Mass Index) podle své výšky a hmotnosti. ',
-    path: '/zdravotni-nastroje/bmi-kalkulacka',
-    slug: 'bmi-kalkulacka',
-    icon: '⚖️',
-    categoryName: 'Zdravotní nástroje',
-    categoryPath: '/zdravotni-nastroje',
+    title: 'Inflační kalkulačka',
+    description:
+      'Spočítejte, jak inflace ovlivnila hodnotu peněz v čase. Reálná česká inflace nebo vlastní sazba.',
+    path: '/ceske-nastroje/inflacni-kalkulator',
+    slug: 'inflacni-kalkulator',
+    icon: '📈',
+    categoryName: 'České nástroje',
+    categoryPath: '/ceske-nastroje',
     enabled: true,
-    featured: 1,
+    featured: null,
   },
 ]
