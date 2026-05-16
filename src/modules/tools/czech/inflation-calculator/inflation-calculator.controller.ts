@@ -25,35 +25,38 @@ export const postInflationCalculator = catchAsync(async (req, res) => {
   let result = null
   let errorMessage: string | null = null
   let status: number = 200
-  let input
   const formType: string = req.body.form_id
 
   // Validate input
   if (formType === 'real_inflation') {
-    input = inflationRealInput.safeParse({
+    const input = inflationRealInput.safeParse({
       value: req.body.value,
       startYear: req.body.startYear,
       startMonth: req.body.startMonth,
       endYear: req.body.endYear,
       endMonth: req.body.endMonth,
     })
+
+    if (!input.success) {
+      errorMessage = 'Real inflation wrong (placeholder)'
+      status = 400
+    }
+
+    result = calculateInflationAdjustedValue(input.data)
   } else {
-    input = inflationRealInput.safeParse({
+    const input = inflationRealInput.safeParse({
       value: req.body.value,
       inflationRate: req.body.inflationRate,
       years: req.body.years,
       type: req.body.type,
     })
-  }
 
-  if (!input.success) {
-    errorMessage = 'SOmething wrong has happened (placeholder)'
-    status = 400
-  } else {
-    result =
-      formType == 'real_inflation'
-        ? calculateInflationAdjustedValue(input.data)
-        : calculateCustomInflation(input.data)
+    if (!input.success) {
+      errorMessage = 'Custom inflation wrong (placeholder)'
+      status = 400
+    }
+
+    result = calculateCustomInflation(input.data)
   }
 
   res.status(status).render('pages/tools/czech/inflation-calculator', {
