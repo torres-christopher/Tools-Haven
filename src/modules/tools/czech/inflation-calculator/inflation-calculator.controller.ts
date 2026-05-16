@@ -1,7 +1,7 @@
 import { catchAsync } from '../../../../shared/utils/catchAsync.js'
 import { buildSeoMeta } from '../../../../shared/utils/seoMeta.js'
 import { tools } from '../../../../shared/data/tools.js'
-import { InflationRealInput } from './inflation-calculator.schema.js'
+import { inflationRealInput } from './inflation-calculator.schema.js'
 import {
   calculateInflationAdjustedValue,
   calculateCustomInflation,
@@ -22,8 +22,44 @@ export const getInflationCalculator = catchAsync(async (req, res) => {
 
 // POST for forms
 export const postInflationCalculator = catchAsync(async (req, res) => {
-  res.render('pages/tools/czech/inflation-calculator', {
+  let result = null
+  let errorMessage: string | null = null
+  let status: number = 200
+  let input
+  const formType: string = req.body.form_id
+
+  // Validate input
+  if (formType === 'real_inflation') {
+    input = inflationRealInput.safeParse({
+      value: req.body.value,
+      startYear: req.body.startYear,
+      startMonth: req.body.startMonth,
+      endYear: req.body.endYear,
+      endMonth: req.body.endMonth,
+    })
+  } else {
+    input = inflationRealInput.safeParse({
+      value: req.body.value,
+      inflationRate: req.body.inflationRate,
+      years: req.body.years,
+      type: req.body.type,
+    })
+  }
+
+  if (!input.success) {
+    errorMessage = 'SOmething wrong has happened (placeholder)'
+    status = 400
+  } else {
+    result =
+      formType == 'real_inflation'
+        ? calculateInflationAdjustedValue(input.data)
+        : calculateCustomInflation(input.data)
+  }
+
+  res.status(status).render('pages/tools/czech/inflation-calculator', {
     ...buildSeoMeta(tool),
     faq,
+    result,
+    errorMessage,
   })
 })
