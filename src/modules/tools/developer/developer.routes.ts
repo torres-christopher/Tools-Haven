@@ -16,6 +16,8 @@ router.get('/', (_req, res) => {
     }),
     toolCategory: 'Vývojářské nástroje',
     toolCategoryPath: '/vyvojarske-nastroje',
+    toolCategoryDescription:
+      'Nástroje pro vývojáře: Validace JSONu, formátování a porovnání textu.',
     tools: tools.filter((t) => t.categoryPath === '/vyvojarske-nastroje' && t.enabled).slice(0, 6),
   })
 })

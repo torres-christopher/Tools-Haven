@@ -17,6 +17,8 @@ router.get('/', (_req, res) => {
     }),
     toolCategory: 'Textové nástroje',
     toolCategoryPath: '/textove-nastroje',
+    toolCategoryDescription:
+      'Nástroje pro práci s textem: Počítání znaků, převod velikosti písmen, čištění textu a další.',
     tools: tools.filter((t) => t.categoryPath === '/textove-nastroje' && t.enabled),
   })
 })

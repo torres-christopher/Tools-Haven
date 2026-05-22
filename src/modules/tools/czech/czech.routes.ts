@@ -16,6 +16,8 @@ router.get('/', (_req, res) => {
     }),
     toolCategory: 'České nástroje',
     toolCategoryPath: '/ceske-nastroje',
+    toolCategoryDescription:
+      'Nástroje s českými daty: Inflační kalkulačka, rodná čísla, svátky, kurzy ČNB a další.',
     tools: tools.filter((t) => t.categoryPath === '/ceske-nastroje' && t.enabled),
   })
 })

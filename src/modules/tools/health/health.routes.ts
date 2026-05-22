@@ -16,6 +16,8 @@ router.get('/', (_req, res) => {
     }),
     toolCategory: 'Zdravotní nástroje',
     toolCategoryPath: '/zdravotni-nastroje',
+    toolCategoryDescription:
+      'Kalkulačky pro zdraví a fitness: BMI, BMR, TDEE, ideální váha a další ukazatele.',
     tools: tools.filter((t) => t.categoryPath === '/zdravotni-nastroje' && t.enabled).slice(0, 6),
   })
 })
