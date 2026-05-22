@@ -23,6 +23,8 @@ export const getInflationCalculator = catchAsync(async (_req, res) => {
 // POST for forms
 export const postInflationCalculator = catchAsync(async (req, res) => {
   let result = null
+  let inputValue: number | undefined
+  let inputType: string | undefined
   let errorMessage: string | null = null
   let status: number = 200
   const formType: string = req.body.form_id
@@ -43,6 +45,7 @@ export const postInflationCalculator = catchAsync(async (req, res) => {
       status = 400
     } else {
       result = calculateInflationAdjustedValue(input.data)
+      inputValue = input.data.value
     }
 
     // Inflation by custom interpreter
@@ -60,6 +63,8 @@ export const postInflationCalculator = catchAsync(async (req, res) => {
       status = 400
     } else {
       result = calculateCustomInflation(input.data)
+      inputValue = input.data.value
+      inputType = input.data.type
     }
 
     // Incorrect form edge case
@@ -73,6 +78,16 @@ export const postInflationCalculator = catchAsync(async (req, res) => {
     ...buildSeoMeta(tool),
     faq,
     result,
+    inputValue: inputValue,
+    // What form was activated
+    activeForm:
+      formType === 'real_inflation'
+        ? 'real_inflation'
+        : formType === 'custom_inflation'
+          ? inputType === 'forward'
+            ? 'custom_forward'
+            : 'custom_backward'
+          : null, // Edge case for wrong form
     errorMessage,
   })
 })

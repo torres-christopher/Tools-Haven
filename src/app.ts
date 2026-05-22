@@ -12,6 +12,7 @@ import coreRoutes from './modules/core/core.routes.js'
 import textRouter from './modules/tools/text/text.routes.js'
 import developerRouter from './modules/tools/developer/developer.routes.js'
 import healthRouter from './modules/tools/health/health.routes.js'
+import czechRouter from './modules/tools/czech/czech.routes.js'
 
 // Initialise dirname and filename (NodeNext does not allow)
 const __filename = fileURLToPath(import.meta.url)
@@ -41,6 +42,7 @@ app.use('/', coreRoutes)
 app.use('/textove-nastroje', textRouter)
 app.use('/vyvojarske-nastroje', developerRouter)
 app.use('/zdravotni-nastroje', healthRouter)
+app.use('/ceske-nastroje', czechRouter)
 
 // 404
 app.use(notFoundHandler)

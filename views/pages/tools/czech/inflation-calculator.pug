@@ -1,0 +1,227 @@
+extends ../../../layouts/main
+
+block content
+  include ../../../partials/tool-header
+
+  main.site-main
+    section.tool-layout
+      .container
+
+        //- Error message
+        if errorMessage
+          .alert.alert--error(role='alert' style='margin-bottom: var(--space-6)')
+            p= errorMessage
+
+        //- ── 1. Reálná inflace ──────────────────────────────────
+        .inflation-section
+          h2.inflation-section__title Reálná inflace
+          p.inflation-section__desc
+            | Zjistěte, kolik by dnes měla hodnotu částka z minulosti na základě skutečných dat ČSÚ (1997–2026).
+
+          form.inflation-form(method='POST' action='')
+            input(type='hidden' name='form_id' value='real_inflation')
+
+            .form-row
+              .form-group
+                label.form-label(for='real-value') Částka (Kč)
+                input.form-input#real-value(
+                  type='number'
+                  name='value'
+                  min='0.01'
+                  step='0.01'
+                  placeholder='10 000'
+                  required
+                )
+
+            .form-row
+              .form-group
+                label.form-label(for='real-start-month') Počáteční měsíc
+                select.form-select#real-start-month(name='startMonth')
+                  option(value='average') Průměr roku
+                  option(value='1') Leden
+                  option(value='2') Únor
+                  option(value='3') Březen
+                  option(value='4') Duben
+                  option(value='5') Květen
+                  option(value='6') Červen
+                  option(value='7') Červenec
+                  option(value='8') Srpen
+                  option(value='9') Září
+                  option(value='10') Říjen
+                  option(value='11') Listopad
+                  option(value='12') Prosinec
+
+              .form-group
+                label.form-label(for='real-start-year') Počáteční rok
+                select.form-select#real-start-year(name='startYear')
+                  - for (let y = 1997; y <= 2025; y++)
+                    option(value=y)= y
+
+            .form-row
+              .form-group
+                label.form-label(for='real-end-month') Koncový měsíc
+                select.form-select#real-end-month(name='endMonth')
+                  option(value='average') Průměr roku
+                  option(value='1') Leden
+                  option(value='2') Únor
+                  option(value='3') Březen
+                  option(value='4') Duben
+                  option(value='5') Květen
+                  option(value='6') Červen
+                  option(value='7') Červenec
+                  option(value='8') Srpen
+                  option(value='9') Září
+                  option(value='10') Říjen
+                  option(value='11') Listopad
+                  option(value='12') Prosinec
+
+              .form-group
+                label.form-label(for='real-end-year') Koncový rok
+                select.form-select#real-end-year(name='endYear')
+                  - for (let y = 1998; y <= 2026; y++)
+                    option(value=y selected=(y === 2025))= y
+
+            button.btn.btn--primary(type='submit') Vypočítat
+
+          //- Result
+          if result && activeForm === 'real_inflation'
+            .tool-result
+              .tool-result__header
+                span.tool-result__heading Výsledek
+              .tool-result__content
+                .stat-grid
+                  .stat-card
+                    .stat-card__value= result.toLocaleString('cs-CZ', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' Kč'
+                    .stat-card__label Dnešní hodnota
+                  .stat-card
+                    - const realChange = ((result - inputValue) / inputValue * 100)
+                    .stat-card__value= realChange.toLocaleString('cs-CZ', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' %'
+                    .stat-card__label Změna hodnoty
+
+        .inflation-divider
+
+        //- ── 2. Vlastní sazba dopředu ───────────────────────────
+        .inflation-section
+          h2.inflation-section__title Vlastní sazba — dopředu
+          p.inflation-section__desc
+            | Kolik bude mít hodnotu částka po určité době při zadané průměrné roční inflaci?
+
+          form.inflation-form(method='POST' action='')
+            input(type='hidden' name='form_id' value='custom_inflation')
+            input(type='hidden' name='type' value='forward')
+
+            .form-row
+              .form-group
+                label.form-label(for='forward-value') Částka (Kč)
+                input.form-input#forward-value(
+                  type='number'
+                  name='value'
+                  min='0.01'
+                  step='0.01'
+                  placeholder='10 000'
+                  required
+                )
+              .form-group
+                label.form-label(for='forward-rate') Roční inflace (%)
+                input.form-input#forward-rate(
+                  type='number'
+                  name='inflationRate'
+                  min='0'
+                  step='0.1'
+                  placeholder='3'
+                  required
+                )
+              .form-group
+                label.form-label(for='forward-years') Počet let
+                input.form-input#forward-years(
+                  type='number'
+                  name='years'
+                  min='0'
+                  step='1'
+                  placeholder='10'
+                  required
+                )
+
+            button.btn.btn--primary(type='submit') Vypočítat dopředu
+
+          //- Result
+          if result && activeForm === 'custom_forward'
+            .tool-result
+              .tool-result__header
+                span.tool-result__heading Výsledek
+              .tool-result__content
+                .stat-grid
+                  .stat-card
+                    .stat-card__value= result.toLocaleString('cs-CZ', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' Kč'
+                    .stat-card__label Budoucí hodnota
+                  .stat-card
+                    - const forwardChange = ((result - inputValue) / inputValue * 100)
+                    .stat-card__value= forwardChange.toLocaleString('cs-CZ', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' %'
+                    .stat-card__label Nárůst hodnoty
+
+        .inflation-divider
+
+        //- ── 3. Vlastní sazba zpětně ────────────────────────────
+        .inflation-section
+          h2.inflation-section__title Vlastní sazba — zpětně
+          p.inflation-section__desc
+            | Jakou hodnotu měla dnešní částka v minulosti při zadané průměrné roční inflaci?
+
+          form.inflation-form(method='POST' action='')
+            input(type='hidden' name='form_id' value='custom_inflation')
+            input(type='hidden' name='type' value='backward')
+
+            .form-row
+              .form-group
+                label.form-label(for='backward-value') Částka (Kč)
+                input.form-input#backward-value(
+                  type='number'
+                  name='value'
+                  min='0.01'
+                  step='0.01'
+                  placeholder='10 000'
+                  required
+                )
+              .form-group
+                label.form-label(for='backward-rate') Roční inflace (%)
+                input.form-input#backward-rate(
+                  type='number'
+                  name='inflationRate'
+                  min='0'
+                  step='0.1'
+                  placeholder='3'
+                  required
+                )
+              .form-group
+                label.form-label(for='backward-years') Počet let
+                input.form-input#backward-years(
+                  type='number'
+                  name='years'
+                  min='0'
+                  step='1'
+                  placeholder='10'
+                  required
+                )
+
+            button.btn.btn--primary(type='submit') Vypočítat zpětně
+
+          //- Result
+          if result && activeForm === 'custom_backward'
+            .tool-result
+              .tool-result__header
+                span.tool-result__heading Výsledek
+              .tool-result__content
+                .stat-grid
+                  .stat-card
+                    .stat-card__value= result.toLocaleString('cs-CZ', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' Kč'
+                    .stat-card__label Hodnota v minulosti
+                  .stat-card
+                    - const backwardChange = ((inputValue - result) / inputValue * 100)
+                    .stat-card__value= backwardChange.toLocaleString('cs-CZ', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' %'
+                    .stat-card__label Ztráta kupní síly
+
+    //- FAQ
+    include ../../../partials/tool-faq
+
+    //- Related tools
+    include ../../../partials/tool-related
