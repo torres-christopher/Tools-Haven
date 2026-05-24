@@ -1,10 +1,11 @@
 // Dependencies
 import express from 'express'
-import { env } from './config/env.js'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 import helmet from 'helmet'
 import { rateLimit } from 'express-rate-limit'
+// Config
+import { env } from './config/env.js'
 // System middleware
 import { localsMiddleware } from './middleware/locals.js'
 import { notFoundHandler } from './middleware/not-found.js'

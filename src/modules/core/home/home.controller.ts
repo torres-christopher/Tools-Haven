@@ -18,26 +18,6 @@ export const getMain = catchAsync(async (_req, res) => {
   })
 })
 
-// Všechny nástroje page
-export const getAllTools = catchAsync(async (_req, res) => {
-  const enabledTools = tools.filter((t) => t.enabled)
-  const groupedTools = enabledTools.reduce<Record<string, typeof tools>>((acc, tool) => {
-    if (!acc[tool.categoryName]) acc[tool.categoryName] = []
-    acc[tool.categoryName].push(tool)
-    return acc
-  }, {})
-
-  res.render('pages/core/vsechny-nastroje', {
-    ...buildSeoMeta({
-      title: 'Všechny nástroje',
-      description:
-        'Přehled všech bezplatných online nástrojů - počítadlo znaků, převod velikosti písmen, JSON validátor, BMI kalkulačka a inflační kalkulačka. Zdarma, bez registrace.',
-      path: '/vsechny-nastroje',
-    }),
-    tools: groupedTools,
-  })
-})
-
 export const getFAQ = catchAsync(async (_req, res) => {
   res.render('pages/core/info/faq', {
     ...buildSeoMeta({
