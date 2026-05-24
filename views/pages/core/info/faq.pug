@@ -7,7 +7,7 @@ block content
         h1.faq-page__title Časté dotazy
         p.faq-page__subtitle
           | Odpovídáme na nejčastější otázky o fungování nástrojů,
-          | ochraně soukromí, přesnosti dat a dostupnosti API.
+          | ochraně soukromí, přesnosti dat.
 
       .faq-page__body
 
@@ -18,19 +18,13 @@ block content
               summary.faq-question Je použití nástrojů skutečně zdarma?
               p.faq-answer
                 | Ano, všechny nástroje jsou zcela bezplatné a nevyžadují žádnou registraci
-                | ani zadání platebního údaje. Web je financován reklamou Google AdSense.
+                | ani zadání platebního údaje. Web je financován reklamou.
 
             details.faq-item
               summary.faq-question Fungují nástroje na mobilním telefonu?
               p.faq-answer
                 | Ano. Všechny nástroje jsou optimalizované pro mobilní zařízení od šíře
-                | 320 px výše. Nahrávání souborů funguje na mobilu stejně jako na desktopu.
-
-            details.faq-item
-              summary.faq-question Mohu nástroje používat pro komerční účely?
-              p.faq-answer
-                | Ano, nástroje lze používat v komerčním prostředí bez omezení.
-                | Vybrané nástroje nabízejí REST API pro programový přístup.
+                | 320 px výše.
 
             details.faq-item
               summary.faq-question Jak hlásím chybu nebo navrhuji nový nástroj?
@@ -43,18 +37,17 @@ block content
           p.faq-category__title Soukromí a data
           .faq-list
             details.faq-item
-              summary.faq-question Co se děje s daty a soubory, které nahraji?
+              summary.faq-question Co se děje s daty, které nahraji?
               p.faq-answer
                 | Data zadaná do nástrojů jsou zpracována výhradně v operační paměti
-                | serveru. Soubory nahrané pro zpracování jsou po odeslání výsledku
-                | okamžitě smazány. Nic neukládáme ani nesdílíme. Více v&nbsp;
+                | serveru. Nic neukládáme ani nesdílíme. Více v&nbsp;
                 a(href='/ochrana-osobnich-udaju') zásadách ochrany soukromí
                 | .
 
             details.faq-item
               summary.faq-question Jaké cookies web používá?
               p.faq-answer
-                | Používáme pouze analytické cookies Google Analytics — a pouze s vaším
+                | Používáme pouze analytické cookies Google Analytics a pouze s vaším
                 | souhlasem. Bez souhlasu žádné analytické cookies neprobíhají.
 
             details.faq-item
@@ -69,50 +62,17 @@ block content
             details.faq-item
               summary.faq-question Jsou výsledky kalkulaček přesné?
               p.faq-answer
-                | Finanční nástroje (kurzy, IBAN) čerpají z officiálních zdrojů — České
-                | národní banky a registru ARES. Zdravotní kalkulačky používají uznávané
+                | Finanční nástroje (inflační kalkulačka) čerpají z officiálních zdrojů, např. z Českého
+                | statistického úřadu. Zdravotní kalkulačky používají uznávané
                 | vzorce. Všechny výsledky jsou orientační a nenahrazují odborné poradenství.
 
-            details.faq-item
-              summary.faq-question Kde se berou data pro kurzy ČNB?
-              p.faq-answer
-                | Kurzy měn načítáme přímo z veřejného API České národní banky. ČNB
-                | publikuje středový kurz každý pracovní den kolem 14:30. Vždy zobrazujeme
-                | datum a čas poslední aktualizace.
-
-            details.faq-item
-              summary.faq-question Jak aktuální jsou data z ARES?
-              p.faq-answer
-                | Údaje o firmách pocházejí z registru ARES provozovaného Ministerstvem
-                | financí ČR. Data jsou dotazována v reálném čase přímo při vyhledávání.
-
-            details.faq-item
-              summary.faq-question Zdravotní kalkulačky — jsou přesné?
-              p.faq-answer
-                | Zdravotní kalkulačky slouží výhradně pro informační účely a nenahrazují
-                | lékařskou konzultaci. Vždy se poraďte s kvalifikovaným zdravotnickým
-                | pracovníkem pro individuální doporučení.
-
         .faq-category
-          p.faq-category__title Pro vývojáře
+          p.faq-category__title O projektu
           .faq-list
             details.faq-item
-              summary.faq-question Existuje API pro programový přístup?
+              summary.faq-question Byl tento web vytvořen umělou inteligencí?
               p.faq-answer
-                | Aktuálně nabízíme REST API pro generátor QR kódů na adrese&nbsp;
-                code GET /api/v1/qr
-                | &nbsp;a&nbsp;
-                code POST /api/v1/qr
-                | . Plánujeme rozšíření API i pro další nástroje.
-
-            details.faq-item
-              summary.faq-question Jaké jsou limity API?
-              p.faq-answer
-                | V aktuální verzi platí rate limiting na úrovni IP adresy —
-                | 100 požadavků za 15 minut. Pro vyšší limity nás kontaktujte.
-
-            details.faq-item
-              summary.faq-question Mohu vkládat nástroje do vlastního webu?
-              p.faq-answer
-                | Aktuálně iframe vkládání nepodporujeme. Doporučujeme odkazovat
-                | přímo na konkrétní nástroj. Pro integraci formou API nás kontaktujte.
+                | Web jsem navrhl a naprogramoval já a to včetně business logiky, architektury,
+                | testů a databáze nástrojů. Umělá inteligence mi pomáhala s rutinními
+                | částmi jako formátování kódu, komentáře, Pug šablony a texty FAQ.
+                | Veškerá rozhodnutí o tom, co web dělá a jak funguje, jsou moje.

@@ -7,111 +7,84 @@ block content
         h1.legal-page__title Kontakt
         p.legal-page__meta Máte dotaz nebo narazili jste na chybu?
 
-      .legal-page__body
-        .contact-grid
+      .contact-grid
 
-          .contact-info
-            section.legal-section
-              h2 O webu
-              p
-                | #{siteName} je bezplatný web s českými online nástroji
-                | pro text, kalkulačky, konverze souborů a česká data.
-                | Všechny nástroje jsou zdarma a nevyžadují registraci.
-              p
-                | Web provozuje fyzická osoba podnikající na základě
-                | živnostenského oprávnění se sídlem v České republice.
+        .contact-info
+          section.legal-section
+            h2 O webu
+            p
+              | #{siteName} je bezplatný web s českými online nástroji
+              | pro text, kalkulačky a česká data.
+              | Všechny nástroje jsou zdarma a nevyžadují registraci.
+            p
+              | Web provozuje fyzická osoba podnikající na základě
+              | živnostenského oprávnění se sídlem v České republice.
+            p
+              | Část kódu a textů vznikla za pomoci umělé inteligence.
+              | Architektura, business logika, testy a veškerá rozhodnutí jsou dílem autora.
 
-            section.legal-section
-              h2 Kdy nás kontaktovat
-              ul
-                li narazili jste na chybu nebo nesprávný výsledek nástroje
-                li výsledek kalkulačky se zdá nesprávný
-                li máte nápad na nový nástroj nebo vylepšení
-                li dotazy k ochraně osobních údajů nebo podmínkám použití
+          section.legal-section
+            h2 Kdy nás kontaktovat
+            ul
+              li narazili jste na chybu nebo nesprávný výsledek nástroje
+              li výsledek kalkulačky se zdá nesprávný
+              li máte nápad na nový nástroj nebo vylepšení
+              li dotazy k ochraně osobních údajů nebo podmínkám použití
+              //-
                 li hlášení nevhodného obsahu reklam
-                li žádosti o výmaz osobních údajů (GDPR)
 
-            section.legal-section
-              h2 Další dokumenty
-              ul
-                li: a(href='/ochrana-osobnich-udaju') Ochrana osobních údajů
-                li: a(href='/podminky-pouziti') Podmínky použití
+          section.legal-section
+            h2 Další dokumenty
+            ul
+              li: a(href='/ochrana-osobnich-udaju') Ochrana osobních údajů
+              li: a(href='/podminky-pouziti') Podmínky použití
 
-          .contact-form-wrap
-            h2 Napište nám
-            if success
-              .alert.alert--success
-                | ✓ Zpráva byla odeslána. Odpovíme co nejdříve, obvykle do 2 pracovních dnů.
-            else
-              if errors && errors.general
-                .alert.alert--error= errors.general
+        .contact-form-wrap
+          h2 Napište nám
 
-              form.contact-form(method='POST' action='/kontakt')
-                .form-group
-                  label.form-label(for='name') Jméno
-                  if errors && errors.name
-                    p.form-error= errors.name
-                  input.form-input(
-                    type='text'
-                    id='name'
-                    name='name'
-                    placeholder='Vaše jméno'
-                    value=formData && formData.name || ''
-                    required
-                    autocomplete='name'
-                  )
+          form.contact-form(method='POST' action='https://formspree.io/f/xwvznbel')
+            input(type='hidden' name='_next' value='https://web-services.cz/kontakt?success=true')
 
-                .form-group
-                  label.form-label(for='email') E-mailová adresa
-                  if errors && errors.email
-                    p.form-error= errors.email
-                  input.form-input(
-                    type='email'
-                    id='email'
-                    name='email'
-                    placeholder='vas@email.cz'
-                    value=formData && formData.email || ''
-                    required
-                    autocomplete='email'
-                  )
+            .form-group
+              label.form-label(for='name') Jméno
+              input.form-input(
+                type='text'
+                id='name'
+                name='name'
+                placeholder='Vaše jméno'
+                required
+                autocomplete='name'
+              )
 
-                .form-group
-                  label.form-label(for='subject') Předmět
-                  select.form-select(id='subject' name='subject')
-                    option(value='' disabled selected) Vyberte předmět
-                    option(
-                      value='bug'
-                      selected=formData && formData.subject === 'bug'
-                    ) Chyba v nástroji
-                    option(
-                      value='idea'
-                      selected=formData && formData.subject === 'idea'
-                    ) Nápad na nový nástroj
-                    option(
-                      value='privacy'
-                      selected=formData && formData.subject === 'privacy'
-                    ) Ochrana osobních údajů / GDPR
-                    option(
-                      value='ads'
-                      selected=formData && formData.subject === 'ads'
-                    ) Nevhodný obsah reklamy
-                    option(
-                      value='other'
-                      selected=formData && formData.subject === 'other'
-                    ) Jiné
+            .form-group
+              label.form-label(for='email') E-mailová adresa
+              input.form-input(
+                type='email'
+                id='email'
+                name='email'
+                placeholder='vas@email.cz'
+                required
+                autocomplete='email'
+              )
 
-                .form-group
-                  label.form-label(for='message') Zpráva
-                  if errors && errors.message
-                    p.form-error= errors.message
-                  textarea.form-textarea(
-                    id='message'
-                    name='message'
-                    placeholder='Popište váš dotaz nebo problém co nejpodrobněji...'
-                    rows='6'
-                    required
-                  )= formData && formData.message || ''
+            .form-group
+              label.form-label(for='subject') Předmět
+              select.form-select(id='subject' name='subject')
+                option(value='Našel/a jsem chybu') Našel/a jsem chybu
+                option(value='Nápad na vylepšení') Nápad na vylepšení
+                option(value='Dotaz k soukromí') Dotaz k soukromí
+                option(value='Jiné') Jiné
 
-                .form-group
-                  button.btn.btn--primary(type='submit') Odeslat zprávu
-                  p.form-hint Odpovídáme obvykle do 2 pracovních dnů.
+            .form-group
+              label.form-label(for='message') Zpráva
+              textarea.form-textarea(
+                id='message'
+                name='message'
+                placeholder='Popište váš dotaz nebo problém co nejpodrobněji...'
+                rows='6'
+                required
+              )
+
+            .form-group
+              button.btn.btn--primary(type='submit') Odeslat zprávu
+              p.form-hint Odpovídáme obvykle do 2 pracovních dnů.

@@ -36,7 +36,7 @@ html(lang='cs')
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', '#{gaMeasurementId}', { anonymize_ip: true });
+        gtag('config', gaMeasurementId, { anonymize_ip: true });
 
   body
 
@@ -48,7 +48,7 @@ html(lang='cs')
             span.site-logo__name= siteName
           include ../partials/nav
           .site-header__cta
-            a.btn.btn--ghost-inverse.btn--sm(href='/nastroje') Všechny nástroje
+            a.btn.btn--ghost-inverse.btn--sm(href='/vsechny-nastroje') Všechny nástroje
           button.nav-toggle(aria-label='Otevřít menu' aria-expanded='false')
             span
             span
@@ -68,11 +68,10 @@ html(lang='cs')
           .site-footer__links
             h4.site-footer__heading Kategorie
             ul
-              li: a(href='/nastroje#text') Textové nástroje
-              li: a(href='/nastroje#dev') Pro vývojáře
-              li: a(href='/nastroje#czech') Česká data
-              li: a(href='/nastroje#zdravi') Zdraví & fitness
-              li: a(href='/nastroje#prevodnik') Převodníky
+              li: a(href='/textove-nastroje') Textové nástroje
+              li: a(href='/vyvojarske-nastroje') Pro vývojáře
+              li: a(href='/ceske-nastroje') Česká data
+              li: a(href='/zdravotni-nastroje') Zdraví & fitness
           .site-footer__links
             h4.site-footer__heading Informace
             ul

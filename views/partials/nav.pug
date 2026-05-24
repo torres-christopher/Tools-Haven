@@ -1,30 +1,29 @@
 nav.site-nav
   ul.site-nav__list
     li.site-nav__item
-      a.site-nav__link(href='/nastroje') Všechny nástroje
+      a.site-nav__link(href='/vsechny-nastroje') Všechny nástroje
     li.site-nav__item.site-nav__item--dropdown
       button.site-nav__link.site-nav__dropdown-toggle(aria-expanded='false') Text
         svg(width='12' height='12' viewBox='0 0 12 12' fill='none' aria-hidden='true')
           path(d='M2 4l4 4 4-4' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round')
       ul.site-nav__dropdown
-        li: a(href='/pocet-znaku') Počet znaků
-        li: a(href='/prevod-velkych-malych-pismen') Velikost písmen
-        li: a(href='/cisteni-textu') Čištění textu
-        li: a(href='/json-validator') JSON validator
+        li: a(href='/textove-nastroje/pocet-znaku') Počet znaků
+        li: a(href='/textove-nastroje/prevod-velikosti-znaku') Velikost písmen
     li.site-nav__item.site-nav__item--dropdown
-      button.site-nav__link.site-nav__dropdown-toggle(aria-expanded='false') Česky
+      button.site-nav__link.site-nav__dropdown-toggle(aria-expanded='false') Vývojářské
         svg(width='12' height='12' viewBox='0 0 12 12' fill='none' aria-hidden='true')
           path(d='M2 4l4 4 4-4' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round')
       ul.site-nav__dropdown
-        li: a(href='/rodne-cislo-validator') Rodné číslo
-        li: a(href='/iban-kalkulator') IBAN kalkulačka
-        li: a(href='/ico-vyhledavani') Vyhledávání IČO
-        li: a(href='/prevod-men') Převod měn
+        li: a(href='/vyvojarske-nastroje/json-validator') JSON validator
+    li.site-nav__item.site-nav__item--dropdown
+      button.site-nav__link.site-nav__dropdown-toggle(aria-expanded='false') Domácí
+        svg(width='12' height='12' viewBox='0 0 12 12' fill='none' aria-hidden='true')
+          path(d='M2 4l4 4 4-4' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round')
+      ul.site-nav__dropdown
+        li: a(href='/ceske-nastroje/inflacni-kalkulacka') Inflační kalkulačka
     li.site-nav__item.site-nav__item--dropdown
       button.site-nav__link.site-nav__dropdown-toggle(aria-expanded='false') Zdraví
         svg(width='12' height='12' viewBox='0 0 12 12' fill='none' aria-hidden='true')
           path(d='M2 4l4 4 4-4' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round')
       ul.site-nav__dropdown
-        li: a(href='/bmi-kalkulator') BMI kalkulačka
-        li: a(href='/kalorie-kalkulator') Kalorie
-        li: a(href='/vek-kalkulator') Věk
+        li: a(href='/zdravotni-nastroje/bmi-kalkulacka') BMI kalkulačka
