@@ -476,7 +476,7 @@ code {
 .hero__subtitle {
   font-size: var(--text-lg);
   color: rgba(255, 255, 255, 0.55);
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: var(--space-8);
   max-width: 480px;
   line-height: 1.7;
@@ -883,7 +883,7 @@ code {
 .tool-header__description {
   font-size: var(--text-base);
   color: rgba(255, 255, 255, 0.6);
-  font-weight: 300;
+  font-weight: 400;
   max-width: 600px;
   line-height: 1.7;
 }
