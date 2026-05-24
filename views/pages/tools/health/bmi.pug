@@ -51,9 +51,9 @@ block content
               .tool-result__header
                 span.tool-result__heading Váš výsledek
               .tool-result__content
-                .bmi-result
-                  span.bmi-result__value= result.bmiValue.toFixed(1)
-                  span.bmi-result__label BMI              
+                .tool-result-display
+                  span.tool-result-display__value= result.bmiValue.toFixed(1)
+                  span.tool-result-display__label BMI            
                 .bmi-classification(class=`bmi-classification--${result.bmiClassification}`)
                   p.bmi-classification__label
                     strong= label

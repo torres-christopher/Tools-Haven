@@ -48,7 +48,7 @@
   --font-mono: 'Fira Code', 'Cascadia Code', monospace;
 
   /* Type scale */
-  --text-xxs: 0.60rem;
+  --text-xxs: 0.6rem;
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
@@ -195,15 +195,15 @@ code {
 }
 
 .hidden {
-  display: none
+  display: none;
 }
 
 .no-padding {
-  padding: 0
+  padding: 0;
 }
 
 .no-margin {
-  margin: 0
+  margin: 0;
 }
 
 /* ── 4. Buttons ───────────────────────────────────────────── */
@@ -1017,6 +1017,38 @@ code {
   padding: var(--space-5);
 }
 
+.tool-result-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) 0 var(--space-6);
+  gap: var(--space-2);
+}
+
+.tool-result-display__value {
+  font-family: var(--font-display);
+  font-size: var(--text-6xl);
+  font-weight: 800;
+  color: var(--c-text);
+  line-height: 1;
+}
+
+.tool-result-display__label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--c-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.form-actions {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+  flex-wrap: wrap;
+}
+
 /* ── 19. Copy button ──────────────────────────────────────── */
 
 .copy-btn {
@@ -1793,7 +1825,8 @@ code {
   color: var(--c-error);
   border: 1px solid var(--c-error);
 }
-.json-panel__ace, .json-panel__editor {
+.json-panel__ace,
+.json-panel__editor {
   flex: 1;
   width: 100%;
   min-height: 480px;
@@ -1939,56 +1972,53 @@ code {
 }
 
 @keyframes markerSlide {
-  from { left: 0; }
-  to { left: var(--marker-pos); }
+  from {
+    left: 0;
+  }
+  to {
+    left: var(--marker-pos);
+  }
 }
 
-.bmi-scale__segment--underweight { background: #e8f0f7; color: #1a3a5c; }
-.bmi-scale__segment--normal { background: var(--c-success-bg); color: var(--c-success); }
-.bmi-scale__segment--overweight { background: var(--c-warning-bg); color: var(--c-warning); }
-.bmi-scale__segment--obese-1 { background: #fde8e8; color: #7a1a1a; }
-.bmi-scale__segment--obese-2 { background: #f5b8b8; color: #6b0f0f; }
-.bmi-scale__segment--obese-3 { background: #e87878; color: #ffffff; }
+.bmi-scale__segment--underweight {
+  background: #e8f0f7;
+  color: #1a3a5c;
+}
+.bmi-scale__segment--normal {
+  background: var(--c-success-bg);
+  color: var(--c-success);
+}
+.bmi-scale__segment--overweight {
+  background: var(--c-warning-bg);
+  color: var(--c-warning);
+}
+.bmi-scale__segment--obese-1 {
+  background: #fde8e8;
+  color: #7a1a1a;
+}
+.bmi-scale__segment--obese-2 {
+  background: #f5b8b8;
+  color: #6b0f0f;
+}
+.bmi-scale__segment--obese-3 {
+  background: #e87878;
+  color: #ffffff;
+}
 
 @media (max-width: 480px) {
   .bmi-scale__bar {
     grid-template-columns: 1fr;
   }
-  
+
   .bmi-scale__segment {
     flex-direction: row;
     justify-content: space-between;
     padding: var(--space-2) var(--space-4);
   }
-  
+
   .bmi-scale__track {
     display: none;
   }
-}
-
-.bmi-result {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-8) 0;
-  gap: var(--space-2);
-}
-
-.bmi-result__value {
-  font-family: var(--font-display);
-  font-size: var(--text-6xl);
-  font-weight: 800;
-  color: var(--c-text);
-  line-height: 1;
-}
-
-.bmi-result__label {
-  font-size: var(--text-sm);
-  font-weight: 500;
-  color: var(--c-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
 }
 
 /* ── Czech tools  ─────────────────────────────── */
@@ -2019,66 +2049,35 @@ code {
   padding: var(--space-6);
 }
 
-.inflation-form__actions {
-  display: flex;
-  gap: var(--space-3);
-  margin-top: var(--space-2);
-}
-
 .inflation-divider {
   border: none;
   border-top: 1px solid var(--c-border);
   margin: 0;
 }
 
-.inflation-result {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-8) 0 var(--space-6);
-  gap: var(--space-2);
-}
- 
-.inflation-result__value {
-  font-family: var(--font-display);
-  font-size: var(--text-6xl);
-  font-weight: 800;
-  color: var(--c-text);
-  line-height: 1;
-}
- 
-.inflation-result__label {
-  font-size: var(--text-sm);
-  font-weight: 500;
-  color: var(--c-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
- 
 .inflation-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: var(--space-4);
   font-size: var(--text-base);
 }
- 
+
 .inflation-table tr {
   border-top: 1px solid var(--c-border);
 }
- 
+
 .inflation-table td {
   padding: var(--space-3) var(--space-4);
   color: var(--c-text-muted);
 }
- 
+
 .inflation-table td:last-child {
   text-align: right;
   font-weight: 600;
   color: var(--c-text);
   font-family: var(--font-display);
 }
- 
+
 .inflation-table tr:last-child {
   border-bottom: 1px solid var(--c-border);
 }

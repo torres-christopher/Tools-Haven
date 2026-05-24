@@ -1,4 +1,5 @@
 import type { FaqItem } from '../../../../shared/types/faq.js'
+import { aiTransparencyFaq } from '../../../../shared/data/faq.js'
 
 export const jsonValidatorFaq: FaqItem[] = [
   {
@@ -55,4 +56,5 @@ export const jsonValidatorFaq: FaqItem[] = [
     answer:
       'Ano. Pokud je JavaScript vypnutý, nástroj funguje přes standardní odeslání formuláře. Zvýraznění syntaxe a živá validace jsou dostupné pouze s JavaScriptem.',
   },
+  aiTransparencyFaq,
 ]

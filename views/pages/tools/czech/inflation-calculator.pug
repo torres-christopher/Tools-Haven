@@ -15,9 +15,9 @@ block content
             .tool-result__header
               span.tool-result__heading Výsledek
             .tool-result__content
-              .inflation-result
-                span.inflation-result__value= result.toLocaleString('cs-CZ', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' Kč'
-                span.inflation-result__label Výsledná hodnota
+              .tool-result-display
+                span.tool-result-display__value= result.toLocaleString('cs-CZ', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' Kč'
+                span.tool-result-display__label Výsledná hodnota
               table.inflation-table
                 tr
                   td Původní částka
@@ -38,12 +38,12 @@ block content
             .tool-result__header
               span.tool-result__heading Výsledek
             .tool-result__content
-              .inflation-result
-                span.inflation-result__value= result.toLocaleString('cs-CZ', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' Kč'
+              .tool-result-display
+                span.tool-result-display__value= result.toLocaleString('cs-CZ', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' Kč'
                 if activeForm === 'custom_forward'
-                  span.inflation-result__label Budoucí hodnota
+                  span.tool-result-display__label Budoucí hodnota
                 else
-                  span.inflation-result__label Hodnota v minulosti
+                  span.tool-result-display__label Hodnota v minulosti
               table.inflation-table
                 tr
                   if activeForm === 'custom_forward'
@@ -194,7 +194,7 @@ block content
                   required
                 )
 
-            .inflation-form__actions
+            .form-actions
               button.btn.btn--primary(type='submit' name='type' value='forward') Vypočítat dopředu
               button.btn.btn--ghost(type='submit' name='type' value='backward') Vypočítat zpětně
 

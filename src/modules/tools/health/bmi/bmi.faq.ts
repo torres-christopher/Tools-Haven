@@ -1,4 +1,5 @@
 import type { FaqItem } from '../../../../shared/types/faq.js'
+import { aiTransparencyFaq } from '../../../../shared/data/faq.js'
 
 export const bmiFaq: FaqItem[] = [
   {
@@ -41,4 +42,5 @@ export const bmiFaq: FaqItem[] = [
     answer:
       'Zadané hodnoty se nikam neukládají ani neodesílají třetím stranám. Výpočet probíhá na serveru výhradně pro zobrazení výsledku a data jsou po zpracování okamžitě zahozena.',
   },
+  aiTransparencyFaq,
 ]
