@@ -51,115 +51,108 @@ Data entered into tools is never stored or shared with third parties. Files uplo
 
 ```
 Web-Services/
-├── .env
-├── .env.example
-├── .github/
-│   └── workflows/
-│       └── ci.yml
-├── .gitignore
-├── .prettierrc
-├── README.md
-├── eslint.config.mjs
-├── git-flow.bash
-├── package.json
-├── package-lock.json
-├── tsconfig.json
-├── vitest.config.ts
-│
-├── src/                                  # TypeScript source
-│   ├── app.ts
-│   ├── server.ts
+├── src/
+│   ├── app.ts                          # Express app — middleware stack, router registration
+│   ├── server.ts                       # HTTP server, graceful shutdown, process handlers
 │   ├── config/
-│   │   └── env.ts
+│   │   └── env.ts                      # Environment variable validation via Zod
 │   ├── middleware/
-│   │   ├── error-handler.ts
-│   │   ├── locals.ts
-│   │   └── not-found.ts
+│   │   ├── error-handler.ts            # Global error handler (4-param Express middleware)
+│   │   ├── locals.ts                   # res.locals defaults for all views
+│   │   └── not-found.ts               # 404 handler
 │   ├── modules/
 │   │   ├── core/
-│   │   │   ├── core.routes.ts
-│   │   │   ├── health/
-│   │   │   │   ├── health.controller.ts
-│   │   │   │   ├── health.routes.ts
-│   │   │   │   └── health.routes.test.ts
-│   │   │   ├── home/
-│   │   │   │   ├── home.controller.ts
-│   │   │   │   └── home.routes.ts
-│   │   │   └── legal/
-│   │   │       ├── legal.controller.ts
-│   │   │       └── legal.routes.ts
+│   │   │   ├── core.routes.ts          # Mounts home, legal, health and all-tools routes
+│   │   │   ├── health/                 # GET /health — JSON status endpoint
+│   │   │   ├── home/                   # GET / and GET /faq and GET /vsechny-nastroje
+│   │   │   └── legal/                  # GET /kontakt, /ochrana-osobnich-udaju, /podminky-pouziti
 │   │   └── tools/
-│   │       └── text/
-│   │           ├── text.routes.ts
-│   │           ├── pocet-znaku/
-│   │           │   ├── pocet-znaku.controller.ts
-│   │           │   ├── pocet-znaku.faq.ts
-│   │           │   ├── pocet-znaku.routes.ts
-│   │           │   ├── pocet-znaku.routes.test.ts
-│   │           │   ├── pocet-znaku.schema.ts
-│   │           │   ├── pocet-znaku.service.ts
-│   │           │   └── pocet-znaku.service.test.ts
-│   │           └── prevod-velikosti-znaku/
-│   │               ├── prevod-velikosti-znaku.controller.ts
-│   │               ├── prevod-velikosti-znaku.faq.ts
-│   │               ├── prevod-velikosti-znaku.routes.ts
-│   │               ├── prevod-velikosti-znaku.routes.test.ts
-│   │               ├── prevod-velikosti-znaku.schema.ts
-│   │               ├── prevod-velikosti-znaku.service.ts
-│   │               └── prevod-velikosti-znaku.service.test.ts
+│   │       ├── text/
+│   │       │   ├── text.routes.ts      # Mounts text tool routers at /textove-nastroje
+│   │       │   ├── pocet-znaku/        # Character / word / sentence / line / normostrana counter
+│   │       │   └── prevod-velikosti-znaku/ # Uppercase / lowercase / title / sentence / reverse
+│   │       ├── developer/
+│   │       │   ├── developer.routes.ts # Mounts developer tool routers at /vyvojarske-nastroje
+│   │       │   └── json-validator/     # JSON validator, formatter and minifier
+│   │       ├── health/
+│   │       │   ├── health.routes.ts    # Mounts health tool routers at /zdravotni-nastroje
+│   │       │   └── bmi/                # Adult BMI calculator (WHO classification)
+│   │       └── czech/
+│   │           ├── czech.routes.ts     # Mounts czech tool routers at /ceske-nastroje
+│   │           └── inflation-calculator/ # Czech inflation calculator — real CPI + custom rate
 │   └── shared/
 │       ├── data/
-│       │   └── tools.ts
+│       │   ├── faq.ts                  # Shared FAQ items (e.g. aiTransparencyFaq)
+│       │   ├── tools.ts                # Tool registry — single source of truth for all tool metadata
+│       │   └── tools/
+│       │       └── czech/
+│       │           └── cpi.ts          # ČSÚ CPI monthly and yearly data (1997–present)
 │       ├── types/
-│       │   ├── errors.ts
-│       │   ├── faq.ts
-│       │   ├── seo.ts
-│       │   └── toolDetails.ts
+│       │   ├── errors.ts               # AppError class, HttpStatus constants, isAppError guard
+│       │   ├── faq.ts                  # FaqItem interface
+│       │   ├── seo.ts                  # SeoInput and SeoMeta interfaces
+│       │   └── toolDetails.ts          # ToolsDetails interface
 │       └── utils/
-│           ├── catchAsync.ts
-│           ├── seoMeta.ts
-│           └── seoMeta.test.ts
-│
-├── dist/                                 # Compiled JS output (mirrors src/)
-│
-├── public/                               # Static assets
+│           ├── catchAsync.ts           # Wrapper for async Express handlers
+│           └── seoMeta.ts              # buildSeoMeta() — builds meta/OG/JSON-LD per page
+├── views/
+│   ├── layouts/
+│   │   └── main.pug                    # Shared layout — header, nav, footer, cookie banner
+│   ├── partials/
+│   │   ├── ad-slot.pug                 # Google AdSense slot (dev placeholder when no client ID)
+│   │   ├── nav.pug                     # Site navigation with dropdowns
+│   │   ├── tool-faq.pug               # Tool FAQ accordion
+│   │   ├── tool-header.pug            # Tool breadcrumb + title + description
+│   │   └── tool-related.pug           # Related tools grid
+│   └── pages/
+│       ├── core/
+│       │   ├── home.pug               # Homepage — hero, featured tools, features, FAQ teaser
+│       │   ├── vsechny-nastroje.pug   # All tools page — grouped by category
+│       │   ├── info/
+│       │   │   └── faq.pug            # Full FAQ page
+│       │   └── legal/
+│       │       ├── contact.pug        # Contact page with Formspree form
+│       │       ├── privacy.pug        # Privacy policy (GDPR)
+│       │       └── terms.pug          # Terms of use
+│       └── tools/
+│           ├── tools.pug              # Shared category index page
+│           ├── text/
+│           │   ├── pocet-znaku.pug
+│           │   └── prevod-velikosti-znaku.pug
+│           ├── developer/
+│           │   └── json-validator.pug
+│           ├── health/
+│           │   └── bmi.pug
+│           └── czech/
+│               └── inflation-calculator.pug
+├── public/
 │   ├── css/
-│   │   └── main.css
+│   │   └── main.css                   # Monochrome design system (~1800 lines)
 │   ├── images/
 │   │   └── favicon.ico
 │   ├── js/
-│   │   ├── main.js
+│   │   ├── main.js                    # Mobile nav, cookie banner, copy button, Formspree redirect
 │   │   └── tools/
-│   │       ├── pocet-znaku.js
-│   │       └── prevod-velikosti-znaku.js
+│   │       ├── json-validator.js      # Ace editor integration, no-JS fallback
+│   │       ├── pocet-znaku.js         # Live stat card recalculation on input
+│   │       └── prevod-velikosti-znaku.js # Live case conversion on button click
 │   ├── robots.txt
 │   └── sitemap.xml
-│
-└── views/                                # Pug templates
-    ├── errors/
-    │   └── error.pug
-    ├── layouts/
-    │   └── main.pug
-    ├── pages/
-    │   ├── core/
-    │   │   ├── home.pug
-    │   │   ├── info/
-    │   │   │   └── faq.pug
-    │   │   └── legal/
-    │   │       ├── contact.pug
-    │   │       ├── privacy.pug
-    │   │       └── terms.pug
-    │   └── tools/
-    │       └── text/
-    │           ├── text.pug
-    │           ├── pocet-znaku.pug
-    │           └── prevod-velikosti-znaku.pug
-    └── partials/
-        ├── ad-slot.pug
-        ├── nav.pug
-        ├── tool-faq.pug
-        ├── tool-header.pug
-        └── tool-related.pug
+├── tests/
+│   └── e2e/                           # Playwright end-to-end tests (planned)
+├── .editorconfig
+├── .env.example
+├── .github/
+│   └── workflows/
+│       └── ci.yml                     # GitHub Actions — lint, typecheck, test, build
+├── .gitignore
+├── .prettierrc                        # Prettier config including @prettier/plugin-pug
+├── .vscode/
+│   └── settings.json
+├── eslint.config.mjs
+├── package.json
+├── tsconfig.json
+└── vitest.config.ts
 ```
 
 ---
@@ -240,6 +233,8 @@ Environment variables in CI are stored as GitHub Actions secrets and variables �
 |---|---|---|
 | Character count | `/pocet-znaku` | Live |
 | Uppercase / lowercase / title case converter | `/prevod-velikosti-znaku` | Live |
+| JSON validator | `/json-validator` | Live |
+| Inflační kalkulačka | `/inflacni-kalkulacka` | Live |
 
 ### In Progress
 
