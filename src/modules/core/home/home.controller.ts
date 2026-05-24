@@ -31,7 +31,7 @@ export const getAllTools = catchAsync(async (_req, res) => {
     ...buildSeoMeta({
       title: 'Všechny nástroje',
       description:
-        'Bezplatné online nástroje pro česká data. Inflační kalkulačka, rodné číslo, svátky a další.',
+        'Přehled všech bezplatných online nástrojů - počítadlo znaků, převod velikosti písmen, JSON validátor, BMI kalkulačka a inflační kalkulačka. Zdarma, bez registrace.',
       path: '/vsechny-nastroje',
     }),
     tools: groupedTools,
@@ -41,7 +41,7 @@ export const getAllTools = catchAsync(async (_req, res) => {
 export const getFAQ = catchAsync(async (_req, res) => {
   res.render('pages/core/info/faq', {
     ...buildSeoMeta({
-      title: 'Často kladené otázky', //TODO: Get better text
+      title: 'Často kladené otázky',
       description: 'Nejčastěji kladené otázky',
       path: '/faq',
     }),

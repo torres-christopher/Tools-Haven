@@ -28,7 +28,8 @@ html(lang='cs')
 
     //- Styles
     link(rel='stylesheet' href='/css/main.css')
-
+    
+    //- TODO: Add GTM properly as now it loads always
     //- Google Analytics
     if gaMeasurementId
       script(async src=`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`)
@@ -86,5 +87,16 @@ html(lang='cs')
     if adsenseClientId
       script(async src=`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClientId}` crossorigin='anonymous')
 
+    //- Cookie banner
+    div.cookie-banner(id='cookieBanner' role='dialog' aria-label='Souhlas s cookies')
+      .cookie-banner__inner
+        p.cookie-banner__text
+          | Používáme analytické cookies (Google Analytics) pro zlepšení webu.
+          | Více informací v&nbsp;
+          a(href='/ochrana-osobnich-udaju') zásadách ochrany soukromí
+          | .
+        .cookie-banner__actions
+          button.btn.btn--primary.btn--sm(id='cookieAccept') Přijmout
+          button.btn.btn--ghost-inverse.btn--sm(id='cookieDecline') Odmítnout
     script(src='/js/main.js')
     block scripts
