@@ -2,7 +2,7 @@ import { catchAsync } from '../../../shared/utils/catchAsync.js'
 import { buildSeoMeta } from '../../../shared/utils/seoMeta.js'
 
 // Contact page
-export const getContact = catchAsync(async (req, res) => {
+export const getContact = catchAsync(async (_req, res) => {
   res.render('pages/core/legal/contact', {
     ...buildSeoMeta({
       title: 'Kontakt',
@@ -13,7 +13,7 @@ export const getContact = catchAsync(async (req, res) => {
 })
 
 // Privacy page
-export const getPrivacy = catchAsync(async (req, res) => {
+export const getPrivacy = catchAsync(async (_req, res) => {
   res.render('pages/core/legal/privacy', {
     ...buildSeoMeta({
       title: 'Ochrana osobních údajů',
@@ -25,7 +25,7 @@ export const getPrivacy = catchAsync(async (req, res) => {
 })
 
 // Terms page
-export const getTerms = catchAsync(async (req, res) => {
+export const getTerms = catchAsync(async (_req, res) => {
   res.render('pages/core/legal/terms', {
     ...buildSeoMeta({
       title: 'Podmínky použití',

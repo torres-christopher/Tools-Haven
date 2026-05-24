@@ -18,6 +18,8 @@ export type HttpStatusCode = (typeof HttpStatus)[keyof typeof HttpStatus]
 // AppError class
 export class AppError extends Error {
   public readonly statusCode: HttpStatusCode
+  // isOperational distinguishes expected runtime errors (true) from programming bugs (false).
+  // Error handler uses this to decide whether to show a user-facing message or a generic 500.
   public readonly isOperational: boolean
 
   constructor(
@@ -27,7 +29,8 @@ export class AppError extends Error {
   ) {
     super(message)
 
-    // So TS checks for Error no AppError
+    // Restores the correct prototype chain after extending built-in Error.
+    // Without this, instanceof checks would fail in transpiled code.
     Object.setPrototypeOf(this, new.target.prototype)
 
     this.name = this.constructor.name
