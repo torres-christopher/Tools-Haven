@@ -1,7 +1,6 @@
 extends ../../layouts/main
 
 block content
-
   //- ── Hero ───────────────────────────────────────────────
   section.hero
     .container
@@ -12,31 +11,31 @@ block content
             br
             span.hero__title-accent online nástroje.
           p.hero__subtitle
-            | Text, PDF, obrázky, kalkulačky a česká data.
-            | Přes sto nástrojů — zdarma, bez registrace.
+            | Úprava textu, validace kódu, česká data
+            | Zdarma, bez registrace.
           .hero__actions
-            a.btn.btn--primary.btn--lg(href='/nastroje') Procházet nástroje
-            a.btn.btn--ghost-inverse.btn--lg(href='/#nastroje') Nejoblíbenější
+            a.btn.btn--primary.btn--lg(href="/vsechny-nastroje") Procházet nástroje
+            a.btn.btn--ghost-inverse.btn--lg(href="/#nastroje") Nejoblíbenější
 
-        //- Right — stats mosaic
-        .hero__stats-grid
-          .hero__stat-card.hero__stat-card--wide
-            span.hero__stat-number 100+
-            span.hero__stat-label Bezplatných nástrojů
-            p.hero__stat-desc Od textových nástrojů přes PDF a obrázky až po česká data.
-          .hero__stat-card
-            span.hero__stat-number 0
-            span.hero__stat-label Registrací
-          .hero__stat-card
-            span.hero__stat-number 🇨🇿
-            span.hero__stat-label Lokální data
+        //- Right — stats mosaic (move block below to the left to un-comment)
+          .hero__stats-grid
+            .hero__stat-card.hero__stat-card--wide
+              span.hero__stat-number 100+
+              span.hero__stat-label Bezplatných nástrojů
+              p.hero__stat-desc Od textových nástrojů přes PDF a obrázky až po česká data.
+            .hero__stat-card
+              span.hero__stat-number 0
+              span.hero__stat-label Registrací
+            .hero__stat-card
+              span.hero__stat-number 🇨🇿
+              span.hero__stat-label Lokální data
 
   //- ── Featured tools ──────────────────────────────────────
-  section.featured-tools(id='nastroje')
+  section#nastroje.featured-tools
     .container
       .section-header
         h2.section-title Nejoblíbenější nástroje
-        a.section-link(href='/nastroje') Zobrazit vše →
+        a.section-link(href="/vsechny-nastroje") Zobrazit vše →
       .tools-grid
         each tool in tools
           if tool.enabled
@@ -61,11 +60,11 @@ block content
         h2.section-title Co tento web nabízí
       .features-grid
         .feature-item
-          .feature-item__icon 🇨🇿
-          h3.feature-item__title Česká lokální data
+          .feature-item__icon 🧮
+          h3.feature-item__title Kalkulačky a převodníky
           p.feature-item__desc
-            | Kurzy ČNB, IBAN kalkulačka, IČO v ARES, rodná čísla, pracovní
-            | dny a bankovní kódy — napojeno přímo na české veřejné zdroje.
+            | Zdravotní kalkulačky, převodníky jednotek, datum a čas,
+            | číslenicové soustavy, ASCII, barvy a kódování.
         .feature-item
           .feature-item__icon 🔒
           h3.feature-item__title Soukromí na prvním místě
@@ -78,24 +77,6 @@ block content
           p.feature-item__desc
             | Žádná registrace, žádné přihlašování. Otevřete nástroj
             | a okamžitě pracujete. Funguje na mobilu i desktopu.
-        .feature-item
-          .feature-item__icon 📄
-          h3.feature-item__title PDF a soubory
-          p.feature-item__desc
-            | Slučování, rozdělování a komprimace PDF. Konverze obrázků
-            | mezi JPG, PNG, WebP a AVIF bez instalace softwaru.
-        .feature-item
-          .feature-item__icon 🧮
-          h3.feature-item__title Kalkulačky a převodníky
-          p.feature-item__desc
-            | Zdravotní kalkulačky, převodníky jednotek, datum a čas,
-            | číslenicové soustavy, ASCII, barvy a kódování.
-        .feature-item
-          .feature-item__icon 🛠️
-          h3.feature-item__title Pro vývojáře
-          p.feature-item__desc
-            | JSON validátor, Base64, URL encoding, Markdown, regex,
-            | QR generátor s REST API, hash generátor, chmod.
 
   //- ── FAQ teaser ───────────────────────────────────────────
   section.faq-teaser
@@ -106,7 +87,7 @@ block content
           p.faq-teaser__desc
             | Odpovídáme na nejčastější otázky o fungování nástrojů,
             | ochraně soukromí a dostupnosti dat.
-          a.btn.btn--primary(href='/faq') Všechny dotazy →
+          a.btn.btn--primary(href="/faq") Všechny dotazy →
 
         .faq-list
           details.faq-item
@@ -116,20 +97,7 @@ block content
               | žádnou registraci ani zadání platebního údaje.
 
           details.faq-item
-            summary.faq-question Co se děje s daty a soubory, které nahraji?
+            summary.faq-question Co se děje s daty, které nahraji?
             p.faq-answer
               | Data jsou zpracována v paměti serveru a po výsledku okamžitě
               | smazána. Nic neukládáme ani nesdílíme s třetími stranami.
-
-          details.faq-item
-            summary.faq-question Jsou výsledky kalkulaček přesné?
-            p.faq-answer
-              | Finanční nástroje čerpají z oficálních zdrojů (ČNB, ARES).
-              | Zdravotní kalkulačky používají uznávané vzorce. Výsledky jsou orientační.
-
-          details.faq-item
-            summary.faq-question Existuje API pro vývojáře?
-            p.faq-answer
-              | Aktuálně nabízíme REST API pro QR generátor na&nbsp;
-              code /api/v1/qr
-              | . Plánujeme rozšíření i pro další nástroje.

@@ -28,7 +28,8 @@ html(lang='cs')
 
     //- Styles
     link(rel='stylesheet' href='/css/main.css')
-
+    
+    //- TODO: Add GTM properly as now it loads always
     //- Google Analytics
     if gaMeasurementId
       script(async src=`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`)
@@ -36,7 +37,7 @@ html(lang='cs')
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', '#{gaMeasurementId}', { anonymize_ip: true });
+        gtag('config', gaMeasurementId, { anonymize_ip: true });
 
   body
 
@@ -48,7 +49,7 @@ html(lang='cs')
             span.site-logo__name= siteName
           include ../partials/nav
           .site-header__cta
-            a.btn.btn--ghost-inverse.btn--sm(href='/nastroje') Všechny nástroje
+            a.btn.btn--ghost-inverse.btn--sm(href='/vsechny-nastroje') Všechny nástroje
           button.nav-toggle(aria-label='Otevřít menu' aria-expanded='false')
             span
             span
@@ -68,11 +69,10 @@ html(lang='cs')
           .site-footer__links
             h4.site-footer__heading Kategorie
             ul
-              li: a(href='/nastroje#text') Textové nástroje
-              li: a(href='/nastroje#dev') Pro vývojáře
-              li: a(href='/nastroje#czech') Česká data
-              li: a(href='/nastroje#zdravi') Zdraví & fitness
-              li: a(href='/nastroje#prevodnik') Převodníky
+              li: a(href='/textove-nastroje') Textové nástroje
+              li: a(href='/vyvojarske-nastroje') Pro vývojáře
+              li: a(href='/ceske-nastroje') Česká data
+              li: a(href='/zdravotni-nastroje') Zdraví & fitness
           .site-footer__links
             h4.site-footer__heading Informace
             ul
@@ -87,5 +87,16 @@ html(lang='cs')
     if adsenseClientId
       script(async src=`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClientId}` crossorigin='anonymous')
 
+    //- Cookie banner
+    div.cookie-banner(id='cookieBanner' role='dialog' aria-label='Souhlas s cookies')
+      .cookie-banner__inner
+        p.cookie-banner__text
+          | Používáme analytické cookies (Google Analytics) pro zlepšení webu.
+          | Více informací v&nbsp;
+          a(href='/ochrana-osobnich-udaju') zásadách ochrany soukromí
+          | .
+        .cookie-banner__actions
+          button.btn.btn--primary.btn--sm(id='cookieAccept') Přijmout
+          button.btn.btn--ghost-inverse.btn--sm(id='cookieDecline') Odmítnout
     script(src='/js/main.js')
     block scripts

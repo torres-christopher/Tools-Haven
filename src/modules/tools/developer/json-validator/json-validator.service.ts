@@ -6,7 +6,8 @@ export const jsonValidateFormat = function (input: JsonValidatorInput): JsonVali
 
   // Format only if JSON valid
   if (valid.valid) {
-    // Default in case of cust validation
+    // 'validate' has no case and falls through to default which keeps input.text as received.
+    // Format and minify both require valid JSON first, so we only reach this switch when valid.valid is true.
     let result: string = input.text
     switch (input.actionType) {
       case 'format':
@@ -33,8 +34,11 @@ export const jsonValidateFormat = function (input: JsonValidatorInput): JsonVali
   }
 }
 
-// JSON value specified, because JSON.parse() returns any
+// Explicit type replaces `any` from JSON.parse() return value
 type JsonValue = string | number | boolean | null | JsonValue[] | { [key: string]: JsonValue }
+
+// Return shape for validateJSON — valid=true includes the parsed object,
+// valid=false includes the error message and optional position
 interface ValidateJson {
   valid: boolean
   jsonObject?: JsonValue
@@ -53,6 +57,8 @@ const validateJSON = function (input: string): ValidateJson {
   } catch (error) {
     // Check for SyntaxError otherwise error is of type unknown
     if (error instanceof SyntaxError) {
+      // Node's SyntaxError message includes position as "...line X column Y (char Z)"
+      // Split on those strings to extract the numbers as not all errors include position
       const line = error.message.includes('line') // Check that error message has line # string
         ? error.message.split('line ')[1].split('column')[0]
         : null

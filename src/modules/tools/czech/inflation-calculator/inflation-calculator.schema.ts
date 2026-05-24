@@ -2,24 +2,26 @@ import { z } from 'zod'
 import { cpiMonthly, cpiYearly } from '../../../../shared/data/tools/czech/cpi.js'
 
 // -------- Helper Functions --------------- //
-// Helper function for average mode
+// 'average' means yearly average mode
 const isAverageMode = (month: number | 'average'): month is 'average' => {
   return month === 'average'
 }
 
-// Helper function for monthly key
+// Adds padding to month by making it two digits so keys sort chronologically --> '2024-03' not '2024-3'
 export const monthlyKey = (year: number, month: number): string => {
   return `${year}-${String(month).padStart(2, '0')}`
 }
 
-// Helper function to check if start/end are of the same mode
+// Both must be the same type — monthly/monthly or average/average.
+// Mixing the two series should return error.
 const sameMode = (start: number | 'average', end: number | 'average'): boolean => {
   return (
     (isAverageMode(start) && isAverageMode(end)) || (!isAverageMode(start) && !isAverageMode(end))
   )
 }
 
-// Helper function to check if data exists
+// Checks CPI data exists for the given period before the schema passes.
+// Prevents valid-looking dates (like 1990) that have no data in the dataset.
 const hasCpiData = (year: number, month: number | 'average'): boolean => {
   if (month === 'average') {
     return cpiYearly[year] !== undefined
@@ -28,7 +30,9 @@ const hasCpiData = (year: number, month: number | 'average'): boolean => {
   return cpiMonthly[monthlyKey(year, month)] !== undefined
 }
 
-// Helper for period value, 2024-01 -> 202401
+// Converts year+month to a sortable integer for chronological comparison.
+// average mode: 2024 → 202400, monthly: 2024-03 → 202403
+// Multiplying year by 100 puts it in the same numeric space as year*100+month.
 const periodValue = (year: number, month: number | 'average'): number => {
   if (month === 'average') {
     return year * 100 // * 100 for consistency

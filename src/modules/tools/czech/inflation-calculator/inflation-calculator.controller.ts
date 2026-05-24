@@ -22,6 +22,7 @@ export const getInflationCalculator = catchAsync(async (_req, res) => {
 
 // POST for forms
 export const postInflationCalculator = catchAsync(async (req, res) => {
+  // Declared with let so they can be conditionally assigned per form branch and passed to the view in a single render call at the end.
   let result = null
   let inputValue: number | undefined
   let inputType: string | undefined

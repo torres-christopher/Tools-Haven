@@ -1,8 +1,11 @@
-// Tools
+// Dependencies
 import express from 'express'
+import { env } from './config/env.js'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
-// Middleware
+import helmet from 'helmet'
+import { rateLimit } from 'express-rate-limit'
+// System middleware
 import { localsMiddleware } from './middleware/locals.js'
 import { notFoundHandler } from './middleware/not-found.js'
 import { errorHandler } from './middleware/error-handler.js'
@@ -18,8 +21,28 @@ import czechRouter from './modules/tools/czech/czech.routes.js'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
+// Define rate limiter
+const limiter = rateLimit({
+  windowMs: env.RATE_LIMIT_WINDOW_MS,
+  limit: env.RATE_LIMIT_MAX,
+  standardHeaders: 'draft-8',
+  legacyHeaders: false,
+  ipv6Subnet: 56,
+})
+
 // Run app
 const app = express()
+
+// TODO: Whitelisting for sources when adding external libraries and GA/GTM/AdSense
+// Helmet for security in headers
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  }),
+)
+
+// Rate limiting
+app.use(limiter)
 
 // Initialise Pug templates
 app.set('view engine', 'pug')
@@ -44,10 +67,10 @@ app.use('/vyvojarske-nastroje', developerRouter)
 app.use('/zdravotni-nastroje', healthRouter)
 app.use('/ceske-nastroje', czechRouter)
 
-// 404
+// On 404
 app.use(notFoundHandler)
 
-// Error handler -- Needs to be last
+// Error handler - Needs to be last
 app.use(errorHandler)
 
 export { app }

@@ -3,6 +3,7 @@ import { z } from 'zod'
 export const jsonValidatorInput = z.object({
   text: z.string().max(100000).default(''),
   actionType: z.enum(['validate', 'format', 'minify']),
+  // Accepts tab literal or a number 1–10. Union needed because '\t' can't be coerced to a number.
   space: z.union([z.literal('\t'), z.coerce.number().gte(1).lte(10)]).default(2),
 })
 

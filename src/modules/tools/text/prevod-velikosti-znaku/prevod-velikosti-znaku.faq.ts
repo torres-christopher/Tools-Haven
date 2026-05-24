@@ -1,4 +1,5 @@
 import type { FaqItem } from '../../../../shared/types/faq.js'
+import { aiTransparencyFaq } from '../../../../shared/data/faq.js'
 
 export const prevodVelikostiZnakuFaq: FaqItem[] = [
   {
@@ -26,4 +27,5 @@ export const prevodVelikostiZnakuFaq: FaqItem[] = [
     answer:
       'Nástroj zvládne texty až do délky 300 000 znaků, což odpovídá přibližně 166 normostranám. Pro běžné použití jako úprava nadpisů, e-mailů nebo článků je tento limit více než dostačující.',
   },
+  aiTransparencyFaq,
 ]

@@ -1,3 +1,4 @@
+// Tool details tools.ts file
 export interface ToolsDetails {
   title: string
   description: string
@@ -7,5 +8,6 @@ export interface ToolsDetails {
   categoryName: string
   categoryPath: string
   enabled: boolean
+  // featured: null means not featured. Number sets display order on the homepage (1 = first).
   featured: number | null
 }

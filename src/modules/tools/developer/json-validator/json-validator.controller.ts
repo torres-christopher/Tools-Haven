@@ -10,6 +10,9 @@ type SpaceValues = {
   name: string | number
   value: string | number
 }
+
+// Builds dropdown options for indentation: tab first, then 1–10 spaces.
+// Czech language: 1 mezera, 2–4 mezery, 5+ mezer.
 const spaceValues: SpaceValues[] = [
   {
     name: 'Tabulátor',
@@ -65,6 +68,8 @@ export const postJsonValidator = catchAsync(async (req, res) => {
     text: input.data?.text,
     inputLength: input.data?.text.length,
     result: result,
+    // errorMessage prefers the schema validation error (too long) over the JSON parse error
+    // Schema failure means result is null so result?.errorMessage would be undefined anyway.
     errorMessage: errorMessage ? errorMessage : result?.errorMessage,
     errorPosition: result?.errorPosition,
   })

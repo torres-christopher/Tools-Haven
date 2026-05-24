@@ -12,9 +12,9 @@ export interface SeoMeta {
   // For all
   title: string
   metaDescription: string
-  canonicalPath: string // Ie. "/pocet-znaku"
+  canonicalPath: string // Full path only, e.g. '/pocet-znaku' --> SITE_URL is prepended by seoMeta.ts
 
-  // Open Graph values --> If no title/description/image absent
+  // Open Graph --> populated from title/description if not explicitly provided
   ogTitle?: string
   ogDescription?: string
   ogImage?: string
@@ -26,6 +26,6 @@ export interface SeoMeta {
   categoryName?: string | undefined
   categoryPath?: string | undefined
 
-  // Structured data in JSON-LD
+  // JSON-LD structured data injected into <script type="application/ld+json"> in the layout
   jsonLd?: object
 }

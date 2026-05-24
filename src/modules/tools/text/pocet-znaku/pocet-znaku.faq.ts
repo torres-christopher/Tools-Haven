@@ -1,4 +1,5 @@
 import type { FaqItem } from '../../../../shared/types/faq.js'
+import { aiTransparencyFaq } from '../../../../shared/data/faq.js'
 
 export const pocetZnakuFaq: FaqItem[] = [
   {
@@ -56,4 +57,5 @@ export const pocetZnakuFaq: FaqItem[] = [
     answer:
       'Ano. Pokud máte v prohlížeči povolený JavaScript, může nástroj fungovat i jako živá kalkulačka s okamžitým přepočtem při psaní. Pokud JavaScript povolený není, nástroj bude stále fungovat přes klasické odeslání formuláře metodou POST po načtení stránky.',
   },
+  aiTransparencyFaq,
 ]

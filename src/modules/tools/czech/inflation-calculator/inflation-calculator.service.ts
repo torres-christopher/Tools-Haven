@@ -8,7 +8,7 @@ import { cpiMonthly, cpiYearly } from '../../../../shared/data/tools/czech/cpi.j
 import { AppError, HttpStatus } from '../../../../shared/types/errors.js'
 
 // -------- Helper Functions --------------- //
-// Helper function get CPI value
+// Defensive guard — schema should prevent missing keys, but better than returning undefined
 const getCpiValue = (year: number, month: number | 'average'): number => {
   if (month === 'average') {
     const value = cpiYearly[year]
@@ -29,7 +29,8 @@ const getCpiValue = (year: number, month: number | 'average'): number => {
 }
 
 // -------- Service Functions --------------- //
-// Real inflation calculation
+// Adjusts value using the ratio of end CPI to start CPI.
+// Formula: value × (endCPI ÷ startCPI)
 export const calculateInflationAdjustedValue = function (
   input: InflationRealInput,
 ): InflationOutput {
@@ -40,7 +41,9 @@ export const calculateInflationAdjustedValue = function (
   return input.value * (endValue / startValue)
 }
 
-// Custom inflation calculation
+// Compound interest formula: value × ((1 + rate) ^ years)
+// Divides instead of multiplies for backward projection.
+// Throws if result exceeds MAX_SAFE_INTEGER — technically valid input, but floating point precision breaks down beyond this threshold.
 export const calculateCustomInflation = function (input: InflationCustomInput): InflationOutput {
   const factor = (100 + input.inflationRate) / 100
   let result: number

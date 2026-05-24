@@ -34,6 +34,9 @@ export const postBmi = catchAsync(async (req, res) => {
     status = 400
   } else {
     result = calculateBmi(input.data)
+
+    // Maps BMI value onto a 0–100% scale anchored at 10 (min) and 45 (max).
+    // Clamped so extreme values don't break the visual scale marker.
     markerPosition = Math.min(100, Math.max(0, ((result.bmiValue - 10) / (45 - 10)) * 100))
     switch (result.bmiClassification) {
       case 'underweight':

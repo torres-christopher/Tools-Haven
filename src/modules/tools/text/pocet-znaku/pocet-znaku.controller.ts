@@ -37,6 +37,8 @@ export const postPocetZnaku = catchAsync(async (req, res) => {
   res.status(status).render('pages/tools/text/pocet-znaku', {
     ...buildSeoMeta(tool),
     faq,
+    // Falls back to req.body.text if schema failed --> preserves the user's input in the textarea
+    // even when it exceeds the limit
     text: input.data ? input.data : req.body.text,
     result: result,
     errorState,

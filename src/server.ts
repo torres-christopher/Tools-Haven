@@ -1,6 +1,7 @@
 import { app } from './app.js'
 import { env } from './config/env.js'
 
+// Listen to server
 const server = app.listen(env.PORT, () => {
   console.log(`
   ┌─────────────────────────────────────────┐
@@ -14,16 +15,31 @@ const server = app.listen(env.PORT, () => {
   `)
 })
 
-// TODO
-// Unhandled promise rejection
-process.on('unhandledRejection', (reason) => {
-  console.error('Unhandled rejection:', reason)
-  server.close(() => process.exit(1))
+// Graceful shutdown
+// Stop accepting connections, drain in-flight requests, then exit cleanly.
+// Force-exit after 10s in case a request hangs and server.close() never completes.
+const shutdown = (signal: string) => {
+  console.log(`${signal} received, shutting down...`)
+  server.close(() => process.exit(0))
+  setTimeout(() => process.exit(1), 10_000).unref()
+}
+
+process.once('SIGTERM', () => shutdown('SIGTERM')) // Platform restart/stop (Railway, Render)
+process.once('SIGINT', () => shutdown('SIGINT')) // Ctrl+C in local dev
+
+// Listen failure — port already in use, insufficient permissions, etc.
+server.on('error', (error) => {
+  console.error('Server error:', error)
+  process.exit(1)
 })
 
-// TODO
-// Unhandled unchanght exceptions
+// Process is in an undefined state after these — exit immediately, do not attempt graceful drain.
+process.on('unhandledRejection', (reason) => {
+  console.error('Unhandled rejection:', reason)
+  process.exit(1)
+})
+
 process.on('uncaughtException', (error) => {
   console.error('Uncaught exception:', error)
-  server.close(() => process.exit(1))
+  process.exit(1)
 })

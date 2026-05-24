@@ -1,4 +1,5 @@
 import type { FaqItem } from '../../../../shared/types/faq.js'
+import { aiTransparencyFaq } from '../../../../shared/data/faq.js'
 
 export const inflationCalculatorFaq: FaqItem[] = [
   {
@@ -40,4 +41,5 @@ export const inflationCalculatorFaq: FaqItem[] = [
     answer:
       'Ne. Všechny výpočty probíhají na serveru pouze pro účely zobrazení výsledku. Zadané hodnoty se nikam neukládají a nejsou sdíleny s třetími stranami.',
   },
+  aiTransparencyFaq,
 ]

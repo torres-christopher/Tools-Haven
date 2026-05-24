@@ -9,3 +9,6 @@ if adsenseClientId
     )
     script.
       (adsbygoogle = window.adsbygoogle || []).push({});
+else if locals.NODE_ENV === 'development'
+  .ad-slot(aria-label='Reklama — placeholder')
+    p(style='text-align:center;font-size:0.75rem;color:#888;padding:1rem 0') Reklama

@@ -1,5 +1,6 @@
 import { z } from 'zod'
 
+// Plain string input --> not wrapped in an object, so controller passes req.body.text directly
 export const pocetZnakuInput = z.string().max(300000).default('')
 
 export const pocetZnakuOutput = z.object({

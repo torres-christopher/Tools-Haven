@@ -11,13 +11,14 @@ export const buildSeoMeta = (input: SeoInput) => {
     ogDescription: input.description,
     ogImage: `${env.SITE_URL}/images/og-default.png`,
 
-    toolName: input?.title,
-    toolPath: input?.path,
+    toolName: input.title,
+    toolPath: input.path,
     toolDescription: input.description,
     categoryName: input?.categoryName,
     categoryPath: input?.categoryPath,
 
-    // Only if input.category exists
+    // JSON-LD is only generated for tool pages (which have a categoryName).
+    // Core pages (home, legal, FAQ) get no structured data.
     jsonLd: input.categoryName
       ? {
           '@context': 'https://schema.org',

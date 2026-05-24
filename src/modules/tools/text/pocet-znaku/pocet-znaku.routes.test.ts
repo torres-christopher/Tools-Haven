@@ -43,6 +43,7 @@ describe('/textove-nastroje/pocet-znaku', () => {
       .expect(200)
   })
 
+  // schema default('') means null/missing text field is treated as empty string --> should return 200
   it('POST with no body handles gracefully', async () => {
     await request(app)
       .post(path)

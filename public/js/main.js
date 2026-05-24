@@ -1,4 +1,4 @@
-/* MujWeb.cz — main.js */
+/* web-services.cz — main.js */
 
 'use strict'
 
@@ -46,7 +46,7 @@ if (navToggle && siteNav) {
 
 // ── Cookie banner ──────────────────────────────────────────
 
-const COOKIE_KEY = 'mw_cookie_consent'
+const COOKIE_KEY = 'ws_cookie_consent'
 
 const cookieBanner = document.getElementById('cookieBanner')
 const cookieAccept = document.getElementById('cookieAccept')
@@ -56,7 +56,6 @@ if (cookieBanner) {
   const consent = localStorage.getItem(COOKIE_KEY)
 
   if (!consent) {
-    // Show banner after short delay
     setTimeout(() => cookieBanner.classList.add('is-visible'), 1000)
   }
 
@@ -64,7 +63,6 @@ if (cookieBanner) {
     cookieAccept.addEventListener('click', () => {
       localStorage.setItem(COOKIE_KEY, 'accepted')
       cookieBanner.classList.remove('is-visible')
-      // Enable GA if present
       if (typeof gtag !== 'undefined') {
         gtag('consent', 'update', {
           analytics_storage: 'granted',
@@ -105,7 +103,6 @@ document.querySelectorAll('#copy-btn').forEach((btn) => {
         btn.classList.remove('copy-btn--success')
       }, 2000)
     } catch {
-      // Fallback for older browsers
       const textarea = document.createElement('textarea')
       textarea.value = text.trim()
       textarea.style.position = 'fixed'
@@ -123,4 +120,14 @@ document.querySelectorAll('#copy-btn').forEach((btn) => {
 const toolResult = document.getElementById('toolResult')
 if (toolResult) {
   toolResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+}
+
+// ── Contact form success message ───────────────────────────
+// Formspree redirects back to /kontakt?success=true after submission.
+// Replace the form with a success alert when that parameter is present.
+
+const contactForm = document.querySelector('.contact-form')
+if (contactForm && window.location.search.includes('success=true')) {
+  contactForm.innerHTML =
+    '<div class="alert alert--success">✓ Zpráva byla odeslána. Odpovíme co nejdříve, obvykle do 2 pracovních dnů.</div>'
 }
