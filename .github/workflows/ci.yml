@@ -10,7 +10,8 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     env:
-      NODE_ENV: ${{ vars.NODE_ENV }}
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      NODE_ENV: development
       PORT: ${{ vars.PORT }}
       SITE_URL: ${{ vars.SITE_URL }}
       SITE_NAME: ${{ vars.SITE_NAME }}

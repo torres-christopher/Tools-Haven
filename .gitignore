@@ -23,3 +23,6 @@ test-results/
 # Logs
 *.log
 npm-debug.log*
+
+# Reference files
+ssh-sftp-reference.md

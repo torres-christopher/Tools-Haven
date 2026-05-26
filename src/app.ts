@@ -34,6 +34,9 @@ const limiter = rateLimit({
 // Run app
 const app = express()
 
+// Trust proxy headers (for codespaces)
+app.set('trust proxy', 1)
+
 // TODO: Whitelisting for sources when adding external libraries and GA/GTM/AdSense
 // Helmet for security in headers
 app.use(
