@@ -1,15 +1,21 @@
 import { app } from './app.js'
 import { env } from './config/env.js'
 
+// Padding for console.log on server listen
+const pad = (str: string, width: number) => str + ' '.repeat(Math.max(0, width - str.length))
+
 // Listen to server
 const server = app.listen(env.PORT, () => {
+  const url = env.NODE_ENV === 'production' ? env.SITE_URL : `http://localhost:${env.PORT}`
+  const nodeEnv = env.NODE_ENV
+
   console.log(`
   ┌─────────────────────────────────────────┐
   │                                         │
   │   Web Services running                  │
   │                                         │
-  │   Local:  http://localhost:${env.PORT}         │
-  │   Env:    ${env.NODE_ENV}                   │
+  │   Local:  ${pad(url, 30)}│
+  │   Env:    ${pad(nodeEnv, 30)}│
   │                                         │
   └─────────────────────────────────────────┘
   `)

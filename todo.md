@@ -1,6 +1,6 @@
 # General
 
-- Register web-services.cz on Wedos
+- Register Tools-Haven.com on Wedos
 - Create Rosti account and Node.js app
 - Create GTM account → get container ID
 - Create GA4 property inside GTM

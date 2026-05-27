@@ -1,6 +1,7 @@
-# Web Services
+# Tools Haven
 
-Bezplatné české online nástroje — text, kalkulačky a česká data.
+Free online tools to edit text, convert data and other Czech specific services.
+This is a part of a school project.
 
 > **Project status:** Active development. Deployment pending.
 
@@ -23,7 +24,7 @@ Bezplatné české online nástroje — text, kalkulačky a česká data.
 
 ## About
 
-Web Services is a Czech-language website providing free online utility tools. The goal is to offer a quality alternative to foreign tools with a focus on Czech local data (Czech National Bank rates, ARES company registry, public holidays) and user privacy.
+Tools Haven is a (Czech-dominant) website providing free online utility tools. The goal is to offer a quality alternative to foreign tools with a focus on Czech local data (Czech National Bank rates, ARES company registry, public holidays) and user privacy.
 
 Data entered into tools is never stored or shared with third parties. Files uploaded for processing are handled in server memory and deleted immediately after the result is returned.
 
@@ -43,7 +44,7 @@ Data entered into tools is never stored or shared with third parties. Files uplo
 | Linting                  | ESLint 9 flat config            |
 | Formatting               | Prettier + @prettier/plugin-pug |
 | CI                       | GitHub Actions                  |
-| Hosting                  | Rosti.cz (pending)              |
+| Hosting                  | Rosti.cz                        |
 
 ---
 
@@ -166,8 +167,8 @@ Web-Services/
 ### Setup
 
 ```bash
-# Clone the repository
-git clone https://github.com/torres-christopher/Web-Services.git
+# Clone the repository, Web-Services is a project name
+git clone https://github.com/torres-christopher/Tools-Haven.git
 cd Web-Services
 
 # Install dependencies

@@ -1,4 +1,4 @@
-/* web-services.cz — main.js */
+/* Tools-Haven.com — main.js */
 
 'use strict'
 

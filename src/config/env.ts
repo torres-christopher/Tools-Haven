@@ -5,10 +5,10 @@ const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
   PORT: z
     .string()
-    .default('3000')
+    .default('8080')
     .transform((val) => parseInt(val, 10)),
-  SITE_URL: z.string().url().default('http://localhost:3000'),
-  SITE_NAME: z.string().default('web-services'),
+  SITE_URL: z.string().url().default('http://tools-haven.com'),
+  SITE_NAME: z.string().default('Tools Haven'),
   GA_MEASUREMENT_ID: z.string().default(''),
   ADSENSE_CLIENT_ID: z.string().default(''),
   RATE_LIMIT_WINDOW_MS: z
