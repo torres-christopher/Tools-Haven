@@ -34,6 +34,9 @@ const limiter = rateLimit({
 // Run app
 const app = express()
 
+// Locals must be before routers and helmet
+app.use(localsMiddleware)
+
 // Trust proxy headers (for codespaces and Roští.cz)
 app.set('trust proxy', 1)
 
@@ -76,9 +79,6 @@ app.use(express.static(join(__dirname, '../public')))
 // Body parsing
 app.use(express.json({ limit: '100kb' }))
 app.use(express.urlencoded({ extended: true, limit: '500kb' }))
-
-// Locals must be before routers
-app.use(localsMiddleware)
 
 // Core routes
 app.use('/', coreRoutes)
