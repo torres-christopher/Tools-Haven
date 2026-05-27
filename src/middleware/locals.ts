@@ -6,7 +6,7 @@ export const localsMiddleware = (_req: Request, res: Response, next: NextFunctio
   res.locals.siteName = env.SITE_NAME
   res.locals.siteUrl = env.SITE_URL
   res.locals.currentYear = new Date().getFullYear()
-  res.locals.gaMeasurementId = env.GA_MEASUREMENT_ID
+  res.locals.gtmContainerId = env.GTM_CONTAINER_ID
   res.locals.adsenseClientId = env.ADSENSE_CLIENT_ID
   res.locals.NODE_ENV = env.NODE_ENV
   next()

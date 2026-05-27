@@ -52,9 +52,26 @@ const cookieBanner = document.getElementById('cookieBanner')
 const cookieAccept = document.getElementById('cookieAccept')
 const cookieDecline = document.getElementById('cookieDecline')
 
+// Grant consent to Google Tag Manager
+function grantConsent() {
+  if (typeof gtag === 'undefined') return // Silently throw if gtag fails
+  gtag('consent', 'update', {
+    analytics_storage: 'granted',
+    ad_storage: 'granted',
+    ad_user_data: 'granted',
+    ad_personalization: 'granted',
+  })
+}
+
 if (cookieBanner) {
   const consent = localStorage.getItem(COOKIE_KEY)
 
+  // Already accepted in a previous visit --> restore consent immediately
+  if (consent === 'accepted') {
+    grantConsent()
+  }
+
+  // No decision yet --> show the banner after a short delay
   if (!consent) {
     setTimeout(() => cookieBanner.classList.add('is-visible'), 1000)
   }
@@ -63,11 +80,7 @@ if (cookieBanner) {
     cookieAccept.addEventListener('click', () => {
       localStorage.setItem(COOKIE_KEY, 'accepted')
       cookieBanner.classList.remove('is-visible')
-      if (typeof gtag !== 'undefined') {
-        gtag('consent', 'update', {
-          analytics_storage: 'granted',
-        })
-      }
+      grantConsent()
     })
   }
 

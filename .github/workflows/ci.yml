@@ -17,7 +17,7 @@ jobs:
       SITE_NAME: ${{ vars.SITE_NAME }}
       RATE_LIMIT_WINDOW_MS: ${{ vars.RATE_LIMIT_WINDOW_MS }}
       RATE_LIMIT_MAX: ${{ vars.RATE_LIMIT_MAX }}
-      GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
+      GTM_CONTAINER_ID: ${{ secrets.GTM_CONTAINER_ID }}
       ADSENSE_CLIENT_ID: ${{ secrets.ADSENSE_CLIENT_ID }}
 
     steps:
