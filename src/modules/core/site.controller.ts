@@ -7,6 +7,7 @@ import { env } from '../../config/env.js'
 export const getRobots = catchAsync(async (_req, res) => {
   const content = `User-agent: *
 Allow: /
+Disallow: /health
 
 Sitemap: ${env.SITE_URL}/sitemap.xml`
 
