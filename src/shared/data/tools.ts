@@ -56,7 +56,7 @@ export const tools: ToolsDetails[] = [
     slug: 'inflacni-kalkulacka',
     icon: '📈',
     categoryName: 'České nástroje',
-    categoryPath: '/ceske-nastoje',
+    categoryPath: '/ceske-nastroje',
     enabled: true,
     featured: 1,
   },

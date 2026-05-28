@@ -13,7 +13,7 @@ router.get('/', (_req, res) => {
       title: 'Textové nástroje',
       description:
         'Bezplatné online nástroje pro práci s textem. Počítání znaků, převod písmen, čištění textu a další.',
-      path: '/textove-nastoje',
+      path: '/textove-nastroje',
     }),
     toolCategory: 'Textové nástroje',
     toolCategoryPath: '/textove-nastroje',
