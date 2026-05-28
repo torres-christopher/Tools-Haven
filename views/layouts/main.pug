@@ -41,6 +41,16 @@ html(lang='cs')
         wait_for_update: 500
       });
 
+      // Restore consent for returning visitors before GTM initialises
+      if (localStorage.getItem('ws_cookie_consent') === 'accepted') {
+        gtag('consent', 'update', {
+          analytics_storage: 'granted',
+          ad_storage: 'granted',
+          ad_user_data: 'granted',
+          ad_personalization: 'granted',
+        });
+      }
+
     //- Google Tag Manager --> loads immediately, consent controls what fires
     if gtmContainerId
       script(nonce=nonce).
