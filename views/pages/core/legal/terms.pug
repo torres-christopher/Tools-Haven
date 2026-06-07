@@ -4,135 +4,76 @@ block content
   .legal-page
     .container
       .legal-page__header
-        h1.legal-page__title Podmínky použití
-        p.legal-page__meta Poslední aktualizace: #{currentYear}
+        h1.legal-page__title #{ t('common:terms.title') }
+        p.legal-page__meta #{ t('common:terms.page.meta') } #{ currentYear }
 
       .legal-page__body
+        section.legal-section
+          h2 #{ t('common:terms.s1.title') }
+          p
+            | #{ t('common:terms.s1.p1prefix') } #{ siteUrl } #{ t('common:terms.s1.p1suffix') }
 
         section.legal-section
-          h2 1. Provozovatel
+          h2 #{ t('common:terms.s2.title') }
           p
-            | Web #{siteUrl} provozuje fyzická osoba podnikající na základě
-            | živnostenského oprávnění se sídlem v České republice.
-            | Používáním tohoto webu souhlasíte s těmito podmínkami použití.
+            | #{ siteName } #{ t('common:terms.s2.p1suffix') }
+          p #{ t('common:terms.s2.p2') }
 
         section.legal-section
-          h2 2. Povaha služby
-          p
-            | #{siteName} poskytuje bezplatné online nástroje pro zpracování
-            | textu, výpočty a přístup k veřejným českým
-            | datům. Všechny nástroje jsou poskytovány „tak jak jsou" (as-is),
-            | bez záruky nepřetržité dostupnosti nebo absolutní přesnosti výsledků.
-          p
-            | Provozovatel si vyhrazuje právo kdykoli bez předchozího upozornění
-            | změnit, omezit nebo ukončit provoz jednotlivých nástrojů nebo
-            | celého webu.
-
-        section.legal-section
-          h2 3. Omezení odpovědnosti
+          h2 #{ t('common:terms.s3.title') }
           ul
-            li
-              | Výsledky nástrojů slouží výhradně pro informační a orientační
-              | účely. Provozovatel nenese odpovědnost za rozhodnutí učiněná
-              | na základě výstupů z nástrojů.
-            li
-              | Zdravotní kalkulačky (BMI, kalorie, těhotenství, tělesný tuk
-              | apod.) nenahrazují lékařskou konzultaci ani odborné vyšetření.
-              | Vždy se poraďte s kvalifikovaným zdravotnickým pracovníkem.
-            li
-              | Finanční a právní nástroje (kurzy ČNB, IBAN, IČO, ARES apod.)
-              | jsou poskytovány pro orientační účely. Kritické údaje vždy
-              | ověřujte z oficiálních zdrojů (ČNB, ARES, Justice.cz).
-            li
-              | Provozovatel neručí za škody vzniklé výpadkem služby, ztrátou
-              | dat nebo nesprávným výsledkem nástroje.
-            li
-              | Výsledky generované nástroji nezakládají právní nárok ani
-              | odborné stanovisko.
+            li #{ t('common:terms.s3.item1') }
+            li #{ t('common:terms.s3.item2') }
+            li #{ t('common:terms.s3.item3') }
+            li #{ t('common:terms.s3.item4') }
+            li #{ t('common:terms.s3.item5') }
 
         section.legal-section
-          h2 4. Přijatelné použití
-          p Používáním webu se zavazujete, že nebudete:
+          h2 #{ t('common:terms.s4.title') }
+          p #{ t('common:terms.s4.intro') }
           ul
-            li
-              | automatizovaně přistupovat k webu způsobem přetěžujícím server
-              | (scraping, DDoS, nadměrné automatické požadavky)
-            li
-              | obcházet technická omezení webu (rate limiting, limity velikosti
-              | souborů, CAPTCHA)
-            li
-              | nahrávat soubory obsahující malware, viry nebo jiný škodlivý kód
-            li
-              | nahrávat nebo zpracovávat obsah porušující autorská práva nebo
-              | jiná práva třetích osob
-            li
-              | používat web k činnostem v rozporu s právním řádem České republiky
-              | nebo Evropské unie
-            li
-              | vydávat automaticky generované výstupy za výsledky vlastní
-              | odborné práce v kontextech, kde by to mohlo být klamavé
+            li #{ t('common:terms.s4.item1') }
+            li #{ t('common:terms.s4.item2') }
+            li #{ t('common:terms.s4.item3') }
+            li #{ t('common:terms.s4.item4') }
+            li #{ t('common:terms.s4.item5') }
+            li #{ t('common:terms.s4.item6') }
 
         section.legal-section
-          h2 5. Nahrávané soubory
-          p
-            | Soubory nahrané za účelem zpracování (PDF, obrázky, dokumenty apod.)
-            | jsou zpracovány výhradně pro účely daného nástroje v operační paměti
-            | serveru. Soubory nejsou trvale ukládány na disk, nejsou sdíleny
-            | s třetími stranami a jsou automaticky smazány ihned po odeslání
-            | výsledku uživateli.
+          h2 #{ t('common:terms.s5.title') }
+          p #{ t('common:terms.s5.p1') }
 
         section.legal-section
-          h2 6. Duševní vlastnictví
-          p
-            | Veškerý obsah webu (design, zdrojový kód, texty, grafika) je
-            | chráněn autorským právem provozovatele nebo příslušných držitelů
-            | práv. Bez předchozího písemného souhlasu provozovatele není
-            | dovoleno obsah webu kopírovat, šířit nebo komerčně využívat.
-          p
-            | Výstupy generované nástroji (konvertované soubory, výsledky
-            | výpočtů apod.) jsou plně ve vlastnictví
-            | uživatele, který je vygeneroval.
+          h2 #{ t('common:terms.s6.title') }
+          p #{ t('common:terms.s6.p1') }
+          p #{ t('common:terms.s6.p2') }
 
         section.legal-section
-          h2 7. Reklama
-          p
-            | Web je financován reklamou prostřednictvím služby Google AdSense
-            | (Google LLC). Reklamy jsou zřetelně označeny jako „Reklama".
-            | Provozovatel webu nemá vliv na konkrétní obsah zobrazovaných reklam.
-            | Kliknutí na reklamu a následné transakce jsou výhradně mezi
-            | uživatelem a inzerentem.
+          h2 #{ t('common:terms.s7.title') }
+          p #{ t('common:terms.s7.p1') }
 
         section.legal-section
-          h2 8. Ochrana osobních údajů
+          h2 #{ t('common:terms.s8.title') }
           p
-            | Zpracování osobních údajů je popsáno v samostatném dokumentu:&nbsp;
-            a(href=`/${lang}/privacy`) Ochrana osobních údajů
-            | . Používáním webu berete na vědomí podmínky tam uvedené.
+            | #{ t('common:terms.s8.p1prefix') }&nbsp;
+            a(href=`/${lang}/privacy`) #{ t('common:terms.s8.p1link') }
+            | .
 
         section.legal-section
-          h2 9. Rozhodné právo a řešení sporů
+          h2 #{ t('common:terms.s9.title') }
+          p #{ t('common:terms.s9.p1') }
           p
-            | Tyto podmínky se řídí právem České republiky. Případné spory
-            | budou přednostně řešeny smírnou cestou. Nebude-li smírné řešení
-            | možné, budou spory řešeny příslušnými soudy České republiky.
-          p
-            | Spotřebitelé mají rovněž právo na mimosoudní řešení sporu
-            | prostřednictvím České obchodní inspekce (
-            a(href='https://www.coi.cz' target='_blank' rel='noopener noreferrer') www.coi.cz
-            | ).
+            | #{ t('common:terms.s9.p2prefix') }
+            a(href="https://www.coi.cz" target="_blank" rel="noopener noreferrer") www.coi.cz
+            | #{ t('common:terms.s9.p2suffix') }
 
         section.legal-section
-          h2 10. Změny podmínek
-          p
-            | Provozovatel si vyhrazuje právo tyto podmínky kdykoli změnit.
-            | Aktuální verze je vždy dostupná na této stránce spolu s datem
-            | poslední aktualizace. Další používání webu po zveřejnění změn
-            | znamená souhlas s aktualizovanými podmínkami.
+          h2 #{ t('common:terms.s10.title') }
+          p #{ t('common:terms.s10.p1') }
 
         section.legal-section
-          h2 11. Kontakt
+          h2 #{ t('common:terms.s11.title') }
           p
-            | Dotazy, připomínky nebo hlášení porušení těchto podmínek zasílejte
-            | prostřednictvím&nbsp;
-            a(href=`/${lang}/contact`) kontaktního formuláře
+            | #{ t('common:terms.s11.p1prefix') }&nbsp;
+            a(href=`/${lang}/contact`) #{ t('common:terms.s11.p1link') }
             | .

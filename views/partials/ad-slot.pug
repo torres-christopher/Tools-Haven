@@ -1,14 +1,14 @@
 if adsenseClientId
-  .ad-slot(aria-label='Reklama')
+  .ad-slot(aria-label=t("common:ad.title"))
     ins.adsbygoogle(
-      style='display:block'
+      style="display: block"
       data-ad-client=adsenseClientId
       data-ad-slot=adSlot
-      data-ad-format='auto'
-      data-full-width-responsive='true'
+      data-ad-format="auto"
+      data-full-width-responsive="true"
     )
     script.
-      (adsbygoogle = window.adsbygoogle || []).push({});
-else if locals.NODE_ENV === 'development'
-  .ad-slot(aria-label='Reklama — placeholder')
-    p(style='text-align:center;font-size:0.75rem;color:#888;padding:1rem 0') Reklama
+      ;(adsbygoogle = window.adsbygoogle || []).push({})
+else if locals.NODE_ENV === "development"
+  .ad-slot(aria-label="Reklama — placeholder")
+    p(style="text-align: center; font-size: 0.75rem; color: #888; padding: 1rem 0") #{ t('common:ad.title') }

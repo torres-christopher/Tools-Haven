@@ -1,22 +1,19 @@
 extends ../../layouts/main
 
 block content
-
   //- ── Hero ───────────────────────────────────────────────
   section.hero
     .container
       .hero__inner
         .hero__text
           h1.hero__title
-            | Bezplatné české
+            | #{ t('home.hero.titleLine1') }
             br
-            span.hero__title-accent online nástroje.
-          p.hero__subtitle
-            | Úprava textu, validace kódu, česká data
-            | zdarma, bez registrace.
+            span.hero__title-accent #{ t('home.hero.titleAccent') }
+          p.hero__subtitle #{ t('home.hero.subtitle') }
           .hero__actions
-            a.btn.btn--primary.btn--lg(href=`/${lang}/tools`) Procházet nástroje
-            a.btn.btn--ghost-inverse.btn--lg(href=`/${lang}#nastroje`) Nejoblíbenější
+            a.btn.btn--primary.btn--lg(href=`/${lang}/tools`) #{ t('home.hero.cta') }
+            a.btn.btn--ghost-inverse.btn--lg(href=`/${lang}#nastroje`) #{ t('home.hero.ctaSecondary') }
 
         //- Right — stats mosaic (move block below to the left to un-comment)
           .hero__stats-grid
@@ -35,8 +32,8 @@ block content
   section#nastroje.featured-tools
     .container
       .section-header
-        h2.section-title Nejoblíbenější nástroje
-        a.section-link(href=`/${lang}/tools`) Zobrazit vše →
+        h2.section-title #{ t('home.featured.title') }
+        a.section-link(href=`/${lang}/tools`) #{ t('home.featured.viewAll') }
       .tools-grid
         each tool in tools
           if tool.enabled[lang]
@@ -52,53 +49,41 @@ block content
               .tool-card__body
                 h3.tool-card__name= tool.resolvedTitle
                 p.tool-card__desc= tool.resolvedDescription
-              span.tool-card__tag Připravujeme
+              span.tool-card__tag #{ t('home.featured.comingSoon') }
 
   //- ── Features ─────────────────────────────────────────────
   section.features-section
     .container
       .section-header
-        h2.section-title Co tento web nabízí
+        h2.section-title #{ t('home.features.title') }
       .features-grid
         .feature-item
           .feature-item__icon 🧮
-          h3.feature-item__title Kalkulačky a převodníky
-          p.feature-item__desc
-            | Zdravotní kalkulačky, převodníky jednotek, datum a čas,
-            | číslenicové soustavy, ASCII, barvy a kódování.
+          h3.feature-item__title #{ t('home.features.calculators.title') }
+          p.feature-item__desc #{ t('home.features.calculators.desc') }
         .feature-item
           .feature-item__icon 🔒
-          h3.feature-item__title Soukromí na prvním místě
-          p.feature-item__desc
-            | Data nejsou ukládána ani sdílena. Soubory jsou zpracovány
-            | v paměti serveru a po výsledku okamžitě smazány.
+          h3.feature-item__title #{ t('home.features.privacy.title') }
+          p.feature-item__desc #{ t('home.features.privacy.desc') }
         .feature-item
           .feature-item__icon ⚡
-          h3.feature-item__title Rychlé a bez překážek
-          p.feature-item__desc
-            | Žádná registrace, žádné přihlašování. Otevřete nástroj
-            | a okamžitě pracujete. Funguje na mobilu i desktopu.
+          h3.feature-item__title #{ t('home.features.speed.title') }
+          p.feature-item__desc #{ t('home.features.speed.desc') }
 
   //- ── FAQ teaser ───────────────────────────────────────────
   section.faq-teaser
     .container
       .faq-teaser__inner
         .faq-teaser__text
-          h2.section-title Časté dotazy
-          p.faq-teaser__desc
-            | Odpovídáme na nejčastější otázky o fungování nástrojů,
-            | ochraně soukromí a dostupnosti dat.
-          a.btn.btn--primary(href=`/${lang}/faq`) Všechny dotazy →
+          h2.section-title #{ t('common:home.faqTeaser.title') }
+          p.faq-teaser__desc #{ t('common:home.faqTeaser.desc') }
+          a.btn.btn--primary(href=`/${lang}/faq`) #{ t('common:home.faqTeaser.cta') }
 
         .faq-list
           details.faq-item
-            summary.faq-question Je použití nástrojů zdarma?
-            p.faq-answer
-              | Ano, všechny nástroje jsou zcela bezplatné a nevyžadují
-              | žádnou registraci ani zadání platebního údaje.
+            summary.faq-question #{ t('common:home.faqTeaser.q1.question') }
+            p.faq-answer #{ t('common:home.faqTeaser.q1.answer') }
 
           details.faq-item
-            summary.faq-question Co se děje s daty, které nahraji?
-            p.faq-answer
-              | Data jsou zpracována v paměti serveru a po výsledku okamžitě
-              | smazána. Nic neukládáme ani nesdílíme s třetími stranami.
+            summary.faq-question #{ t('common:home.faqTeaser.q2.question') }
+            p.faq-answer #{ t('common:home.faqTeaser.q2.answer') }

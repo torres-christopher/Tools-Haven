@@ -1,82 +1,93 @@
 doctype html
-html(lang=lang || 'cs')
+html(lang=lang || "cs")
   head
-    meta(charset='UTF-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
 
     //- SEO
     title= title ? `${title} — ${siteName}` : siteName
-    meta(name='description' content=metaDescription || '')
+    meta(name="description" content=metaDescription || "")
     if canonicalPath
-      link(rel='canonical' href=`${siteUrl}${canonicalPath}`)
+      link(rel="canonical" href=`${siteUrl}${canonicalPath}`)
 
     //- Structured data
     if jsonLd
-      script(type='application/ld+json')
-        | !{JSON.stringify(jsonLd)}
+      script(type="application/ld+json")
+        | !{ JSON.stringify(jsonLd) }
 
     //- Open Graph
-    meta(property='og:type' content='website')
-    meta(property='og:title' content=ogTitle || title)
-    meta(property='og:description' content=ogDescription || metaDescription)
-    meta(property='og:url' content=`${siteUrl}${canonicalPath || ''}`)
-    meta(property='og:site_name' content=siteName)
-    meta(property='og:image' content=ogImage || `${siteUrl}/images/og-default.png`)
+    meta(property="og:type" content="website")
+    meta(property="og:title" content=ogTitle || title)
+    meta(property="og:description" content=ogDescription || metaDescription)
+    meta(property="og:url" content=`${siteUrl}${canonicalPath || ''}`)
+    meta(property="og:site_name" content=siteName)
+    meta(property="og:image" content=ogImage || `${siteUrl}/images/og-default.png`)
 
     //- Favicon
-    link(rel='icon' type='image/ico' href='/images/favicon.ico')
+    link(rel="icon" type="image/ico" href="/images/favicon.ico")
 
     //- Styles
-    link(rel='stylesheet' href='/css/main.css')
+    link(rel="stylesheet" href="/css/main.css")
 
     //- Consent Mode v2 defaults, fires before GTM loads
     script(nonce=nonce).
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('consent', 'default', {
-        analytics_storage: 'denied',
-        ad_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied',
-        wait_for_update: 500
-      });
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag("consent", "default", {
+        analytics_storage: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        wait_for_update: 500,
+      })
 
       // Restore consent for returning visitors before GTM initialises
-      if (localStorage.getItem('ws_cookie_consent') === 'accepted') {
-        gtag('consent', 'update', {
-          analytics_storage: 'granted',
-          ad_storage: 'granted',
-          ad_user_data: 'granted',
-          ad_personalization: 'granted',
-        });
+      if (localStorage.getItem("ws_cookie_consent") === "accepted") {
+        gtag("consent", "update", {
+          analytics_storage: "granted",
+          ad_storage: "granted",
+          ad_user_data: "granted",
+          ad_personalization: "granted",
+        })
       }
 
     //- Google Tag Manager --> loads immediately, consent controls what fires
     if gtmContainerId
       script(nonce=nonce).
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','!{gtmContainerId}');
+        ;(function (w, d, s, l, i) {
+          w[l] = w[l] || []
+          w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" })
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != "dataLayer" ? "&l=" + l : ""
+          j.async = true
+          j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl
+          f.parentNode.insertBefore(j, f)
+        })(window, document, "script", "dataLayer", "!{gtmContainerId}")
 
   body
     //- GTM noscript fallback — only rendered when container ID is set
     if gtmContainerId
       noscript
-        iframe(src=`https://www.googletagmanager.com/ns.html?id=${gtmContainerId}` height='0' width='0' style='display:none;visibility:hidden')
+        iframe(
+          src=`https://www.googletagmanager.com/ns.html?id=${gtmContainerId}`
+          height="0"
+          width="0"
+          style="display: none; visibility: hidden"
+        )
 
     header.site-header
-      div(class=wideLayout ? 'container-wide' : 'container')
+      div(class=wideLayout ? "container-wide" : "container")
         .site-header__inner
-          a.site-logo(href='/')
+          a.site-logo(href="/")
             span.site-logo__mark TH
             span.site-logo__name= siteName
           include ../partials/nav
           .site-header__cta
-            //- TODO: replace with t() once locales/cs/common.json is populated
-            a.btn.btn--ghost-inverse.btn--sm(href=`/${lang}/vsechny-nastroje`) Všechny nástroje
-          button.nav-toggle(aria-label='Otevřít menu' aria-expanded='false')
+            a.btn.btn--ghost-inverse.btn--sm(href=`/${lang}/tools`) #{ t('common:layout.cta') }
+          button.nav-toggle(aria-label=t("common:layout.navToggle") aria-expanded="false")
             span
             span
             span
@@ -85,48 +96,48 @@ html(lang=lang || 'cs')
       block content
 
     footer.site-footer
-      div(class=wideLayout ? 'container-wide' : 'container')
+      div(class=wideLayout ? "container-wide" : "container")
         .site-footer__grid
           .site-footer__brand
-            a.site-logo.site-logo--footer(href='/')
+            a.site-logo.site-logo--footer(href="/")
               span.site-logo__mark TH
               span.site-logo__name= siteName
-            //- TODO: replace with t() once locales/cs/common.json is populated
-            p.site-footer__tagline Bezplatné české online nástroje
+            p.site-footer__tagline #{ t('common:footer.tagline') }
           .site-footer__links
-            //- TODO: replace with t() once locales/cs/common.json is populated
-            h4.site-footer__heading Kategorie
+            h4.site-footer__heading #{ t('common:footer.categories') }
             ul
-              //- TODO: replace hardcoded strings with t() once locales/cs/common.json is populated
-              li: a(href=`/${lang}/text`) Textové nástroje
-              li: a(href=`/${lang}/developer`) Pro vývojáře
-              li: a(href=`/${lang}/data`) Česká data
-              li: a(href=`/${lang}/health`) Zdraví & fitness
+              li: a(href=`/${lang}/text`) #{ t('common:footer.text') }
+              li: a(href=`/${lang}/developer`) #{ t('common:footer.developer') }
+              li: a(href=`/${lang}/data`) #{ t('common:footer.data') }
+              li: a(href=`/${lang}/health`) #{ t('common.footer.health') }
           .site-footer__links
-            //- TODO: replace with t() once locales/cs/common.json is populated
-            h4.site-footer__heading Informace
+            h4.site-footer__heading #{ t('common.footer.info') }
             ul
-              li: a(href=`/${lang}/faq`) Časté dotazy
-              li: a(href=`/${lang}/privacy`) Ochrana soukromí
-              li: a(href=`/${lang}/terms`) Podmínky použití
-              li: a(href=`/${lang}/contact`) Kontakt
+              li: a(href=`/${lang}/faq`) #{ t('common.footer.faq') }
+              li: a(href=`/${lang}/privacy`) #{ t('common.footer.privacy') }
+              li: a(href=`/${lang}/terms`) #{ t('common.footer.terms') }
+              li: a(href=`/${lang}/contact`) #{ t('common.footer.contact') }
         .site-footer__bottom
-          p &copy; #{currentYear} #{siteName}. Všechna práva vyhrazena.
+          p &copy; #{ currentYear } #{ siteName }. #{ t('common.footer.rights') }
 
     //- AdSense
     if adsenseClientId
-      script(async src=`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClientId}` crossorigin='anonymous')
+      script(
+        async
+        src=`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClientId}`
+        crossorigin="anonymous"
+      )
 
     //- Cookie banner
-    div.cookie-banner(id='cookieBanner' role='dialog' aria-label='Souhlas s cookies')
+    #cookieBanner.cookie-banner(role="dialog" aria-label=t("common:layout.cookieBanner.ariaLabel"))
       .cookie-banner__inner
         p.cookie-banner__text
-          | #{t('cookie.text')}&nbsp;
-          a(href=`/${lang}/ochrana-osobnich-udaju`) #{t('cookie.privacy')}
+          | #{ t('common:cookie.text') }&nbsp;
+          a(href=`/${lang}/privacy`) #{ t('common:cookie.privacy') }
           | .
         .cookie-banner__actions
-          button.btn.btn--primary.btn--sm(id='cookieAccept') #{t('cookie.accept')}
-          button.btn.btn--ghost-inverse.btn--sm(id='cookieDecline') #{t('cookie.decline')}
+          button#cookieAccept.btn.btn--primary.btn--sm #{ t('common:cookie.accept') }
+          button#cookieDecline.btn.btn--ghost-inverse.btn--sm #{ t('common:cookie.decline') }
 
-    script(src='/js/main.js')
+    script(src="/js/main.js")
     block scripts

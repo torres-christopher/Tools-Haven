@@ -12,7 +12,7 @@ i18next
       supportedLngs: ['cs', 'sk'], // Only these language codes are accepted
       load: 'languageOnly', // Skip regional variants
       ns: ['common', 'tools'], // Translation file names
-      defaultNS: 'common', // The namespace used when no namespace is specified in a t() call
+      defaultNS: 'tools', // The namespace used when no namespace is specified in a t() call
       debug: false, // Only true during development
       interpolation: {
         escapeValue: false, // Pug already escapes HTML

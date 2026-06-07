@@ -1,38 +1,65 @@
 nav.site-nav
   ul.site-nav__list
     li.site-nav__item
-      a.site-nav__link(href=`/${lang}/tools`) #{t('nav.allTools')}
+      a.site-nav__link(href=`/${lang}/tools`) #{ t('common:nav.allTools') }
     li.site-nav__item.site-nav__item--dropdown
-      button.site-nav__link.site-nav__dropdown-toggle(aria-expanded='false') #{t('nav.text')}
-        svg(width='12' height='12' viewBox='0 0 12 12' fill='none' aria-hidden='true')
-          path(d='M2 4l4 4 4-4' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round')
+      button.site-nav__link.site-nav__dropdown-toggle(aria-expanded="false") #{ t('common:nav.text') }
+        svg(width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true")
+          path(
+            d="M2 4l4 4 4-4"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          )
       ul.site-nav__dropdown
         //- TODO: tool slugs in nav should be driven by tools registry once nav is data-driven
-        if lang === 'sk'
+        if lang === "sk"
           li: a(href=`/${lang}/text/pocet-znakov`) Počet znakov
           li: a(href=`/${lang}/text/prevod-velkosti-znakov`) Veľkosť písmen
         else
           li: a(href=`/${lang}/text/pocet-znaku`) Počet znaků
           li: a(href=`/${lang}/text/prevod-velikosti-znaku`) Velikost písmen
     li.site-nav__item.site-nav__item--dropdown
-      button.site-nav__link.site-nav__dropdown-toggle(aria-expanded='false') #{t('nav.developer')}
-        svg(width='12' height='12' viewBox='0 0 12 12' fill='none' aria-hidden='true')
-          path(d='M2 4l4 4 4-4' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round')
+      button.site-nav__link.site-nav__dropdown-toggle(aria-expanded="false") #{ t('common:nav.developer') }
+        svg(width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true")
+          path(
+            d="M2 4l4 4 4-4"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          )
       ul.site-nav__dropdown
         li: a(href=`/${lang}/developer/json-validator`) JSON validator
     li.site-nav__item.site-nav__item--dropdown
-      button.site-nav__link.site-nav__dropdown-toggle(aria-expanded='false') #{t('nav.data')}
-        svg(width='12' height='12' viewBox='0 0 12 12' fill='none' aria-hidden='true')
-          path(d='M2 4l4 4 4-4' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round')
+      button.site-nav__link.site-nav__dropdown-toggle(aria-expanded="false") #{ t('common:nav.data') }
+        svg(width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true")
+          path(
+            d="M2 4l4 4 4-4"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          )
       ul.site-nav__dropdown
         //- TODO: tool slugs in nav should be driven by tools registry once nav is data-driven
-        if lang === 'sk'
+        if lang === "sk"
           li: a(href=`/${lang}/data/inflacna-kalkulacka`) Inflačná kalkulačka
         else
           li: a(href=`/${lang}/data/inflacni-kalkulacka`) Inflační kalkulačka
     li.site-nav__item.site-nav__item--dropdown
-      button.site-nav__link.site-nav__dropdown-toggle(aria-expanded='false') #{t('nav.health')}
-        svg(width='12' height='12' viewBox='0 0 12 12' fill='none' aria-hidden='true')
-          path(d='M2 4l4 4 4-4' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round')
+      button.site-nav__link.site-nav__dropdown-toggle(aria-expanded="false") #{ t('common:nav.health') }
+        svg(width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true")
+          path(
+            d="M2 4l4 4 4-4"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          )
       ul.site-nav__dropdown
-        li: a(href=`/${lang}/health/bmi-kalkulacka`) BMI kalkulačka
+        if lang === "sk"
+          li: a(href=`/${lang}/health/bmi-kalkulacka`) BMI kalkulačka
+        else
+          li: a(href=`/${lang}/health/bmi-kalkulacka`) BMI kalkulačka
