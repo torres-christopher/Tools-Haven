@@ -7,13 +7,13 @@ block content
       .hero__inner
         .hero__text
           h1.hero__title
-            | #{ t('home.hero.titleLine1') }
+            | #{ t('common:home.hero.titleLine1') }
             br
-            span.hero__title-accent #{ t('home.hero.titleAccent') }
-          p.hero__subtitle #{ t('home.hero.subtitle') }
+            span.hero__title-accent #{ t('common:home.hero.titleAccent') }
+          p.hero__subtitle #{ t('common:home.hero.subtitle') }
           .hero__actions
-            a.btn.btn--primary.btn--lg(href=`/${lang}/tools`) #{ t('home.hero.cta') }
-            a.btn.btn--ghost-inverse.btn--lg(href=`/${lang}#nastroje`) #{ t('home.hero.ctaSecondary') }
+            a.btn.btn--primary.btn--lg(href=`/${lang}/tools`) #{ t('common:home.hero.cta') }
+            a.btn.btn--ghost-inverse.btn--lg(href=`/${lang}#nastroje`) #{ t('common:home.hero.ctaSecondary') }
 
         //- Right — stats mosaic (move block below to the left to un-comment)
           .hero__stats-grid
@@ -32,8 +32,8 @@ block content
   section#nastroje.featured-tools
     .container
       .section-header
-        h2.section-title #{ t('home.featured.title') }
-        a.section-link(href=`/${lang}/tools`) #{ t('home.featured.viewAll') }
+        h2.section-title #{ t('common:home.featured.title') }
+        a.section-link(href=`/${lang}/tools`) #{ t('common:home.featured.viewAll') }
       .tools-grid
         each tool in tools
           if tool.enabled[lang]
@@ -49,26 +49,26 @@ block content
               .tool-card__body
                 h3.tool-card__name= tool.resolvedTitle
                 p.tool-card__desc= tool.resolvedDescription
-              span.tool-card__tag #{ t('home.featured.comingSoon') }
+              span.tool-card__tag #{ t('common:home.featured.comingSoon') }
 
   //- ── Features ─────────────────────────────────────────────
   section.features-section
     .container
       .section-header
-        h2.section-title #{ t('home.features.title') }
+        h2.section-title #{ t('common:home.features.title') }
       .features-grid
         .feature-item
           .feature-item__icon 🧮
-          h3.feature-item__title #{ t('home.features.calculators.title') }
-          p.feature-item__desc #{ t('home.features.calculators.desc') }
+          h3.feature-item__title #{ t('common:home.features.calculators.title') }
+          p.feature-item__desc #{ t('common:home.features.calculators.desc') }
         .feature-item
           .feature-item__icon 🔒
-          h3.feature-item__title #{ t('home.features.privacy.title') }
-          p.feature-item__desc #{ t('home.features.privacy.desc') }
+          h3.feature-item__title #{ t('common:home.features.privacy.title') }
+          p.feature-item__desc #{ t('common:home.features.privacy.desc') }
         .feature-item
           .feature-item__icon ⚡
-          h3.feature-item__title #{ t('home.features.speed.title') }
-          p.feature-item__desc #{ t('home.features.speed.desc') }
+          h3.feature-item__title #{ t('common:home.features.speed.title') }
+          p.feature-item__desc #{ t('common:home.features.speed.desc') }
 
   //- ── FAQ teaser ───────────────────────────────────────────
   section.faq-teaser

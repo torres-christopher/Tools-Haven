@@ -109,16 +109,16 @@ html(lang=lang || "cs")
               li: a(href=`/${lang}/text`) #{ t('common:footer.text') }
               li: a(href=`/${lang}/developer`) #{ t('common:footer.developer') }
               li: a(href=`/${lang}/data`) #{ t('common:footer.data') }
-              li: a(href=`/${lang}/health`) #{ t('common.footer.health') }
+              li: a(href=`/${lang}/health`) #{ t('common:footer.health') }
           .site-footer__links
-            h4.site-footer__heading #{ t('common.footer.info') }
+            h4.site-footer__heading #{ t('common:footer.info') }
             ul
-              li: a(href=`/${lang}/faq`) #{ t('common.footer.faq') }
-              li: a(href=`/${lang}/privacy`) #{ t('common.footer.privacy') }
-              li: a(href=`/${lang}/terms`) #{ t('common.footer.terms') }
-              li: a(href=`/${lang}/contact`) #{ t('common.footer.contact') }
+              li: a(href=`/${lang}/faq`) #{ t('common:footer.faq') }
+              li: a(href=`/${lang}/privacy`) #{ t('common:footer.privacy') }
+              li: a(href=`/${lang}/terms`) #{ t('common:footer.terms') }
+              li: a(href=`/${lang}/contact`) #{ t('common:footer.contact') }
         .site-footer__bottom
-          p &copy; #{ currentYear } #{ siteName }. #{ t('common.footer.rights') }
+          p &copy; #{ currentYear } #{ siteName }. #{ t('common:footer.rights') }
 
     //- AdSense
     if adsenseClientId
