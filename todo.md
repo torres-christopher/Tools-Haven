@@ -1,5 +1,9 @@
 # General
 
+- Fix sitemap
+
+# Time
+
 - Add stop watch and time count
 
 # Prevod znaku
