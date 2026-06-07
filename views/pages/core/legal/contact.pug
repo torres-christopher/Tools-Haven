@@ -36,14 +36,14 @@ block content
           section.legal-section
             h2 Další dokumenty
             ul
-              li: a(href='/ochrana-osobnich-udaju') Ochrana osobních údajů
-              li: a(href='/podminky-pouziti') Podmínky použití
+              li: a(href=`/${lang}/privacy`) Ochrana osobních údajů
+              li: a(href=`/${lang}/terms`) Podmínky použití
 
         .contact-form-wrap
           h2 Napište nám
 
           form.contact-form(method='POST' action='https://formspree.io/f/xwvznbel')
-            input(type='hidden' name='_next' value='https://tools-haven.com/kontakt?success=true')
+            input(type='hidden' name='_next' value=`${siteUrl}/${lang}/contact?success=true`)
 
             .form-group
               label.form-label(for='name') Jméno

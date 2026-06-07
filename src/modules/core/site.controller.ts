@@ -1,6 +1,9 @@
 import { catchAsync } from '../../shared/utils/catchAsync.js'
 import { buildSeoMeta } from '../../shared/utils/seoMeta.js'
+import { buildToolPath } from '../../shared/utils/buildToolPath.js'
 import { tools } from '../../shared/data/tools.js'
+import { supportedLocales } from '../../shared/types/supportedLocale.js'
+import type { SupportedLocale } from '../../shared/types/supportedLocale.js'
 import { env } from '../../config/env.js'
 
 // Generate robots
@@ -17,19 +20,26 @@ Sitemap: ${env.SITE_URL}/sitemap.xml`
 
 // Generate sitemap
 export const getSitemap = catchAsync(async (_req, res) => {
-  const staticPaths = [
-    '/',
-    '/vsechny-nastroje',
-    '/faq',
-    '/kontakt',
-    '/ochrana-osobnich-udaju',
-    '/podminky-pouziti',
-  ]
+  const staticPaths = ['/']
 
-  // Get tool paths
-  const toolPaths = tools.filter((t) => t.enabled).map((t) => t.path)
+  const langPaths = supportedLocales.flatMap((lang) => [
+    `/${lang}`,
+    `/${lang}/tools`,
+    `/${lang}/faq`,
+    // TODO: legal page slugs should be localised per language once SK legal pages are built
+    `/${lang}/contact`,
+    `/${lang}/privacy`,
+    `/${lang}/terms`,
+  ])
 
-  const allPaths = [...staticPaths, ...toolPaths]
+  // Generate one path per tool per enabled language
+  const toolPaths = tools.flatMap((tool) =>
+    supportedLocales
+      .filter((lang: SupportedLocale) => tool.enabled[lang])
+      .map((lang: SupportedLocale) => buildToolPath(lang, tool.categoryPath, tool.slug)),
+  )
+
+  const allPaths = [...staticPaths, ...langPaths, ...toolPaths]
 
   const urls = allPaths
     .map(
@@ -51,22 +61,34 @@ export const getSitemap = catchAsync(async (_req, res) => {
   res.send(xml)
 })
 
-// Všechny nástroje page
-export const getAllTools = catchAsync(async (_req, res) => {
-  const enabledTools = tools.filter((t) => t.enabled)
-  const groupedTools = enabledTools.reduce<Record<string, typeof tools>>((acc, tool) => {
-    if (!acc[tool.categoryName]) acc[tool.categoryName] = []
-    acc[tool.categoryName].push(tool)
+// Všechny nástroje page — lang comes from route param once routing is wired up
+export const getAllTools = catchAsync(async (req, res) => {
+  const lang = req.params.lang as SupportedLocale
+
+  const enabledTools = tools
+    .filter((t) => t.enabled[lang])
+    .map((t) => ({
+      ...t,
+      resolvedTitle: t.title[lang],
+      resolvedDescription: t.description[lang],
+      resolvedPath: buildToolPath(lang, t.categoryPath, t.slug),
+    }))
+
+  const groupedTools = enabledTools.reduce<Record<string, typeof enabledTools>>((acc, tool) => {
+    const category = tool.categoryName[lang]
+    if (!acc[category]) acc[category] = []
+    acc[category].push(tool)
     return acc
   }, {})
 
   res.render('pages/core/vsechny-nastroje', {
     ...buildSeoMeta({
-      title: 'Všechny nástroje',
-      description:
-        'Přehled všech bezplatných online nástrojů - počítadlo znaků, převod velikosti písmen, JSON validátor, BMI kalkulačka a inflační kalkulačka. Zdarma, bez registrace.',
-      path: '/vsechny-nastroje',
+      title: req.t('allTools.title'),
+      description: req.t('allTools.description'),
+      path: `/${lang}/tools`,
+      lang,
     }),
     tools: groupedTools,
+    lang,
   })
 })

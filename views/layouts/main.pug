@@ -1,5 +1,5 @@
 doctype html
-html(lang='cs')
+html(lang=lang || 'cs')
   head
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
@@ -60,7 +60,7 @@ html(lang='cs')
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','!{gtmContainerId}');
 
-  body  
+  body
     //- GTM noscript fallback — only rendered when container ID is set
     if gtmContainerId
       noscript
@@ -74,7 +74,8 @@ html(lang='cs')
             span.site-logo__name= siteName
           include ../partials/nav
           .site-header__cta
-            a.btn.btn--ghost-inverse.btn--sm(href='/vsechny-nastroje') Všechny nástroje
+            //- TODO: replace with t() once locales/cs/common.json is populated
+            a.btn.btn--ghost-inverse.btn--sm(href=`/${lang}/vsechny-nastroje`) Všechny nástroje
           button.nav-toggle(aria-label='Otevřít menu' aria-expanded='false')
             span
             span
@@ -90,21 +91,25 @@ html(lang='cs')
             a.site-logo.site-logo--footer(href='/')
               span.site-logo__mark TH
               span.site-logo__name= siteName
+            //- TODO: replace with t() once locales/cs/common.json is populated
             p.site-footer__tagline Bezplatné české online nástroje
           .site-footer__links
+            //- TODO: replace with t() once locales/cs/common.json is populated
             h4.site-footer__heading Kategorie
             ul
-              li: a(href='/textove-nastroje') Textové nástroje
-              li: a(href='/vyvojarske-nastroje') Pro vývojáře
-              li: a(href='/ceske-nastroje') Česká data
-              li: a(href='/zdravotni-nastroje') Zdraví & fitness
+              //- TODO: replace hardcoded strings with t() once locales/cs/common.json is populated
+              li: a(href=`/${lang}/text`) Textové nástroje
+              li: a(href=`/${lang}/developer`) Pro vývojáře
+              li: a(href=`/${lang}/data`) Česká data
+              li: a(href=`/${lang}/health`) Zdraví & fitness
           .site-footer__links
+            //- TODO: replace with t() once locales/cs/common.json is populated
             h4.site-footer__heading Informace
             ul
-              li: a(href='/faq') Časté dotazy
-              li: a(href='/ochrana-osobnich-udaju') Ochrana soukromí
-              li: a(href='/podminky-pouziti') Podmínky použití
-              li: a(href='/kontakt') Kontakt
+              li: a(href=`/${lang}/faq`) Časté dotazy
+              li: a(href=`/${lang}/privacy`) Ochrana soukromí
+              li: a(href=`/${lang}/terms`) Podmínky použití
+              li: a(href=`/${lang}/contact`) Kontakt
         .site-footer__bottom
           p &copy; #{currentYear} #{siteName}. Všechna práva vyhrazena.
 
@@ -116,12 +121,12 @@ html(lang='cs')
     div.cookie-banner(id='cookieBanner' role='dialog' aria-label='Souhlas s cookies')
       .cookie-banner__inner
         p.cookie-banner__text
-          | Používáme analytické cookies (Google Analytics) pro zlepšení webu.
-          | Více informací v&nbsp;
-          a(href='/ochrana-osobnich-udaju') zásadách ochrany soukromí
+          | #{t('cookie.text')}&nbsp;
+          a(href=`/${lang}/ochrana-osobnich-udaju`) #{t('cookie.privacy')}
           | .
         .cookie-banner__actions
-          button.btn.btn--primary.btn--sm(id='cookieAccept') Přijmout
-          button.btn.btn--ghost-inverse.btn--sm(id='cookieDecline') Odmítnout
+          button.btn.btn--primary.btn--sm(id='cookieAccept') #{t('cookie.accept')}
+          button.btn.btn--ghost-inverse.btn--sm(id='cookieDecline') #{t('cookie.decline')}
+
     script(src='/js/main.js')
     block scripts

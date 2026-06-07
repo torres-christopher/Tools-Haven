@@ -1,7 +1,7 @@
-import express from 'express'
+import { Router } from 'express'
 import { getHealth } from './health.controller.js'
 
-const router = express.Router()
+const router = Router({ mergeParams: true })
 
 router.get('/health', getHealth)
 

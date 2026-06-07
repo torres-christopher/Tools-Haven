@@ -3,22 +3,23 @@ extends ../../layouts/main
 block content
 
   include ../../partials/tool-header
-
+  
   .tool-layout
     .container
 
       each toolList, categoryName in tools
+      
         if toolList.length
           section.all-tools__category
 
             .section-header
               h2.section-title= categoryName
-              a.section-link(href=toolList[0].categoryPath) Zobrazit kategorii →
-
+              a.section-link(href=`/${lang}${toolList[0].categoryPath}`) #{t('allTools.showCategory')}
+              
             .tools-grid
               each tool in toolList
-                a.tool-card(href=tool.path)
-                    .tool-card__icon= tool.icon
-                    .tool-card__body
-                        h3.tool-card__name= tool.title
-                        p.tool-card__desc= tool.description
+                a.tool-card(href=tool.resolvedPath)
+                  .tool-card__icon= tool.icon
+                  .tool-card__body
+                    h3.tool-card__name= tool.resolvedTitle
+                    p.tool-card__desc= tool.resolvedDescription

@@ -1,6 +1,7 @@
 extends ../../layouts/main
 
 block content
+
   //- ── Hero ───────────────────────────────────────────────
   section.hero
     .container
@@ -14,8 +15,8 @@ block content
             | Úprava textu, validace kódu, česká data
             | zdarma, bez registrace.
           .hero__actions
-            a.btn.btn--primary.btn--lg(href="/vsechny-nastroje") Procházet nástroje
-            a.btn.btn--ghost-inverse.btn--lg(href="/#nastroje") Nejoblíbenější
+            a.btn.btn--primary.btn--lg(href=`/${lang}/tools`) Procházet nástroje
+            a.btn.btn--ghost-inverse.btn--lg(href=`/${lang}#nastroje`) Nejoblíbenější
 
         //- Right — stats mosaic (move block below to the left to un-comment)
           .hero__stats-grid
@@ -35,22 +36,22 @@ block content
     .container
       .section-header
         h2.section-title Nejoblíbenější nástroje
-        a.section-link(href="/vsechny-nastroje") Zobrazit vše →
+        a.section-link(href=`/${lang}/tools`) Zobrazit vše →
       .tools-grid
         each tool in tools
-          if tool.enabled
-            a.tool-card(href=tool.path)
+          if tool.enabled[lang]
+            a.tool-card(href=tool.resolvedPath)
               .tool-card__icon= tool.icon
               .tool-card__body
-                h3.tool-card__name= tool.title
-                p.tool-card__desc= tool.description
-              span.tool-card__tag= tool.categoryName
+                h3.tool-card__name= tool.resolvedTitle
+                p.tool-card__desc= tool.resolvedDescription
+              span.tool-card__tag= tool.resolvedCategoryName
           else
             .tool-card.tool-card--disabled
               .tool-card__icon= tool.icon
               .tool-card__body
-                h3.tool-card__name= tool.title
-                p.tool-card__desc= tool.description
+                h3.tool-card__name= tool.resolvedTitle
+                p.tool-card__desc= tool.resolvedDescription
               span.tool-card__tag Připravujeme
 
   //- ── Features ─────────────────────────────────────────────
@@ -87,7 +88,7 @@ block content
           p.faq-teaser__desc
             | Odpovídáme na nejčastější otázky o fungování nástrojů,
             | ochraně soukromí a dostupnosti dat.
-          a.btn.btn--primary(href="/faq") Všechny dotazy →
+          a.btn.btn--primary(href=`/${lang}/faq`) Všechny dotazy →
 
         .faq-list
           details.faq-item

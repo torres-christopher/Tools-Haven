@@ -3,11 +3,11 @@ import { describe, it, expect } from 'vitest'
 import { app } from '../../../../app.js'
 
 // Path
-const path = '/vyvojarske-nastroje/json-validator'
+const path = '/cs/developer/json-validator'
 
 // All POST requests use .type('form') to simulate HTML form submission.
 // Invalid JSON returns 200 with validJson: false — only schema failures return 400.
-describe('/vyvojarske-nastroje/json-validator', () => {
+describe(path, () => {
   it('GET returns 200', async () => {
     await request(app).get(path).expect(200)
   })

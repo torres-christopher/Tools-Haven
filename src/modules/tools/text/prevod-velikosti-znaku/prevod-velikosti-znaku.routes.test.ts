@@ -3,9 +3,9 @@ import { describe, it, expect } from 'vitest'
 import { app } from '../../../../app.js'
 
 // Path
-const path = '/textove-nastroje/prevod-velikosti-znaku'
+const path = '/cs/text/prevod-velikosti-znaku'
 
-describe('/textove-nastroje/prevod-velikosti-znaku', () => {
+describe(path, () => {
   // GET request
   it('GET returns 200', async () => {
     await request(app).get(path).expect(200)

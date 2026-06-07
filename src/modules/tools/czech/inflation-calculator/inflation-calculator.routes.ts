@@ -4,7 +4,7 @@ import {
   postInflationCalculator,
 } from './inflation-calculator.controller.js'
 
-const router = Router()
+const router = Router({ mergeParams: true })
 
 router.get('/', getInflationCalculator)
 router.post('/', postInflationCalculator)

@@ -2,9 +2,9 @@ import request from 'supertest'
 import { describe, it, expect } from 'vitest'
 import { app } from '../../../../app.js'
 
-const path = '/zdravotni-nastroje/bmi-kalkulacka'
+const path = '/cs/health/bmi-kalkulacka'
 
-describe('/zdravotni-nastroje/bmi-kalkulacka', () => {
+describe(path, () => {
   // GET request
   it('GET returns 200', async () => {
     await request(app).get(path).expect(200)

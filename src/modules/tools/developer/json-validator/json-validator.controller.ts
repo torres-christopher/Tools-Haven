@@ -1,9 +1,11 @@
 import { catchAsync } from '../../../../shared/utils/catchAsync.js'
 import { buildSeoMeta } from '../../../../shared/utils/seoMeta.js'
-import { tools } from '../../../../shared/data/tools.js'
+import { buildToolSeoInput } from '../../../../shared/utils/buildToolSeoInput.js'
+import { findToolBySlug } from '../../../../shared/utils/findToolBySlug.js'
 import { jsonValidatorInput } from './json-validator.schema.js'
 import { jsonValidateFormat } from './json-validator.service.js'
 import { jsonValidatorFaq as faq } from './json-validator.faq.js'
+import type { SupportedLocale } from '../../../../shared/types/supportedLocale.js'
 
 // Values for space so it includes "tab" as well
 type SpaceValues = {
@@ -27,20 +29,26 @@ for (let i = 1; i <= 10; i++) {
   })
 }
 
-// Get tool details
-const tool = tools.find((t) => t.slug === 'json-validator')
-if (!tool) throw new Error('Tool not found: json-validator')
+export const getJsonValidator = catchAsync(async (req, res) => {
+  const lang = req.params.lang as SupportedLocale
+  const tool = findToolBySlug('pocet-znaku')
+  if (!tool) throw new Error(`Tool not found: pocet-znaku`)
+  if (!tool.enabled[lang]) throw new Error(`Tool not available in ${lang}`)
 
-export const getJsonValidator = catchAsync(async (_req, res) => {
   res.render('pages/tools/developer/json-validator', {
-    ...buildSeoMeta(tool),
-    wideLayout: true,
+    ...buildSeoMeta(buildToolSeoInput(tool, lang)),
     faq,
+    wideLayout: true,
     spaceValues,
   })
 })
 
 export const postJsonValidator = catchAsync(async (req, res) => {
+  const lang = req.params.lang as SupportedLocale
+  const tool = findToolBySlug('pocet-znaku')
+  if (!tool) throw new Error(`Tool not found: pocet-znaku`)
+  if (!tool.enabled[lang]) throw new Error(`Tool not available in ${lang}`)
+
   let result = null
   let errorMessage: string | null = null
   let status: number = 200
@@ -60,7 +68,7 @@ export const postJsonValidator = catchAsync(async (req, res) => {
   }
 
   res.status(status).render('pages/tools/developer/json-validator', {
-    ...buildSeoMeta(tool),
+    ...buildSeoMeta(buildToolSeoInput(tool, lang)),
     wideLayout: true,
     faq,
     spaceValues,

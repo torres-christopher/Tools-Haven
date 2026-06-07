@@ -14,17 +14,18 @@ block content
       .tools-grid
 
         each tool in tools
-          if tool.enabled
-            a.tool-card(href=tool.path)
+        
+          if tool.enabled[lang]
+            a.tool-card(href=tool.resolvedPath)
               .tool-card__icon= tool.icon
               .tool-card__body
-                h3.tool-card__name= tool.title
-                p.tool-card__desc= tool.description
-              span.tool-card__tag= tool.categoryName
+                h3.tool-card__name= tool.resolvedTitle
+                p.tool-card__desc= tool.resolvedDescription
+              span.tool-card__tag= tool.categoryName[lang]
           else
             .tool-card.tool-card--disabled
               .tool-card__icon= tool.icon
               .tool-card__body
-                h3.tool-card__name= tool.title
-                p.tool-card__desc= tool.description
+                h3.tool-card__name= tool.resolvedTitle
+                p.tool-card__desc= tool.resolvedDescription
               span.tool-card__tag Připravujeme

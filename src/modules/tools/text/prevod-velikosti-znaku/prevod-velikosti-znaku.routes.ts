@@ -4,7 +4,7 @@ import {
   postPrevodVelikostiZnaku,
 } from './prevod-velikosti-znaku.controller.js'
 
-const router = Router()
+const router = Router({ mergeParams: true })
 
 router.get('/', getPrevodVelikostiZnaku)
 router.post('/', postPrevodVelikostiZnaku)

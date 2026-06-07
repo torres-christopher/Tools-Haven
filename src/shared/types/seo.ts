@@ -1,3 +1,5 @@
+import type { SupportedLocale } from './supportedLocale.js'
+
 export interface SeoInput {
   title: string
   description: string
@@ -6,6 +8,7 @@ export interface SeoInput {
   categoryPath?: string
   toolName?: string
   toolPath?: string
+  lang?: SupportedLocale
 }
 
 export interface SeoMeta {
