@@ -7,8 +7,8 @@ export const getContact = catchAsync(async (req, res) => {
 
   res.render('pages/core/legal/contact', {
     ...buildSeoMeta({
-      title: req.t('contact.title'),
-      description: req.t('contact.description'),
+      title: req.t('common:contact.title'),
+      description: req.t('common:contact.description'),
       path: `/${lang}/contact`,
       lang,
     }),
@@ -21,8 +21,8 @@ export const getPrivacy = catchAsync(async (req, res) => {
 
   res.render('pages/core/legal/privacy', {
     ...buildSeoMeta({
-      title: req.t('privacy.title'),
-      description: req.t('privacy.description'),
+      title: req.t('common:privacy.title'),
+      description: req.t('common:privacy.description'),
       path: `/${lang}/privacy`,
       lang,
     }),
@@ -35,8 +35,8 @@ export const getTerms = catchAsync(async (req, res) => {
 
   res.render('pages/core/legal/terms', {
     ...buildSeoMeta({
-      title: req.t('terms.title'),
-      description: req.t('terms.description'),
+      title: req.t('common:terms.title'),
+      description: req.t('common:terms.description'),
       path: `/${lang}/terms`,
       lang,
     }),

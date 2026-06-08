@@ -10,15 +10,22 @@ const router = Router({ mergeParams: true })
 
 router.use('/', mainRouter, healthRouter)
 
+// Static routes must come before /:lang to avoid being matched as a lang param
+router.get('/sitemap.xml', getSitemap)
+router.get('/robots.txt', getRobots)
+
+// Set i18next language from URL param for all /:lang routes
+router.param('lang', (req, _res, next, lang) => {
+  req.i18n.changeLanguage(lang)
+  next()
+})
+
 // Lang-prefixed core pages
-// TODO: slugs will need localised variants per language once SK is built
 router.get('/:lang', getMain)
 router.get('/:lang/tools', getAllTools)
 router.get('/:lang/faq', getFAQ)
 router.get('/:lang/contact', getContact)
 router.get('/:lang/privacy', getPrivacy)
 router.get('/:lang/terms', getTerms)
-router.get('/sitemap.xml', getSitemap)
-router.get('/robots.txt', getRobots)
 
 export default router

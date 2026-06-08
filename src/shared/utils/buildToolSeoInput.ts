@@ -12,5 +12,5 @@ export const buildToolSeoInput = (tool: ToolsDetails, lang: SupportedLocale): Se
   path: buildToolPath(lang, tool.categoryPath, tool.slug),
   lang,
   categoryName: tool.categoryName[lang],
-  categoryPath: tool.categoryPath,
+  categoryPath: `/${lang}${tool.categoryPath}`,
 })

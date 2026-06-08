@@ -21,8 +21,8 @@ export const getMain = catchAsync(async (req, res) => {
 
   res.render('pages/core/home', {
     ...buildSeoMeta({
-      title: req.t('home.title'),
-      description: req.t('home.description'),
+      title: req.t('common:home.title'),
+      description: req.t('common:home.description'),
       path: `/${lang}/faq`,
       lang,
     }),
@@ -36,8 +36,8 @@ export const getFAQ = catchAsync(async (req, res) => {
 
   res.render('pages/core/info/faq', {
     ...buildSeoMeta({
-      title: req.t('faq.title'),
-      description: req.t('faq.description'),
+      title: req.t('common:faq.title'),
+      description: req.t('common:faq.description'),
       path: `/${lang}/faq`,
       lang,
     }),

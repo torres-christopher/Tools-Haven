@@ -9,7 +9,7 @@ import czechRouter from './czech/czech.routes.js'
 const router = Router({ mergeParams: true })
 
 // Validate lang parameter, return 404 if not a supported locale
-router.param('lang', (_req, res, next, lang) => {
+router.param('lang', (req, res, next, lang) => {
   if (!supportedLocales.includes(lang)) {
     res.status(404).render('pages/core/404', {
       title: '404 — Stránka nenalezena',
@@ -17,6 +17,8 @@ router.param('lang', (_req, res, next, lang) => {
     })
     return
   }
+  // Tell i18next which language to use for this request
+  req.i18n.changeLanguage(lang)
   next()
 })
 

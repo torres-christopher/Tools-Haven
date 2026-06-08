@@ -26,7 +26,6 @@ export const getSitemap = catchAsync(async (_req, res) => {
     `/${lang}`,
     `/${lang}/tools`,
     `/${lang}/faq`,
-    // TODO: legal page slugs should be localised per language once SK legal pages are built
     `/${lang}/contact`,
     `/${lang}/privacy`,
     `/${lang}/terms`,
@@ -83,8 +82,8 @@ export const getAllTools = catchAsync(async (req, res) => {
 
   res.render('pages/core/vsechny-nastroje', {
     ...buildSeoMeta({
-      title: req.t('allTools.title'),
-      description: req.t('allTools.description'),
+      title: req.t('common:allTools.title'),
+      description: req.t('common:allTools.description'),
       path: `/${lang}/tools`,
       lang,
     }),
