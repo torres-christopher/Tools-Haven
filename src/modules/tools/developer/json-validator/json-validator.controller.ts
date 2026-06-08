@@ -31,8 +31,8 @@ for (let i = 1; i <= 10; i++) {
 
 export const getJsonValidator = catchAsync(async (req, res) => {
   const lang = req.params.lang as SupportedLocale
-  const tool = findToolById('prevod-velikosti-znaku')
-  if (!tool) throw new Error(`Tool not found: prevod-velikosti-znaku`)
+  const tool = findToolById('json-validator')
+  if (!tool) throw new Error(`Tool not found: json-validator`)
   if (!tool.enabled[lang]) throw new Error(`Tool not available in ${lang}`)
 
   res.render('pages/tools/developer/json-validator', {
@@ -45,8 +45,8 @@ export const getJsonValidator = catchAsync(async (req, res) => {
 
 export const postJsonValidator = catchAsync(async (req, res) => {
   const lang = req.params.lang as SupportedLocale
-  const tool = findToolById('prevod-velikosti-znaku')
-  if (!tool) throw new Error(`Tool not found: prevod-velikosti-znaku`)
+  const tool = findToolById('json-validator')
+  if (!tool) throw new Error(`Tool not found: json-validator`)
   if (!tool.enabled[lang]) throw new Error(`Tool not available in ${lang}`)
 
   let result = null
