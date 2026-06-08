@@ -1,7 +1,7 @@
 import { catchAsync } from '../../../../shared/utils/catchAsync.js'
 import { buildSeoMeta } from '../../../../shared/utils/seoMeta.js'
 import { buildToolSeoInput } from '../../../../shared/utils/buildToolSeoInput.js'
-import { findToolBySlug } from '../../../../shared/utils/findToolBySlug.js'
+import { findToolById } from '../../../../shared/utils/findTools.js'
 import { inflationRealInput, inflationCustomInput } from './inflation-calculator.schema.js'
 import {
   calculateInflationAdjustedValue,
@@ -13,8 +13,8 @@ import type { SupportedLocale } from '../../../../shared/types/supportedLocale.j
 // GET
 export const getInflationCalculator = catchAsync(async (req, res) => {
   const lang = req.params.lang as SupportedLocale
-  const tool = findToolBySlug('pocet-znaku')
-  if (!tool) throw new Error(`Tool not found: pocet-znaku`)
+  const tool = findToolById('inflacni-kalkulacka')
+  if (!tool) throw new Error(`Tool not found: inflacni-kalkulacka`)
   if (!tool.enabled[lang]) throw new Error(`Tool not available in ${lang}`)
 
   res.render('pages/tools/czech/inflation-calculator', {
@@ -26,8 +26,8 @@ export const getInflationCalculator = catchAsync(async (req, res) => {
 // POST for forms
 export const postInflationCalculator = catchAsync(async (req, res) => {
   const lang = req.params.lang as SupportedLocale
-  const tool = findToolBySlug('pocet-znaku')
-  if (!tool) throw new Error(`Tool not found: pocet-znaku`)
+  const tool = findToolById('inflacni-kalkulacka')
+  if (!tool) throw new Error(`Tool not found: inflacni-kalkulacka`)
   if (!tool.enabled[lang]) throw new Error(`Tool not available in ${lang}`)
 
   // Declared with let so they can be conditionally assigned per form branch and passed to the view in a single render call at the end.

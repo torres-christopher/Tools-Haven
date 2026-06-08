@@ -1,7 +1,7 @@
 import { catchAsync } from '../../../../shared/utils/catchAsync.js'
 import { buildSeoMeta } from '../../../../shared/utils/seoMeta.js'
 import { buildToolSeoInput } from '../../../../shared/utils/buildToolSeoInput.js'
-import { findToolBySlug } from '../../../../shared/utils/findToolBySlug.js'
+import { findToolById } from '../../../../shared/utils/findTools.js'
 import { bmiInput } from './bmi.schema.js'
 import { calculateBmi } from './bmi.service.js'
 import { bmiFaq as faq } from './bmi.faq.js'
@@ -9,8 +9,8 @@ import type { SupportedLocale } from '../../../../shared/types/supportedLocale.j
 
 export const getBmi = catchAsync(async (req, res) => {
   const lang = req.params.lang as SupportedLocale
-  const tool = findToolBySlug('pocet-znaku')
-  if (!tool) throw new Error(`Tool not found: pocet-znaku`)
+  const tool = findToolById('prevod-velikosti-znaku')
+  if (!tool) throw new Error(`Tool not found: prevod-velikosti-znaku`)
   if (!tool.enabled[lang]) throw new Error(`Tool not available in ${lang}`)
 
   res.render('pages/tools/health/bmi', {
@@ -21,8 +21,8 @@ export const getBmi = catchAsync(async (req, res) => {
 
 export const postBmi = catchAsync(async (req, res) => {
   const lang = req.params.lang as SupportedLocale
-  const tool = findToolBySlug('pocet-znaku')
-  if (!tool) throw new Error(`Tool not found: pocet-znaku`)
+  const tool = findToolById('prevod-velikosti-znaku')
+  if (!tool) throw new Error(`Tool not found: prevod-velikosti-znaku`)
   if (!tool.enabled[lang]) throw new Error(`Tool not available in ${lang}`)
 
   let result = null

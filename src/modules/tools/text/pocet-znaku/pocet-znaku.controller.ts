@@ -1,7 +1,7 @@
 import { catchAsync } from '../../../../shared/utils/catchAsync.js'
 import { buildSeoMeta } from '../../../../shared/utils/seoMeta.js'
 import { buildToolSeoInput } from '../../../../shared/utils/buildToolSeoInput.js'
-import { findToolBySlug } from '../../../../shared/utils/findToolBySlug.js'
+import { findToolById } from '../../../../shared/utils/findTools.js'
 import { pocetZnakuInput } from './pocet-znaku.schema.js'
 import { calculatePocetZnaku } from './pocet-znaku.service.js'
 import { pocetZnakuFaq as faq } from './pocet-znaku.faq.js'
@@ -9,7 +9,7 @@ import type { SupportedLocale } from '../../../../shared/types/supportedLocale.j
 
 export const getPocetZnaku = catchAsync(async (req, res) => {
   const lang = req.params.lang as SupportedLocale
-  const tool = findToolBySlug('pocet-znaku')
+  const tool = findToolById('pocet-znaku')
   if (!tool) throw new Error(`Tool not found: pocet-znaku`)
   if (!tool.enabled[lang]) throw new Error(`Tool not available in ${lang}`)
 
@@ -21,7 +21,7 @@ export const getPocetZnaku = catchAsync(async (req, res) => {
 
 export const postPocetZnaku = catchAsync(async (req, res) => {
   const lang = req.params.lang as SupportedLocale
-  const tool = findToolBySlug('pocet-znaku')
+  const tool = findToolById('pocet-znaku')
   if (!tool) throw new Error(`Tool not found: pocet-znaku`)
   if (!tool.enabled[lang]) throw new Error(`Tool not available in ${lang}`)
 

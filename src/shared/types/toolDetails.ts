@@ -2,6 +2,7 @@ import type { SupportedLocale } from './supportedLocale.js'
 
 // Tool details tools.ts file
 export interface ToolsDetails {
+  id: string
   title: Record<SupportedLocale, string>
   description: Record<SupportedLocale, string>
   slug: Record<SupportedLocale, string>

@@ -2,6 +2,7 @@ import { type ToolsDetails } from '../types/toolDetails.js'
 
 export const tools: ToolsDetails[] = [
   {
+    id: 'pocet-znaku',
     title: {
       cs: 'Počet znaků',
       sk: 'Počet znakov',
@@ -27,6 +28,7 @@ export const tools: ToolsDetails[] = [
     featured: 1,
   },
   {
+    id: 'prevod-velikosti-znaku',
     title: {
       cs: 'Převod velikosti znaků',
       sk: 'Prevod veľkosti znakov',
@@ -52,6 +54,7 @@ export const tools: ToolsDetails[] = [
     featured: 2,
   },
   {
+    id: 'json-validator',
     title: {
       cs: 'Formátování a validace JSONu',
       sk: 'Formátovanie a validácia JSONu',
@@ -77,6 +80,7 @@ export const tools: ToolsDetails[] = [
     featured: 1,
   },
   {
+    id: 'bmi-kalkulacka',
     title: {
       cs: 'BMI kalkulačka',
       sk: 'BMI kalkulačka',
@@ -102,6 +106,7 @@ export const tools: ToolsDetails[] = [
     featured: 1,
   },
   {
+    id: 'inflacni-kalkulacka',
     title: {
       cs: 'Inflační kalkulačka',
       sk: 'Inflačná kalkulačka',
