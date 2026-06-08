@@ -6,17 +6,16 @@ import helmet from 'helmet'
 import { rateLimit } from 'express-rate-limit'
 // Config
 import { env } from './config/env.js'
+import { handle } from 'i18next-http-middleware'
+import i18next from './config/i18n.js'
 // System middleware
 import { localsMiddleware } from './middleware/locals.js'
 import { notFoundHandler } from './middleware/not-found.js'
 import { errorHandler } from './middleware/error-handler.js'
 // Routes - Core
 import coreRoutes from './modules/core/core.routes.js'
-// Routes - Tools
-import textRouter from './modules/tools/text/text.routes.js'
-import developerRouter from './modules/tools/developer/developer.routes.js'
-import healthRouter from './modules/tools/health/health.routes.js'
-import czechRouter from './modules/tools/czech/czech.routes.js'
+// Routes - Language variants
+import langRouter from './modules/tools/lang.router.js'
 
 // Initialise dirname and filename (NodeNext does not allow)
 const __filename = fileURLToPath(import.meta.url)
@@ -80,6 +79,9 @@ app.use(
 // Rate limiting
 app.use(limiter)
 
+// Locales
+app.use(handle(i18next))
+
 // Initialise Pug templates
 app.set('view engine', 'pug')
 app.set('views', join(__dirname, '../views'))
@@ -91,14 +93,18 @@ app.use(express.static(join(__dirname, '../public')))
 app.use(express.json({ limit: '100kb' }))
 app.use(express.urlencoded({ extended: true, limit: '500kb' }))
 
+// Language detection and redirect to the appropriate language
+app.get('/', (req, res) => {
+  const accepted = req.acceptsLanguages(['cs', 'sk'])
+  const lang = accepted && accepted !== 'cs' ? accepted : 'cs'
+  res.redirect(302, `/${lang}`)
+})
+
 // Core routes
 app.use('/', coreRoutes)
 
-//Tool routes
-app.use('/textove-nastroje', textRouter)
-app.use('/vyvojarske-nastroje', developerRouter)
-app.use('/zdravotni-nastroje', healthRouter)
-app.use('/ceske-nastroje', czechRouter)
+// Tool routes
+app.use('/', langRouter)
 
 // On 404
 app.use(notFoundHandler)

@@ -4,99 +4,77 @@ block content
   .legal-page
     .container
       .legal-page__header
-        h1.legal-page__title Ochrana osobních údajů
-        p.legal-page__meta Poslední aktualizace: #{currentYear}
+        h1.legal-page__title #{ t('common:privacy.title') }
+        p.legal-page__meta #{ t('common:privacy.page.meta') } #{ currentYear }
 
       .legal-page__body
-        //- TODO: Doplnit IČO a siteURL
         section.legal-section
-          h2 1. Správce údajů
+          h2 #{ t('common:privacy.s1.title') }
           p
-            | Provozovatelem webu #{siteUrl} je fyzická osoba podnikající na základě živnostenského
-            | oprávnění 09830251. Pro dotazy ohledně ochrany osobních údajů nás
-            | kontaktujte na adrese uvedené v sekci&nbsp;
-            a(href='/kontakt') Kontakt
+            | #{ t('common:privacy.s1.p1prefix') } #{ siteUrl } #{ t('common:privacy.s1.p1suffix') }&nbsp;
+            a(href=`/${lang}/contact`) #{ t('common:privacy.s1.contactLink') }
             | .
 
         section.legal-section
-          h2 2. Jaké údaje zpracováváme
-          p Tento web zpracovává pouze minimální množství dat nezbytných pro provoz:
+          h2 #{ t('common:privacy.s2.title') }
+          p #{ t('common:privacy.s2.intro') }
           ul
             li
-              strong Analytická data (Google Analytics):&nbsp;
-              | anonymizovaná data o návštěvnosti — počet návštěv, použité nástroje, typ zařízení,
-              | přibližná geografická poloha (úroveň města). IP adresa je anonymizována před
-              | odesláním do Google.
+              strong #{ t('common:privacy.s2.item1.label') }&nbsp;
+              | #{ t('common:privacy.s2.item1.text') }
             li
-              strong Data zadaná do nástrojů:&nbsp;
-              | texty, čísla a soubory zadané do online nástrojů jsou zpracovány výhradně
-              | pro účely daného nástroje a nejsou ukládány ani předávány třetím stranám.
+              strong #{ t('common:privacy.s2.item2.label') }&nbsp;
+              | #{ t('common:privacy.s2.item2.text') }
             li
-              strong Technická data:&nbsp;
-              | server loguje IP adresy a HTTP požadavky po dobu maximálně 7 dní z důvodu
-              | bezpečnosti a diagnostiky chyb.
+              strong #{ t('common:privacy.s2.item3.label') }&nbsp;
+              | #{ t('common:privacy.s2.item3.text') }
 
         section.legal-section
-          h2 3. Cookies
-          p Používáme následující typy cookies:
+          h2 #{ t('common:privacy.s3.title') }
+          p #{ t('common:privacy.s3.intro') }
           ul
             li
-              strong Nezbytné cookies:&nbsp;
-              | zajišťují základní funkčnost webu. Nepodléhají souhlasu.
+              strong #{ t('common:privacy.s3.item1.label') }&nbsp;
+              | #{ t('common:privacy.s3.item1.text') }
             li
-              strong Analytické cookies (Google Analytics):&nbsp;
-              | používáme je pouze s vaším souhlasem. Slouží ke zlepšení webu
-              | na základě anonymních dat o návštěvnosti.
-          p
-            | Svůj souhlas s analytickými cookies můžete kdykoli odvolat smazáním cookies
-            | v nastavení prohlížeče nebo kliknutím na tlačítko „Odmítnout" v cookie
-            | liště při příští návštěvě.
+              strong #{ t('common:privacy.s3.item2.label') }&nbsp;
+              | #{ t('common:privacy.s3.item2.text') }
+          p #{ t('common:privacy.s3.p2') }
 
         section.legal-section
-          h2 4. Google Analytics
+          h2 #{ t('common:privacy.s4.title') }
           p
-            | Web používá službu Google Analytics (Google LLC, USA). Data jsou přenášena
-            | do USA na základě standardních smluvních doložek schválených Evropskou komisí.
-            | IP anonymizace je aktivována. Více informací:&nbsp;
-            a(href='https://policies.google.com/privacy' target='_blank' rel='noopener noreferrer') Zásady ochrany soukromí Google
+            | #{ t('common:privacy.s4.p1prefix') }&nbsp;
+            a(href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer") #{ t('common:privacy.s4.p1link') }
             | .
 
         section.legal-section
-          h2 5. Reklama
+          h2 #{ t('common:privacy.s5.title') }
           p
-            | Web zobrazuje reklamy prostřednictvím služby Google AdSense. Google může používat
-            | cookies k zobrazování relevantní reklamy na základě vašich předchozích návštěv
-            | tohoto nebo jiných webů. Více informací a možnost odmítnutí personalizované
-            | reklamy naleznete na&nbsp;
-            a(href='https://adssettings.google.com' target='_blank' rel='noopener noreferrer') adssettings.google.com
+            | #{ t('common:privacy.s5.p1prefix') }&nbsp;
+            a(href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer") adssettings.google.com
             | .
 
         section.legal-section
-          h2 6. Vaše práva (GDPR)
-          p Máte právo:
+          h2 #{ t('common:privacy.s6.title') }
+          p #{ t('common:privacy.s6.intro') }
           ul
-            li na přístup ke svým osobním údajům
-            li na opravu nepřesných údajů
-            li na výmaz údajů („právo být zapomenut")
-            li na omezení zpracování
-            li na přenositelnost údajů
-            li vznést námitku proti zpracování
-            li podat stížnost u Úřadu pro ochranu osobních údajů (ÚOOÚ)
+            li #{ t('common:privacy.s6.item1') }
+            li #{ t('common:privacy.s6.item2') }
+            li #{ t('common:privacy.s6.item3') }
+            li #{ t('common:privacy.s6.item4') }
+            li #{ t('common:privacy.s6.item5') }
+            li #{ t('common:privacy.s6.item6') }
+            li #{ t('common:privacy.s6.item7') }
           p
-            | Pro uplatnění práv nás kontaktujte prostřednictvím&nbsp;
-            a(href='/kontakt') kontaktního formuláře
+            | #{ t('common:privacy.s6.p2prefix') }&nbsp;
+            a(href=`/${lang}/contact`) #{ t('common:privacy.s6.p2link') }
             | .
 
         section.legal-section
-          h2 7. Zabezpečení
-          p
-            | Přenos dat mezi vaším prohlížečem a serverem je šifrován pomocí HTTPS/TLS.
-            | Data zadaná do nástrojů nejsou trvale ukládána — jsou zpracována v paměti
-            | serveru a po odeslání odpovědi okamžitě smazána.
+          h2 #{ t('common:privacy.s7.title') }
+          p #{ t('common:privacy.s7.p1') }
 
         section.legal-section
-          h2 8. Změny těchto zásad
-          p
-            | Vyhrazujeme si právo tyto zásady kdykoli aktualizovat. O podstatných změnách
-            | budeme informovat na této stránce. Datum poslední aktualizace je uvedeno
-            | v záhlaví.
+          h2 #{ t('common:privacy.s8.title') }
+          p #{ t('common:privacy.s8.p1') }

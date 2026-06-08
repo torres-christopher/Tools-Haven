@@ -18,12 +18,12 @@ block content
               p= errorMessage
 
           //- Input form
-          form(method='POST' action='/textove-nastroje/pocet-znaku')
+          form(method='POST' action=toolPath)
             .form-group
               textarea.form-textarea.form-textarea--large(
                 id='text'
                 name='text'
-                placeholder='Sem vložte nebo napište svůj text...'
+                placeholder=t('pocetZnaku.placeholder')
                 autocomplete='off'
                 spellcheck='true'
               )= text || ''
@@ -33,28 +33,27 @@ block content
                 .stat-grid
                   .stat-card
                     p.stat-card__value(id='stat-raw')= result ? result.textLengthRaw : 0
-                    p.stat-card__label Znaků celkem
+                    p.stat-card__label #{t('pocetZnaku.statRaw')}
                   .stat-card
                     p.stat-card__value(id='stat-nospace')= result ? result.textLengthNoSpace : 0
-                    p.stat-card__label Znaků bez mezer
+                    p.stat-card__label #{t('pocetZnaku.statNospace')}
                   .stat-card
                     p.stat-card__value(id='stat-words')= result ? result.wordCount : 0
-                    p.stat-card__label Slov
+                    p.stat-card__label #{t('pocetZnaku.statWords')}
                   .stat-card
                     p.stat-card__value(id='stat-sentences')= result ? result.sentenceCount : 0
-                    p.stat-card__label Vět
+                    p.stat-card__label #{t('pocetZnaku.statSentences')}
                   .stat-card
                     p.stat-card__value(id='stat-lines')= result ? result.lineCount : 0
-                    p.stat-card__label Řádků
+                    p.stat-card__label #{t('pocetZnaku.statLines')}
                   .stat-card
                     p.stat-card__value(id='stat-ns')= result ? result.nsCount.toFixed(2) : '0.00'
-                    p.stat-card__label Normostran
+                    p.stat-card__label #{t('pocetZnaku.statNs')}
                   .stat-card
                     p.stat-card__value(id='stat-reading')= result ? result.readingTime : 0
-                    p.stat-card__label Minut čtení
+                    p.stat-card__label #{t('pocetZnaku.statReading')}
 
-              button.btn.btn--primary(type='submit') Spočítat
-          
+              button.btn.btn--primary(type='submit') #{t('common.calculate')}
 
           //- Tool FAQ
           include ../../../partials/tool-faq
@@ -73,17 +72,14 @@ block content
 
           //- About this tool
           .sidebar-info
-            h3.sidebar-info__title O nástroji
-            p.sidebar-info__text
-              | Počítadlo znaků zobrazuje přesný počet znaků, slov, vět,
-              | řádků a normostran. Výsledky se aktualizují v reálném čase
-              | při psaní.
+            h3.sidebar-info__title #{t('common.aboutTool')}
+            p.sidebar-info__text #{t('pocetZnaku.sidebar.text')}
             ul.sidebar-info__list
-              li Výsledky se aktualizují živě při psaní
-              li Text se nikam neukládá
-              li Vhodné pro češtinu i běžné latinkové texty
-              li Odhad vět a doby čtení je orientační
-              li Funguje i bez JavaScriptu přes odeslání formuláře
+              li #{t('pocetZnaku.sidebar.item1')}
+              li #{t('pocetZnaku.sidebar.item2')}
+              li #{t('pocetZnaku.sidebar.item3')}
+              li #{t('pocetZnaku.sidebar.item4')}
+              li #{t('pocetZnaku.sidebar.item5')}
 
   //- Page script for live counting
   script(src='/js/tools/pocet-znaku.js' defer)

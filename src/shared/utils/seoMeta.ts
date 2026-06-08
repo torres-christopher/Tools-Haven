@@ -28,7 +28,7 @@ export const buildSeoMeta = (input: SeoInput) => {
           url: `${env.SITE_URL}${input.path}`,
           applicationCategory: 'UtilityApplication',
           operatingSystem: 'Web',
-          inLanguage: 'cs',
+          inLanguage: input.lang ?? 'cs',
         }
       : undefined,
   }

@@ -1,27 +1,35 @@
 import { catchAsync } from '../../../../shared/utils/catchAsync.js'
 import { buildSeoMeta } from '../../../../shared/utils/seoMeta.js'
-import { tools } from '../../../../shared/data/tools.js'
+import { buildToolSeoInput } from '../../../../shared/utils/buildToolSeoInput.js'
+import { findToolById } from '../../../../shared/utils/findTools.js'
 import { inflationRealInput, inflationCustomInput } from './inflation-calculator.schema.js'
 import {
   calculateInflationAdjustedValue,
   calculateCustomInflation,
 } from './inflation-calculator.service.js'
 import { inflationCalculatorFaq as faq } from './inflation-calculator.faq.js'
-
-// Get tool details
-const tool = tools.find((t) => t.slug === 'inflacni-kalkulacka')
-if (!tool) throw new Error('Tool not found: inflacni-kalkulacka')
+import type { SupportedLocale } from '../../../../shared/types/supportedLocale.js'
 
 // GET
-export const getInflationCalculator = catchAsync(async (_req, res) => {
+export const getInflationCalculator = catchAsync(async (req, res) => {
+  const lang = req.params.lang as SupportedLocale
+  const tool = findToolById('inflacni-kalkulacka')
+  if (!tool) throw new Error(`Tool not found: inflacni-kalkulacka`)
+  if (!tool.enabled[lang]) throw new Error(`Tool not available in ${lang}`)
+
   res.render('pages/tools/czech/inflation-calculator', {
-    ...buildSeoMeta(tool),
+    ...buildSeoMeta(buildToolSeoInput(tool, lang)),
     faq,
   })
 })
 
 // POST for forms
 export const postInflationCalculator = catchAsync(async (req, res) => {
+  const lang = req.params.lang as SupportedLocale
+  const tool = findToolById('inflacni-kalkulacka')
+  if (!tool) throw new Error(`Tool not found: inflacni-kalkulacka`)
+  if (!tool.enabled[lang]) throw new Error(`Tool not available in ${lang}`)
+
   // Declared with let so they can be conditionally assigned per form branch and passed to the view in a single render call at the end.
   let result = null
   let inputValue: number | undefined
@@ -80,7 +88,7 @@ export const postInflationCalculator = catchAsync(async (req, res) => {
 
   // Render page
   res.status(status).render('pages/tools/czech/inflation-calculator', {
-    ...buildSeoMeta(tool),
+    ...buildSeoMeta(buildToolSeoInput(tool, lang)),
     faq,
     result,
     inputValue,

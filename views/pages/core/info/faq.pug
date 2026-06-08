@@ -4,75 +4,56 @@ block content
   .faq-page
     .container
       .faq-page__header
-        h1.faq-page__title Časté dotazy
-        p.faq-page__subtitle
-          | Odpovídáme na nejčastější otázky o fungování nástrojů,
-          | ochraně soukromí, přesnosti dat.
+        h1.faq-page__title #{ t('common:faq.title') }
+        p.faq-page__subtitle #{ t('common:faq.page.subtitle') }
 
       .faq-page__body
-
         .faq-category
-          p.faq-category__title Obecné
+          p.faq-category__title #{ t('common:faq.general.title') }
           .faq-list
             details.faq-item
-              summary.faq-question Je použití nástrojů skutečně zdarma?
-              p.faq-answer
-                | Ano, všechny nástroje jsou zcela bezplatné a nevyžadují žádnou registraci
-                | ani zadání platebního údaje. Web je financován reklamou.
+              summary.faq-question #{ t('common:faq.general.q1.question') }
+              p.faq-answer #{ t('common:faq.general.q1.answer') }
 
             details.faq-item
-              summary.faq-question Fungují nástroje na mobilním telefonu?
-              p.faq-answer
-                | Ano. Všechny nástroje jsou optimalizované pro mobilní zařízení od šíře
-                | 320 px výše.
+              summary.faq-question #{ t('common:faq.general.q2.question') }
+              p.faq-answer #{ t('common:faq.general.q2.answer') }
 
             details.faq-item
-              summary.faq-question Jak hlásím chybu nebo navrhuji nový nástroj?
+              summary.faq-question #{ t('common:faq.general.q3.question') }
               p.faq-answer
-                | Použijte&nbsp;
-                a(href='/kontakt') kontaktní formulář
-                | . Odpovídáme obvykle do dvou pracovních dnů.
+                | #{ t('common:faq.general.q3.answerPrefix') }&nbsp;
+                a(href=`/${lang}/contact`) #{ t('common:faq.general.q3.linkText') }
+                | . #{ t('common:faq.general.q3.answerSuffix') }
 
         .faq-category
-          p.faq-category__title Soukromí a data
+          p.faq-category__title #{ t('common:faq.privacy.title') }
           .faq-list
             details.faq-item
-              summary.faq-question Co se děje s daty, které nahraji?
+              summary.faq-question #{ t('common:faq.privacy.q1.question') }
               p.faq-answer
-                | Data zadaná do nástrojů jsou zpracována výhradně v operační paměti
-                | serveru. Nic neukládáme ani nesdílíme. Více v&nbsp;
-                a(href='/ochrana-osobnich-udaju') zásadách ochrany soukromí
+                | #{ t('common:faq.privacy.q1.answerPrefix') }&nbsp;
+                a(href=`/${lang}/privacy`) #{ t('common:faq.privacy.q1.linkText') }
                 | .
 
             details.faq-item
-              summary.faq-question Jaké cookies web používá?
-              p.faq-answer
-                | Používáme pouze analytické cookies Google Analytics a pouze s vaším
-                | souhlasem. Bez souhlasu žádné analytické cookies neprobíhají.
+              summary.faq-question #{ t('common:faq.privacy.q2.question') }
+              p.faq-answer #{ t('common:faq.privacy.q2.answer') }
 
             details.faq-item
-              summary.faq-question Jsou mé texty a vstupy ukládány?
-              p.faq-answer
-                | Ne. Texty zadané do nástrojů nejsou ukládány na server ani do databáze.
-                | Zpracování probíhá synchronně v paměti a po vrácení výsledku jsou data zahozena.
+              summary.faq-question #{ t('common:faq.privacy.q3.question') }
+              p.faq-answer #{ t('common:faq.privacy.q3.answer') }
 
         .faq-category
-          p.faq-category__title Přesnost a zdroje dat
+          p.faq-category__title #{ t('common:faq.accuracy.title') }
           .faq-list
             details.faq-item
-              summary.faq-question Jsou výsledky kalkulaček přesné?
-              p.faq-answer
-                | Finanční nástroje (inflační kalkulačka) čerpají z officiálních zdrojů, např. z Českého
-                | statistického úřadu. Zdravotní kalkulačky používají uznávané
-                | vzorce. Všechny výsledky jsou orientační a nenahrazují odborné poradenství.
+              summary.faq-question #{ t('common:faq.accuracy.q1.question') }
+              p.faq-answer #{ t('common:faq.accuracy.q1.answer') }
 
         .faq-category
-          p.faq-category__title O projektu
+          p.faq-category__title #{ t('common:faq.project.title') }
           .faq-list
             details.faq-item
-              summary.faq-question Byl tento web vytvořen umělou inteligencí?
-              p.faq-answer
-                | Web jsem navrhl a naprogramoval já a to včetně business logiky, architektury,
-                | testů a databáze nástrojů. Umělá inteligence mi pomáhala s rutinními
-                | částmi jako formátování kódu, komentáře, Pug šablony a texty FAQ.
-                | Veškerá rozhodnutí o tom, co web dělá a jak funguje, jsou moje.
+              summary.faq-question #{ t('common:faq.project.q1.question') }
+              p.faq-answer #{ t('common:faq.project.q1.answer') }

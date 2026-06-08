@@ -1,7 +1,7 @@
 .tool-header
-  div(class=wideLayout ? 'container-wide' : 'container')
+  div(class=wideLayout ? "container-wide" : "container")
     .tool-header__breadcrumb
-      a(href='/') Domů
+      a(href="/") #{ t('common:nav.home') }
       if categoryName
         span.tool-header__sep /
         a(href=categoryPath)= categoryName

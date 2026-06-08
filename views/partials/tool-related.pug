@@ -1,9 +1,9 @@
 if relatedTools && relatedTools.length
   section.related-tools
     .container
-      h2.related-tools__heading Související nástroje
+      h2.related-tools__heading #{ t('common:nav.related') }
       .related-tools__grid
         each tool in relatedTools
           a.tool-card.tool-card--small(href=tool.path)
-            span.tool-card__icon(aria-hidden='true')= tool.icon || '⚙'
+            span.tool-card__icon(aria-hidden="true")= tool.icon || "⚙"
             span.tool-card__name= tool.name

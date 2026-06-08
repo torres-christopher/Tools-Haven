@@ -1,28 +1,43 @@
 import { Router } from 'express'
+import type { Request } from 'express'
 import { buildSeoMeta } from '../../../shared/utils/seoMeta.js'
+import { buildToolPath } from '../../../shared/utils/buildToolPath.js'
 import { tools } from '../../../shared/data/tools.js'
+import type { SupportedLocale } from '../../../shared/types/supportedLocale.js'
 import inflationCalculatorRouter from './inflation-calculator/inflation-calculator.routes.js'
 
-const router = Router()
+const router = Router({ mergeParams: true })
 
-// Categor index/czech
-router.get('/', (_req, res) => {
+// req.params.lang is not typed by default on Express Request when the param comes
+// from a parent router via mergeParams. Explicitly typing Request<{ lang: string }>
+// makes the parameter available and the cast to SupportedLocale narrows it to a valid locale.
+router.get('/', (req: Request<{ lang: string }>, res) => {
+  const lang = req.params.lang as SupportedLocale
+  const categoryTools = tools
+    .filter((t) => t.categoryPath === '/data' && t.enabled[lang])
+    .map((t) => ({
+      ...t,
+      resolvedTitle: t.title[lang],
+      resolvedDescription: t.description[lang],
+      resolvedPath: buildToolPath(lang, t.categoryPath, t.slug),
+    }))
+
   res.render('pages/tools/tools', {
     ...buildSeoMeta({
-      title: 'České nástroje',
-      description:
-        'Bezplatné online nástroje pro česká data. Inflační kalkulačka, rodné číslo, svátky a další.',
-      path: '/ceske-nastroje',
+      title: req.t('category.data.title'),
+      description: req.t('category.data.description'),
+      path: `/${lang}/data`,
+      lang,
     }),
-    toolCategory: 'České nástroje',
-    toolCategoryPath: '/ceske-nastroje',
-    toolCategoryDescription:
-      'Nástroje s českými daty: Inflační kalkulačka, rodná čísla, svátky, kurzy ČNB a další.',
-    tools: tools.filter((t) => t.categoryPath === '/ceske-nastroje' && t.enabled),
+    toolCategory: req.t('category.data.title'),
+    toolCategoryPath: `/${lang}/data`,
+    toolCategoryDescription: req.t('category.data.categoryDescription'),
+    tools: categoryTools,
+    lang,
   })
 })
 
-// Tools
-router.use('/inflacni-kalkulacka', inflationCalculatorRouter)
+router.use('/inflacni-kalkulacka', inflationCalculatorRouter) // cs
+router.use('/inflacna-kalkulacka', inflationCalculatorRouter) // sk
 
 export default router

@@ -1,28 +1,42 @@
 import { Router } from 'express'
+import type { Request } from 'express'
 import { buildSeoMeta } from '../../../shared/utils/seoMeta.js'
+import { buildToolPath } from '../../../shared/utils/buildToolPath.js'
 import { tools } from '../../../shared/data/tools.js'
+import type { SupportedLocale } from '../../../shared/types/supportedLocale.js'
 import jsonValidatorRoutes from './json-validator/json-validator.routes.js'
 
-const router = Router()
+const router = Router({ mergeParams: true })
 
-// Category index/developer
-router.get('/', (_req, res) => {
+// req.params.lang is not typed by default on Express Request when the param comes
+// from a parent router via mergeParams. Explicitly typing Request<{ lang: string }>
+// makes the parameter available and the cast to SupportedLocale narrows it to a valid locale.
+router.get('/', (req: Request<{ lang: string }>, res) => {
+  const lang = req.params.lang as SupportedLocale
+  const categoryTools = tools
+    .filter((t) => t.categoryPath === '/developer' && t.enabled[lang])
+    .map((t) => ({
+      ...t,
+      resolvedTitle: t.title[lang],
+      resolvedDescription: t.description[lang],
+      resolvedPath: buildToolPath(lang, t.categoryPath, t.slug),
+    }))
+
   res.render('pages/tools/tools', {
     ...buildSeoMeta({
-      title: 'Vývojářské nástroje',
-      description:
-        'Bezplatné online nástroje pro vývojáře. JSON validace a formátování, enkódování do Base64, URL enkódování a další.',
-      path: '/vyvojarske-nastroje',
+      title: req.t('category.developer.title'),
+      description: req.t('category.developer.description'),
+      path: `/${lang}/developer`,
+      lang,
     }),
-    toolCategory: 'Vývojářské nástroje',
-    toolCategoryPath: '/vyvojarske-nastroje',
-    toolCategoryDescription:
-      'Nástroje pro vývojáře: Validace JSONu, formátování a porovnání textu.',
-    tools: tools.filter((t) => t.categoryPath === '/vyvojarske-nastroje' && t.enabled).slice(0, 6),
+    toolCategory: req.t('category.developer.title'),
+    toolCategoryPath: `/${lang}/developer`,
+    toolCategoryDescription: req.t('category.developer.categoryDescription'),
+    tools: categoryTools,
+    lang,
   })
 })
 
-// Tools
-router.use('/json-validator', jsonValidatorRoutes)
+router.use('/json-validator', jsonValidatorRoutes) // cs + sk (same slug)
 
 export default router

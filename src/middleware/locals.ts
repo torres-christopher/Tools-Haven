@@ -11,5 +11,7 @@ export const localsMiddleware = (_req: Request, res: Response, next: NextFunctio
   res.locals.adsenseClientId = env.ADSENSE_CLIENT_ID
   res.locals.NODE_ENV = env.NODE_ENV
   res.locals.nonce = randomBytes(16).toString('base64')
+  // Default lang — overridden by individual controllers when lang param is present
+  res.locals.lang = 'cs'
   next()
 }

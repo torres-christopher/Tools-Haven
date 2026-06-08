@@ -1,0 +1,120 @@
+{
+  "common": {
+    "aboutTool": "O nástroji",
+    "comingSoon": "Připravujeme",
+    "calculate": "Spočítat",
+    "result": "Výsledek",
+    "yourResult": "Váš výsledek",
+    "copy": "Kopírovat",
+    "input": "Vstup",
+    "output": "Výstup",
+    "characters": "znaků",
+    "textPlaceholder": "Sem vložte nebo napište svůj text...",
+    "noDataStored": "Text se nikam neukládá",
+    "worksWithoutJs": "Funguje i bez JavaScriptu přes odeslání formuláře"
+  },
+  "pocetZnaku": {
+    "placeholder": "$t(common.textPlaceholder)",
+    "statRaw": "Znaků celkem",
+    "statNospace": "Znaků bez mezer",
+    "statWords": "Slov",
+    "statSentences": "Vět",
+    "statLines": "Řádků",
+    "statNs": "Normostran",
+    "statReading": "Minut čtení",
+    "sidebar": {
+      "text": "Počítadlo znaků zobrazuje přesný počet znaků, slov, vět, řádků a normostran. Výsledky se aktualizují v reálném čase při psaní.",
+      "item1": "Výsledky se aktualizují živě při psaní",
+      "item2": "$t(common.noDataStored)",
+      "item3": "Vhodné pro češtinu i běžné latinkové texty",
+      "item4": "Odhad vět a doby čtení je orientační",
+      "item5": "$t(common.worksWithoutJs)"
+    }
+  },
+  "prevodVelikosti": {
+    "placeholder": "$t(common.textPlaceholder)",
+    "sentenceCase": "Větný zápis",
+    "lowerCase": "malá písmena",
+    "upperCase": "VELKÁ PÍSMENA",
+    "capitalizedCase": "Capital Case",
+    "reverse": "Obrátit text",
+    "sidebar": {
+      "text": "Převodník velikosti písmen umožňuje rychle změnit text na velká, malá, titulková nebo větná písmena.",
+      "item1": "$t(common.noDataStored)",
+      "item2": "Podporuje češtinu a diakritiku",
+      "item3": "$t(common.worksWithoutJs)"
+    }
+  },
+  "jsonValidator": {
+    "validate": "Validovat",
+    "format": "Formátovat",
+    "minify": "Minifikovat",
+    "indent": "Odsazení",
+    "inputPlaceholder": "Sem vložte JSON...",
+    "outputPlaceholder": "Výsledek se zobrazí zde...",
+    "validJson": "✓ Validní JSON",
+    "invalidJson": "✗ Nevalidní JSON",
+    "errorLine": "Řádek",
+    "errorColumn": "sloupec"
+  },
+  "bmi": {
+    "heightLabel": "Výška (cm)",
+    "heightPlaceholder": "např. 175",
+    "weightLabel": "Váha (kg)",
+    "weightPlaceholder": "např. 70",
+    "submit": "Spočítat BMI",
+    "scale": {
+      "underweight": "Podváha",
+      "normal": "Normální",
+      "overweight": "Nadváha",
+      "obese1": "Obezita I",
+      "obese2": "Obezita II",
+      "obese3": "Obezita III"
+    },
+    "sidebar": {
+      "text": "BMI (Body Mass Index) je jednoduchý ukazatel poměru váhy a výšky. Používá se jako orientační měřítko k posouzení zdravotního rizika spojeného s váhou člověka. Určuje, zda má jedinec podváhu, normální váhu, nadváhu či obezitu.",
+      "item1": "Data se nikam neukládají",
+      "item2": "Výsledky předpokládají věk 20 let a výše",
+      "item3": "BMI není absolutní ukazatel zdraví"
+    }
+  },
+  "inflation": {
+    "realTitle": "Reálná inflace",
+    "realDesc": "Zjistěte, kolik by dnes měla hodnotu částka z minulosti na základě skutečných dat ČSÚ (1997–2026).",
+    "customTitle": "Vlastní sazba",
+    "customDesc": "Zadejte částku, roční míru inflace a počet let. Pomocí tlačítek zjistěte, jakou hodnotu bude mít částka v budoucnosti, nebo jakou hodnotu měla v minulosti.",
+    "amountLabel": "Částka (Kč)",
+    "startMonthLabel": "Počáteční měsíc",
+    "startYearLabel": "Počáteční rok",
+    "endMonthLabel": "Konečný měsíc",
+    "endYearLabel": "Konečný rok",
+    "rateLabel": "Roční inflace (%)",
+    "yearsLabel": "Počet let",
+    "calculate": "Vypočítat",
+    "calculateForward": "Vypočítat dopředu",
+    "calculateBackward": "Vypočítat zpětně",
+    "resultValue": "Výsledná hodnota",
+    "futureValue": "Budoucí hodnota",
+    "pastValue": "Hodnota v minulosti",
+    "originalAmount": "Původní částka",
+    "todayAmount": "Dnešní částka",
+    "difference": "Rozdíl",
+    "valueIncrease": "Nárůst hodnoty",
+    "purchaseLoss": "Ztráta kupní síly",
+    "months": {
+      "average": "Průměr roku",
+      "1": "Leden",
+      "2": "Únor",
+      "3": "Březen",
+      "4": "Duben",
+      "5": "Květen",
+      "6": "Červen",
+      "7": "Červenec",
+      "8": "Srpen",
+      "9": "Září",
+      "10": "Říjen",
+      "11": "Listopad",
+      "12": "Prosinec"
+    }
+  }
+}

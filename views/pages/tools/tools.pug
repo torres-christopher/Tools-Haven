@@ -1,30 +1,27 @@
 extends ../../layouts/main
 
 block content
-
   include ../../partials/tool-header
 
   .tool-layout
     .container
-
       .section-header
         h2.section-title= toolCategory
         p.section-link= toolCategoryDescription
 
       .tools-grid
-
         each tool in tools
-          if tool.enabled
-            a.tool-card(href=tool.path)
+          if tool.enabled[lang]
+            a.tool-card(href=tool.resolvedPath)
               .tool-card__icon= tool.icon
               .tool-card__body
-                h3.tool-card__name= tool.title
-                p.tool-card__desc= tool.description
-              span.tool-card__tag= tool.categoryName
+                h3.tool-card__name= tool.resolvedTitle
+                p.tool-card__desc= tool.resolvedDescription
+              span.tool-card__tag= tool.categoryName[lang]
           else
             .tool-card.tool-card--disabled
               .tool-card__icon= tool.icon
               .tool-card__body
-                h3.tool-card__name= tool.title
-                p.tool-card__desc= tool.description
-              span.tool-card__tag Připravujeme
+                h3.tool-card__name= tool.resolvedTitle
+                p.tool-card__desc= tool.resolvedDescription
+              span.tool-card__tag #{ t('tools:common.comingSoon') }

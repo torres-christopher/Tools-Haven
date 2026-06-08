@@ -4,87 +4,74 @@ block content
   .legal-page
     .container
       .legal-page__header
-        h1.legal-page__title Kontakt
-        p.legal-page__meta Máte dotaz nebo narazili jste na chybu?
+        h1.legal-page__title #{ t('common:contact.title') }
+        p.legal-page__meta #{ t('common:contact.page.subtitle') }
 
       .contact-grid
-
         .contact-info
           section.legal-section
-            h2 O webu
-            p
-              | #{siteName} je bezplatný web s českými online nástroji
-              | pro text, kalkulačky a česká data.
-              | Všechny nástroje jsou zdarma a nevyžadují registraci.
-            p
-              | Web provozuje fyzická osoba podnikající na základě
-              | živnostenského oprávnění se sídlem v České republice.
-            p
-              | Část kódu a textů vznikla za pomoci umělé inteligence.
-              | Architektura, business logika, testy a veškerá rozhodnutí jsou dílem autora.
+            h2 #{ t('common:contact.about.title') }
+            p #{ t('common:contact.about.p1', { siteName: siteName }) }
+            p #{ t('common:contact.about.p2') }
+            p #{ t('common:contact.about.p3') }
 
           section.legal-section
-            h2 Kdy nás kontaktovat
+            h2 #{ t('common:contact.when.title') }
             ul
-              li narazili jste na chybu nebo nesprávný výsledek nástroje
-              li výsledek kalkulačky se zdá nesprávný
-              li máte nápad na nový nástroj nebo vylepšení
-              li dotazy k ochraně osobních údajů nebo podmínkám použití
-              //-
-                li hlášení nevhodného obsahu reklam
+              li #{ t('common:contact.when.item1') }
+              li #{ t('common:contact.when.item2') }
+              li #{ t('common:contact.when.item3') }
+              li #{ t('common:contact.when.item4') }
 
           section.legal-section
-            h2 Další dokumenty
+            h2 #{ t('common:contact.docs.title') }
             ul
-              li: a(href='/ochrana-osobnich-udaju') Ochrana osobních údajů
-              li: a(href='/podminky-pouziti') Podmínky použití
+              li: a(href=`/${lang}/privacy`) #{ t('common:contact.docs.privacy') }
+              li: a(href=`/${lang}/terms`) #{ t('common:contact.docs.terms') }
 
         .contact-form-wrap
-          h2 Napište nám
+          h2 #{ t('common:contact.form.title') }
 
-          form.contact-form(method='POST' action='https://formspree.io/f/xwvznbel')
-            input(type='hidden' name='_next' value='https://tools-haven.com/kontakt?success=true')
+          form.contact-form(method="POST" action="https://formspree.io/f/xwvznbel")
+            input(type="hidden" name="_next" value=`${siteUrl}/${lang}/contact?success=true`)
 
             .form-group
-              label.form-label(for='name') Jméno
-              input.form-input(
-                type='text'
-                id='name'
-                name='name'
-                placeholder='Vaše jméno'
+              label.form-label(for="name") #{ t('common:contact.form.name.label') }
+              input#name.form-input(
+                type="text"
+                name="name"
+                placeholder=t("common:contact.form.name.placeholder")
                 required
-                autocomplete='name'
+                autocomplete="name"
               )
 
             .form-group
-              label.form-label(for='email') E-mailová adresa
-              input.form-input(
-                type='email'
-                id='email'
-                name='email'
-                placeholder='vas@email.cz'
+              label.form-label(for="email") #{ t('common:contact.form.email.label') }
+              input#email.form-input(
+                type="email"
+                name="email"
+                placeholder=t("common:contact.form.email.placeholder")
                 required
-                autocomplete='email'
+                autocomplete="email"
               )
 
             .form-group
-              label.form-label(for='subject') Předmět
-              select.form-select(id='subject' name='subject')
-                option(value='Našel/a jsem chybu') Našel/a jsem chybu
-                option(value='Nápad na vylepšení') Nápad na vylepšení
-                option(value='Dotaz k soukromí') Dotaz k soukromí
-                option(value='Jiné') Jiné
+              label.form-label(for="subject") #{ t('common:contact.form.subject.label') }
+              select#subject.form-select(name="subject")
+                option(value=t("common:contact.form.subject.bug")) #{ t('common:contact.form.subject.bug') }
+                option(value=t("common:contact.form.subject.improvement")) #{ t('common:contact.form.subject.improvement') }
+                option(value=t("common:contact.form.subject.privacy")) #{ t('common:contact.form.subject.privacy') }
+                option(value=t("common:contact.form.subject.other")) #{ t('common:contact.form.subject.other') }
 
             .form-group
-              label.form-label(for='message') Zpráva
-              textarea.form-textarea(
-                id='message'
-                name='message'
-                placeholder='Popište váš dotaz nebo problém co nejpodrobněji...'
-                rows='6'
+              label.form-label(for="message") #{ t('common:contact.form.message.label') }
+              textarea#message.form-textarea(
+                name="message"
+                placeholder=t("common:contact.form.message.placeholder")
+                rows="6"
                 required
               )
 
             .form-group
-              button.btn.btn--primary(type='submit') Odeslat zprávu
-              p.form-hint Odpovídáme obvykle do 2 pracovních dnů.
+              button.btn.btn--primary(type="submit") #{ t('common:contact.form.submit') }
+              p.form-hint #{ t('common:contact.form.hint') }

@@ -1,6 +1,7 @@
 extends ../../../layouts/main
 
 block content
+
   //- Tool header — breadcrumb + title
   include ../../../partials/tool-header
 
@@ -17,26 +18,27 @@ block content
               p= errorMessage
 
           //- Input form
-          form(method='POST' action='/textove-nastroje/prevod-velikosti-znaku')
+          form(method='POST' action=toolPath)
             .form-group
               textarea.form-textarea.form-textarea--large(
                 id='text'
                 name='text'
-                placeholder='Sem vložte nebo napište svůj text...'
+                placeholder=t('prevodVelikosti.placeholder')
                 autocomplete='off'
                 spellcheck='false'
               )= result || ''
+
             //- Conversion buttons
             .form-actions
-              button.btn.btn--ghost(type='submit' name='conversionType' value='sentence-case') Větný zápis
-              button.btn.btn--ghost(type='submit' name='conversionType' value='lower-case') malá písmena
-              button.btn.btn--ghost(type='submit' name='conversionType' value='upper-case') VELKÁ PÍSMENA
-              button.btn.btn--ghost(type='submit' name='conversionType' value='capitalized-case') Capital Case
-              button.btn.btn--ghost(type='submit' name='conversionType' value='reverse') Obrátit text
+              button.btn.btn--ghost(type='submit' name='conversionType' value='sentence-case') #{t('prevodVelikosti.sentenceCase')}
+              button.btn.btn--ghost(type='submit' name='conversionType' value='lower-case') #{t('prevodVelikosti.lowerCase')}
+              button.btn.btn--ghost(type='submit' name='conversionType' value='upper-case') #{t('prevodVelikosti.upperCase')}
+              button.btn.btn--ghost(type='submit' name='conversionType' value='capitalized-case') #{t('prevodVelikosti.capitalizedCase')}
+              button.btn.btn--ghost(type='submit' name='conversionType' value='reverse') #{t('prevodVelikosti.reverse')}
 
           //- Tool FAQ
           include ../../../partials/tool-faq
-          
+
           //- Ad slot
           include ../../../partials/ad-slot
 
@@ -51,14 +53,12 @@ block content
 
           //- About this tool
           .sidebar-info
-            h3.sidebar-info__title O nástroji
-            p.sidebar-info__text
-              | Převodník velikosti písmen umožňuje rychle změnit text na
-              | velká, malá, titulková nebo větná písmena.
+            h3.sidebar-info__title #{t('common.aboutTool')}
+            p.sidebar-info__text #{t('prevodVelikosti.sidebar.text')}
             ul.sidebar-info__list
-              li Text se nikam neukládá
-              li Podporuje češtinu a diakritiku
-              li Funguje i bez JavaScriptu přes odeslání formuláře
+              li #{t('prevodVelikosti.sidebar.item1')}
+              li #{t('prevodVelikosti.sidebar.item2')}
+              li #{t('prevodVelikosti.sidebar.item3')}
 
   //- Page script for live conversion
   script(src='/js/tools/prevod-velikosti-znaku.js' defer)

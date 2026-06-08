@@ -1,13 +1,13 @@
 if faq && faq.length
   section.tool-faq
-    div(class=wideLayout ? 'container-wide' : 'container').no-padding
-      h2.tool-faq__heading Časté dotazy
+    div.no-padding(class=wideLayout ? "container-wide" : "container")
+      h2.tool-faq__heading #{ t('common:footer.faq') }
       .tool-faq__list
         each item in faq
           details.tool-faq__item
             summary.tool-faq__question= item.question
             if item.link
-              - const linked = item.answer.replace('{link}', `<a href="${item.link.url}" style="decoration:underline;" target="_blank" name="${item.link.text}" title="${item.link.text}">${item.link.text}</a>`)
+              - const linked = item.answer.replace("{link}", `<a href="${item.link.url}" style="decoration:underline;" target="_blank" name="${item.link.text}" title="${item.link.text}">${item.link.text}</a>`)
               p.tool-faq__answer!= linked
             else
               p.tool-faq__answer= item.answer

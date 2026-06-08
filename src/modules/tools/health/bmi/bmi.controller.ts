@@ -1,22 +1,30 @@
 import { catchAsync } from '../../../../shared/utils/catchAsync.js'
 import { buildSeoMeta } from '../../../../shared/utils/seoMeta.js'
-import { tools } from '../../../../shared/data/tools.js'
+import { buildToolSeoInput } from '../../../../shared/utils/buildToolSeoInput.js'
+import { findToolById } from '../../../../shared/utils/findTools.js'
 import { bmiInput } from './bmi.schema.js'
 import { calculateBmi } from './bmi.service.js'
 import { bmiFaq as faq } from './bmi.faq.js'
+import type { SupportedLocale } from '../../../../shared/types/supportedLocale.js'
 
-// Get tool details
-const tool = tools.find((t) => t.slug === 'bmi-kalkulacka')
-if (!tool) throw new Error('Tool not found: BMI kalkulačka')
+export const getBmi = catchAsync(async (req, res) => {
+  const lang = req.params.lang as SupportedLocale
+  const tool = findToolById('bmi-kalkulacka')
+  if (!tool) throw new Error(`Tool not found: bmi-kalkulacka`)
+  if (!tool.enabled[lang]) throw new Error(`Tool not available in ${lang}`)
 
-export const getBmi = catchAsync(async (_req, res) => {
   res.render('pages/tools/health/bmi', {
-    ...buildSeoMeta(tool),
+    ...buildSeoMeta(buildToolSeoInput(tool, lang)),
     faq,
   })
 })
 
 export const postBmi = catchAsync(async (req, res) => {
+  const lang = req.params.lang as SupportedLocale
+  const tool = findToolById('bmi-kalkulacka')
+  if (!tool) throw new Error(`Tool not found: bmi-kalkulacka`)
+  if (!tool.enabled[lang]) throw new Error(`Tool not available in ${lang}`)
+
   let result = null
   let label: string | null = null
   let markerPosition: number | null = null
@@ -64,7 +72,7 @@ export const postBmi = catchAsync(async (req, res) => {
   }
 
   res.status(status).render('pages/tools/health/bmi', {
-    ...buildSeoMeta(tool),
+    ...buildSeoMeta(buildToolSeoInput(tool, lang)),
     faq,
     height: input.data?.height,
     weight: input.data?.weight,

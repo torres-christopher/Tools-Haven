@@ -1,0 +1,120 @@
+{
+  "common": {
+    "aboutTool": "O nástroji",
+    "comingSoon": "Pripravujeme",
+    "calculate": "Vypočítať",
+    "result": "Výsledok",
+    "yourResult": "Váš výsledok",
+    "copy": "Kopírovať",
+    "input": "Vstup",
+    "output": "Výstup",
+    "characters": "znakov",
+    "textPlaceholder": "Sem vložte alebo napíšte svoj text...",
+    "noDataStored": "Text sa nikam neukladá",
+    "worksWithoutJs": "Funguje aj bez JavaScriptu cez odoslanie formulára"
+  },
+  "pocetZnaku": {
+    "placeholder": "$t(common.textPlaceholder)",
+    "statRaw": "Znakov celkom",
+    "statNospace": "Znakov bez medzier",
+    "statWords": "Slov",
+    "statSentences": "Viet",
+    "statLines": "Riadkov",
+    "statNs": "Normostráň",
+    "statReading": "Minút čítania",
+    "sidebar": {
+      "text": "Počítadlo znakov zobrazuje presný počet znakov, slov, viet, riadkov a normostráň. Výsledky sa aktualizujú v reálnom čase pri písaní.",
+      "item1": "Výsledky sa aktualizujú živé pri písaní",
+      "item2": "$t(common.noDataStored)",
+      "item3": "Vhodné pre slovenčinu aj bežné latinské texty",
+      "item4": "Odhad viet a doby čítania je orientačný",
+      "item5": "$t(common.worksWithoutJs)"
+    }
+  },
+  "prevodVelikosti": {
+    "placeholder": "$t(common.textPlaceholder)",
+    "sentenceCase": "Vetný zápis",
+    "lowerCase": "malé písmená",
+    "upperCase": "VEĽKÉ PÍSMENÁ",
+    "capitalizedCase": "Capital Case",
+    "reverse": "Obrátiť text",
+    "sidebar": {
+      "text": "Prevodník veľkosti písmen umožňuje rýchlo zmeniť text na veľké, malé, titulkové alebo vetné písmená.",
+      "item1": "$t(common.noDataStored)",
+      "item2": "Podporuje slovenčinu a diakritiku",
+      "item3": "$t(common.worksWithoutJs)"
+    }
+  },
+  "jsonValidator": {
+    "validate": "Validovať",
+    "format": "Formátovať",
+    "minify": "Minifikovať",
+    "indent": "Odsadenie",
+    "inputPlaceholder": "Sem vložte JSON...",
+    "outputPlaceholder": "Výsledok sa zobrazí tu...",
+    "validJson": "✓ Validný JSON",
+    "invalidJson": "✗ Nevalidný JSON",
+    "errorLine": "Riadok",
+    "errorColumn": "stĺpec"
+  },
+  "bmi": {
+    "heightLabel": "Výška (cm)",
+    "heightPlaceholder": "napr. 175",
+    "weightLabel": "Váha (kg)",
+    "weightPlaceholder": "napr. 70",
+    "submit": "Vypočítať BMI",
+    "scale": {
+      "underweight": "Podváha",
+      "normal": "Normálna",
+      "overweight": "Nadváha",
+      "obese1": "Obezita I",
+      "obese2": "Obezita II",
+      "obese3": "Obezita III"
+    },
+    "sidebar": {
+      "text": "BMI (Body Mass Index) je jednoduchý ukazateľ pomeru váhy a výšky. Používa sa ako orientačné meradlo k posúdeniu zdravotného rizika spojeného s váhou človeka. Určuje, či má jedinec podváhu, normálnu váhu, nadváhu alebo obezitu.",
+      "item1": "Dáta sa nikam neukladajú",
+      "item2": "Výsledky predpokladajú vek 20 rokov a viac",
+      "item3": "BMI nie je absolútny ukazateľ zdravia"
+    }
+  },
+  "inflation": {
+    "realTitle": "Reálna inflácia",
+    "realDesc": "Zistite, koľko by dnes mala hodnotu čiastka z minulosti na základe skutočných dát ČSÚ (1997–2026).",
+    "customTitle": "Vlastná sadzba",
+    "customDesc": "Zadajte čiastku, ročnú mieru inflácie a počet rokov. Pomocou tlačidiel zistite, akú hodnotu bude mať čiastka v budúcnosti, alebo akú hodnotu mala v minulosti.",
+    "amountLabel": "Čiastka (Kč)",
+    "startMonthLabel": "Počiatočný mesiac",
+    "startYearLabel": "Počiatočný rok",
+    "endMonthLabel": "Koncový mesiac",
+    "endYearLabel": "Koncový rok",
+    "rateLabel": "Ročná inflácia (%)",
+    "yearsLabel": "Počet rokov",
+    "calculate": "Vypočítať",
+    "calculateForward": "Vypočítať dopredu",
+    "calculateBackward": "Vypočítať spätne",
+    "resultValue": "Výsledná hodnota",
+    "futureValue": "Budúca hodnota",
+    "pastValue": "Hodnota v minulosti",
+    "originalAmount": "Pôvodná čiastka",
+    "todayAmount": "Dnešná čiastka",
+    "difference": "Rozdiel",
+    "valueIncrease": "Nárast hodnoty",
+    "purchaseLoss": "Strata kúpnej sily",
+    "months": {
+      "average": "Priemer roka",
+      "1": "Január",
+      "2": "Február",
+      "3": "Marec",
+      "4": "Apríl",
+      "5": "Máj",
+      "6": "Jún",
+      "7": "Júl",
+      "8": "August",
+      "9": "September",
+      "10": "Október",
+      "11": "November",
+      "12": "December"
+    }
+  }
+}
