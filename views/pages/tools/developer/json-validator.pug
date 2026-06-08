@@ -1,6 +1,7 @@
 extends ../../../layouts/main
 
 block content
+
   //- Tool header — breadcrumb + title
   include ../../../partials/tool-header
 
@@ -18,11 +19,11 @@ block content
         //- Action bar
         .json-toolbar
           .json-toolbar__actions
-            button.btn.btn--primary(type='submit' name='actionType' value='validate') Validovat
-            button.btn.btn--ghost(type='submit' name='actionType' value='format') Formátovat
-            button.btn.btn--ghost(type='submit' name='actionType' value='minify') Minifikovat
+            button.btn.btn--primary(type='submit' name='actionType' value='validate') #{t('jsonValidator.validate')}
+            button.btn.btn--ghost(type='submit' name='actionType' value='format') #{t('jsonValidator.format')}
+            button.btn.btn--ghost(type='submit' name='actionType' value='minify') #{t('jsonValidator.minify')}
           .json-toolbar__options
-            label.json-toolbar__label(for='space') Odsazení
+            label.json-toolbar__label(for='space') #{t('jsonValidator.indent')}
             select#space.form-select.json-toolbar__select(name='space')
               each val in spaceValues
                 option(value=val.value selected=(space == val.value))= val.name
@@ -33,13 +34,13 @@ block content
           //- ── Input panel ──────────────────────────────────
           .json-panel
             .json-panel__header
-              span.json-panel__label Vstup
+              span.json-panel__label #{t('common.input')}
               if result
-                span.json-panel__meta #{inputLength || 0} znaků
+                span.json-panel__meta #{inputLength || 0} #{t('common.characters')}
             //- No-JS fallback textarea
             textarea#text.json-panel__editor(
               name='text'
-              placeholder='Sem vložte JSON...'
+              placeholder=t('jsonValidator.inputPlaceholder')
               autocomplete='off'
               spellcheck='false'
             )= text || ''
@@ -51,13 +52,13 @@ block content
             .json-panel__header
               if result
                 if result.validJson
-                  span.json-panel__badge.json-panel__badge--valid ✓ Validní JSON
+                  span.json-panel__badge.json-panel__badge--valid #{t('jsonValidator.validJson')}
                 else
-                  span.json-panel__badge.json-panel__badge--invalid ✗ Nevalidní JSON
+                  span.json-panel__badge.json-panel__badge--invalid #{t('jsonValidator.invalidJson')}
               else
-                span.json-panel__label Výstup
+                span.json-panel__label #{t('common.output')}
               if result && result.validJson && result.result
-                button.btn.btn--sm.btn--ghost#copy-btn(type='button' data-copy-target='#output-text') Kopírovat
+                button.btn.btn--sm.btn--ghost#copy-btn(type='button' data-copy-target='#output-text') #{t('common.copy')}
 
             if result
               if result.validJson
@@ -70,7 +71,7 @@ block content
                 .json-panel__error
                   if result.errorPosition && (result.errorPosition.line || result.errorPosition.column)
                     p.json-panel__error-location
-                      | Řádek #{result.errorPosition.line}, sloupec #{result.errorPosition.column}
+                      | #{t('jsonValidator.errorLine')} #{result.errorPosition.line}, #{t('jsonValidator.errorColumn')} #{result.errorPosition.column}
                   if result.errorMessage
                     p.json-panel__error-message= result.errorMessage
                   else if errorMessage
@@ -80,7 +81,7 @@ block content
             else
               textarea#output-text.json-panel__editor.json-panel__editor--output(
                 readonly
-                placeholder='Výsledek se zobrazí zde...'
+                placeholder=t('jsonValidator.outputPlaceholder')
                 spellcheck='false'
               )
               #ace-output.json-panel__ace

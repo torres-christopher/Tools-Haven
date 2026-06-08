@@ -1,6 +1,7 @@
 extends ../../../layouts/main
 
 block content
+
   //- Tool header — breadcrumb + title
   include ../../../partials/tool-header
 
@@ -20,68 +21,68 @@ block content
           form(method='POST' action=toolPath)
             .form-row
               .form-group
-                label.form-label(for='height') Výška (cm)
+                label.form-label(for='height') #{t('bmi.heightLabel')}
                 input.form-input(
                   type='number'
                   id='height'
                   name='height'
                   min='1'
                   max='300'
-                  placeholder='např. 175'
+                  placeholder=t('bmi.heightPlaceholder')
                   value=height || ''
                   autocomplete='off'
                 )
               .form-group
-                label.form-label(for='weight') Váha (kg)
+                label.form-label(for='weight') #{t('bmi.weightLabel')}
                 input.form-input(
                   type='number'
                   id='weight'
                   name='weight'
                   min='1'
                   max='1000'
-                  placeholder='např. 70'
+                  placeholder=t('bmi.weightPlaceholder')
                   value=weight || ''
                   autocomplete='off'
                 )
-            button.btn.btn--primary(type='submit') Spočítat BMI
+            button.btn.btn--primary(type='submit') #{t('bmi.submit')}
 
           //- Result
           if result
             .tool-result
               .tool-result__header
-                span.tool-result__heading Váš výsledek
+                span.tool-result__heading #{t('common.yourResult')}
               .tool-result__content
                 .tool-result-display
                   span.tool-result-display__value= result.bmiValue.toFixed(1)
-                  span.tool-result-display__label BMI            
+                  span.tool-result-display__label BMI
                 .bmi-classification(class=`bmi-classification--${result.bmiClassification}`)
                   p.bmi-classification__label
                     strong= label
                 .bmi-scale
                   .bmi-scale__bar
                     .bmi-scale__segment.bmi-scale__segment--underweight
-                      span.bmi-scale__segment-label Podváha
+                      span.bmi-scale__segment-label #{t('bmi.scale.underweight')}
                       span.bmi-scale__segment-range &lt; 18.5
                     .bmi-scale__segment.bmi-scale__segment--normal
-                      span.bmi-scale__segment-label Normální
+                      span.bmi-scale__segment-label #{t('bmi.scale.normal')}
                       span.bmi-scale__segment-range 18.5–25
                     .bmi-scale__segment.bmi-scale__segment--overweight
-                      span.bmi-scale__segment-label Nadváha
+                      span.bmi-scale__segment-label #{t('bmi.scale.overweight')}
                       span.bmi-scale__segment-range 25–30
                     .bmi-scale__segment.bmi-scale__segment--obese-1
-                      span.bmi-scale__segment-label Obezita I
+                      span.bmi-scale__segment-label #{t('bmi.scale.obese1')}
                       span.bmi-scale__segment-range 30–35
                     .bmi-scale__segment.bmi-scale__segment--obese-2
-                      span.bmi-scale__segment-label Obezita II
+                      span.bmi-scale__segment-label #{t('bmi.scale.obese2')}
                       span.bmi-scale__segment-range 35–40
                     .bmi-scale__segment.bmi-scale__segment--obese-3
-                      span.bmi-scale__segment-label Obezita III
+                      span.bmi-scale__segment-label #{t('bmi.scale.obese3')}
                       span.bmi-scale__segment-range &gt; 40
                   .bmi-scale__track
                     .bmi-scale__marker(style=`--marker-pos: ${markerPosition}%; left: var(--marker-pos)`)
 
           //- Tool FAQ
-          include ../../../partials/tool-faq          
+          include ../../../partials/tool-faq
 
           //- Ad slot
           include ../../../partials/ad-slot
@@ -96,12 +97,9 @@ block content
           include ../../../partials/ad-slot
 
           .sidebar-info
-            h3.sidebar-info__title O nástroji
-            p.sidebar-info__text
-              | BMI (Body Mass Index) je jednoduchý ukazatel poměru váhy a výšky.
-              | Používá se jako orientační měřítko k posouzení zdravotního rizika spojeného s váhou člověka.
-              | Určuje, zda má jedinec podváhu, normální váhu, nadváhu či obezitu.
+            h3.sidebar-info__title #{t('common.aboutTool')}
+            p.sidebar-info__text #{t('bmi.sidebar.text')}
             ul.sidebar-info__list
-              li Data se nikam neukládají
-              li Výsledky předpokládají věk 20 let a výše
-              li BMI není absolutní ukazatel zdraví
+              li #{t('bmi.sidebar.item1')}
+              li #{t('bmi.sidebar.item2')}
+              li #{t('bmi.sidebar.item3')}
