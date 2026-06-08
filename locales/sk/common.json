@@ -1,207 +1,369 @@
 {
-  "nav.allTools": "Všetky nástroje",
-  "nav.home": "Domov",
-  "nav.related": "Súvisiace nástroje",
-  "nav.text": "Text",
-  "nav.developer": "Vývojárske",
-  "nav.health": "Zdravie",
-  "nav.data": "Lokálne dáta",
-  "footer.tagline": "Bezplatné online nástroje",
-  "footer.categories": "Kategórie",
-  "footer.info": "Informácie",
-  "footer.text": "Textové nástroje",
-  "footer.developer": "Pre vývojárov",
-  "footer.data": "Lokálne dáta",
-  "footer.health": "Zdravie & fitness",
-  "footer.faq": "Časté otázky",
-  "footer.privacy": "Ochrana súkromia",
-  "footer.terms": "Podmienky použitia",
-  "footer.contact": "Kontakt",
-  "footer.rights": "Všetky práva vyhradené.",
-  "layout.cta": "Všetky nástroje",
-  "layout.navToggle": "Otvoriť menu",
-  "layout.cookieBanner.ariaLabel": "Súhlas s cookies",
-  "cookie.text": "Používame analytické cookies (Google Analytics) pre zlepšenie webu. Viac informácií v",
-  "cookie.privacy": "zásadách ochrany súkromia",
-  "cookie.accept": "Prijať",
-  "cookie.decline": "Odmietnuť",
-  "category.text.title": "Textové nástroje",
-  "category.text.description": "Bezplatné online nástroje pre prácu s textom. Počítanie znakov, prevod písmen, čistenie textu a ďalšie.",
-  "category.text.categoryDescription": "Nástroje pre prácu s textom: Počítanie znakov, prevod veľkosti písmen, čistenie textu a ďalšie.",
-  "category.developer.title": "Vývojárske nástroje",
-  "category.developer.description": "Bezplatné online nástroje pre vývojárov. JSON validácia a formátovanie, kódovanie do Base64, URL kódovanie a ďalšie.",
-  "category.developer.categoryDescription": "Nástroje pre vývojárov: Validácia JSONu, formátovanie a porovnávanie textu.",
-  "category.health.title": "Zdravotné nástroje",
-  "category.health.description": "Zdravotné nástroje online zadarmo. BMI kalkulačka a ďalšie jednoduché zdravotné výpočty prehľadne, rýchlo a bez registrácie.",
-  "category.health.categoryDescription": "Kalkulačky pre zdravie a fitness: BMI, BMR, TDEE, ideálna váha a ďalšie ukazovatele.",
-  "category.data.title": "Lokálne dáta",
-  "category.data.description": "Bezplatné online nástroje s lokálnymi dátami. Inflačná kalkulačka, rodné čísla, sviatky a ďalšie.",
-  "category.data.categoryDescription": "Nástroje s lokálnymi dátami: Inflačná kalkulačka, rodné čísla, sviatky, kurzy ČNB a ďalšie.",
-  "allTools.title": "Všetky nástroje",
-  "allTools.description": "Prehľad všetkých bezplatných online nástrojov - počítadlo znakov, prevod veľkosti písmen, JSON validátor, BMI kalkulačka a inflačná kalkulačka. Zadarmo, bez registrácie.",
-  "allTools.showCategory": "Zobraziť kategóriu →",
-  "home.title": "Bezplatné online nástroje",
-  "home.description": "Bezplatné online nástroje pre prácu s textom, prevody jednotiek a lokálne dáta. Zadarmo, bez registrácie.",
-  "home.hero.titleLine1": "Bezplatné online",
-  "home.hero.titleAccent": "nástroje.",
-  "home.hero.subtitle": "Úprava textu, validácia kódu, lokálne dáta zadarmo, bez registrácie.",
-  "home.hero.cta": "Prechádzať nástroje",
-  "home.hero.ctaSecondary": "Najobľúbenejšie",
-  "home.featured.title": "Najobľúbenejšie nástroje",
-  "home.featured.viewAll": "Zobraziť všetky →",
-  "home.featured.comingSoon": "Pripravujeme",
-  "home.features.title": "Čo tento web ponúka",
-  "home.features.calculators.title": "Kalkulačky a prevodníky",
-  "home.features.calculators.desc": "Zdravotné kalkulačky, prevodníky jednotiek, dátum a čas, číselné sústavy, ASCII, farby a kódovanie.",
-  "home.features.privacy.title": "Súkromie na prvom mieste",
-  "home.features.privacy.desc": "Dáta nie sú ukladané ani zdieľané. Súbory sú spracované v pamäti servera a po výsledku okamžite vymazané.",
-  "home.features.speed.title": "Rýchle a bez prekážok",
-  "home.features.speed.desc": "Žiadna registrácia, žiadne prihlasovanie. Otvorte nástroj a okamžite pracujete. Funguje na mobile aj desktope.",
-  "home.faqTeaser.title": "Časté otázky",
-  "home.faqTeaser.desc": "Odpovedáme na najčastejšie otázky o fungovaní nástrojov, ochrane súkromia a dostupnosti dát.",
-  "home.faqTeaser.cta": "Všetky otázky →",
-  "home.faqTeaser.q1.question": "Je použitie nástrojov zadarmo?",
-  "home.faqTeaser.q1.answer": "Áno, všetky nástroje sú úplne bezplatné a nevyžadujú žiadnu registráciu ani zadanie platobného údaja.",
-  "home.faqTeaser.q2.question": "Čo sa deje s dátami, ktoré nahrám?",
-  "home.faqTeaser.q2.answer": "Dáta sú spracované v pamäti servera a po výsledku okamžite vymazané. Nič neukladáme ani nezdieľame s tretími stranami.",
-  "faq.title": "Časté otázky",
-  "faq.description": "Najčastejšie kladené otázky",
-  "faq.page.subtitle": "Odpovedáme na najčastejšie otázky o fungovaní nástrojov, ochrane súkromia, presnosti dát.",
-  "faq.general.title": "Všeobecné",
-  "faq.general.q1.question": "Je použitie nástrojov skutočne zadarmo?",
-  "faq.general.q1.answer": "Áno, všetky nástroje sú úplne bezplatné a nevyžadujú žiadnu registráciu ani zadanie platobného údaja. Web je financovaný reklamou.",
-  "faq.general.q2.question": "Fungujú nástroje na mobilnom telefóne?",
-  "faq.general.q2.answer": "Áno. Všetky nástroje sú optimalizované pre mobilné zariadenia od šírky 320 px vyššie.",
-  "faq.general.q3.question": "Ako hlásim chybu alebo navrhujem nový nástroj?",
-  "faq.general.q3.answerPrefix": "Použite",
-  "faq.general.q3.linkText": "kontaktný formulár",
-  "faq.general.q3.answerSuffix": "Odpovedáme zvyčajne do dvoch pracovných dní.",
-  "faq.privacy.title": "Súkromie a dáta",
-  "faq.privacy.q1.question": "Čo sa deje s dátami, ktoré nahrám?",
-  "faq.privacy.q1.answerPrefix": "Dáta zadané do nástrojov sú spracované výhradne v operačnej pamäti servera. Nič neukladáme ani nezdieľame. Viac v",
-  "faq.privacy.q1.linkText": "zásadách ochrany súkromia",
-  "faq.privacy.q2.question": "Aké cookies web používa?",
-  "faq.privacy.q2.answer": "Používame iba analytické cookies Google Analytics a iba s vaším súhlasom. Bez súhlasu žiadne analytické cookies neprebieha.",
-  "faq.privacy.q3.question": "Sú moje texty a vstupy ukladané?",
-  "faq.privacy.q3.answer": "Nie. Texty zadané do nástrojov nie sú ukladané na server ani do databázy. Spracovanie prebieha synchrónne v pamäti a po vrátení výsledku sú dáta zahodené.",
-  "faq.accuracy.title": "Presnosť a zdroje dát",
-  "faq.accuracy.q1.question": "Sú výsledky kalkulačiek presné?",
-  "faq.accuracy.q1.answer": "Finančné nástroje (inflačná kalkulačka) čerpajú z oficiálnych zdrojov, napr. z Českého štatistického úradu. Zdravotné kalkulačky používajú uznávané vzorce. Všetky výsledky sú orientačné a nenahrádzajú odborné poradenstvo.",
-  "faq.project.title": "O projekte",
-  "faq.project.q1.question": "Bol tento web vytvorený umelou inteligenciou?",
-  "faq.project.q1.answer": "Web som navrhol a naprogramoval ja vrátane business logiky, architektúry, testov a databázy nástrojov. Umelá inteligencia mi pomáhala s rutinnými časťami ako formátovanie kódu, komentáre, Pug šablóny a texty FAQ. Všetky rozhodnutia o tom, čo web robí a ako funguje, sú moje.",
-  "contact.title": "Kontakt",
-  "contact.description": "Kontaktujte nás — hlásenie chýb, nápady na nástroje, otázky k ochrane súkromia.",
-  "contact.page.subtitle": "Máte otázku alebo narazili ste na chybu?",
-  "contact.about.title": "O webe",
-  "contact.about.p1": "{{siteName}} je bezplatný web s online nástrojmi pre text, kalkulačky a lokálne dáta. Všetky nástroje sú zadarmo a nevyžadujú registráciu.",
-  "contact.about.p2": "Web prevádzkuje fyzická osoba podnikajúca na základe živnostenského oprávnenia so sídlom v Českej republike.",
-  "contact.about.p3": "Časť kódu a textov vznikla za pomoci umelej inteligencie. Architektúra, business logika, testy a všetky rozhodnutia sú dielom autora.",
-  "contact.when.title": "Kedy nás kontaktovať",
-  "contact.when.item1": "narazili ste na chybu alebo nesprávny výsledok nástroja",
-  "contact.when.item2": "výsledok kalkulačky sa zdá nesprávny",
-  "contact.when.item3": "máte nápad na nový nástroj alebo vylepšenie",
-  "contact.when.item4": "otázky k ochrane osobných údajov alebo podmienkam použitia",
-  "contact.docs.title": "Ďalšie dokumenty",
-  "contact.docs.privacy": "Ochrana osobných údajov",
-  "contact.docs.terms": "Podmienky použitia",
-  "contact.form.title": "Napíšte nám",
-  "contact.form.name.label": "Meno",
-  "contact.form.name.placeholder": "Vaše meno",
-  "contact.form.email.label": "E-mailová adresa",
-  "contact.form.email.placeholder": "vas@email.sk",
-  "contact.form.subject.label": "Predmet",
-  "contact.form.subject.bug": "Našiel/a som chybu",
-  "contact.form.subject.improvement": "Nápad na vylepšenie",
-  "contact.form.subject.privacy": "Otázka k súkromiu",
-  "contact.form.subject.other": "Iné",
-  "contact.form.message.label": "Správa",
-  "contact.form.message.placeholder": "Popíšte vašu otázku alebo problém čo najpodrobnejšie...",
-  "contact.form.submit": "Odoslať správu",
-  "contact.form.hint": "Odpovedáme zvyčajne do 2 pracovných dní.",
-  "privacy.title": "Ochrana osobných údajov",
-  "privacy.description": "Zásady ochrany osobných údajov webu tools-haven.com. Informácie o cookies, sledovaní a spracovaní dát.",
-  "privacy.page.meta": "Posledná aktualizácia:",
-  "privacy.s1.title": "1. Správca údajov",
-  "privacy.s1.p1prefix": "Prevádzkovateľom webu",
-  "privacy.s1.p1suffix": "je fyzická osoba podnikajúca na základe živnostenského oprávnenia 09830251. Pre otázky ohľadom ochrany osobných údajov nás kontaktujte na adrese uvedenej v sekcii",
-  "privacy.s1.contactLink": "Kontakt",
-  "privacy.s2.title": "2. Aké údaje spracovávame",
-  "privacy.s2.intro": "Tento web spracováva iba minimálne množstvo dát nevyhnutných pre prevádzku:",
-  "privacy.s2.item1.label": "Analytické dáta (Google Analytics):",
-  "privacy.s2.item1.text": "anonymizované dáta o návštevnosti — počet návštev, použité nástroje, typ zariadenia, približná geografická poloha (úroveň mesta). IP adresa je anonymizovaná pred odoslaním do Google.",
-  "privacy.s2.item2.label": "Dáta zadané do nástrojov:",
-  "privacy.s2.item2.text": "texty, čísla a súbory zadané do online nástrojov sú spracované výhradne pre účely daného nástroja a nie sú ukladané ani odovzdávané tretím stranám.",
-  "privacy.s2.item3.label": "Technické dáta:",
-  "privacy.s2.item3.text": "server loguje IP adresy a HTTP požiadavky po dobu maximálne 7 dní z dôvodu bezpečnosti a diagnostiky chýb.",
-  "privacy.s3.title": "3. Cookies",
-  "privacy.s3.intro": "Používame nasledujúce typy cookies:",
-  "privacy.s3.item1.label": "Nevyhnutné cookies:",
-  "privacy.s3.item1.text": "zabezpečujú základnú funkčnosť webu. Nepodliehajú súhlasu.",
-  "privacy.s3.item2.label": "Analytické cookies (Google Analytics):",
-  "privacy.s3.item2.text": "používame ich iba s vaším súhlasom. Slúžia na zlepšenie webu na základe anonymných dát o návštevnosti.",
-  "privacy.s3.p2": "Svoj súhlas s analytickými cookies môžete kedykoľvek odvolať vymazaním cookies v nastavení prehliadača alebo kliknutím na tlačidlo „Odmietnuť\" v cookie lište pri ďalšej návšteve.",
-  "privacy.s4.title": "4. Google Analytics",
-  "privacy.s4.p1prefix": "Web používa službu Google Analytics (Google LLC, USA). Dáta sú prenášané do USA na základe štandardných zmluvných doložiek schválených Európskou komisiou. IP anonymizácia je aktivovaná. Viac informácií:",
-  "privacy.s4.p1link": "Zásady ochrany súkromia Google",
-  "privacy.s5.title": "5. Reklama",
-  "privacy.s5.p1prefix": "Web zobrazuje reklamy prostredníctvom služby Google AdSense. Google môže používať cookies na zobrazovanie relevantnej reklamy na základe vašich predchádzajúcich návštev tohto alebo iných webov. Viac informácií a možnosť odmietnutia personalizovanej reklamy nájdete na",
-  "privacy.s6.title": "6. Vaše práva (GDPR)",
-  "privacy.s6.intro": "Máte právo:",
-  "privacy.s6.item1": "na prístup k svojim osobným údajom",
-  "privacy.s6.item2": "na opravu nepresných údajov",
-  "privacy.s6.item3": "na výmaz údajov („právo byť zabudnutý\")",
-  "privacy.s6.item4": "na obmedzenie spracovania",
-  "privacy.s6.item5": "na prenositeľnosť údajov",
-  "privacy.s6.item6": "vzniesť námietku proti spracovaniu",
-  "privacy.s6.item7": "podať sťažnosť u Úradu na ochranu osobných údajov (ÚOOÚ)",
-  "privacy.s6.p2prefix": "Pre uplatnenie práv nás kontaktujte prostredníctvom",
-  "privacy.s6.p2link": "kontaktného formulára",
-  "privacy.s7.title": "7. Zabezpečenie",
-  "privacy.s7.p1": "Prenos dát medzi vaším prehliadačom a serverom je šifrovaný pomocou HTTPS/TLS. Dáta zadané do nástrojov nie sú trvalo ukladané — sú spracované v pamäti servera a po odoslaní odpovede okamžite vymazané.",
-  "privacy.s8.title": "8. Zmeny týchto zásad",
-  "privacy.s8.p1": "Vyhradzujeme si právo tieto zásady kedykoľvek aktualizovať. O podstatných zmenách budeme informovať na tejto stránke. Dátum poslednej aktualizácie je uvedený v záhlaví.",
-  "terms.title": "Podmienky použitia",
-  "terms.description": "Podmienky použitia bezplatných online nástrojov na webe tools-haven.com.",
-  "terms.page.meta": "Posledná aktualizácia:",
-  "terms.s1.title": "1. Prevádzkovateľ",
-  "terms.s1.p1prefix": "Web",
-  "terms.s1.p1suffix": "prevádzkuje fyzická osoba podnikajúca na základe živnostenského oprávnenia so sídlom v Českej republike. Používaním tohto webu súhlasíte s týmito podmienkami použitia.",
-  "terms.s2.title": "2. Povaha služby",
-  "terms.s2.p1suffix": "poskytuje bezplatné online nástroje pre spracovanie textu, výpočty a prístup k verejným dátam. Všetky nástroje sú poskytované „tak ako sú\" (as-is), bez záruky nepretržitej dostupnosti alebo absolútnej presnosti výsledkov.",
-  "terms.s2.p2": "Prevádzkovateľ si vyhradzuje právo kedykoľvek bez predchádzajúceho upozornenia zmeniť, obmedziť alebo ukončiť prevádzku jednotlivých nástrojov alebo celého webu.",
-  "terms.s3.title": "3. Obmedzenie zodpovednosti",
-  "terms.s3.item1": "Výsledky nástrojov slúžia výhradne pre informačné a orientačné účely. Prevádzkovateľ nenesie zodpovednosť za rozhodnutia urobené na základe výstupov z nástrojov.",
-  "terms.s3.item2": "Zdravotné kalkulačky (BMI, kalórie, tehotenstvo, telesný tuk a pod.) nenahrádzajú lekársku konzultáciu ani odborné vyšetrenie. Vždy sa poraďte s kvalifikovaným zdravotníckym pracovníkom.",
-  "terms.s3.item3": "Finančné a právne nástroje (kurzy ČNB, IBAN, IČO, ARES a pod.) sú poskytované pre orientačné účely. Kritické údaje vždy overujte z oficiálnych zdrojov (ČNB, ARES, Justice.cz).",
-  "terms.s3.item4": "Prevádzkovateľ neručí za škody vzniknuté výpadkom služby, stratou dát alebo nesprávnym výsledkom nástroja.",
-  "terms.s3.item5": "Výsledky generované nástrojmi nezakladajú právny nárok ani odborné stanovisko.",
-  "terms.s4.title": "4. Prijateľné použitie",
-  "terms.s4.intro": "Používaním webu sa zaväzujete, že nebudete:",
-  "terms.s4.item1": "automatizovane pristupovať k webu spôsobom preťažujúcim server (scraping, DDoS, nadmerné automatické požiadavky)",
-  "terms.s4.item2": "obchádzať technické obmedzenia webu (rate limiting, limity veľkosti súborov, CAPTCHA)",
-  "terms.s4.item3": "nahrávať súbory obsahujúce malware, vírusy alebo iný škodlivý kód",
-  "terms.s4.item4": "nahrávať alebo spracovávať obsah porušujúci autorské práva alebo iné práva tretích osôb",
-  "terms.s4.item5": "používať web na činnosti v rozpore s právnym poriadkom Českej republiky alebo Európskej únie",
-  "terms.s4.item6": "vydávať automaticky generované výstupy za výsledky vlastnej odbornej práce v kontextoch, kde by to mohlo byť zavádzajúce",
-  "terms.s5.title": "5. Nahrávané súbory",
-  "terms.s5.p1": "Súbory nahrané za účelom spracovania (PDF, obrázky, dokumenty a pod.) sú spracované výhradne pre účely daného nástroja v operačnej pamäti servera. Súbory nie sú trvalo ukladané na disk, nie sú zdieľané s tretími stranami a sú automaticky vymazané ihneď po odoslaní výsledku používateľovi.",
-  "terms.s6.title": "6. Duševné vlastníctvo",
-  "terms.s6.p1": "Všetok obsah webu (dizajn, zdrojový kód, texty, grafika) je chránený autorským právom prevádzkovateľa alebo príslušných držiteľov práv. Bez predchádzajúceho písomného súhlasu prevádzkovateľa nie je dovolené obsah webu kopírovať, šíriť alebo komerčne využívať.",
-  "terms.s6.p2": "Výstupy generované nástrojmi (konvertované súbory, výsledky výpočtov a pod.) sú plne vo vlastníctve používateľa, ktorý ich vygeneroval.",
-  "terms.s7.title": "7. Reklama",
-  "terms.s7.p1": "Web je financovaný reklamou prostredníctvom služby Google AdSense (Google LLC). Reklamy sú zreteľne označené ako „Reklama\". Prevádzkovateľ webu nemá vplyv na konkrétny obsah zobrazovaných reklám. Kliknutie na reklamu a následné transakcie sú výhradne medzi používateľom a inzerentom.",
-  "terms.s8.title": "8. Ochrana osobných údajov",
-  "terms.s8.p1prefix": "Spracovanie osobných údajov je popísané v samostatnom dokumente:",
-  "terms.s8.p1link": "Ochrana osobných údajov",
-  "terms.s9.title": "9. Rozhodné právo a riešenie sporov",
-  "terms.s9.p1": "Tieto podmienky sa riadia právom Českej republiky. Prípadné spory budú prednostne riešené zmiernou cestou. Ak zmierné riešenie nebude možné, budú spory riešené príslušnými súdmi Českej republiky.",
-  "terms.s9.p2prefix": "Spotrebitelia majú rovnako právo na mimosúdne riešenie sporu prostredníctvom Českej obchodnej inšpekcie (",
-  "terms.s9.p2suffix": ").",
-  "terms.s10.title": "10. Zmeny podmienok",
-  "terms.s10.p1": "Prevádzkovateľ si vyhradzuje právo tieto podmienky kedykoľvek zmeniť. Aktuálna verzia je vždy dostupná na tejto stránke spolu s dátumom poslednej aktualizácie. Ďalšie používanie webu po zverejnení zmien znamená súhlas s aktualizovanými podmienkami.",
-  "terms.s11.title": "11. Kontakt",
-  "terms.s11.p1prefix": "Otázky, pripomienky alebo hlásenie porušenia týchto podmienok zasielajte prostredníctvom",
-  "terms.s11.p1link": "kontaktného formulára",
-  "ad.title": "Reklama"
+  "nav": {
+    "allTools": "Všetky nástroje",
+    "home": "Domov",
+    "related": "Súvisiace nástroje",
+    "category": {
+      "text": {
+        "title": "Text",
+        "pocetZnaku": "Počet znakov",
+        "prevodVelikosti": "Formátovanie znakov"
+      },
+      "developer": {
+        "title": "Vývojárske",
+        "jsonValidator": "JSON validator"
+        },
+      "health": {
+        "title": "Zdravie",
+        "bmiKalkulacka": "BMI kalkulačka"
+        },
+      "data": {
+        "title": "Lokálne dáta",
+        "inflacniKalkulacka": "Inflačná kalkulačka"
+        }
+    }
+  },
+  "footer": {
+    "tagline": "Bezplatné online nástroje",
+    "categories": "Kategórie",
+    "info": "Informácie",
+    "text": "Textové nástroje",
+    "developer": "Pre vývojárov",
+    "data": "Lokálne dáta",
+    "health": "Zdravie & fitness",
+    "faq": "Časté otázky",
+    "privacy": "Ochrana súkromia",
+    "terms": "Podmienky použitia",
+    "contact": "Kontakt",
+    "rights": "Všetky práva vyhradené."
+  },
+  "layout": {
+    "navToggle": "Otvoriť menu",
+    "cookieBanner": {
+      "ariaLabel": "Súhlas s cookies"
+    }
+  },
+  "cookie": {
+    "text": "Používame analytické cookies (Google Analytics) pre zlepšenie webu. Viac informácií v",
+    "privacy": "zásadách ochrany súkromia",
+    "accept": "Prijať",
+    "decline": "Odmietnuť"
+  },
+  "ad": {
+    "title": "Reklama"
+  },
+  "category": {
+    "text": {
+      "title": "Textové nástroje",
+      "description": "Bezplatné online nástroje pre prácu s textom. Počítanie znakov, prevod písmen, čistenie textu a ďalšie.",
+      "categoryDescription": "Nástroje pre prácu s textom: Počítanie znakov, prevod veľkosti písmen, čistenie textu a ďalšie."
+    },
+    "developer": {
+      "title": "Vývojárske nástroje",
+      "description": "Bezplatné online nástroje pre vývojárov. JSON validácia a formátovanie, kódovanie do Base64, URL kódovanie a ďalšie.",
+      "categoryDescription": "Nástroje pre vývojárov: Validácia JSONu, formátovanie a porovnávanie textu."
+    },
+    "health": {
+      "title": "Zdravotné nástroje",
+      "description": "Zdravotné nástroje online zadarmo. BMI kalkulačka a ďalšie jednoduché zdravotné výpočty prehľadne, rýchlo a bez registrácie.",
+      "categoryDescription": "Kalkulačky pre zdravie a fitness: BMI, BMR, TDEE, ideálna váha a ďalšie ukazovatele."
+    },
+    "data": {
+      "title": "Lokálne dáta",
+      "description": "Bezplatné online nástroje s lokálnymi dátami. Inflačná kalkulačka, rodné čísla, sviatky a ďalšie.",
+      "categoryDescription": "Nástroje s lokálnymi dátami: Inflačná kalkulačka, rodné čísla, sviatky, kurzy ČNB a ďalšie."
+    }
+  },
+  "allTools": {
+    "title": "Všetky nástroje",
+    "description": "Prehľad všetkých bezplatných online nástrojov - počítadlo znakov, prevod veľkosti písmen, JSON validátor, BMI kalkulačka a inflačná kalkulačka. Zadarmo, bez registrácie.",
+    "showCategory": "Zobraziť kategóriu →"
+  },
+  "home": {
+    "title": "Bezplatné online nástroje",
+    "description": "Bezplatné online nástroje pre prácu s textom, prevody jednotiek a lokálne dáta. Zadarmo, bez registrácie.",
+    "hero": {
+      "titleLine1": "Bezplatné online",
+      "titleAccent": "nástroje.",
+      "subtitle": "Úprava textu, validácia kódu, lokálne dáta zadarmo, bez registrácie.",
+      "cta": "Prechádzať nástroje",
+      "ctaSecondary": "Najobľúbenejšie"
+    },
+    "featured": {
+      "title": "Najobľúbenejšie nástroje",
+      "viewAll": "Zobraziť všetky →",
+      "comingSoon": "Pripravujeme"
+    },
+    "features": {
+      "title": "Čo tento web ponúka",
+      "calculators": {
+        "title": "Kalkulačky a prevodníky",
+        "desc": "Zdravotné kalkulačky, prevodníky jednotiek, dátum a čas, číselné sústavy, ASCII, farby a kódovanie."
+      },
+      "privacy": {
+        "title": "Súkromie na prvom mieste",
+        "desc": "Dáta nie sú ukladané ani zdieľané. Súbory sú spracované v pamäti servera a po výsledku okamžite vymazané."
+      },
+      "speed": {
+        "title": "Rýchle a bez prekážok",
+        "desc": "Žiadna registrácia, žiadne prihlasovanie. Otvorte nástroj a okamžite pracujete. Funguje na mobile aj desktope."
+      }
+    },
+    "faqTeaser": {
+      "title": "Časté otázky",
+      "desc": "Odpovedáme na najčastejšie otázky o fungovaní nástrojov, ochrane súkromia a dostupnosti dát.",
+      "cta": "Všetky otázky →",
+      "q1": {
+        "question": "Je použitie nástrojov zadarmo?",
+        "answer": "Áno, všetky nástroje sú úplne bezplatné a nevyžadujú žiadnu registráciu ani zadanie platobného údaja."
+      },
+      "q2": {
+        "question": "Čo sa deje s dátami, ktoré nahrám?",
+        "answer": "Dáta sú spracované v pamäti servera a po výsledku okamžite vymazané. Nič neukladáme ani nezdieľame s tretími stranami."
+      }
+    }
+  },
+  "faq": {
+    "title": "Časté otázky",
+    "description": "Najčastejšie kladené otázky",
+    "page": {
+      "subtitle": "Odpovedáme na najčastejšie otázky o fungovaní nástrojov, ochrane súkromia, presnosti dát."
+    },
+    "general": {
+      "title": "Všeobecné",
+      "q1": {
+        "question": "Je použitie nástrojov skutočne zadarmo?",
+        "answer": "Áno, všetky nástroje sú úplne bezplatné a nevyžadujú žiadnu registráciu ani zadanie platobného údaja. Web je financovaný reklamou."
+      },
+      "q2": {
+        "question": "Fungujú nástroje na mobilnom telefóne?",
+        "answer": "Áno. Všetky nástroje sú optimalizované pre mobilné zariadenia od šírky 320 px vyššie."
+      },
+      "q3": {
+        "question": "Ako hlásim chybu alebo navrhujem nový nástroj?",
+        "answerPrefix": "Použite",
+        "linkText": "kontaktný formulár",
+        "answerSuffix": "Odpovedáme zvyčajne do dvoch pracovných dní."
+      }
+    },
+    "privacy": {
+      "title": "Súkromie a dáta",
+      "q1": {
+        "question": "Čo sa deje s dátami, ktoré nahrám?",
+        "answerPrefix": "Dáta zadané do nástrojov sú spracované výhradne v operačnej pamäti servera. Nič neukladáme ani nezdieľame. Viac v",
+        "linkText": "zásadách ochrany súkromia"
+      },
+      "q2": {
+        "question": "Aké cookies web používa?",
+        "answer": "Používame iba analytické cookies Google Analytics a iba s vaším súhlasom. Bez súhlasu žiadne analytické cookies neprebieha."
+      },
+      "q3": {
+        "question": "Sú moje texty a vstupy ukladané?",
+        "answer": "Nie. Texty zadané do nástrojov nie sú ukladané na server ani do databázy. Spracovanie prebieha synchrónne v pamäti a po vrátení výsledku sú dáta zahodené."
+      }
+    },
+    "accuracy": {
+      "title": "Presnosť a zdroje dát",
+      "q1": {
+        "question": "Sú výsledky kalkulačiek presné?",
+        "answer": "Finančné nástroje (inflačná kalkulačka) čerpajú z oficiálnych zdrojov, napr. z Českého štatistického úradu. Zdravotné kalkulačky používajú uznávané vzorce. Všetky výsledky sú orientačné a nenahrádzajú odborné poradenstvo."
+      }
+    },
+    "project": {
+      "title": "O projekte",
+      "q1": {
+        "question": "Bol tento web vytvorený umelou inteligenciou?",
+        "answer": "Web som navrhol a naprogramoval ja vrátane business logiky, architektúry, testov a databázy nástrojov. Umelá inteligencia mi pomáhala s rutinnými časťami ako formátovanie kódu, komentáre, Pug šablóny a texty FAQ. Všetky rozhodnutia o tom, čo web robí a ako funguje, sú moje."
+      }
+    }
+  },
+  "contact": {
+    "title": "Kontakt",
+    "description": "Kontaktujte nás — hlásenie chýb, nápady na nástroje, otázky k ochrane súkromia.",
+    "page": {
+      "subtitle": "Máte otázku alebo narazili ste na chybu?"
+    },
+    "about": {
+      "title": "O webe",
+      "p1": "{{siteName}} je bezplatný web s online nástrojmi pre text, kalkulačky a lokálne dáta. Všetky nástroje sú zadarmo a nevyžadujú registráciu.",
+      "p2": "Web prevádzkuje fyzická osoba podnikajúca na základe živnostenského oprávnenia so sídlom v Českej republike.",
+      "p3": "Časť kódu a textov vznikla za pomoci umelej inteligencie. Architektúra, business logika, testy a všetky rozhodnutia sú dielom autora."
+    },
+    "when": {
+      "title": "Kedy nás kontaktovať",
+      "item1": "narazili ste na chybu alebo nesprávny výsledok nástroja",
+      "item2": "výsledok kalkulačky sa zdá nesprávny",
+      "item3": "máte nápad na nový nástroj alebo vylepšenie",
+      "item4": "otázky k ochrane osobných údajov alebo podmienkam použitia"
+    },
+    "docs": {
+      "title": "Ďalšie dokumenty",
+      "privacy": "Ochrana osobných údajov",
+      "terms": "Podmienky použitia"
+    },
+    "form": {
+      "title": "Napíšte nám",
+      "name": {
+        "label": "Meno",
+        "placeholder": "Vaše meno"
+      },
+      "email": {
+        "label": "E-mailová adresa",
+        "placeholder": "vas@email.sk"
+      },
+      "subject": {
+        "label": "Predmet",
+        "bug": "Našiel/a som chybu",
+        "improvement": "Nápad na vylepšenie",
+        "privacy": "Otázka k súkromiu",
+        "other": "Iné"
+      },
+      "message": {
+        "label": "Správa",
+        "placeholder": "Popíšte vašu otázku alebo problém čo najpodrobnejšie..."
+      },
+      "submit": "Odoslať správu",
+      "hint": "Odpovedáme zvyčajne do 2 pracovných dní."
+    }
+  },
+  "privacy": {
+    "title": "Ochrana osobných údajov",
+    "description": "Zásady ochrany osobných údajov webu tools-haven.com. Informácie o cookies, sledovaní a spracovaní dát.",
+    "page": {
+      "meta": "Posledná aktualizácia:"
+    },
+    "s1": {
+      "title": "1. Správca údajov",
+      "p1prefix": "Prevádzkovateľom webu",
+      "p1suffix": "je fyzická osoba podnikajúca na základe živnostenského oprávnenia 09830251. Pre otázky ohľadom ochrany osobných údajov nás kontaktujte na adrese uvedenej v sekcii",
+      "contactLink": "Kontakt"
+    },
+    "s2": {
+      "title": "2. Aké údaje spracovávame",
+      "intro": "Tento web spracováva iba minimálne množstvo dát nevyhnutných pre prevádzku:",
+      "item1": {
+        "label": "Analytické dáta (Google Analytics):",
+        "text": "anonymizované dáta o návštevnosti — počet návštev, použité nástroje, typ zariadenia, približná geografická poloha (úroveň mesta). IP adresa je anonymizovaná pred odoslaním do Google."
+      },
+      "item2": {
+        "label": "Dáta zadané do nástrojov:",
+        "text": "texty, čísla a súbory zadané do online nástrojov sú spracované výhradne pre účely daného nástroja a nie sú ukladané ani odovzdávané tretím stranám."
+      },
+      "item3": {
+        "label": "Technické dáta:",
+        "text": "server loguje IP adresy a HTTP požiadavky po dobu maximálne 7 dní z dôvodu bezpečnosti a diagnostiky chýb."
+      }
+    },
+    "s3": {
+      "title": "3. Cookies",
+      "intro": "Používame nasledujúce typy cookies:",
+      "item1": {
+        "label": "Nevyhnutné cookies:",
+        "text": "zabezpečujú základnú funkčnosť webu. Nepodliehajú súhlasu."
+      },
+      "item2": {
+        "label": "Analytické cookies (Google Analytics):",
+        "text": "používame ich iba s vaším súhlasom. Slúžia na zlepšenie webu na základe anonymných dát o návštevnosti."
+      },
+      "p2": "Svoj súhlas s analytickými cookies môžete kedykoľvek odvolať vymazaním cookies v nastavení prehliadača alebo kliknutím na tlačidlo „Odmietnuť\" v cookie lište pri ďalšej návšteve."
+    },
+    "s4": {
+      "title": "4. Google Analytics",
+      "p1prefix": "Web používa službu Google Analytics (Google LLC, USA). Dáta sú prenášané do USA na základe štandardných zmluvných doložiek schválených Európskou komisiou. IP anonymizácia je aktivovaná. Viac informácií:",
+      "p1link": "Zásady ochrany súkromia Google"
+    },
+    "s5": {
+      "title": "5. Reklama",
+      "p1prefix": "Web zobrazuje reklamy prostredníctvom služby Google AdSense. Google môže používať cookies na zobrazovanie relevantnej reklamy na základe vašich predchádzajúcich návštev tohto alebo iných webov. Viac informácií a možnosť odmietnutia personalizovanej reklamy nájdete na"
+    },
+    "s6": {
+      "title": "6. Vaše práva (GDPR)",
+      "intro": "Máte právo:",
+      "item1": "na prístup k svojim osobným údajom",
+      "item2": "na opravu nepresných údajov",
+      "item3": "na výmaz údajov („právo byť zabudnutý\")",
+      "item4": "na obmedzenie spracovania",
+      "item5": "na prenositeľnosť údajov",
+      "item6": "vzniesť námietku proti spracovaniu",
+      "item7": "podať sťažnosť u Úradu na ochranu osobných údajov (ÚOOÚ)",
+      "p2prefix": "Pre uplatnenie práv nás kontaktujte prostredníctvom",
+      "p2link": "kontaktného formulára"
+    },
+    "s7": {
+      "title": "7. Zabezpečenie",
+      "p1": "Prenos dát medzi vaším prehliadačom a serverom je šifrovaný pomocou HTTPS/TLS. Dáta zadané do nástrojov nie sú trvalo ukladané — sú spracované v pamäti servera a po odoslaní odpovede okamžite vymazané."
+    },
+    "s8": {
+      "title": "8. Zmeny týchto zásad",
+      "p1": "Vyhradzujeme si právo tieto zásady kedykoľvek aktualizovať. O podstatných zmenách budeme informovať na tejto stránke. Dátum poslednej aktualizácie je uvedený v záhlaví."
+    }
+  },
+  "terms": {
+    "title": "Podmienky použitia",
+    "description": "Podmienky použitia bezplatných online nástrojov na webe tools-haven.com.",
+    "page": {
+      "meta": "Posledná aktualizácia:"
+    },
+    "s1": {
+      "title": "1. Prevádzkovateľ",
+      "p1prefix": "Web",
+      "p1suffix": "prevádzkuje fyzická osoba podnikajúca na základe živnostenského oprávnenia so sídlom v Českej republike. Používaním tohto webu súhlasíte s týmito podmienkami použitia."
+    },
+    "s2": {
+      "title": "2. Povaha služby",
+      "p1suffix": "poskytuje bezplatné online nástroje pre spracovanie textu, výpočty a prístup k verejným dátam. Všetky nástroje sú poskytované „tak ako sú\" (as-is), bez záruky nepretržitej dostupnosti alebo absolútnej presnosti výsledkov.",
+      "p2": "Prevádzkovateľ si vyhradzuje právo kedykoľvek bez predchádzajúceho upozornenia zmeniť, obmedziť alebo ukončiť prevádzku jednotlivých nástrojov alebo celého webu."
+    },
+    "s3": {
+      "title": "3. Obmedzenie zodpovednosti",
+      "item1": "Výsledky nástrojov slúžia výhradne pre informačné a orientačné účely. Prevádzkovateľ nenesie zodpovednosť za rozhodnutia urobené na základe výstupov z nástrojov.",
+      "item2": "Zdravotné kalkulačky (BMI, kalórie, tehotenstvo, telesný tuk a pod.) nenahrádzajú lekársku konzultáciu ani odborné vyšetrenie. Vždy sa poraďte s kvalifikovaným zdravotníckym pracovníkom.",
+      "item3": "Finančné a právne nástroje (kurzy ČNB, IBAN, IČO, ARES a pod.) sú poskytované pre orientačné účely. Kritické údaje vždy overujte z oficiálnych zdrojov (ČNB, ARES, Justice.cz).",
+      "item4": "Prevádzkovateľ neručí za škody vzniknuté výpadkom služby, stratou dát alebo nesprávnym výsledkom nástroja.",
+      "item5": "Výsledky generované nástrojmi nezakladajú právny nárok ani odborné stanovisko."
+    },
+    "s4": {
+      "title": "4. Prijateľné použitie",
+      "intro": "Používaním webu sa zaväzujete, že nebudete:",
+      "item1": "automatizovane pristupovať k webu spôsobom preťažujúcim server (scraping, DDoS, nadmerné automatické požiadavky)",
+      "item2": "obchádzať technické obmedzenia webu (rate limiting, limity veľkosti súborov, CAPTCHA)",
+      "item3": "nahrávať súbory obsahujúce malware, vírusy alebo iný škodlivý kód",
+      "item4": "nahrávať alebo spracovávať obsah porušujúci autorské práva alebo iné práva tretích osôb",
+      "item5": "používať web na činnosti v rozpore s právnym poriadkom Českej republiky alebo Európskej únie",
+      "item6": "vydávať automaticky generované výstupy za výsledky vlastnej odbornej práce v kontextoch, kde by to mohlo byť zavádzajúce"
+    },
+    "s5": {
+      "title": "5. Nahrávané súbory",
+      "p1": "Súbory nahrané za účelom spracovania (PDF, obrázky, dokumenty a pod.) sú spracované výhradne pre účely daného nástroja v operačnej pamäti servera. Súbory nie sú trvalo ukladané na disk, nie sú zdieľané s tretími stranami a sú automaticky vymazané ihneď po odoslaní výsledku používateľovi."
+    },
+    "s6": {
+      "title": "6. Duševné vlastníctvo",
+      "p1": "Všetok obsah webu (dizajn, zdrojový kód, texty, grafika) je chránený autorským právom prevádzkovateľa alebo príslušných držiteľov práv. Bez predchádzajúceho písomného súhlasu prevádzkovateľa nie je dovolené obsah webu kopírovať, šíriť alebo komerčne využívať.",
+      "p2": "Výstupy generované nástrojmi (konvertované súbory, výsledky výpočtov a pod.) sú plne vo vlastníctve používateľa, ktorý ich vygeneroval."
+    },
+    "s7": {
+      "title": "7. Reklama",
+      "p1": "Web je financovaný reklamou prostredníctvom služby Google AdSense (Google LLC). Reklamy sú zreteľne označené ako „Reklama\". Prevádzkovateľ webu nemá vplyv na konkrétny obsah zobrazovaných reklám. Kliknutie na reklamu a následné transakcie sú výhradne medzi používateľom a inzerentom."
+    },
+    "s8": {
+      "title": "8. Ochrana osobných údajov",
+      "p1prefix": "Spracovanie osobných údajov je popísané v samostatnom dokumente:",
+      "p1link": "Ochrana osobných údajov"
+    },
+    "s9": {
+      "title": "9. Rozhodné právo a riešenie sporov",
+      "p1": "Tieto podmienky sa riadia právom Českej republiky. Prípadné spory budú prednostne riešené zmiernou cestou. Ak zmierné riešenie nebude možné, budú spory riešené príslušnými súdmi Českej republiky.",
+      "p2prefix": "Spotrebitelia majú rovnako právo na mimosúdne riešenie sporu prostredníctvom Českej obchodnej inšpekcie (",
+      "p2suffix": ")."
+    },
+    "s10": {
+      "title": "10. Zmeny podmienok",
+      "p1": "Prevádzkovateľ si vyhradzuje právo tieto podmienky kedykoľvek zmeniť. Aktuálna verzia je vždy dostupná na tejto stránke spolu s dátumom poslednej aktualizácie. Ďalšie používanie webu po zverejnení zmien znamená súhlas s aktualizovanými podmienkami."
+    },
+    "s11": {
+      "title": "11. Kontakt",
+      "p1prefix": "Otázky, pripomienky alebo hlásenie porušenia týchto podmienok zasielajte prostredníctvom",
+      "p1link": "kontaktného formulára"
+    }
+  }
 }
