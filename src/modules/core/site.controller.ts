@@ -10,7 +10,12 @@ import { env } from '../../config/env.js'
 export const getRobots = catchAsync(async (_req, res) => {
   const content = `User-agent: *
 Allow: /
+
 Disallow: /health
+Disallow: /cs/contact
+Disallow: /cs/privacy
+Disallow: /cs/terms
+Disallow: /sk/
 
 Sitemap: ${env.SITE_URL}/sitemap.xml`
 
@@ -20,16 +25,10 @@ Sitemap: ${env.SITE_URL}/sitemap.xml`
 
 // Generate sitemap
 export const getSitemap = catchAsync(async (_req, res) => {
-  const staticPaths = ['/']
+  // Only include locales that have at least one enabled tool
+  const activeLocales = supportedLocales.filter((lang) => tools.some((t) => t.enabled[lang]))
 
-  const langPaths = supportedLocales.flatMap((lang) => [
-    `/${lang}`,
-    `/${lang}/tools`,
-    `/${lang}/faq`,
-    `/${lang}/contact`,
-    `/${lang}/privacy`,
-    `/${lang}/terms`,
-  ])
+  const langPaths = activeLocales.flatMap((lang) => [`/${lang}`, `/${lang}/tools`, `/${lang}/faq`])
 
   // Generate one path per tool per enabled language
   const toolPaths = tools.flatMap((tool) =>
@@ -38,7 +37,7 @@ export const getSitemap = catchAsync(async (_req, res) => {
       .map((lang: SupportedLocale) => buildToolPath(lang, tool.categoryPath, tool.slug)),
   )
 
-  const allPaths = [...staticPaths, ...langPaths, ...toolPaths]
+  const allPaths = [...langPaths, ...toolPaths]
 
   const urls = allPaths
     .map(
@@ -46,7 +45,7 @@ export const getSitemap = catchAsync(async (_req, res) => {
         `<url>
   <loc>${env.SITE_URL}${path}</loc>
   <changefreq>weekly</changefreq>
-  <priority>${path === '/' ? '1.0' : '0.8'}</priority>
+  <priority>${path.split('/').length === 2 ? '0.9' : '0.8'}</priority>
 </url>`,
     )
     .join('')
