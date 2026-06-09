@@ -53,9 +53,10 @@ app.use(
                 'https://*.googletagmanager.com',
                 'https://cdnjs.cloudflare.com',
                 'https://pagead2.googlesyndication.com',
+                'blob:',
                 (_req, res) => `'nonce-${(res as express.Response).locals.nonce}'`, // Cast as Response otherwise it does not recognise locals
               ],
-              'style-src': ["'self'", 'https://fonts.googleapis.com'],
+              'style-src': ["'self'", 'https://fonts.googleapis.com', "'unsafe-inline'"],
               'font-src': ["'self'", 'https://fonts.gstatic.com'],
               'connect-src': [
                 "'self'",
@@ -71,6 +72,7 @@ app.use(
                 'https://pagead2.googlesyndication.com',
                 'https://googleads.g.doubleclick.net',
               ],
+              'worker-src': ["'self'", 'blob:'], // Ace Editor web worker
             },
           },
   }),
