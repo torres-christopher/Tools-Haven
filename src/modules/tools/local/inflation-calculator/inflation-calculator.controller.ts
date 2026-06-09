@@ -2,10 +2,15 @@ import { catchAsync } from '../../../../shared/utils/catchAsync.js'
 import { buildSeoMeta } from '../../../../shared/utils/seoMeta.js'
 import { buildToolSeoInput } from '../../../../shared/utils/buildToolSeoInput.js'
 import { findToolById } from '../../../../shared/utils/findTools.js'
-import { inflationRealInput, inflationCustomInput } from './inflation-calculator.schema.js'
+import {
+  inflationRealInput,
+  inflationCustomInput,
+  inflationCAGRInput,
+} from './inflation-calculator.schema.js'
 import {
   calculateInflationAdjustedValue,
   calculateCustomInflation,
+  calculateCAGR,
 } from './inflation-calculator.service.js'
 import { inflationCalculatorFaq as faq } from './inflation-calculator.faq.js'
 import type { SupportedLocale } from '../../../../shared/types/supportedLocale.js'
@@ -33,6 +38,8 @@ export const postInflationCalculator = catchAsync(async (req, res) => {
   // Declared with let so they can be conditionally assigned per form branch and passed to the view in a single render call at the end.
   let result = null
   let inputValue: number | undefined
+  let inputStartValue: number | undefined // For CAGR
+  let inputEndValue: number | undefined // For CAGR
   let inputType: string | undefined
   let inputInflationRate: number | undefined
   let inputYears: number | undefined
@@ -81,6 +88,23 @@ export const postInflationCalculator = catchAsync(async (req, res) => {
     }
 
     // Incorrect form edge case
+  } else if (formType === 'cagr') {
+    const input = inflationCAGRInput.safeParse({
+      startValue: req.body.startValue,
+      endValue: req.body.endValue,
+      years: req.body.years,
+    })
+
+    // Validate input
+    if (!input.success) {
+      errorMessage = 'Zadány neplatné hodnoty.'
+      status = 400
+    } else {
+      result = Math.round(calculateCAGR(input.data) * 10000) / 100
+      inputStartValue = input.data.startValue
+      inputEndValue = input.data.endValue
+      inputYears = input.data.years
+    }
   } else {
     errorMessage = 'Vyskytla se chyba'
     status = 400
@@ -92,6 +116,8 @@ export const postInflationCalculator = catchAsync(async (req, res) => {
     faq,
     result,
     inputValue,
+    inputStartValue,
+    inputEndValue,
     inputInflationRate,
     inputYears,
     // What form was activated
@@ -102,7 +128,9 @@ export const postInflationCalculator = catchAsync(async (req, res) => {
           ? inputType === 'forward'
             ? 'custom_forward'
             : 'custom_backward'
-          : null, // Edge case for wrong form
+          : formType === 'cagr'
+            ? 'cagr'
+            : null, // Edge case for wrong form
     errorMessage,
   })
 })

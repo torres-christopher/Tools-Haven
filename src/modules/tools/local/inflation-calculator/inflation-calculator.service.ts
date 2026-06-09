@@ -1,7 +1,9 @@
 import {
   type InflationRealInput,
   type InflationCustomInput,
+  type InflationCAGRInput,
   type InflationOutput,
+  type InflationCAGROutput,
   monthlyKey,
 } from './inflation-calculator.schema.js'
 import { cpiMonthly, cpiYearly } from '../../../../shared/data/tools/czech/cpi.js'
@@ -56,5 +58,12 @@ export const calculateCustomInflation = function (input: InflationCustomInput): 
 
   if (result > Number.MAX_SAFE_INTEGER)
     throw new AppError('Result out of bounds', HttpStatus.BAD_REQUEST)
+  return result
+}
+
+// Calculates the Compound Annual Growth Rate (CAGR) between two values over a number of years.
+// Formula: (endValue / startValue) ^ (1 / years) - 1
+export const calculateCAGR = function (input: InflationCAGRInput): InflationCAGROutput {
+  const result = (input.endValue / input.startValue) ** (1 / input.years) - 1
   return result
 }

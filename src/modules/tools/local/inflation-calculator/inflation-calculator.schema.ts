@@ -86,8 +86,17 @@ export const inflationCustomInput = z.object({
   type: z.enum(['forward', 'backward']),
 })
 
+export const inflationCAGRInput = z.object({
+  startValue: z.coerce.number().positive(),
+  endValue: z.coerce.number().positive(),
+  years: z.coerce.number().positive(),
+})
+
 export const inflationOutput = z.number().nonnegative()
+export const inflationCAGROutput = z.number()
 
 export type InflationRealInput = z.infer<typeof inflationRealInput>
 export type InflationCustomInput = z.infer<typeof inflationCustomInput>
+export type InflationCAGRInput = z.infer<typeof inflationCAGRInput>
 export type InflationOutput = z.infer<typeof inflationOutput>
+export type InflationCAGROutput = z.infer<typeof inflationCAGROutput>
