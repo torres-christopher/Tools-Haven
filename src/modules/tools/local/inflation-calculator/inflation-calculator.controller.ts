@@ -17,7 +17,7 @@ export const getInflationCalculator = catchAsync(async (req, res) => {
   if (!tool) throw new Error(`Tool not found: inflacni-kalkulacka`)
   if (!tool.enabled[lang]) throw new Error(`Tool not available in ${lang}`)
 
-  res.render('pages/tools/czech/inflation-calculator', {
+  res.render('pages/tools/local/inflation-calculator', {
     ...buildSeoMeta(buildToolSeoInput(tool, lang)),
     faq,
   })
@@ -87,7 +87,7 @@ export const postInflationCalculator = catchAsync(async (req, res) => {
   }
 
   // Render page
-  res.status(status).render('pages/tools/czech/inflation-calculator', {
+  res.status(status).render('pages/tools/local/inflation-calculator', {
     ...buildSeoMeta(buildToolSeoInput(tool, lang)),
     faq,
     result,

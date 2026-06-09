@@ -4,7 +4,7 @@ import { supportedLocales } from '../../shared/types/supportedLocale.js'
 import textRouter from './text/text.routes.js'
 import developerRouter from './developer/developer.routes.js'
 import healthRouter from './health/health.routes.js'
-import czechRouter from './czech/czech.routes.js'
+import localRouter from './local/local.routes.js'
 
 const router = Router({ mergeParams: true })
 
@@ -26,6 +26,6 @@ router.param('lang', (req, res, next, lang) => {
 router.use('/:lang/text', textRouter)
 router.use('/:lang/developer', developerRouter)
 router.use('/:lang/health', healthRouter)
-router.use('/:lang/data', czechRouter)
+router.use('/:lang/local', localRouter)
 
 export default router

@@ -2,7 +2,7 @@ import request from 'supertest'
 import { describe, it } from 'vitest'
 import { app } from '../../../../app.js'
 
-const path = '/cs/data/inflacni-kalkulacka'
+const path = '/cs/local/inflacni-kalkulacka'
 
 describe(path, () => {
   // GET request
