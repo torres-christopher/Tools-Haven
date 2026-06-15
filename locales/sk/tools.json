@@ -83,7 +83,7 @@
     "realDesc": "Zistite, koľko by dnes mala hodnotu čiastka z minulosti na základe skutočných dát ČSÚ (1997–2026).",
     "customTitle": "Vlastná sadzba",
     "customDesc": "Zadajte čiastku, ročnú mieru inflácie a počet rokov. Pomocou tlačidiel zistite, akú hodnotu bude mať čiastka v budúcnosti, alebo akú hodnotu mala v minulosti.",
-    "amountLabel": "Čiastka (Kč)",
+    "amountLabel": "Čiastka (€)",
     "startMonthLabel": "Počiatočný mesiac",
     "startYearLabel": "Počiatočný rok",
     "endMonthLabel": "Koncový mesiac",
@@ -115,6 +115,16 @@
       "10": "Október",
       "11": "November",
       "12": "December"
-    }
+    },
+    "cagrTitle": "Priemerný ročný výnos (CAGR)",
+    "cagrDesc": "Zadajte počiatočnú a koncovú hodnotu a počet rokov medzi nimi. Nástroj vypočíta priemerný ročný rast (CAGR), napríklad u nehnuteľností, investícií alebo úspor.",
+    "startValueLabel": "Počiatočná hodnota (€)",
+    "endValueLabel": "Konečná hodnota (€)",
+    "calculateCagr": "Vypočítať CAGR",
+    "cagrResultLabel": "Priemerný ročný výnos",
+    "cagrStartValue": "Počiatočná hodnota",
+    "cagrEndValue": "Konečná hodnota",
+    "cagrYears": "Počet rokov",
+    "cagrTotalGrowth": "Celkový rast"
   }
 }

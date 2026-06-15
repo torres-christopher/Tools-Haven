@@ -71,6 +71,29 @@ block content
                     td #{t('inflation.purchaseLoss')}
                     td= ((inputValue - result) / inputValue * 100).toLocaleString('cs-CZ', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' %'
 
+        //- Result: CAGR
+        if result !== null && inputStartValue && activeForm === 'cagr'
+          .tool-result.tool-result--compact
+            .tool-result__header
+              span.tool-result__heading #{t('common.result')}
+            .tool-result__content
+              .tool-result-display
+                span.tool-result-display__value= result.toLocaleString('cs-CZ', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' %'
+                span.tool-result-display__label #{t('inflation.cagrResultLabel')}
+              table.inflation-table
+                tr
+                  td #{t('inflation.cagrStartValue')}
+                  td= inputStartValue.toLocaleString('cs-CZ', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' Kč'
+                tr
+                  td #{t('inflation.cagrEndValue')}
+                  td= inputEndValue.toLocaleString('cs-CZ', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' Kč'
+                tr
+                  td #{t('inflation.cagrYears')}
+                  td= inputYears
+                tr
+                  td #{t('inflation.cagrTotalGrowth')}
+                  td= ((inputEndValue - inputStartValue) / inputStartValue * 100).toLocaleString('cs-CZ', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' %'
+        
         //- Error message
         if errorMessage
           .alert.alert--error(role='alert' style='margin-bottom: var(--space-6)')
@@ -195,6 +218,53 @@ block content
             .form-actions
               button.btn.btn--primary(type='submit' name='type' value='forward') #{t('inflation.calculateForward')}
               button.btn.btn--ghost(type='submit' name='type' value='backward') #{t('inflation.calculateBackward')}
+
+        .inflation-divider
+
+        //- ── 3. CAGR — průměrný roční výnos ─────────────────────
+        .inflation-section
+          h2.inflation-section__title #{t('inflation.cagrTitle')}
+          p.inflation-section__desc #{t('inflation.cagrDesc')}
+
+          form.inflation-form(method='POST' action='')
+            input(type='hidden' name='form_id' value='cagr')
+
+            .form-row
+              .form-group
+                label.form-label(for='cagr-start-value') #{t('inflation.startValueLabel')}
+                input.form-input#cagr-start-value(
+                  type='number'
+                  name='startValue'
+                  min='0.01'
+                  step='0.01'
+                  placeholder='3 500 000'
+                  value=inputStartValue || ''
+                  required
+                )
+              .form-group
+                label.form-label(for='cagr-end-value') #{t('inflation.endValueLabel')}
+                input.form-input#cagr-end-value(
+                  type='number'
+                  name='endValue'
+                  min='0.01'
+                  step='0.01'
+                  placeholder='11 000 000'
+                  value=inputEndValue || ''
+                  required
+                )
+              .form-group
+                label.form-label(for='cagr-years') #{t('inflation.yearsLabel')}
+                input.form-input#cagr-years(
+                  type='number'
+                  name='years'
+                  min='1'
+                  step='1'
+                  placeholder='10'
+                  value=inputYears || ''
+                  required
+                )
+
+            button.btn.btn--primary(type='submit') #{t('inflation.calculateCagr')}
 
         .inflation-divider
 

@@ -115,6 +115,16 @@
       "10": "Říjen",
       "11": "Listopad",
       "12": "Prosinec"
-    }
+    },
+    "cagrTitle": "Průměrný roční výnos (CAGR)",
+    "cagrDesc": "Zadejte počáteční a koncovou hodnotu a počet let mezi nimi. Nástroj vypočítá průměrný roční růst (CAGR), například u nemovitostí, investic nebo úspor.",
+    "startValueLabel": "Počáteční hodnota (Kč)",
+    "endValueLabel": "Konečná hodnota (Kč)",
+    "calculateCagr": "Vypočítat CAGR",
+    "cagrResultLabel": "Průměrný roční výnos",
+    "cagrStartValue": "Počáteční hodnota",
+    "cagrEndValue": "Konečná hodnota",
+    "cagrYears": "Počet let",
+    "cagrTotalGrowth": "Celkový růst"
   }
 }
