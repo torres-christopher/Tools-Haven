@@ -2,8 +2,7 @@ import { catchAsync } from '../../shared/utils/catchAsync.js'
 import { buildSeoMeta } from '../../shared/utils/seoMeta.js'
 import { buildToolPath } from '../../shared/utils/buildToolPath.js'
 import { tools } from '../../shared/data/tools.js'
-import { supportedLocales } from '../../shared/types/supportedLocale.js'
-import type { SupportedLocale } from '../../shared/types/supportedLocale.js'
+import { supportedLocales, type SupportedLocale } from '../../shared/types/supportedLocale.js'
 import { env } from '../../config/env.js'
 
 // Generate robots

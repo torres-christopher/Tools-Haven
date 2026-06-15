@@ -24,14 +24,14 @@ router.get('/', (req: Request<{ lang: string }>, res) => {
 
   res.render('pages/tools/tools', {
     ...buildSeoMeta({
-      title: req.t('category.data.title'),
-      description: req.t('category.data.description'),
+      title: req.t('category.local.title'),
+      description: req.t('category.local.description'),
       path: `/${lang}/data`,
       lang,
     }),
-    toolCategory: req.t('category.data.title'),
+    toolCategory: req.t('category.local.title'),
     toolCategoryPath: `/${lang}/data`,
-    toolCategoryDescription: req.t('category.data.categoryDescription'),
+    toolCategoryDescription: req.t('category.local.categoryDescription'),
     tools: categoryTools,
     lang,
   })

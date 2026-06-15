@@ -2,7 +2,7 @@ import request from 'supertest'
 import { describe, it } from 'vitest'
 import { app } from '../../../../app.js'
 
-const path = '/cs/data/inflacni-kalkulacka'
+const path = '/cs/local/inflacni-kalkulacka'
 
 describe(path, () => {
   // GET request
@@ -232,5 +232,109 @@ describe(path, () => {
         value: '10000',
       })
       .expect(400)
+  })
+
+  // CAGR form
+  // Valid CAGR calculation
+  it('Returns 200 on valid CAGR POST', async () => {
+    await request(app)
+      .post(path)
+      .type('form')
+      .send({
+        form_id: 'cagr',
+        startValue: '3500000',
+        endValue: '11000000',
+        years: '10',
+      })
+      .expect(200)
+  })
+
+  // Descending values (negative CAGR), still valid
+  it('Returns 200 on valid CAGR POST with descending values', async () => {
+    await request(app)
+      .post(path)
+      .type('form')
+      .send({
+        form_id: 'cagr',
+        startValue: '100',
+        endValue: '50',
+        years: '5',
+      })
+      .expect(200)
+  })
+
+  // Zero years — division by zero in formula
+  it('Returns 400 on CAGR POST with zero years', async () => {
+    await request(app)
+      .post(path)
+      .type('form')
+      .send({
+        form_id: 'cagr',
+        startValue: '100',
+        endValue: '200',
+        years: '0',
+      })
+      .expect(400)
+  })
+
+  // Zero start value
+  it('Returns 400 on CAGR POST with zero start value', async () => {
+    await request(app)
+      .post(path)
+      .type('form')
+      .send({
+        form_id: 'cagr',
+        startValue: '0',
+        endValue: '200',
+        years: '5',
+      })
+      .expect(400)
+  })
+
+  // Zero end value
+  it('Returns 400 on CAGR POST with zero end value', async () => {
+    await request(app)
+      .post(path)
+      .type('form')
+      .send({
+        form_id: 'cagr',
+        startValue: '100',
+        endValue: '0',
+        years: '5',
+      })
+      .expect(400)
+  })
+
+  // Negative start value
+  it('Returns 400 on CAGR POST with negative start value', async () => {
+    await request(app)
+      .post(path)
+      .type('form')
+      .send({
+        form_id: 'cagr',
+        startValue: '-100',
+        endValue: '200',
+        years: '5',
+      })
+      .expect(400)
+  })
+
+  // Empty fields
+  it('Returns 400 on CAGR POST with empty fields', async () => {
+    await request(app)
+      .post(path)
+      .type('form')
+      .send({
+        form_id: 'cagr',
+        startValue: '',
+        endValue: '',
+        years: '',
+      })
+      .expect(400)
+  })
+
+  // Empty object
+  it('Returns 400 on CAGR POST with empty object', async () => {
+    await request(app).post(path).type('form').send({ form_id: 'cagr' }).expect(400)
   })
 })

@@ -123,7 +123,7 @@ export const tools: ToolsDetails[] = [
       cs: 'Lokální data',
       sk: 'Lokálne dáta',
     },
-    categoryPath: '/data',
+    categoryPath: '/local',
     icon: '📈',
     enabled: {
       cs: true,

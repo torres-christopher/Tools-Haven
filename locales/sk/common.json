@@ -17,7 +17,7 @@
         "title": "Zdravie",
         "bmiKalkulacka": "BMI kalkulačka"
         },
-      "data": {
+      "local": {
         "title": "Lokálne dáta",
         "inflacniKalkulacka": "Inflačná kalkulačka"
         }
@@ -29,7 +29,7 @@
     "info": "Informácie",
     "text": "Textové nástroje",
     "developer": "Pre vývojárov",
-    "data": "Lokálne dáta",
+    "local": "Lokálne dáta",
     "health": "Zdravie & fitness",
     "faq": "Časté otázky",
     "privacy": "Ochrana súkromia",
@@ -68,7 +68,7 @@
       "description": "Zdravotné nástroje online zadarmo. BMI kalkulačka a ďalšie jednoduché zdravotné výpočty prehľadne, rýchlo a bez registrácie.",
       "categoryDescription": "Kalkulačky pre zdravie a fitness: BMI, BMR, TDEE, ideálna váha a ďalšie ukazovatele."
     },
-    "data": {
+    "local": {
       "title": "Lokálne dáta",
       "description": "Bezplatné online nástroje s lokálnymi dátami. Inflačná kalkulačka, rodné čísla, sviatky a ďalšie.",
       "categoryDescription": "Nástroje s lokálnymi dátami: Inflačná kalkulačka, rodné čísla, sviatky, kurzy ČNB a ďalšie."

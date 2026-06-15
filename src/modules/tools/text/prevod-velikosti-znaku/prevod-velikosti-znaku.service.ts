@@ -44,3 +44,34 @@ export const capitalizeCase = function (
 export const reverseText = function (input: PrevodVelikostiZnakuInput): PrevodVelikostiZnakuOutput {
   return input.text.split('').reverse().join('')
 }
+// Map for letters that don't decompose via Unicode NFD normalization —
+// these are distinct letters in Unicode, not base + combining mark,
+// so they pass through NFD unchanged and need explicit replacement.
+const nonDecomposableMap: Record<string, string> = {
+  ß: 'ss',
+  đ: 'd',
+  Đ: 'D',
+  ł: 'l',
+  Ł: 'L',
+  ø: 'o',
+  Ø: 'O',
+  æ: 'ae',
+  Æ: 'AE',
+  œ: 'oe',
+  Œ: 'OE',
+  þ: 'th',
+  Þ: 'Th',
+}
+
+// No Diacritics (SMS case)
+// Decomposes accented characters into base letter + combining diacritical mark (NFD),
+// then strips the combining marks, leaving plain letters with original casing intact.
+// Handles Czech, Slovak, and Cyrillic diacritics (á, č, ě, ř, š, ž, ů, ё, й etc).
+// A small explicit map covers letters that don't decompose via NFD
+// (German ß, Polish ł, Scandinavian ø, etc).
+export const noDiacritics = function (
+  input: PrevodVelikostiZnakuInput,
+): PrevodVelikostiZnakuOutput {
+  const normalized = input.text.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  return normalized.replace(/[ßđĐłŁøØæÆœŒþÞ]/g, (char) => nonDecomposableMap[char] ?? char)
+}

@@ -8,6 +8,7 @@ export const prevodVelikostiZnakuInput = z.object({
     'upper-case',
     'capitalized-case',
     'reverse',
+    'no-diacritics',
   ]),
 })
 export const prevodVelikostiZnakuOutput = z.string().max(300000).default('')

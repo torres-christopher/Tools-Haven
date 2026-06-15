@@ -6,6 +6,7 @@ import {
   upperCase,
   capitalizeCase,
   reverseText,
+  noDiacritics,
 } from './prevod-velikosti-znaku.service.js'
 
 describe('sentenceCase', () => {
@@ -137,5 +138,55 @@ describe('reverseText', () => {
       conversionType: 'reverse',
     }
     expect(reverseText(input)).toBe('界世好你')
+  })
+
+  describe('noDiacritics', () => {
+    it('Correctly strips Czech diacritics while preserving casing', () => {
+      const input: PrevodVelikostiZnakuInput = {
+        text: 'Příliš žluťoučký kůň úpěl nad ódami.',
+        conversionType: 'no-diacritics',
+      }
+      expect(noDiacritics(input)).toBe('Prilis zlutoucky kun upel nad odami.')
+    })
+
+    it('Correctly strips Slovak diacritics including ľ, ĺ, ŕ, ô, ä', () => {
+      const input: PrevodVelikostiZnakuInput = {
+        text: 'Ľúbosť môže byť ťažká, ako stĺp na ceste.',
+        conversionType: 'no-diacritics',
+      }
+      expect(noDiacritics(input)).toBe('Lubost moze byt tazka, ako stlp na ceste.')
+    })
+
+    it('Correctly strips Cyrillic diacritics, e.g. ё to е', () => {
+      const input: PrevodVelikostiZnakuInput = {
+        text: 'ёлка и ещё немного слов',
+        conversionType: 'no-diacritics',
+      }
+      expect(noDiacritics(input)).toBe('елка и еще немного слов')
+    })
+
+    it('Correctly replaces non-decomposable letters via fallback map', () => {
+      const input: PrevodVelikostiZnakuInput = {
+        text: 'Straße, łódź, øre, æther, œuvre, Þór',
+        conversionType: 'no-diacritics',
+      }
+      expect(noDiacritics(input)).toBe('Strasse, lodz, ore, aether, oeuvre, Thor')
+    })
+
+    it('Returns text unchanged when no diacritics are present', () => {
+      const input: PrevodVelikostiZnakuInput = {
+        text: 'Lorem ipsum dolor sit amet',
+        conversionType: 'no-diacritics',
+      }
+      expect(noDiacritics(input)).toBe('Lorem ipsum dolor sit amet')
+    })
+
+    it('Returns empty string unchanged', () => {
+      const input: PrevodVelikostiZnakuInput = {
+        text: '',
+        conversionType: 'no-diacritics',
+      }
+      expect(noDiacritics(input)).toBe('')
+    })
   })
 })
