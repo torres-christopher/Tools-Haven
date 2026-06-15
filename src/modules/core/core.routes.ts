@@ -17,11 +17,14 @@ router.get('/robots.txt', getRobots)
 
 // Set i18next language from URL param for all /:lang routes
 router.param('lang', (req, res, next, lang) => {
-  // Check that /:lang is of supported local (/vsechny-nastroje fix)
+  // Reject any /:lang segment that is not a supported locale (e.g. /vsechny-nastroje, /faq)
   if (!supportedLocales.includes(lang as SupportedLocale)) {
     res.status(404).render('errors/error', {
-      title: '404',
-      message: 'Stránka nenalezena',
+      statusCode: 404,
+      title: 'Stránka nenalezena',
+      metaDescription: 'Stránka nenalezena.',
+      message: 'Požadovaná stránka neexistuje.',
+      stack: null,
     })
     return
   }
