@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { type PrevodVelikostiZnakuInput } from './prevod-velikosti-znaku.schema.js'
+import { type PrevodVelikostiZnakuInput } from './case-converter.schema.js'
 import {
   sentenceCase,
   lowerCase,
@@ -7,7 +7,7 @@ import {
   capitalizeCase,
   reverseText,
   noDiacritics,
-} from './prevod-velikosti-znaku.service.js'
+} from './case-converter.service.js'
 
 describe('sentenceCase', () => {
   it('Correctly capitalizes first letter of each sentence', () => {

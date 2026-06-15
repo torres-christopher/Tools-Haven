@@ -1,4 +1,4 @@
-import type { PocetZnakuInput, PocetZnakuOutput } from './pocet-znaku.schema.js'
+import type { PocetZnakuInput, PocetZnakuOutput } from './word-count.schema.js'
 
 export const calculatePocetZnaku = function (input: PocetZnakuInput): PocetZnakuOutput {
   return {

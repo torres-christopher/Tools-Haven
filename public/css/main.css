@@ -1814,7 +1814,7 @@ code {
 /* ── Text Tools  ─────────────────────────────── */
 /* ── Poček znaků ────────────────────── */
 
-.pocet-znaku-live {
+.word-count-live {
   margin: var(--space-6) 0;
 }
 

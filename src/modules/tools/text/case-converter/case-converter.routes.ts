@@ -2,7 +2,7 @@ import { Router } from 'express'
 import {
   getPrevodVelikostiZnaku,
   postPrevodVelikostiZnaku,
-} from './prevod-velikosti-znaku.controller.js'
+} from './case-converter.controller.js'
 
 const router = Router({ mergeParams: true })
 

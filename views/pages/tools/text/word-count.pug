@@ -29,7 +29,7 @@ block content
               )= text || ''
 
               //- Live stats — shown immediately via JS, hidden until JS runs
-              .pocet-znaku-live(id='liveStats' aria-live='polite')
+              .word-count-live(id='liveStats' aria-live='polite')
                 .stat-grid
                   .stat-card
                     p.stat-card__value(id='stat-raw')= result ? result.textLengthRaw : 0
@@ -82,4 +82,4 @@ block content
               li #{t('pocetZnaku.sidebar.item5')}
 
   //- Page script for live counting
-  script(src='/js/tools/pocet-znaku.js' defer)
+  script(src='/js/tools/word-count.js' defer)

@@ -2,7 +2,7 @@ import { catchAsync } from '../../../../shared/utils/catchAsync.js'
 import { buildSeoMeta } from '../../../../shared/utils/seoMeta.js'
 import { buildToolSeoInput } from '../../../../shared/utils/buildToolSeoInput.js'
 import { findToolById } from '../../../../shared/utils/findTools.js'
-import { prevodVelikostiZnakuInput } from './prevod-velikosti-znaku.schema.js'
+import { prevodVelikostiZnakuInput } from './case-converter.schema.js'
 import {
   sentenceCase,
   lowerCase,
@@ -10,17 +10,17 @@ import {
   capitalizeCase,
   reverseText,
   noDiacritics,
-} from './prevod-velikosti-znaku.service.js'
-import { prevodVelikostiZnakuFaq as faq } from './prevod-velikosti-znaku.faq.js'
+} from './case-converter.service.js'
+import { prevodVelikostiZnakuFaq as faq } from './case-converter.faq.js'
 import type { SupportedLocale } from '../../../../shared/types/supportedLocale.js'
 
 export const getPrevodVelikostiZnaku = catchAsync(async (req, res) => {
   const lang = req.params.lang as SupportedLocale
-  const tool = findToolById('prevod-velikosti-znaku')
-  if (!tool) throw new Error(`Tool not found: prevod-velikosti-znaku`)
+  const tool = findToolById('case-converter')
+  if (!tool) throw new Error(`Tool not found: case-converter`)
   if (!tool.enabled[lang]) throw new Error(`Tool not available in ${lang}`)
 
-  res.render('pages/tools/text/prevod-velikosti-znaku', {
+  res.render('pages/tools/text/case-converter', {
     ...buildSeoMeta(buildToolSeoInput(tool, lang)),
     faq,
   })
@@ -28,8 +28,8 @@ export const getPrevodVelikostiZnaku = catchAsync(async (req, res) => {
 
 export const postPrevodVelikostiZnaku = catchAsync(async (req, res) => {
   const lang = req.params.lang as SupportedLocale
-  const tool = findToolById('prevod-velikosti-znaku')
-  if (!tool) throw new Error(`prevod-velikosti-znaku`)
+  const tool = findToolById('case-converter')
+  if (!tool) throw new Error(`case-converter`)
   if (!tool.enabled[lang]) throw new Error(`Tool not available in ${lang}`)
 
   let result = null
@@ -71,7 +71,7 @@ export const postPrevodVelikostiZnaku = catchAsync(async (req, res) => {
     }
   }
 
-  res.status(status).render('pages/tools/text/prevod-velikosti-znaku', {
+  res.status(status).render('pages/tools/text/case-converter', {
     ...buildSeoMeta(buildToolSeoInput(tool, lang)),
     faq,
     result: result,

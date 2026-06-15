@@ -4,8 +4,8 @@ import { buildSeoMeta } from '../../../shared/utils/seoMeta.js'
 import { buildToolPath } from '../../../shared/utils/buildToolPath.js'
 import { tools } from '../../../shared/data/tools.js'
 import type { SupportedLocale } from '../../../shared/types/supportedLocale.js'
-import pocetZnakuRouter from './pocet-znaku/pocet-znaku.routes.js'
-import prevodVelikostiRouter from './prevod-velikosti-znaku/prevod-velikosti-znaku.routes.js'
+import pocetZnakuRouter from './word-count/word-count.routes.js'
+import prevodVelikostiRouter from './case-converter/case-converter.routes.js'
 
 const router = Router({ mergeParams: true })
 

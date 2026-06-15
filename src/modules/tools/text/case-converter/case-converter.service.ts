@@ -1,7 +1,7 @@
 import type {
   PrevodVelikostiZnakuInput,
   PrevodVelikostiZnakuOutput,
-} from './prevod-velikosti-znaku.schema.js'
+} from './case-converter.schema.js'
 
 // Sentence Case
 // Lowercases everything first, then capitalises the first letter of the string

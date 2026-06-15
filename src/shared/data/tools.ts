@@ -2,7 +2,7 @@ import { type ToolsDetails } from '../types/toolDetails.js'
 
 export const tools: ToolsDetails[] = [
   {
-    id: 'pocet-znaku',
+    id: 'word-count',
     title: {
       cs: 'Počet znaků',
       sk: 'Počet znakov',
@@ -28,7 +28,7 @@ export const tools: ToolsDetails[] = [
     featured: 1,
   },
   {
-    id: 'prevod-velikosti-znaku',
+    id: 'case-converter',
     title: {
       cs: 'Převod velikosti znaků',
       sk: 'Prevod veľkosti znakov',

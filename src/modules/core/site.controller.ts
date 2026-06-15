@@ -78,7 +78,7 @@ export const getAllTools = catchAsync(async (req, res) => {
     return acc
   }, {})
 
-  res.render('pages/core/vsechny-nastroje', {
+  res.render('pages/core/all-Tools', {
     ...buildSeoMeta({
       title: req.t('common:allTools.title'),
       description: req.t('common:allTools.description'),

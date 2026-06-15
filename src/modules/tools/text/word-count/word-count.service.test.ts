@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { calculatePocetZnaku } from './pocet-znaku.service.js'
+import { calculatePocetZnaku } from './word-count.service.js'
 
 describe('calculatePocetZnaku', () => {
   // Lorem ipsum with three sentences

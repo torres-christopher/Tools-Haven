@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { getPocetZnaku, postPocetZnaku } from './pocet-znaku.controller.js'
+import { getPocetZnaku, postPocetZnaku } from './word-count.controller.js'
 
 const router = Router({ mergeParams: true })
 
