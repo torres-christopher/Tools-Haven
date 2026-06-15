@@ -37,6 +37,7 @@
     "lowerCase": "malé písmená",
     "upperCase": "VEĽKÉ PÍSMENÁ",
     "capitalizedCase": "Capital Case",
+    "noDiacritics": "Bez diakritiky",
     "reverse": "Obrátiť text",
     "sidebar": {
       "text": "Prevodník veľkosti písmen umožňuje rýchlo zmeniť text na veľké, malé, titulkové alebo vetné písmená.",

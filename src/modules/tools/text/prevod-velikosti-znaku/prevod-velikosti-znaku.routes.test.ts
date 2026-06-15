@@ -107,4 +107,15 @@ describe(path, () => {
       .send({ text: '', conversionType: 'invalid' })
       .expect(400)
   })
+
+  it('POST with text returns no-diacritics conversion', async () => {
+    await request(app)
+      .post(path)
+      .type('form')
+      .send({ text: 'Příliš žluťoučký kůň', conversionType: 'no-diacritics' })
+      .expect(200)
+      .expect((res) => {
+        expect(res.text).toContain('Prilis zlutoucky kun')
+      })
+  })
 })

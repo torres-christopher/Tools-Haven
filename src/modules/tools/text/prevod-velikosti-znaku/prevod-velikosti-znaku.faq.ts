@@ -18,6 +18,11 @@ export const prevodVelikostiZnakuFaq: FaqItem[] = [
       'Ano, nástroj plně podporuje českou diakritiku včetně znaků jako á, č, ď, é, ě, í, ň, ó, ř, š, ť, ú, ů, ý, ž. Podporuje také azbuku, arabštinu a další světová písma.',
   },
   {
+    question: 'Co dělá tlačítko "Bez diakritiky"?',
+    answer:
+      'Tlačítko odstraní z textu diakritická znaménka (háčky, čárky, kroužky) a zachová původní velikost písmen. Například "Příliš žluťoučký kůň" se změní na "Prilis zlutoucky kun". Hodí se při psaní SMS, do systémů, které diakritiku nepodporují, nebo při generování souborů a názvů bez speciálních znaků.',
+  },
+  {
     question: 'Jsou moje data někam odesílána nebo ukládána?',
     answer:
       'Ne. Převod probíhá přímo ve vašem prohlížeči bez odesílání dat na server. Pokud máte vypnutý JavaScript, text je zpracován na serveru a okamžitě zahozen (není nikam ukládán ani sdílen).',

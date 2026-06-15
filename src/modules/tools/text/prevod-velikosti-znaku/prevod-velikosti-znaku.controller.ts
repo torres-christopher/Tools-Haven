@@ -9,6 +9,7 @@ import {
   upperCase,
   capitalizeCase,
   reverseText,
+  noDiacritics,
 } from './prevod-velikosti-znaku.service.js'
 import { prevodVelikostiZnakuFaq as faq } from './prevod-velikosti-znaku.faq.js'
 import type { SupportedLocale } from '../../../../shared/types/supportedLocale.js'
@@ -63,6 +64,9 @@ export const postPrevodVelikostiZnaku = catchAsync(async (req, res) => {
         break
       case 'reverse':
         result = reverseText(input.data)
+        break
+      case 'no-diacritics':
+        result = noDiacritics(input.data)
         break
     }
   }
