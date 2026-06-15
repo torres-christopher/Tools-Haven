@@ -32,6 +32,16 @@ export const inflationCalculatorFaq: FaqItem[] = [
       'Výpočet dopředu odpovídá na otázku: kolik bude mít částka hodnotu za N let při dané průměrné roční inflaci? Výpočet zpětně odpovídá na otázku: jakou hodnotu měla dnešní částka před N lety při dané průměrné roční inflaci?',
   },
   {
+    question: 'Co je CAGR a k čemu slouží?',
+    answer:
+      'CAGR (Compound Annual Growth Rate, průměrný roční výnos) udává, jakým stálým ročním tempem by musela hodnota růst, aby se z počáteční částky dostala na konečnou částku za daný počet let. Hodí se například pro odhad ročního zhodnocení nemovitosti, investice nebo úspor.',
+  },
+  {
+    question: 'Jak se CAGR liší od jednoduchého průměru?',
+    answer:
+      'Jednoduchý průměr rozpočítá celkový nárůst rovnoměrně na každý rok. CAGR naopak zohledňuje, že hodnota roste složeně, tedy že zisk z předchozích let se podílí na růstu v letech následujících. CAGR je proto standardní metoda pro hodnocení dlouhodobého zhodnocení.',
+  },
+  {
     question: 'Jak přesné jsou výsledky kalkulačky?',
     answer:
       'Výsledky jsou orientační. Reálná inflace se liší podle struktury výdajů každé domácnosti. ČSÚ sleduje průměrný spotřební koš, který nemusí odpovídat vaší osobní situaci. Kalkulačka slouží pro rychlý přehled, nikoliv jako podklad pro finanční rozhodnutí.',
