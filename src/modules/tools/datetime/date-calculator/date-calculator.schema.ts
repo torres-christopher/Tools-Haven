@@ -23,12 +23,12 @@ export const dateCalculatorWeekInput = z.object({
 
 export const dateCalculatorRangeOutput = z.object({
   daysTotal: z.number().nonnegative(),
-  daysRemainder: z.number().nonnegative(),
   weeksTotal: z.number().nonnegative(),
   weeksRemainder: z.number().nonnegative(),
   monthsTotal: z.number().nonnegative(),
   monthsRemainder: z.number().nonnegative(),
   yearsTotal: z.number().nonnegative(),
+  yearsRemainder: z.number().nonnegative(),
 })
 
 export const dateCalculatorArithmeticOutput = z.object({
