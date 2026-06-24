@@ -18,7 +18,7 @@ import type { SupportedLocale } from '../../../../shared/types/supportedLocale.j
 // GET
 export const getInflationCalculator = catchAsync(async (req, res) => {
   const lang = req.params.lang as SupportedLocale
-  const tool = findToolById('inflacni-kalkulacka')
+  const tool = findToolById('inflation-calculator')
   if (!tool) throw new Error(`Tool not found: inflacni-kalkulacka`)
   if (!tool.enabled[lang]) throw new Error(`Tool not available in ${lang}`)
 
@@ -31,7 +31,7 @@ export const getInflationCalculator = catchAsync(async (req, res) => {
 // POST for forms
 export const postInflationCalculator = catchAsync(async (req, res) => {
   const lang = req.params.lang as SupportedLocale
-  const tool = findToolById('inflacni-kalkulacka')
+  const tool = findToolById('inflation-calculator')
   if (!tool) throw new Error(`Tool not found: inflacni-kalkulacka`)
   if (!tool.enabled[lang]) throw new Error(`Tool not available in ${lang}`)
 

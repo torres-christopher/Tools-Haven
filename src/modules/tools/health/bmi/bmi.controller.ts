@@ -9,7 +9,7 @@ import type { SupportedLocale } from '../../../../shared/types/supportedLocale.j
 
 export const getBmi = catchAsync(async (req, res) => {
   const lang = req.params.lang as SupportedLocale
-  const tool = findToolById('bmi-kalkulacka')
+  const tool = findToolById('bmi-calculator')
   if (!tool) throw new Error(`Tool not found: bmi-kalkulacka`)
   if (!tool.enabled[lang]) throw new Error(`Tool not available in ${lang}`)
 
@@ -21,7 +21,7 @@ export const getBmi = catchAsync(async (req, res) => {
 
 export const postBmi = catchAsync(async (req, res) => {
   const lang = req.params.lang as SupportedLocale
-  const tool = findToolById('bmi-kalkulacka')
+  const tool = findToolById('bmi-calculator')
   if (!tool) throw new Error(`Tool not found: bmi-kalkulacka`)
   if (!tool.enabled[lang]) throw new Error(`Tool not available in ${lang}`)
 

@@ -80,7 +80,7 @@ export const tools: ToolsDetails[] = [
     featured: 1,
   },
   {
-    id: 'bmi-kalkulacka',
+    id: 'bmi-calculator',
     title: {
       cs: 'BMI kalkulačka',
       sk: 'BMI kalkulačka',
@@ -106,7 +106,7 @@ export const tools: ToolsDetails[] = [
     featured: 1,
   },
   {
-    id: 'inflacni-kalkulacka',
+    id: 'inflation-calculator',
     title: {
       cs: 'Inflační kalkulačka',
       sk: 'Inflačná kalkulačka',

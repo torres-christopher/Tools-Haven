@@ -14,7 +14,7 @@ const router = Router({ mergeParams: true })
 router.get('/', (req: Request<{ lang: string }>, res) => {
   const lang = req.params.lang as SupportedLocale
   const categoryTools = tools
-    .filter((t) => t.categoryPath === '/data' && t.enabled[lang])
+    .filter((t) => t.categoryPath === '/local' && t.enabled[lang])
     .map((t) => ({
       ...t,
       resolvedTitle: t.title[lang],
@@ -24,14 +24,14 @@ router.get('/', (req: Request<{ lang: string }>, res) => {
 
   res.render('pages/tools/tools', {
     ...buildSeoMeta({
-      title: req.t('category.local.title'),
-      description: req.t('category.local.description'),
-      path: `/${lang}/data`,
+      title: req.t('common:category.local.title'),
+      description: req.t('common:category.local.description'),
+      path: `/${lang}/local`,
       lang,
     }),
-    toolCategory: req.t('category.local.title'),
-    toolCategoryPath: `/${lang}/data`,
-    toolCategoryDescription: req.t('category.local.categoryDescription'),
+    toolCategory: req.t('common:category.local.title'),
+    toolCategoryPath: `/${lang}/local`,
+    toolCategoryDescription: req.t('common:category.local.categoryDescription'),
     tools: categoryTools,
     lang,
   })
