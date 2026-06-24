@@ -78,7 +78,7 @@ export const getAllTools = catchAsync(async (req, res) => {
     return acc
   }, {})
 
-  res.render('pages/core/all-Tools', {
+  res.render('pages/core/all-tools', {
     ...buildSeoMeta({
       title: req.t('common:allTools.title'),
       description: req.t('common:allTools.description'),
