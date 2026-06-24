@@ -40,6 +40,10 @@ export const dateCalculatorArithmeticOutput = z.object({
 export const dateCalculatorWeekOutput = z.object({
   week: z.number().nonnegative().max(53),
   year: z.number().nonnegative(),
+  range: z.object({
+    weekStart: z.date(),
+    weekEnd: z.date(),
+  }),
 })
 
 export type DateCalculatorRangeInput = z.infer<typeof dateCalculatorRangeInput>

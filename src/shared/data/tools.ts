@@ -131,4 +131,30 @@ export const tools: ToolsDetails[] = [
     },
     featured: 1,
   },
+  {
+    id: 'date-calculator',
+    title: {
+      cs: 'Datumový kalkulátor',
+      sk: 'Dátumová kalkulačka',
+    },
+    description: {
+      cs: 'Vypočítejte rozdíl mezi dvěma daty, přičtěte nebo odečtěte dny, týdny, měsíce a roky, nebo zjistěte číslo týdne podle ISO standardu.',
+      sk: 'Vypočítajte rozdiel medzi dvoma dátumami, pripočítajte alebo odčítajte dni, týždne, mesiace a roky, alebo zistite číslo týždňa podľa ISO štandardu.',
+    },
+    slug: {
+      cs: 'datumovy-kalkulator',
+      sk: 'datumova-kalkulacka',
+    },
+    categoryName: {
+      cs: 'Datum a čas',
+      sk: 'Dátum a čas',
+    },
+    categoryPath: '/datetime',
+    icon: '📅',
+    enabled: {
+      cs: true,
+      sk: false,
+    },
+    featured: 1,
+  },
 ]
