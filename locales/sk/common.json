@@ -72,6 +72,11 @@
       "title": "Lokálne dáta",
       "description": "Bezplatné online nástroje s lokálnymi dátami. Inflačná kalkulačka, rodné čísla, sviatky a ďalšie.",
       "categoryDescription": "Nástroje s lokálnymi dátami: Inflačná kalkulačka, rodné čísla, sviatky, kurzy ČNB a ďalšie."
+    },
+    "datetime": {
+      "title": "Dátum a čas",
+      "description": "Bezplatné online nástroje pre prácu s dátumami a časom. Výpočet rozdielu medzi dátumami, pripočítavanie a odčítavanie dní, týždňov, mesiacov a rokov, číslo týždňa podľa ISO štandardu a ďalšie.",
+      "categoryDescription": "Nástroje pre dátum a čas: Rozdiel medzi dátumami, pripočítavanie a odčítavanie od dátumu, číslo týždňa a ďalšie."
     }
   },
   "allTools": {

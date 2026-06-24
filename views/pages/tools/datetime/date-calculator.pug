@@ -1,0 +1,155 @@
+extends ../../../layouts/main
+
+block content
+
+  include ../../../partials/tool-header
+
+  section.tool-layout.tool-layout--compact
+    .container
+
+      //- Error message
+      if errorMessage
+        .alert.alert--error(role='alert' style='margin-bottom: var(--space-6)')
+          p= errorMessage
+
+      //- ── Result: Range ──────────────────────────────────────────
+      if result && activeForm === 'range'
+        .tool-result.tool-result--compact
+          .tool-result__header
+            span.tool-result__heading Výsledek
+          .tool-result__content
+            p Celkem dní: #{result.daysTotal}
+            if result.weeksTotal > 0
+              p Týdny: #{result.weeksTotal} týdnů a #{result.weeksRemainder} dní
+            if result.monthsTotal > 0
+              p Měsíce: #{result.monthsTotal} měsíců a #{result.monthsRemainder} dní
+            if result.yearsTotal > 0
+              p Roky: #{result.yearsTotal} let a #{result.yearsRemainder} dní
+
+      //- ── Result: Arithmetic ─────────────────────────────────────
+      if result && activeForm === 'arithmetic'
+        .tool-result.tool-result--compact
+          .tool-result__header
+            span.tool-result__heading Výsledek
+          .tool-result__content
+            p Výsledné datum: #{result.outputDate.toLocaleDateString('cs-CZ')}
+            p Den v týdnu: #{result.weekday}
+
+      //- ── Result: Week number ────────────────────────────────────
+      if result && activeForm === 'week'
+        .tool-result.tool-result--compact
+          .tool-result__header
+            span.tool-result__heading Výsledek
+          .tool-result__content
+            p Číslo týdne: #{result.week}
+            p ISO rok: #{result.year}
+            p Od: #{result.range.weekStart.toLocaleDateString('cs-CZ')}
+            p Do: #{result.range.weekEnd.toLocaleDateString('cs-CZ')}
+
+      //- ── Form 1: Range ──────────────────────────────────────────
+      .inflation-section
+        h2.inflation-section__title Rozdíl mezi daty
+        form.inflation-form(method='POST' action='')
+          input(type='hidden' name='form_id' value='range')
+          .form-row
+            .form-group
+              label.form-label(for='start-date') Od
+              input.form-input#start-date(
+                type='date'
+                name='startDate'
+                required
+                value=rangeInput ? rangeInput.startDate.toISOString().slice(0, 10) : ''
+              )
+            .form-group
+              label.form-label(for='end-date') Do
+              input.form-input#end-date(
+                type='date'
+                name='endDate'
+                required
+                value=rangeInput ? rangeInput.endDate.toISOString().slice(0, 10) : ''
+              )
+          button.btn.btn--primary(type='submit') Vypočítat
+
+      .inflation-divider
+
+      //- ── Form 2: Arithmetic ─────────────────────────────────────
+      .inflation-section
+        h2.inflation-section__title Přičíst nebo odečíst od data
+        form.inflation-form(method='POST' action='')
+          input(type='hidden' name='form_id' value='arithmetic')
+          .form-row
+            .form-group
+              label.form-label(for='arith-date') Datum
+              input.form-input#arith-date(
+                type='date'
+                name='startDate'
+                required
+                value=arithmeticInput ? arithmeticInput.startDate.toISOString().slice(0, 10) : ''
+              )
+          .form-row
+            .form-group
+              label.form-label(for='arith-years') Roky
+              input.form-input#arith-years(
+                type='number'
+                name='years'
+                min='0'
+                value=arithmeticInput ? arithmeticInput.years : 0
+              )
+            .form-group
+              label.form-label(for='arith-months') Měsíce
+              input.form-input#arith-months(
+                type='number'
+                name='months'
+                min='0'
+                value=arithmeticInput ? arithmeticInput.months : 0
+              )
+            .form-group
+              label.form-label(for='arith-weeks') Týdny
+              input.form-input#arith-weeks(
+                type='number'
+                name='weeks'
+                min='0'
+                value=arithmeticInput ? arithmeticInput.weeks : 0
+              )
+            .form-group
+              label.form-label(for='arith-days') Dny
+              input.form-input#arith-days(
+                type='number'
+                name='days'
+                min='0'
+                value=arithmeticInput ? arithmeticInput.days : 0
+              )
+          .form-actions
+            select.form-select(name='type')
+              option(value='add' selected=arithmeticInput && arithmeticInput.type === 'add') Přičíst
+              option(value='subtract' selected=arithmeticInput && arithmeticInput.type === 'subtract') Odečíst
+            button.btn.btn--primary(type='submit') Vypočítat
+
+      .inflation-divider
+
+      //- ── Form 3: Week number ────────────────────────────────────
+      .inflation-section
+        h2.inflation-section__title Číslo týdne
+        form.inflation-form(method='POST' action='')
+          input(type='hidden' name='form_id' value='week')
+          .form-row
+            .form-group
+              label.form-label(for='week-date') Datum
+              input.form-input#week-date(
+                type='date'
+                name='inputDate'
+                required
+                value=weekInput ? weekInput.inputDate.toISOString().slice(0, 10) : ''
+              )
+          button.btn.btn--primary(type='submit') Zjistit
+
+      .inflation-divider
+
+    //- FAQ
+    include ../../../partials/tool-faq
+
+    //- Ad slot
+    include ../../../partials/ad-slot
+
+    //- Related tools
+    include ../../../partials/tool-related
