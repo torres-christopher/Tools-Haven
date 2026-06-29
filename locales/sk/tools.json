@@ -127,5 +127,48 @@
     "cagrEndValue": "Konečná hodnota",
     "cagrYears": "Počet rokov",
     "cagrTotalGrowth": "Celkový rast"
+  },
+  "dateCalculator": {
+    "rangeTitle": "Rozdiel medzi dátumami",
+    "arithmeticTitle": "Pripočítať alebo odčítať od dátumu",
+    "weekTitle": "Číslo týždňa",
+    "fromLabel": "Od",
+    "toLabel": "Do",
+    "dateLabel": "Dátum",
+    "operationLabel": "Operácia",
+    "add": "Pripočítať",
+    "subtract": "Odčítať",
+    "yearsLabel": "Roky",
+    "monthsLabel": "Mesiace",
+    "weeksLabel": "Týždne",
+    "daysLabel": "Dni",
+    "calculate": "Vypočítať",
+    "find": "Zistiť",
+    "result": "Výsledok",
+    "totalDays": "Celkom dní",
+    "weeksResult": "Týždne",
+    "monthsResult": "Mesiace",
+    "yearsResult": "Roky",
+    "outputDate": "Výsledný dátum",
+    "weekday": "Deň v týždni",
+    "weekNumber": "Číslo týždňa",
+    "year": "Rok",
+    "weekFrom": "Od (Pondelok)",
+    "weekTo": "Do (Nedeľa)",
+    "weekdays": {
+      "1": "Pondelok",
+      "2": "Utorok",
+      "3": "Streda",
+      "4": "Štvrtok",
+      "5": "Piatok",
+      "6": "Sobota",
+      "7": "Nedeľa"
+    },
+    "plural": {
+      "day": { "one": "deň", "few": "dni", "many": "dní" },
+      "week": { "one": "týždeň", "few": "týždne", "many": "týždňov" },
+      "month": { "one": "mesiac", "few": "mesiace", "many": "mesiacov" },
+      "year": { "one": "rok", "few": "roky", "many": "rokov" }
+    }
   }
 }

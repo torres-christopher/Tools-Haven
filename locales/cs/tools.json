@@ -127,5 +127,48 @@
     "cagrEndValue": "Konečná hodnota",
     "cagrYears": "Počet let",
     "cagrTotalGrowth": "Celkový růst"
+  },
+  "dateCalculator": {
+    "rangeTitle": "Rozdíl mezi daty",
+    "arithmeticTitle": "Přičíst nebo odečíst od data",
+    "weekTitle": "Číslo týdne",
+    "fromLabel": "Od",
+    "toLabel": "Do",
+    "dateLabel": "Datum",
+    "operationLabel": "Operace",
+    "add": "Přičíst",
+    "subtract": "Odečíst",
+    "yearsLabel": "Roky",
+    "monthsLabel": "Měsíce",
+    "weeksLabel": "Týdny",
+    "daysLabel": "Dny",
+    "calculate": "Vypočítat",
+    "find": "Zjistit",
+    "result": "Výsledek",
+    "totalDays": "Celkem dní",
+    "weeksResult": "Týdny",
+    "monthsResult": "Měsíce",
+    "yearsResult": "Roky",
+    "outputDate": "Výsledné datum",
+    "weekday": "Den v týdnu",
+    "weekNumber": "Číslo týdne",
+    "year": "Rok",
+    "weekFrom": "Od (Pondělí)",
+    "weekTo": "Do (Neděle)",
+    "weekdays": {
+      "1": "Pondělí",
+      "2": "Úterý",
+      "3": "Středa",
+      "4": "Čtvrtek",
+      "5": "Pátek",
+      "6": "Sobota",
+      "7": "Neděle"
+    },
+    "plural": {
+      "day": { "one": "den", "few": "dny", "many": "dní" },
+      "week": { "one": "týden", "few": "týdny", "many": "týdnů" },
+      "month": { "one": "měsíc", "few": "měsíce", "many": "měsíců" },
+      "year": { "one": "rok", "few": "roky", "many": "roků" }
+    }
   }
 }

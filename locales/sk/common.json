@@ -13,6 +13,10 @@
         "title": "Vývojárske",
         "jsonValidator": "JSON validator"
         },
+      "datetime": {
+        "title": "Datumy",
+        "dateCalculator": "Dátumová kalkulačka"
+        },
       "health": {
         "title": "Zdravie",
         "bmiKalkulacka": "BMI kalkulačka"
@@ -370,5 +374,9 @@
       "p1prefix": "Otázky, pripomienky alebo hlásenie porušenia týchto podmienok zasielajte prostredníctvom",
       "p1link": "kontaktného formulára"
     }
+  },
+  "errors": {
+    "invalidInput": "Zadané neplatné hodnoty.",
+    "general": "Vyskytla sa chyba."
   }
 }

@@ -56,7 +56,7 @@ export const postDateCalculator = catchAsync(async (req, res) => {
 
     // Validate input
     if (!input.success) {
-      errorMessage = 'Zadány neplatné hodnoty.'
+      errorMessage = req.t('common:errors.invalidInput')
       status = 400
     } else {
       result = calculateRange(input.data)
@@ -76,7 +76,7 @@ export const postDateCalculator = catchAsync(async (req, res) => {
 
     // Validate input
     if (!input.success) {
-      errorMessage = 'Zadány neplatné hodnoty.'
+      errorMessage = req.t('common:errors.invalidInput')
       status = 400
     } else {
       result = calculateArithmetic(input.data)
@@ -91,7 +91,7 @@ export const postDateCalculator = catchAsync(async (req, res) => {
 
     // Validate input
     if (!input.success) {
-      errorMessage = 'Zadány neplatné hodnoty.'
+      errorMessage = req.t('common:errors.invalidInput')
       status = 400
     } else {
       result = calculateWeekNumber(input.data)
@@ -99,7 +99,7 @@ export const postDateCalculator = catchAsync(async (req, res) => {
     }
     // Incorrect form edge case
   } else {
-    errorMessage = 'Vyskytla se chyba'
+    errorMessage = req.t('common:errors.general')
     status = 400
   }
 
