@@ -70,9 +70,9 @@ block content
               b #{result.range.weekEnd.toLocaleDateString('cs-CZ')}
 
       //- ── Form 1: Range ──────────────────────────────────────────
-      .inflation-section
-        h2.inflation-section__title Rozdíl mezi daty
-        form.inflation-form(method='POST' action='')
+      .tool-section
+        h2.tool-section__title Rozdíl mezi daty
+        form.tool-form(method='POST' action='')
           input(type='hidden' name='form_id' value='range')
           .form-row
             .form-group
@@ -95,12 +95,12 @@ block content
               )
           button.btn.btn--primary(type='submit') Vypočítat
 
-      .inflation-divider
+      .tool-divider
 
       //- ── Form 2: Arithmetic ─────────────────────────────────────
-      .inflation-section
-        h2.inflation-section__title Přičíst nebo odečíst od data
-        form.inflation-form(method='POST' action='')
+      .tool-section
+        h2.tool-section__title Přičíst nebo odečíst od data
+        form.tool-form(method='POST' action='')
           input(type='hidden' name='form_id' value='arithmetic')
           .form-row
             .form-group
@@ -153,12 +153,12 @@ block content
           .form-actions
             button.btn.btn--primary(type='submit') Vypočítat
 
-      .inflation-divider
+      .tool-divider
 
       //- ── Form 3: Week number ────────────────────────────────────
-      .inflation-section
-        h2.inflation-section__title Číslo týdne
-        form.inflation-form(method='POST' action='')
+      .tool-section
+        h2.tool-section__title Číslo týdne
+        form.tool-form(method='POST' action='')
           input(type='hidden' name='form_id' value='week')
           .form-row
             .form-group
@@ -172,7 +172,7 @@ block content
               )
           button.btn.btn--primary(type='submit') Zjistit
 
-      .inflation-divider
+      .tool-divider
 
     //- FAQ
     include ../../../partials/tool-faq
