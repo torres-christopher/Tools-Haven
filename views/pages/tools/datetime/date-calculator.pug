@@ -3,6 +3,19 @@ extends ../../../layouts/main
 block content
 
   include ../../../partials/tool-header
+  //- Today date for default input
+  - const today = new Date().toISOString().slice(0, 10)
+
+  //- Plural forms for language
+  -
+    const plural = (n, one, few, many) => {
+      if (n === 1) return n + ' ' + one
+      if (n >= 2 && n <= 4) return n + ' ' + few
+      return n + ' ' + many
+    }
+
+  -
+    const weekdays = ['', 'Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek', 'Sobota', 'Neděle']
 
   section.tool-layout.tool-layout--compact
     .container
@@ -18,13 +31,17 @@ block content
           .tool-result__header
             span.tool-result__heading Výsledek
           .tool-result__content
-            p Celkem dní: #{result.daysTotal}
+            p Celkem dní: 
+              b= plural(result.daysTotal, 'den', 'dny', 'dní')
             if result.weeksTotal > 0
-              p Týdny: #{result.weeksTotal} týdnů a #{result.weeksRemainder} dní
+              p Týdny: 
+                b= plural(result.weeksTotal, 'týden', 'týdny', 'týdnů') + ' a ' + plural(result.weeksRemainder, 'den', 'dny', 'dní')
             if result.monthsTotal > 0
-              p Měsíce: #{result.monthsTotal} měsíců a #{result.monthsRemainder} dní
+              p Měsíce: 
+                b= plural(result.monthsTotal, 'měsíc', 'měsíce', 'měsíců') + ' a ' + plural(result.monthsRemainder, 'den', 'dny', 'dní')
             if result.yearsTotal > 0
-              p Roky: #{result.yearsTotal} let a #{result.yearsRemainder} dní
+              p Roky: 
+                b= plural(result.yearsTotal, 'rok', 'roky', 'roků') + ' a ' + plural(result.yearsRemainder, 'den', 'dny', 'dní')
 
       //- ── Result: Arithmetic ─────────────────────────────────────
       if result && activeForm === 'arithmetic'
@@ -32,8 +49,10 @@ block content
           .tool-result__header
             span.tool-result__heading Výsledek
           .tool-result__content
-            p Výsledné datum: #{result.outputDate.toLocaleDateString('cs-CZ')}
-            p Den v týdnu: #{result.weekday}
+            p Výsledné datum: 
+              b #{result.outputDate.toLocaleDateString('cs-CZ')}
+            p Den v týdnu: 
+              b= weekdays[result.weekday]
 
       //- ── Result: Week number ────────────────────────────────────
       if result && activeForm === 'week'
@@ -41,10 +60,14 @@ block content
           .tool-result__header
             span.tool-result__heading Výsledek
           .tool-result__content
-            p Číslo týdne: #{result.week}
-            p Rok: #{result.year}
-            p Od: #{result.range.weekStart.toLocaleDateString('cs-CZ')}
-            p Do: #{result.range.weekEnd.toLocaleDateString('cs-CZ')}
+            p Číslo týdne: 
+              b #{result.week}
+            p Rok: 
+              b #{result.year}
+            p Od (Pondělí): 
+              b #{result.range.weekStart.toLocaleDateString('cs-CZ')}
+            p Do (Neděle): 
+              b #{result.range.weekEnd.toLocaleDateString('cs-CZ')}
 
       //- ── Form 1: Range ──────────────────────────────────────────
       .inflation-section
@@ -57,16 +80,18 @@ block content
               input.form-input#start-date(
                 type='date'
                 name='startDate'
+                lang='cs'
                 required
-                value=rangeInput ? rangeInput.startDate.toISOString().slice(0, 10) : ''
+                value=rangeInput ? rangeInput.startDate.toISOString().slice(0, 10) : today
               )
             .form-group
               label.form-label(for='end-date') Do
               input.form-input#end-date(
                 type='date'
                 name='endDate'
+                lang='cs'
                 required
-                value=rangeInput ? rangeInput.endDate.toISOString().slice(0, 10) : ''
+                value=rangeInput ? rangeInput.endDate.toISOString().slice(0, 10) : today
               )
           button.btn.btn--primary(type='submit') Vypočítat
 
@@ -83,9 +108,15 @@ block content
               input.form-input#arith-date(
                 type='date'
                 name='startDate'
+                lang='cs'
                 required
-                value=arithmeticInput ? arithmeticInput.startDate.toISOString().slice(0, 10) : ''
+                value=arithmeticInput ? arithmeticInput.startDate.toISOString().slice(0, 10) : today
               )
+            .form-group
+              label.form-label(for='arith-type') Operace
+              select.form-select#arith-type(name='type')
+                option(value='add' ...) Přičíst
+                option(value='subtract' ...) Odečíst
           .form-row
             .form-group
               label.form-label(for='arith-years') Roky
@@ -120,9 +151,6 @@ block content
                 value=arithmeticInput ? arithmeticInput.days : 0
               )
           .form-actions
-            select.form-select(name='type')
-              option(value='add' selected=arithmeticInput && arithmeticInput.type === 'add') Přičíst
-              option(value='subtract' selected=arithmeticInput && arithmeticInput.type === 'subtract') Odečíst
             button.btn.btn--primary(type='submit') Vypočítat
 
       .inflation-divider
@@ -138,8 +166,9 @@ block content
               input.form-input#week-date(
                 type='date'
                 name='inputDate'
+                lang='cs'
                 required
-                value=weekInput ? weekInput.inputDate.toISOString().slice(0, 10) : ''
+                value=weekInput ? weekInput.inputDate.toISOString().slice(0, 10) : today
               )
           button.btn.btn--primary(type='submit') Zjistit
 
