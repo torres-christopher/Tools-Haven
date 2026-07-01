@@ -1,12 +1,9 @@
 import { Router } from 'express'
-import {
-  getPrevodVelikostiZnaku,
-  postPrevodVelikostiZnaku,
-} from './case-converter.controller.js'
+import { getCaseConverter, postCaseConverter } from './case-converter.controller.js'
 
 const router = Router({ mergeParams: true })
 
-router.get('/', getPrevodVelikostiZnaku)
-router.post('/', postPrevodVelikostiZnaku)
+router.get('/', getCaseConverter)
+router.post('/', postCaseConverter)
 
 export default router

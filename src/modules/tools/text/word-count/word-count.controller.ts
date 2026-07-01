@@ -2,12 +2,12 @@ import { catchAsync } from '../../../../shared/utils/catchAsync.js'
 import { buildSeoMeta } from '../../../../shared/utils/seoMeta.js'
 import { buildToolSeoInput } from '../../../../shared/utils/buildToolSeoInput.js'
 import { findToolById } from '../../../../shared/utils/findTools.js'
-import { pocetZnakuInput } from './word-count.schema.js'
-import { calculatePocetZnaku } from './word-count.service.js'
-import { pocetZnakuFaq as faq } from './word-count.faq.js'
+import { wordCountInput } from './word-count.schema.js'
+import { calculateWordCount } from './word-count.service.js'
+import { wordCountFaq as faq } from './word-count.faq.js'
 import type { SupportedLocale } from '../../../../shared/types/supportedLocale.js'
 
-export const getPocetZnaku = catchAsync(async (req, res) => {
+export const getWordCount = catchAsync(async (req, res) => {
   const lang = req.params.lang as SupportedLocale
   const tool = findToolById('word-count')
   if (!tool) throw new Error(`Tool not found: word-count`)
@@ -19,7 +19,7 @@ export const getPocetZnaku = catchAsync(async (req, res) => {
   })
 })
 
-export const postPocetZnaku = catchAsync(async (req, res) => {
+export const postWordCount = catchAsync(async (req, res) => {
   const lang = req.params.lang as SupportedLocale
   const tool = findToolById('word-count')
   if (!tool) throw new Error(`Tool not found: word-count`)
@@ -30,14 +30,14 @@ export const postPocetZnaku = catchAsync(async (req, res) => {
   let errorMessage: string | null = null
   let status: number = 200
 
-  const input = pocetZnakuInput.safeParse(req.body.text)
+  const input = wordCountInput.safeParse(req.body.text)
 
   if (!input.success) {
     errorState = true
-    errorMessage = req.t('pocetZnaku.errorTooLong')
+    errorMessage = req.t('common.errorTooLong')
     status = 400
   } else {
-    result = calculatePocetZnaku(input.data)
+    result = calculateWordCount(input.data)
   }
 
   res.status(status).render('pages/tools/text/word-count', {

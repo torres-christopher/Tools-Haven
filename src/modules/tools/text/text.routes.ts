@@ -4,8 +4,8 @@ import { buildSeoMeta } from '../../../shared/utils/seoMeta.js'
 import { buildToolPath } from '../../../shared/utils/buildToolPath.js'
 import { tools } from '../../../shared/data/tools.js'
 import type { SupportedLocale } from '../../../shared/types/supportedLocale.js'
-import pocetZnakuRouter from './word-count/word-count.routes.js'
-import prevodVelikostiRouter from './case-converter/case-converter.routes.js'
+import wordCountRouter from './word-count/word-count.routes.js'
+import caseConverterRouter from './case-converter/case-converter.routes.js'
 
 const router = Router({ mergeParams: true })
 
@@ -39,9 +39,9 @@ router.get('/', (req: Request<{ lang: string }>, res) => {
   })
 })
 
-router.use('/pocet-znaku', pocetZnakuRouter) // cs
-router.use('/pocet-znakov', pocetZnakuRouter) // sk
-router.use('/prevod-velikosti-znaku', prevodVelikostiRouter) // cs
-router.use('/prevod-velkosti-znakov', prevodVelikostiRouter) // sk
+router.use('/pocet-znaku', wordCountRouter) // cs
+router.use('/pocet-znakov', wordCountRouter) // sk
+router.use('/prevod-velikosti-znaku', caseConverterRouter) // cs
+router.use('/prevod-velkosti-znakov', caseConverterRouter) // sk
 
 export default router

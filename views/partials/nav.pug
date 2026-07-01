@@ -15,11 +15,11 @@ nav.site-nav
       ul.site-nav__dropdown
         //- TODO: tool slugs in nav should be driven by tools registry once nav is data-driven
         if lang === "sk"
-          li: a(href=`/${lang}/text/pocet-znakov`) #{ t('common:nav.category.text.pocetZnaku') }
-          li: a(href=`/${lang}/text/prevod-velkosti-znakov`) #{ t('common:nav.category.text.prevodVelikosti') }
+          li: a(href=`/${lang}/text/pocet-znakov`) #{ t('common:nav.category.text.wordCount') }
+          li: a(href=`/${lang}/text/prevod-velkosti-znakov`) #{ t('common:nav.category.text.caseConverter') }
         else
-          li: a(href=`/${lang}/text/pocet-znaku`) #{ t('common:nav.category.text.pocetZnaku') }
-          li: a(href=`/${lang}/text/prevod-velikosti-znaku`) #{ t('common:nav.category.text.prevodVelikosti') }
+          li: a(href=`/${lang}/text/pocet-znaku`) #{ t('common:nav.category.text.wordCount') }
+          li: a(href=`/${lang}/text/prevod-velikosti-znaku`) #{ t('common:nav.category.text.caseConverter') }
     li.site-nav__item.site-nav__item--dropdown
       button.site-nav__link.site-nav__dropdown-toggle(aria-expanded="false") #{ t('common:nav.category.developer.title') }
         svg(width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true")

@@ -61,7 +61,7 @@ export const postJsonValidator = catchAsync(async (req, res) => {
   })
 
   if (!input.success) {
-    errorMessage = req.t('jsonValidator.errorTooLong')
+    errorMessage = req.t('common.errorTooLong')
     status = 400
   } else {
     result = jsonValidateFormat(input.data)

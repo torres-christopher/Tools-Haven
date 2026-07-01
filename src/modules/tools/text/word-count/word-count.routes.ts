@@ -1,9 +1,9 @@
 import { Router } from 'express'
-import { getPocetZnaku, postPocetZnaku } from './word-count.controller.js'
+import { getWordCount, postWordCount } from './word-count.controller.js'
 
 const router = Router({ mergeParams: true })
 
-router.get('/', getPocetZnaku)
-router.post('/', postPocetZnaku)
+router.get('/', getWordCount)
+router.post('/', postWordCount)
 
 export default router

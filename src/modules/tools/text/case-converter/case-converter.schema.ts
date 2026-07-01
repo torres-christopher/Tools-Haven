@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const prevodVelikostiZnakuInput = z.object({
+export const caseConverterInput = z.object({
   text: z.string().max(300000).default(''),
   conversionType: z.enum([
     'sentence-case',
@@ -11,7 +11,7 @@ export const prevodVelikostiZnakuInput = z.object({
     'no-diacritics',
   ]),
 })
-export const prevodVelikostiZnakuOutput = z.string().max(300000).default('')
+export const caseConverterOutput = z.string().max(300000).default('')
 
-export type PrevodVelikostiZnakuInput = z.infer<typeof prevodVelikostiZnakuInput>
-export type PrevodVelikostiZnakuOutput = z.infer<typeof prevodVelikostiZnakuOutput>
+export type CaseConverterInput = z.infer<typeof caseConverterInput>
+export type CaseConverterOutput = z.infer<typeof caseConverterOutput>

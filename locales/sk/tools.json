@@ -11,9 +11,10 @@
     "characters": "znakov",
     "textPlaceholder": "Sem vložte alebo napíšte svoj text...",
     "noDataStored": "Text sa nikam neukladá",
-    "worksWithoutJs": "Funguje aj bez JavaScriptu cez odoslanie formulára"
+    "worksWithoutJs": "Funguje aj bez JavaScriptu cez odoslanie formulára",
+    "errorTooLong": "Text je príliš dlhý. Maximálna dĺžka je 300 000 znakov."
   },
-  "pocetZnaku": {
+  "wordCount": {
     "placeholder": "$t(common.textPlaceholder)",
     "statRaw": "Znakov celkom",
     "statNospace": "Znakov bez medzier",
@@ -29,10 +30,9 @@
       "item3": "Vhodné pre slovenčinu aj bežné latinské texty",
       "item4": "Odhad viet a doby čítania je orientačný",
       "item5": "$t(common.worksWithoutJs)"
-    },
-    "errorTooLong": "Text je príliš dlhý. Maximálna dĺžka je 300 000 znakov."
+    }
   },
-  "prevodVelikosti": {
+  "caseConverter": {
     "placeholder": "$t(common.textPlaceholder)",
     "sentenceCase": "Vetný zápis",
     "lowerCase": "malé písmená",
@@ -45,8 +45,7 @@
       "item1": "$t(common.noDataStored)",
       "item2": "Podporuje slovenčinu a diakritiku",
       "item3": "$t(common.worksWithoutJs)"
-    },
-    "errorTooLong": "Text je príliš dlhý. Maximálna dĺžka je 300 000 znakov."
+    }
   },
   "jsonValidator": {
     "validate": "Validovať",
@@ -58,8 +57,7 @@
     "validJson": "✓ Validný JSON",
     "invalidJson": "✗ Nevalidný JSON",
     "errorLine": "Riadok",
-    "errorColumn": "stĺpec",
-    "errorTooLong": "Text je príliš dlhý. Maximálna dĺžka je 300 000 znakov."
+    "errorColumn": "stĺpec"
   },
   "bmi": {
     "heightLabel": "Výška (cm)",

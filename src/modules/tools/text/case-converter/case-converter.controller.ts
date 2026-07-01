@@ -2,7 +2,7 @@ import { catchAsync } from '../../../../shared/utils/catchAsync.js'
 import { buildSeoMeta } from '../../../../shared/utils/seoMeta.js'
 import { buildToolSeoInput } from '../../../../shared/utils/buildToolSeoInput.js'
 import { findToolById } from '../../../../shared/utils/findTools.js'
-import { prevodVelikostiZnakuInput } from './case-converter.schema.js'
+import { caseConverterInput } from './case-converter.schema.js'
 import {
   sentenceCase,
   lowerCase,
@@ -11,10 +11,10 @@ import {
   reverseText,
   noDiacritics,
 } from './case-converter.service.js'
-import { prevodVelikostiZnakuFaq as faq } from './case-converter.faq.js'
+import { caseConverterFaq as faq } from './case-converter.faq.js'
 import type { SupportedLocale } from '../../../../shared/types/supportedLocale.js'
 
-export const getPrevodVelikostiZnaku = catchAsync(async (req, res) => {
+export const getCaseConverter = catchAsync(async (req, res) => {
   const lang = req.params.lang as SupportedLocale
   const tool = findToolById('case-converter')
   if (!tool) throw new Error(`Tool not found: case-converter`)
@@ -26,7 +26,7 @@ export const getPrevodVelikostiZnaku = catchAsync(async (req, res) => {
   })
 })
 
-export const postPrevodVelikostiZnaku = catchAsync(async (req, res) => {
+export const postCaseConverter = catchAsync(async (req, res) => {
   const lang = req.params.lang as SupportedLocale
   const tool = findToolById('case-converter')
   if (!tool) throw new Error(`case-converter`)
@@ -38,7 +38,7 @@ export const postPrevodVelikostiZnaku = catchAsync(async (req, res) => {
   let status: number = 200
 
   // Validate input
-  const input = prevodVelikostiZnakuInput.safeParse({
+  const input = caseConverterInput.safeParse({
     text: req.body.text,
     conversionType: req.body.conversionType,
   })
@@ -46,7 +46,7 @@ export const postPrevodVelikostiZnaku = catchAsync(async (req, res) => {
   // On error
   if (!input.success) {
     errorState = true
-    errorMessage = req.t('prevodVelikosti.errorTooLong')
+    errorMessage = req.t('common.errorTooLong')
     status = 400
   } else {
     switch (input.data.conversionType) {

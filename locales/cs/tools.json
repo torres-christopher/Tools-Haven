@@ -11,9 +11,10 @@
     "characters": "znaků",
     "textPlaceholder": "Sem vložte nebo napište svůj text...",
     "noDataStored": "Text se nikam neukládá",
-    "worksWithoutJs": "Funguje i bez JavaScriptu přes odeslání formuláře"
+    "worksWithoutJs": "Funguje i bez JavaScriptu přes odeslání formuláře",
+    "errorTooLong": "Text je příliš dlouhý. Maximální délka je 300 000 znaků."
   },
-  "pocetZnaku": {
+  "wordCount": {
     "placeholder": "$t(common.textPlaceholder)",
     "statRaw": "Znaků celkem",
     "statNospace": "Znaků bez mezer",
@@ -29,10 +30,9 @@
       "item3": "Vhodné pro češtinu i běžné latinkové texty",
       "item4": "Odhad vět a doby čtení je orientační",
       "item5": "$t(common.worksWithoutJs)"
-    },
-    "errorTooLong": "Text je příliš dlouhý. Maximální délka je 300 000 znaků."
+    }    
   },
-  "prevodVelikosti": {
+  "caseConverter": {
     "placeholder": "$t(common.textPlaceholder)",
     "sentenceCase": "Větný zápis",
     "lowerCase": "malá písmena",
@@ -45,8 +45,7 @@
       "item1": "$t(common.noDataStored)",
       "item2": "Podporuje češtinu a diakritiku",
       "item3": "$t(common.worksWithoutJs)"
-    },
-    "errorTooLong": "Text je příliš dlouhý. Maximální délka je 300 000 znaků."
+    }
   },
   "jsonValidator": {
     "validate": "Validovat",
@@ -58,8 +57,7 @@
     "validJson": "✓ Validní JSON",
     "invalidJson": "✗ Nevalidní JSON",
     "errorLine": "Řádek",
-    "errorColumn": "sloupec",
-    "errorTooLong": "Text je příliš dlouhý. Maximální délka je 300 000 znaků."
+    "errorColumn": "sloupec"
   },
   "bmi": {
     "heightLabel": "Výška (cm)",

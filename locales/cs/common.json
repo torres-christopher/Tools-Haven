@@ -6,8 +6,8 @@
     "category": {
       "text": {
         "title": "Text",
-        "pocetZnaku": "Počet znaků",
-        "prevodVelikosti": "Formátování znaků"
+        "wordCount": "Počet znaků",
+        "caseConverter": "Formátování znaků"
       },
       "developer": {
         "title": "Vývojářské",

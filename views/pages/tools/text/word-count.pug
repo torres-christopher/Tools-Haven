@@ -23,7 +23,7 @@ block content
               textarea.form-textarea.form-textarea--large(
                 id='text'
                 name='text'
-                placeholder=t('pocetZnaku.placeholder')
+                placeholder=t('wordCount.placeholder')
                 autocomplete='off'
                 spellcheck='true'
               )= text || ''
@@ -33,25 +33,25 @@ block content
                 .stat-grid
                   .stat-card
                     p.stat-card__value(id='stat-raw')= result ? result.textLengthRaw : 0
-                    p.stat-card__label #{t('pocetZnaku.statRaw')}
+                    p.stat-card__label #{t('wordCount.statRaw')}
                   .stat-card
                     p.stat-card__value(id='stat-nospace')= result ? result.textLengthNoSpace : 0
-                    p.stat-card__label #{t('pocetZnaku.statNospace')}
+                    p.stat-card__label #{t('wordCount.statNospace')}
                   .stat-card
                     p.stat-card__value(id='stat-words')= result ? result.wordCount : 0
-                    p.stat-card__label #{t('pocetZnaku.statWords')}
+                    p.stat-card__label #{t('wordCount.statWords')}
                   .stat-card
                     p.stat-card__value(id='stat-sentences')= result ? result.sentenceCount : 0
-                    p.stat-card__label #{t('pocetZnaku.statSentences')}
+                    p.stat-card__label #{t('wordCount.statSentences')}
                   .stat-card
                     p.stat-card__value(id='stat-lines')= result ? result.lineCount : 0
-                    p.stat-card__label #{t('pocetZnaku.statLines')}
+                    p.stat-card__label #{t('wordCount.statLines')}
                   .stat-card
                     p.stat-card__value(id='stat-ns')= result ? result.nsCount.toFixed(2) : '0.00'
-                    p.stat-card__label #{t('pocetZnaku.statNs')}
+                    p.stat-card__label #{t('wordCount.statNs')}
                   .stat-card
                     p.stat-card__value(id='stat-reading')= result ? result.readingTime : 0
-                    p.stat-card__label #{t('pocetZnaku.statReading')}
+                    p.stat-card__label #{t('wordCount.statReading')}
 
               button.btn.btn--primary(type='submit') #{t('common.calculate')}
 
@@ -73,13 +73,13 @@ block content
           //- About this tool
           .sidebar-info
             h3.sidebar-info__title #{t('common.aboutTool')}
-            p.sidebar-info__text #{t('pocetZnaku.sidebar.text')}
+            p.sidebar-info__text #{t('wordCount.sidebar.text')}
             ul.sidebar-info__list
-              li #{t('pocetZnaku.sidebar.item1')}
-              li #{t('pocetZnaku.sidebar.item2')}
-              li #{t('pocetZnaku.sidebar.item3')}
-              li #{t('pocetZnaku.sidebar.item4')}
-              li #{t('pocetZnaku.sidebar.item5')}
+              li #{t('wordCount.sidebar.item1')}
+              li #{t('wordCount.sidebar.item2')}
+              li #{t('wordCount.sidebar.item3')}
+              li #{t('wordCount.sidebar.item4')}
+              li #{t('wordCount.sidebar.item5')}
 
   //- Page script for live counting
   script(src='/js/tools/word-count.js' defer)

@@ -261,7 +261,7 @@ Supported locales: `cs`, `sk`. Slovak tools are currently disabled pending trans
 
 The project uses i18next with two namespaces:
 
-- `tools` (default) - tool-specific strings; no prefix needed in tool views: `t('pocetZnaku.statRaw')`
+- `tools` (default) - tool-specific strings; no prefix needed in tool views: `t('wordCount.statRaw')`
 - `common` - shared UI strings; prefix required in all other templates: `t('common:nav.allTools')`
 
 Translation files live in `locales/{lang}/common.json` and `locales/{lang}/tools.json`.
