@@ -6,12 +6,16 @@
     "category": {
       "text": {
         "title": "Text",
-        "pocetZnaku": "Počet znaků",
-        "prevodVelikosti": "Formátování znaků"
+        "wordCount": "Počet znaků",
+        "caseConverter": "Formátování znaků"
       },
       "developer": {
         "title": "Vývojářské",
         "jsonValidator": "JSON validator"
+        },
+      "datetime": {
+        "title": "Datumy",
+        "dateCalculator": "Datumový kalkulátor"
         },
       "health": {
         "title": "Zdraví",
@@ -55,23 +59,28 @@
   "category": {
     "text": {
       "title": "Textové nástroje",
-      "description": "Bezplatné online nástroje pro práci s textem. Počítání znaků, převod písmen, čištění textu a další.",
+      "description": "Bezplatné online nástroje pro práci s textem. Počítání znaků, převod písmen, do budoucna čištění textu a další.",
       "categoryDescription": "Nástroje pro práci s textem: Počítání znaků, převod velikosti písmen, čištění textu a další."
     },
     "developer": {
       "title": "Vývojářské nástroje",
-      "description": "Bezplatné online nástroje pro vývojáře. JSON validace a formátování, enkódování do Base64, URL enkódování a další.",
+      "description": "Bezplatné online nástroje pro vývojáře. JSON validace a formátování, do budoucna i enkódování do Base64, URL enkódování a další.",
       "categoryDescription": "Nástroje pro vývojáře: Validace JSONu, formátování a porovnání textu."
     },
     "health": {
       "title": "Zdravotní nástroje",
-      "description": "Zdravotní nástroje online zdarma. BMI kalkulačka a další jednoduché zdravotní výpočty přehledně, rychle a bez registrace.",
+      "description": "Zdravotní nástroje online zdarma. BMI kalkulačka a do budoucna další jednoduché zdravotní výpočty.",
       "categoryDescription": "Kalkulačky pro zdraví a fitness: BMI, BMR, TDEE, ideální váha a další ukazatele."
     },
     "local": {
       "title": "Lokální data",
-      "description": "Bezplatné online nástroje s lokálními daty. Inflační kalkulačka, rodná čísla, svátky a další.",
+      "description": "Bezplatné online nástroje s lokálními daty. Inflační kalkulačka, v budoucnus i rodná čísla, svátky a další.",
       "categoryDescription": "Nástroje s lokálními daty: Inflační kalkulačka, rodná čísla, svátky, kurzy ČNB a další."
+    },
+    "datetime": {
+      "title": "Datum a čas",
+      "description": "Bezplatné online nástroje pro práci s daty a časem. Výpočet rozdílu mezi daty, přičítání a odečítání času, číslo týdne a další.",
+      "categoryDescription": "Nástroje pro datum a čas: Rozdíl mezi daty, přičítání a odečítání od data, číslo týdne a další."
     }
   },
   "allTools": {
@@ -179,7 +188,7 @@
   },
   "contact": {
     "title": "Kontakt",
-    "description": "Kontaktujte nás — hlášení chyb, nápady na nástroje, dotazy k ochraně soukromí.",
+    "description": "Kontaktujte nás. Hlášení chyb, nápady na nástroje, dotazy k ochraně soukromí.",
     "page": {
       "subtitle": "Máte dotaz nebo narazili jste na chybu?"
     },
@@ -243,7 +252,7 @@
       "intro": "Tento web zpracovává pouze minimální množství dat nezbytných pro provoz:",
       "item1": {
         "label": "Analytická data (Google Analytics):",
-        "text": "anonymizovaná data o návštěvnosti — počet návštěv, použité nástroje, typ zařízení, přibližná geografická poloha (úroveň města). IP adresa je anonymizována před odesláním do Google."
+        "text": "anonymizovaná data o návštěvnosti, především počet návštěv, použité nástroje, typ zařízení, přibližná geografická poloha (úroveň města). IP adresa je anonymizována před odesláním do Google."
       },
       "item2": {
         "label": "Data zadaná do nástrojů:",
@@ -291,7 +300,7 @@
     },
     "s7": {
       "title": "7. Zabezpečení",
-      "p1": "Přenos dat mezi vaším prohlížečem a serverem je šifrován pomocí HTTPS/TLS. Data zadaná do nástrojů nejsou trvale ukládána — jsou zpracována v paměti serveru a po odeslání odpovědi okamžitě smazána."
+      "p1": "Přenos dat mezi vaším prohlížečem a serverem je šifrován pomocí HTTPS/TLS. Data zadaná do nástrojů nejsou trvale ukládána, nýbrž jsou zpracována v paměti serveru a po odeslání odpovědi okamžitě smazána."
     },
     "s8": {
       "title": "8. Změny těchto zásad",
@@ -365,5 +374,9 @@
       "p1prefix": "Dotazy, připomínky nebo hlášení porušení těchto podmínek zasílejte prostřednictvím",
       "p1link": "kontaktního formuláře"
     }
+  },
+  "errors": {
+    "invalidInput": "Zadány neplatné hodnoty.",
+    "general": "Vyskytla se chyba."
   }
 }

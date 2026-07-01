@@ -29,6 +29,14 @@ export const getSitemap = catchAsync(async (_req, res) => {
 
   const langPaths = activeLocales.flatMap((lang) => [`/${lang}`, `/${lang}/tools`, `/${lang}/faq`])
 
+  // Generate paths per tool category per language
+  const categoryPaths = activeLocales.flatMap((lang) => {
+    const uniqueCategories = [
+      ...new Set(tools.filter((t) => t.enabled[lang]).map((t) => t.categoryPath)),
+    ]
+    return uniqueCategories.map((category) => `/${lang}${category}`)
+  })
+
   // Generate one path per tool per enabled language
   const toolPaths = tools.flatMap((tool) =>
     supportedLocales
@@ -36,7 +44,15 @@ export const getSitemap = catchAsync(async (_req, res) => {
       .map((lang: SupportedLocale) => buildToolPath(lang, tool.categoryPath, tool.slug)),
   )
 
-  const allPaths = [...langPaths, ...toolPaths]
+  const allPaths = [...langPaths, ...categoryPaths, ...toolPaths]
+
+  const getPriority = (path: string): string => {
+    if (['/faq', '/contact', '/privacy', '/terms'].some((p) => path.includes(p))) return '0.6'
+    const slashes = (path.match(/\//g) ?? []).length
+    if (slashes === 1) return '1.0'
+    if (slashes === 2) return '0.9'
+    return '0.7'
+  }
 
   const urls = allPaths
     .map(
@@ -44,7 +60,7 @@ export const getSitemap = catchAsync(async (_req, res) => {
         `<url>
   <loc>${env.SITE_URL}${path}</loc>
   <changefreq>weekly</changefreq>
-  <priority>${path.split('/').length === 2 ? '0.9' : '0.8'}</priority>
+  <priority>${getPriority(path)}</priority>
 </url>`,
     )
     .join('')
@@ -78,7 +94,7 @@ export const getAllTools = catchAsync(async (req, res) => {
     return acc
   }, {})
 
-  res.render('pages/core/vsechny-nastroje', {
+  res.render('pages/core/all-tools', {
     ...buildSeoMeta({
       title: req.t('common:allTools.title'),
       description: req.t('common:allTools.description'),

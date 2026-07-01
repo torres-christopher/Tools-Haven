@@ -1,3 +1,6 @@
+## List out directory tree
+tree -I 'node_modules|dist|.git'
+
 ## On start
 # Switch to main
 git checkout main

@@ -1,0 +1,183 @@
+extends ../../../layouts/main
+
+block content
+
+  include ../../../partials/tool-header
+  //- Today date for default input
+  - const today = new Date().toISOString().slice(0, 10)
+
+  //- Plural forms using translation keys
+  -
+    const plural = (n, category) => {
+      const one = t('dateCalculator.plural.' + category + '.one')
+      const few = t('dateCalculator.plural.' + category + '.few')
+      const many = t('dateCalculator.plural.' + category + '.many')
+      if (n === 1) return n + ' ' + one
+      if (n >= 2 && n <= 4) return n + ' ' + few
+      return n + ' ' + many
+    }
+
+  //- Locale string for date formatting
+  - const dateLocale = lang === 'sk' ? 'sk-SK' : 'cs-CZ'
+
+  section.tool-layout.tool-layout--compact
+    .container
+
+      //- Error message
+      if errorMessage
+        .alert.alert--error(role='alert' style='margin-bottom: var(--space-6)')
+          p= errorMessage
+
+      //- ── Result: Range ──────────────────────────────────────────
+      if result && activeForm === 'range'
+        .tool-result.tool-result--compact
+          .tool-result__header
+            span.tool-result__heading= t('dateCalculator.result')
+          .tool-result__content
+            p= t('dateCalculator.totalDays') + ': '
+              b= plural(result.daysTotal, 'day')
+            if result.weeksTotal > 0
+              p= t('dateCalculator.weeksResult') + ': '
+                b= plural(result.weeksTotal, 'week') + ' a ' + plural(result.weeksRemainder, 'day')
+            if result.monthsTotal > 0
+              p= t('dateCalculator.monthsResult') + ': '
+                b= plural(result.monthsTotal, 'month') + ' a ' + plural(result.monthsRemainder, 'day')
+            if result.yearsTotal > 0
+              p= t('dateCalculator.yearsResult') + ': '
+                b= plural(result.yearsTotal, 'year') + ' a ' + plural(result.yearsRemainder, 'day')
+
+      //- ── Result: Arithmetic ─────────────────────────────────────
+      if result && activeForm === 'arithmetic'
+        .tool-result.tool-result--compact
+          .tool-result__header
+            span.tool-result__heading= t('dateCalculator.result')
+          .tool-result__content
+            p= t('dateCalculator.outputDate') + ': '
+              b= result.outputDate.toLocaleDateString(dateLocale)
+            p= t('dateCalculator.weekday') + ': '
+              b= t('dateCalculator.weekdays.' + result.weekday)
+
+      //- ── Result: Week number ────────────────────────────────────
+      if result && activeForm === 'week'
+        .tool-result.tool-result--compact
+          .tool-result__header
+            span.tool-result__heading= t('dateCalculator.result')
+          .tool-result__content
+            p= t('dateCalculator.weekNumber') + ': '
+              b #{result.week}
+            p= t('dateCalculator.year') + ': '
+              b #{result.year}
+            p= t('dateCalculator.weekFrom') + ': '
+              b= result.range.weekStart.toLocaleDateString(dateLocale)
+            p= t('dateCalculator.weekTo') + ': '
+              b= result.range.weekEnd.toLocaleDateString(dateLocale)
+
+      //- ── Form 1: Range ──────────────────────────────────────────
+      .tool-section
+        h2.tool-section__title= t('dateCalculator.rangeTitle')
+        form.tool-form(method='POST' action='')
+          input(type='hidden' name='form_id' value='range')
+          .form-row
+            .form-group
+              label.form-label(for='start-date')= t('dateCalculator.fromLabel')
+              input.form-input#start-date(
+                type='date'
+                name='startDate'
+                required
+                value=rangeInput ? rangeInput.startDate.toISOString().slice(0, 10) : today
+              )
+            .form-group
+              label.form-label(for='end-date')= t('dateCalculator.toLabel')
+              input.form-input#end-date(
+                type='date'
+                name='endDate'
+                required
+                value=rangeInput ? rangeInput.endDate.toISOString().slice(0, 10) : today
+              )
+          button.btn.btn--primary(type='submit')= t('dateCalculator.calculate')
+
+      .tool-divider
+
+      //- ── Form 2: Arithmetic ─────────────────────────────────────
+      .tool-section
+        h2.tool-section__title= t('dateCalculator.arithmeticTitle')
+        form.tool-form(method='POST' action='')
+          input(type='hidden' name='form_id' value='arithmetic')
+          .form-row
+            .form-group
+              label.form-label(for='arith-date')= t('dateCalculator.dateLabel')
+              input.form-input#arith-date(
+                type='date'
+                name='startDate'
+                required
+                value=arithmeticInput ? arithmeticInput.startDate.toISOString().slice(0, 10) : today
+              )
+            .form-group
+              label.form-label(for='arith-type')= t('dateCalculator.operationLabel')
+              select.form-select#arith-type(name='type')
+                option(value='add' selected=arithmeticInput && arithmeticInput.type === 'add')= t('dateCalculator.add')
+                option(value='subtract' selected=arithmeticInput && arithmeticInput.type === 'subtract')= t('dateCalculator.subtract')
+          .form-row
+            .form-group
+              label.form-label(for='arith-years')= t('dateCalculator.yearsLabel')
+              input.form-input#arith-years(
+                type='number'
+                name='years'
+                min='0'
+                value=arithmeticInput ? arithmeticInput.years : 0
+              )
+            .form-group
+              label.form-label(for='arith-months')= t('dateCalculator.monthsLabel')
+              input.form-input#arith-months(
+                type='number'
+                name='months'
+                min='0'
+                value=arithmeticInput ? arithmeticInput.months : 0
+              )
+            .form-group
+              label.form-label(for='arith-weeks')= t('dateCalculator.weeksLabel')
+              input.form-input#arith-weeks(
+                type='number'
+                name='weeks'
+                min='0'
+                value=arithmeticInput ? arithmeticInput.weeks : 0
+              )
+            .form-group
+              label.form-label(for='arith-days')= t('dateCalculator.daysLabel')
+              input.form-input#arith-days(
+                type='number'
+                name='days'
+                min='0'
+                value=arithmeticInput ? arithmeticInput.days : 0
+              )
+          .form-actions
+            button.btn.btn--primary(type='submit')= t('dateCalculator.calculate')
+
+      .tool-divider
+
+      //- ── Form 3: Week number ────────────────────────────────────
+      .tool-section
+        h2.tool-section__title= t('dateCalculator.weekTitle')
+        form.tool-form(method='POST' action='')
+          input(type='hidden' name='form_id' value='week')
+          .form-row
+            .form-group
+              label.form-label(for='week-date')= t('dateCalculator.dateLabel')
+              input.form-input#week-date(
+                type='date'
+                name='inputDate'
+                required
+                value=weekInput ? weekInput.inputDate.toISOString().slice(0, 10) : today
+              )
+          button.btn.btn--primary(type='submit')= t('dateCalculator.find')
+
+      .tool-divider
+
+    //- FAQ
+    include ../../../partials/tool-faq
+
+    //- Ad slot
+    include ../../../partials/ad-slot
+
+    //- Related tools
+    include ../../../partials/tool-related

@@ -13,3 +13,9 @@
 # Inflation calculatr
 
 - Inflation calculator option to calculate interest rate between two price values
+
+# Front-end
+- Lazy loading
+- Minify HTML/CSS/JS
+- Async GTM
+- Image caching

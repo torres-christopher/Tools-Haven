@@ -2,7 +2,7 @@ import { type ToolsDetails } from '../types/toolDetails.js'
 
 export const tools: ToolsDetails[] = [
   {
-    id: 'pocet-znaku',
+    id: 'word-count',
     title: {
       cs: 'Počet znaků',
       sk: 'Počet znakov',
@@ -28,7 +28,7 @@ export const tools: ToolsDetails[] = [
     featured: 1,
   },
   {
-    id: 'prevod-velikosti-znaku',
+    id: 'case-converter',
     title: {
       cs: 'Převod velikosti znaků',
       sk: 'Prevod veľkosti znakov',
@@ -80,7 +80,7 @@ export const tools: ToolsDetails[] = [
     featured: 1,
   },
   {
-    id: 'bmi-kalkulacka',
+    id: 'bmi-calculator',
     title: {
       cs: 'BMI kalkulačka',
       sk: 'BMI kalkulačka',
@@ -106,7 +106,7 @@ export const tools: ToolsDetails[] = [
     featured: 1,
   },
   {
-    id: 'inflacni-kalkulacka',
+    id: 'inflation-calculator',
     title: {
       cs: 'Inflační kalkulačka',
       sk: 'Inflačná kalkulačka',
@@ -125,6 +125,32 @@ export const tools: ToolsDetails[] = [
     },
     categoryPath: '/local',
     icon: '📈',
+    enabled: {
+      cs: true,
+      sk: false,
+    },
+    featured: 1,
+  },
+  {
+    id: 'date-calculator',
+    title: {
+      cs: 'Datumový kalkulátor',
+      sk: 'Dátumová kalkulačka',
+    },
+    description: {
+      cs: 'Vypočítejte rozdíl mezi dvěma daty, přičtěte nebo odečtěte dny, týdny, měsíce a roky, nebo zjistěte číslo týdne podle ISO standardu.',
+      sk: 'Vypočítajte rozdiel medzi dvoma dátumami, pripočítajte alebo odčítajte dni, týždne, mesiace a roky, alebo zistite číslo týždňa podľa ISO štandardu.',
+    },
+    slug: {
+      cs: 'datumovy-kalkulator',
+      sk: 'datumova-kalkulacka',
+    },
+    categoryName: {
+      cs: 'Datum a čas',
+      sk: 'Dátum a čas',
+    },
+    categoryPath: '/datetime',
+    icon: '📅',
     enabled: {
       cs: true,
       sk: false,

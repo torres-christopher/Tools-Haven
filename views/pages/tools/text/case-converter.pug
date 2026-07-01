@@ -23,19 +23,19 @@ block content
               textarea.form-textarea.form-textarea--large(
                 id='text'
                 name='text'
-                placeholder=t('prevodVelikosti.placeholder')
+                placeholder=t('caseConverter.placeholder')
                 autocomplete='off'
                 spellcheck='false'
               )= result || ''
 
             //- Conversion buttons
             .form-actions
-              button.btn.btn--ghost(type='submit' name='conversionType' value='sentence-case') #{t('prevodVelikosti.sentenceCase')}
-              button.btn.btn--ghost(type='submit' name='conversionType' value='lower-case') #{t('prevodVelikosti.lowerCase')}
-              button.btn.btn--ghost(type='submit' name='conversionType' value='upper-case') #{t('prevodVelikosti.upperCase')}
-              button.btn.btn--ghost(type='submit' name='conversionType' value='capitalized-case') #{t('prevodVelikosti.capitalizedCase')}
-              button.btn.btn--ghost(type='submit' name='conversionType' value='no-diacritics') #{t('prevodVelikosti.noDiacritics')}
-              button.btn.btn--ghost(type='submit' name='conversionType' value='reverse') #{t('prevodVelikosti.reverse')}
+              button.btn.btn--ghost(type='submit' name='conversionType' value='sentence-case') #{t('caseConverter.sentenceCase')}
+              button.btn.btn--ghost(type='submit' name='conversionType' value='lower-case') #{t('caseConverter.lowerCase')}
+              button.btn.btn--ghost(type='submit' name='conversionType' value='upper-case') #{t('caseConverter.upperCase')}
+              button.btn.btn--ghost(type='submit' name='conversionType' value='capitalized-case') #{t('caseConverter.capitalizedCase')}
+              button.btn.btn--ghost(type='submit' name='conversionType' value='no-diacritics') #{t('caseConverter.noDiacritics')}
+              button.btn.btn--ghost(type='submit' name='conversionType' value='reverse') #{t('caseConverter.reverse')}
 
           //- Tool FAQ
           include ../../../partials/tool-faq
@@ -55,11 +55,11 @@ block content
           //- About this tool
           .sidebar-info
             h3.sidebar-info__title #{t('common.aboutTool')}
-            p.sidebar-info__text #{t('prevodVelikosti.sidebar.text')}
+            p.sidebar-info__text #{t('caseConverter.sidebar.text')}
             ul.sidebar-info__list
-              li #{t('prevodVelikosti.sidebar.item1')}
-              li #{t('prevodVelikosti.sidebar.item2')}
-              li #{t('prevodVelikosti.sidebar.item3')}
+              li #{t('caseConverter.sidebar.item1')}
+              li #{t('caseConverter.sidebar.item2')}
+              li #{t('caseConverter.sidebar.item3')}
 
   //- Page script for live conversion
-  script(src='/js/tools/prevod-velikosti-znaku.js' defer)
+  script(src='/js/tools/case-converter.js' defer)

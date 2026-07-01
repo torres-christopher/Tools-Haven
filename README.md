@@ -75,8 +75,8 @@ Tools-Haven/
 │   │       ├── lang.router.ts          # Validates :lang param, mounts category routers
 │   │       ├── text/
 │   │       │   ├── text.routes.ts
-│   │       │   ├── pocet-znaku/        # Character / word / sentence / line / normostrana counter
-│   │       │   └── prevod-velikosti-znaku/ # Case converter
+│   │       │   ├── word-count/         # Character / word / sentence / line / normostrana counter
+│   │       │   └── case-converter/     # Case converter
 │   │       ├── developer/
 │   │       │   ├── developer.routes.ts
 │   │       │   └── json-validator/     # JSON validator, formatter and minifier
@@ -261,7 +261,7 @@ Supported locales: `cs`, `sk`. Slovak tools are currently disabled pending trans
 
 The project uses i18next with two namespaces:
 
-- `tools` (default) - tool-specific strings; no prefix needed in tool views: `t('pocetZnaku.statRaw')`
+- `tools` (default) - tool-specific strings; no prefix needed in tool views: `t('wordCount.statRaw')`
 - `common` - shared UI strings; prefix required in all other templates: `t('common:nav.allTools')`
 
 Translation files live in `locales/{lang}/common.json` and `locales/{lang}/tools.json`.
@@ -292,8 +292,8 @@ npm run test:e2e
 | Module                    | Unit tests | Integration tests |
 | ------------------------- | ---------- | ----------------- |
 | `shared/utils/seoMeta.ts` | ✓          | -                 |
-| `pocet-znaku`             | ✓          | ✓                 |
-| `prevod-velikosti-znaku`  | ✓          | ✓                 |
+| `word-count`              | ✓          | ✓                 |
+| `case-converter`          | ✓          | ✓                 |
 | `json-validator`          | ✓          | ✓                 |
 | `bmi`                     | ✓          | ✓                 |
 | `inflation-calculator`    | ✓          | ✓                 |

@@ -4,8 +4,7 @@ import { buildSeoMeta } from '../../../shared/utils/seoMeta.js'
 import { buildToolPath } from '../../../shared/utils/buildToolPath.js'
 import { tools } from '../../../shared/data/tools.js'
 import type { SupportedLocale } from '../../../shared/types/supportedLocale.js'
-import wordCountRouter from './word-count/word-count.routes.js'
-import caseConverterRouter from './case-converter/case-converter.routes.js'
+import dateCalculatorRouter from './date-calculator/date-calculator.routes.js'
 
 const router = Router({ mergeParams: true })
 
@@ -14,9 +13,8 @@ const router = Router({ mergeParams: true })
 // makes the parameter available and the cast to SupportedLocale narrows it to a valid locale.
 router.get('/', (req: Request<{ lang: string }>, res) => {
   const lang = req.params.lang as SupportedLocale
-
   const categoryTools = tools
-    .filter((t) => t.categoryPath === '/text' && t.enabled[lang])
+    .filter((t) => t.categoryPath === '/datetime' && t.enabled[lang])
     .map((t) => ({
       ...t,
       resolvedTitle: t.title[lang],
@@ -26,22 +24,20 @@ router.get('/', (req: Request<{ lang: string }>, res) => {
 
   res.render('pages/tools/tools', {
     ...buildSeoMeta({
-      title: req.t('common:category.text.title'),
-      description: req.t('common:category.text.description'),
-      path: `/${lang}/text`,
+      title: req.t('common:category.datetime.title'),
+      description: req.t('common:category.datetime.description'),
+      path: `/${lang}/datetime`,
       lang,
     }),
-    toolCategory: req.t('common:category.text.title'),
-    toolCategoryPath: `/${lang}/text`,
-    toolCategoryDescription: req.t('common:category.text.categoryDescription'),
+    toolCategory: req.t('common:category.datetime.title'),
+    toolCategoryPath: `/${lang}/datetime`,
+    toolCategoryDescription: req.t('common:category.datetime.categoryDescription'),
     tools: categoryTools,
     lang,
   })
 })
 
-router.use('/pocet-znaku', wordCountRouter) // cs
-router.use('/pocet-znakov', wordCountRouter) // sk
-router.use('/prevod-velikosti-znaku', caseConverterRouter) // cs
-router.use('/prevod-velkosti-znakov', caseConverterRouter) // sk
+router.use('/datumovy-kalkulator', dateCalculatorRouter) // cs
+router.use('/datumova-kalkulacka', dateCalculatorRouter) // sk
 
 export default router

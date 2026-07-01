@@ -11,9 +11,10 @@
     "characters": "znaků",
     "textPlaceholder": "Sem vložte nebo napište svůj text...",
     "noDataStored": "Text se nikam neukládá",
-    "worksWithoutJs": "Funguje i bez JavaScriptu přes odeslání formuláře"
+    "worksWithoutJs": "Funguje i bez JavaScriptu přes odeslání formuláře",
+    "errorTooLong": "Text je příliš dlouhý. Maximální délka je 300 000 znaků."
   },
-  "pocetZnaku": {
+  "wordCount": {
     "placeholder": "$t(common.textPlaceholder)",
     "statRaw": "Znaků celkem",
     "statNospace": "Znaků bez mezer",
@@ -29,9 +30,9 @@
       "item3": "Vhodné pro češtinu i běžné latinkové texty",
       "item4": "Odhad vět a doby čtení je orientační",
       "item5": "$t(common.worksWithoutJs)"
-    }
+    }    
   },
-  "prevodVelikosti": {
+  "caseConverter": {
     "placeholder": "$t(common.textPlaceholder)",
     "sentenceCase": "Větný zápis",
     "lowerCase": "malá písmena",
@@ -77,7 +78,8 @@
       "item1": "Data se nikam neukládají",
       "item2": "Výsledky předpokládají věk 20 let a výše",
       "item3": "BMI není absolutní ukazatel zdraví"
-    }
+    },
+    "errorNoWeight": "Zadejte svou váhu."
   },
   "inflation": {
     "realTitle": "Reálná inflace",
@@ -127,5 +129,48 @@
     "cagrEndValue": "Konečná hodnota",
     "cagrYears": "Počet let",
     "cagrTotalGrowth": "Celkový růst"
+  },
+  "dateCalculator": {
+    "rangeTitle": "Rozdíl mezi daty",
+    "arithmeticTitle": "Přičíst nebo odečíst od data",
+    "weekTitle": "Číslo týdne",
+    "fromLabel": "Od",
+    "toLabel": "Do",
+    "dateLabel": "Datum",
+    "operationLabel": "Operace",
+    "add": "Přičíst",
+    "subtract": "Odečíst",
+    "yearsLabel": "Roky",
+    "monthsLabel": "Měsíce",
+    "weeksLabel": "Týdny",
+    "daysLabel": "Dny",
+    "calculate": "Vypočítat",
+    "find": "Zjistit",
+    "result": "Výsledek",
+    "totalDays": "Celkem dní",
+    "weeksResult": "Týdny",
+    "monthsResult": "Měsíce",
+    "yearsResult": "Roky",
+    "outputDate": "Výsledné datum",
+    "weekday": "Den v týdnu",
+    "weekNumber": "Číslo týdne",
+    "year": "Rok",
+    "weekFrom": "Od (Pondělí)",
+    "weekTo": "Do (Neděle)",
+    "weekdays": {
+      "1": "Pondělí",
+      "2": "Úterý",
+      "3": "Středa",
+      "4": "Čtvrtek",
+      "5": "Pátek",
+      "6": "Sobota",
+      "7": "Neděle"
+    },
+    "plural": {
+      "day": { "one": "den", "few": "dny", "many": "dní" },
+      "week": { "one": "týden", "few": "týdny", "many": "týdnů" },
+      "month": { "one": "měsíc", "few": "měsíce", "many": "měsíců" },
+      "year": { "one": "rok", "few": "roky", "many": "roků" }
+    }
   }
 }

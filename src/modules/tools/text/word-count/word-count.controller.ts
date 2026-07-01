@@ -2,27 +2,27 @@ import { catchAsync } from '../../../../shared/utils/catchAsync.js'
 import { buildSeoMeta } from '../../../../shared/utils/seoMeta.js'
 import { buildToolSeoInput } from '../../../../shared/utils/buildToolSeoInput.js'
 import { findToolById } from '../../../../shared/utils/findTools.js'
-import { pocetZnakuInput } from './pocet-znaku.schema.js'
-import { calculatePocetZnaku } from './pocet-znaku.service.js'
-import { pocetZnakuFaq as faq } from './pocet-znaku.faq.js'
+import { wordCountInput } from './word-count.schema.js'
+import { calculateWordCount } from './word-count.service.js'
+import { wordCountFaq as faq } from './word-count.faq.js'
 import type { SupportedLocale } from '../../../../shared/types/supportedLocale.js'
 
-export const getPocetZnaku = catchAsync(async (req, res) => {
+export const getWordCount = catchAsync(async (req, res) => {
   const lang = req.params.lang as SupportedLocale
-  const tool = findToolById('pocet-znaku')
-  if (!tool) throw new Error(`Tool not found: pocet-znaku`)
+  const tool = findToolById('word-count')
+  if (!tool) throw new Error(`Tool not found: word-count`)
   if (!tool.enabled[lang]) throw new Error(`Tool not available in ${lang}`)
 
-  res.render('pages/tools/text/pocet-znaku', {
+  res.render('pages/tools/text/word-count', {
     ...buildSeoMeta(buildToolSeoInput(tool, lang)),
     faq,
   })
 })
 
-export const postPocetZnaku = catchAsync(async (req, res) => {
+export const postWordCount = catchAsync(async (req, res) => {
   const lang = req.params.lang as SupportedLocale
-  const tool = findToolById('pocet-znaku')
-  if (!tool) throw new Error(`Tool not found: pocet-znaku`)
+  const tool = findToolById('word-count')
+  if (!tool) throw new Error(`Tool not found: word-count`)
   if (!tool.enabled[lang]) throw new Error(`Tool not available in ${lang}`)
 
   let result = null
@@ -30,17 +30,17 @@ export const postPocetZnaku = catchAsync(async (req, res) => {
   let errorMessage: string | null = null
   let status: number = 200
 
-  const input = pocetZnakuInput.safeParse(req.body.text)
+  const input = wordCountInput.safeParse(req.body.text)
 
   if (!input.success) {
     errorState = true
-    errorMessage = 'Text je příliš dlouhý. Maximální délka je 300 000 znaků.'
+    errorMessage = req.t('common.errorTooLong')
     status = 400
   } else {
-    result = calculatePocetZnaku(input.data)
+    result = calculateWordCount(input.data)
   }
 
-  res.status(status).render('pages/tools/text/pocet-znaku', {
+  res.status(status).render('pages/tools/text/word-count', {
     ...buildSeoMeta(buildToolSeoInput(tool, lang)),
     faq,
     text: input.data ? input.data : req.body.text,

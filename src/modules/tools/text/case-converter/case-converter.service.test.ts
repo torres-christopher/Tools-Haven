@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { type PrevodVelikostiZnakuInput } from './prevod-velikosti-znaku.schema.js'
+import { type CaseConverterInput } from './case-converter.schema.js'
 import {
   sentenceCase,
   lowerCase,
@@ -7,11 +7,11 @@ import {
   capitalizeCase,
   reverseText,
   noDiacritics,
-} from './prevod-velikosti-znaku.service.js'
+} from './case-converter.service.js'
 
 describe('sentenceCase', () => {
   it('Correctly capitalizes first letter of each sentence', () => {
-    const input: PrevodVelikostiZnakuInput = {
+    const input: CaseConverterInput = {
       text: 'lOrEm iPsUm dOlOr sIt aMeT. cOnSeCtEtUr aDiPiScInG ElIt! SeD Do eIuSmOd tEmPoR InCiDiDuNt uT LaBoRe eT DoLoRe mAgNa aLiQuA? tEnIm aD MiNiM VeNiAm, QuIs nOsTrUd eXeRcItAtIoN UlLaMcO LaBoRiS NiSi uT AlIqUiP Ex eA CoMmOdO CoNsEqUaT.',
       conversionType: 'sentence-case',
     }
@@ -21,7 +21,7 @@ describe('sentenceCase', () => {
   })
 
   it('Correctly capitalizes first letter of each Cyrillic sentence', () => {
-    const input: PrevodVelikostiZnakuInput = {
+    const input: CaseConverterInput = {
       text: 'привет мир. как дела!',
       conversionType: 'sentence-case',
     }
@@ -31,7 +31,7 @@ describe('sentenceCase', () => {
 
 describe('lowerCase', () => {
   it('Correctly changes all letters to lowercase', () => {
-    const input: PrevodVelikostiZnakuInput = {
+    const input: CaseConverterInput = {
       text: 'lOrEm iPsUm dOlOr sIt aMeT. cOnSeCtEtUr aDiPiScInG ElIt! SeD Do eIuSmOd tEmPoR InCiDiDuNt uT LaBoRe eT DoLoRe mAgNa aLiQuA? tEnIm aD MiNiM VeNiAm, QuIs nOsTrUd eXeRcItAtIoN UlLaMcO LaBoRiS NiSi uT AlIqUiP Ex eA CoMmOdO CoNsEqUaT.',
       conversionType: 'lower-case',
     }
@@ -41,7 +41,7 @@ describe('lowerCase', () => {
   })
 
   it('Correctly lowercases Cyrillic text', () => {
-    const input: PrevodVelikostiZnakuInput = {
+    const input: CaseConverterInput = {
       text: 'ПРИВЕТ МИР',
       conversionType: 'lower-case',
     }
@@ -49,7 +49,7 @@ describe('lowerCase', () => {
   })
 
   it('Returns Arabic text unchanged', () => {
-    const input: PrevodVelikostiZnakuInput = {
+    const input: CaseConverterInput = {
       text: 'مرحبا بالعالم',
       conversionType: 'lower-case',
     }
@@ -59,7 +59,7 @@ describe('lowerCase', () => {
 
 describe('upperCase', () => {
   it('Correctly changes all letters to uppercase', () => {
-    const input: PrevodVelikostiZnakuInput = {
+    const input: CaseConverterInput = {
       text: 'lorem ipsum dolor sit amet. consectetur adipiscing elit! sed do eiusmod tempor incididunt ut labore et dolore magna aliqua? tenim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
       conversionType: 'upper-case',
     }
@@ -69,7 +69,7 @@ describe('upperCase', () => {
   })
 
   it('Correctly uppercases Cyrillic text', () => {
-    const input: PrevodVelikostiZnakuInput = {
+    const input: CaseConverterInput = {
       text: 'привет мир',
       conversionType: 'upper-case',
     }
@@ -77,7 +77,7 @@ describe('upperCase', () => {
   })
 
   it('Returns Arabic text unchanged', () => {
-    const input: PrevodVelikostiZnakuInput = {
+    const input: CaseConverterInput = {
       text: 'مرحبا بالعالم',
       conversionType: 'upper-case',
     }
@@ -87,7 +87,7 @@ describe('upperCase', () => {
 
 describe('capitalizeCase', () => {
   it('Correctly capitalizes each first letter of a word', () => {
-    const input: PrevodVelikostiZnakuInput = {
+    const input: CaseConverterInput = {
       text: 'lorem ipsum dolor sit amet. consectetur adipiscing elit! sed do eiusmod tempor incididunt ut labore et dolore magna aliqua? tenim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
       conversionType: 'capitalized-case',
     }
@@ -97,7 +97,7 @@ describe('capitalizeCase', () => {
   })
 
   it('Correctly capitalizes each Cyrillic word', () => {
-    const input: PrevodVelikostiZnakuInput = {
+    const input: CaseConverterInput = {
       text: 'привет мир',
       conversionType: 'capitalized-case',
     }
@@ -107,7 +107,7 @@ describe('capitalizeCase', () => {
 
 describe('reverseText', () => {
   it('Correctly reverses the string', () => {
-    const input: PrevodVelikostiZnakuInput = {
+    const input: CaseConverterInput = {
       text: 'Lorem ipsum dolor sit amet. Consectetur adipiscing elit! Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua? Tenim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
       conversionType: 'reverse',
     }
@@ -117,7 +117,7 @@ describe('reverseText', () => {
   })
 
   it('Correctly reverses Cyrillic text', () => {
-    const input: PrevodVelikostiZnakuInput = {
+    const input: CaseConverterInput = {
       text: 'привет мир',
       conversionType: 'reverse',
     }
@@ -125,7 +125,7 @@ describe('reverseText', () => {
   })
 
   it('Correctly reverses Arabic text', () => {
-    const input: PrevodVelikostiZnakuInput = {
+    const input: CaseConverterInput = {
       text: 'مرحبا',
       conversionType: 'reverse',
     }
@@ -133,7 +133,7 @@ describe('reverseText', () => {
   })
 
   it('Correctly reverses Chinese text', () => {
-    const input: PrevodVelikostiZnakuInput = {
+    const input: CaseConverterInput = {
       text: '你好世界',
       conversionType: 'reverse',
     }
@@ -142,7 +142,7 @@ describe('reverseText', () => {
 
   describe('noDiacritics', () => {
     it('Correctly strips Czech diacritics while preserving casing', () => {
-      const input: PrevodVelikostiZnakuInput = {
+      const input: CaseConverterInput = {
         text: 'Příliš žluťoučký kůň úpěl nad ódami.',
         conversionType: 'no-diacritics',
       }
@@ -150,7 +150,7 @@ describe('reverseText', () => {
     })
 
     it('Correctly strips Slovak diacritics including ľ, ĺ, ŕ, ô, ä', () => {
-      const input: PrevodVelikostiZnakuInput = {
+      const input: CaseConverterInput = {
         text: 'Ľúbosť môže byť ťažká, ako stĺp na ceste.',
         conversionType: 'no-diacritics',
       }
@@ -158,7 +158,7 @@ describe('reverseText', () => {
     })
 
     it('Correctly strips Cyrillic diacritics, e.g. ё to е', () => {
-      const input: PrevodVelikostiZnakuInput = {
+      const input: CaseConverterInput = {
         text: 'ёлка и ещё немного слов',
         conversionType: 'no-diacritics',
       }
@@ -166,7 +166,7 @@ describe('reverseText', () => {
     })
 
     it('Correctly replaces non-decomposable letters via fallback map', () => {
-      const input: PrevodVelikostiZnakuInput = {
+      const input: CaseConverterInput = {
         text: 'Straße, łódź, øre, æther, œuvre, Þór',
         conversionType: 'no-diacritics',
       }
@@ -174,7 +174,7 @@ describe('reverseText', () => {
     })
 
     it('Returns text unchanged when no diacritics are present', () => {
-      const input: PrevodVelikostiZnakuInput = {
+      const input: CaseConverterInput = {
         text: 'Lorem ipsum dolor sit amet',
         conversionType: 'no-diacritics',
       }
@@ -182,7 +182,7 @@ describe('reverseText', () => {
     })
 
     it('Returns empty string unchanged', () => {
-      const input: PrevodVelikostiZnakuInput = {
+      const input: CaseConverterInput = {
         text: '',
         conversionType: 'no-diacritics',
       }

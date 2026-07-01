@@ -1,7 +1,7 @@
 import type { FaqItem } from '../../../../shared/types/faq.js'
 import { aiTransparencyFaq } from '../../../../shared/data/faq.js'
 
-export const prevodVelikostiZnakuFaq: FaqItem[] = [
+export const caseConverterFaq: FaqItem[] = [
   {
     question: 'K čemu slouží převodník velikosti znaků?',
     answer:

@@ -11,9 +11,10 @@
     "characters": "znakov",
     "textPlaceholder": "Sem vložte alebo napíšte svoj text...",
     "noDataStored": "Text sa nikam neukladá",
-    "worksWithoutJs": "Funguje aj bez JavaScriptu cez odoslanie formulára"
+    "worksWithoutJs": "Funguje aj bez JavaScriptu cez odoslanie formulára",
+    "errorTooLong": "Text je príliš dlhý. Maximálna dĺžka je 300 000 znakov."
   },
-  "pocetZnaku": {
+  "wordCount": {
     "placeholder": "$t(common.textPlaceholder)",
     "statRaw": "Znakov celkom",
     "statNospace": "Znakov bez medzier",
@@ -31,7 +32,7 @@
       "item5": "$t(common.worksWithoutJs)"
     }
   },
-  "prevodVelikosti": {
+  "caseConverter": {
     "placeholder": "$t(common.textPlaceholder)",
     "sentenceCase": "Vetný zápis",
     "lowerCase": "malé písmená",
@@ -77,7 +78,8 @@
       "item1": "Dáta sa nikam neukladajú",
       "item2": "Výsledky predpokladajú vek 20 rokov a viac",
       "item3": "BMI nie je absolútny ukazateľ zdravia"
-    }
+    },
+    "errorNoWeight": "Zadajte svoju váhu."
   },
   "inflation": {
     "realTitle": "Reálna inflácia",
@@ -127,5 +129,48 @@
     "cagrEndValue": "Konečná hodnota",
     "cagrYears": "Počet rokov",
     "cagrTotalGrowth": "Celkový rast"
+  },
+  "dateCalculator": {
+    "rangeTitle": "Rozdiel medzi dátumami",
+    "arithmeticTitle": "Pripočítať alebo odčítať od dátumu",
+    "weekTitle": "Číslo týždňa",
+    "fromLabel": "Od",
+    "toLabel": "Do",
+    "dateLabel": "Dátum",
+    "operationLabel": "Operácia",
+    "add": "Pripočítať",
+    "subtract": "Odčítať",
+    "yearsLabel": "Roky",
+    "monthsLabel": "Mesiace",
+    "weeksLabel": "Týždne",
+    "daysLabel": "Dni",
+    "calculate": "Vypočítať",
+    "find": "Zistiť",
+    "result": "Výsledok",
+    "totalDays": "Celkom dní",
+    "weeksResult": "Týždne",
+    "monthsResult": "Mesiace",
+    "yearsResult": "Roky",
+    "outputDate": "Výsledný dátum",
+    "weekday": "Deň v týždni",
+    "weekNumber": "Číslo týždňa",
+    "year": "Rok",
+    "weekFrom": "Od (Pondelok)",
+    "weekTo": "Do (Nedeľa)",
+    "weekdays": {
+      "1": "Pondelok",
+      "2": "Utorok",
+      "3": "Streda",
+      "4": "Štvrtok",
+      "5": "Piatok",
+      "6": "Sobota",
+      "7": "Nedeľa"
+    },
+    "plural": {
+      "day": { "one": "deň", "few": "dni", "many": "dní" },
+      "week": { "one": "týždeň", "few": "týždne", "many": "týždňov" },
+      "month": { "one": "mesiac", "few": "mesiace", "many": "mesiacov" },
+      "year": { "one": "rok", "few": "roky", "many": "rokov" }
+    }
   }
 }

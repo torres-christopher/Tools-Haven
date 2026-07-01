@@ -100,11 +100,11 @@ block content
             p= errorMessage
 
         //- ── 1. Reálná inflace ──────────────────────────────────
-        .inflation-section
-          h2.inflation-section__title #{t('inflation.realTitle')}
-          p.inflation-section__desc #{t('inflation.realDesc')}
+        .tool-section
+          h2.tool-section__title #{t('inflation.realTitle')}
+          p.tool-section__desc #{t('inflation.realDesc')}
 
-          form.inflation-form(method='POST' action='')
+          form.tool-form(method='POST' action='')
             input(type='hidden' name='form_id' value='real_inflation')
 
             .form-row
@@ -170,14 +170,14 @@ block content
 
             button.btn.btn--primary(type='submit') #{t('inflation.calculate')}
 
-        .inflation-divider
+        .tool-divider
 
         //- ── 2. Vlastní sazba ───────────────────────────────────
-        .inflation-section
-          h2.inflation-section__title #{t('inflation.customTitle')}
-          p.inflation-section__desc #{t('inflation.customDesc')}
+        .tool-section
+          h2.tool-section__title #{t('inflation.customTitle')}
+          p.tool-section__desc #{t('inflation.customDesc')}
 
-          form.inflation-form(method='POST' action='')
+          form.tool-form(method='POST' action='')
             input(type='hidden' name='form_id' value='custom_inflation')
 
             .form-row
@@ -219,14 +219,14 @@ block content
               button.btn.btn--primary(type='submit' name='type' value='forward') #{t('inflation.calculateForward')}
               button.btn.btn--ghost(type='submit' name='type' value='backward') #{t('inflation.calculateBackward')}
 
-        .inflation-divider
+        .tool-divider
 
         //- ── 3. CAGR — průměrný roční výnos ─────────────────────
-        .inflation-section
-          h2.inflation-section__title #{t('inflation.cagrTitle')}
-          p.inflation-section__desc #{t('inflation.cagrDesc')}
+        .tool-section
+          h2.tool-section__title #{t('inflation.cagrTitle')}
+          p.tool-section__desc #{t('inflation.cagrDesc')}
 
-          form.inflation-form(method='POST' action='')
+          form.tool-form(method='POST' action='')
             input(type='hidden' name='form_id' value='cagr')
 
             .form-row
@@ -266,7 +266,7 @@ block content
 
             button.btn.btn--primary(type='submit') #{t('inflation.calculateCagr')}
 
-        .inflation-divider
+        .tool-divider
 
     //- FAQ
     include ../../../partials/tool-faq

@@ -18,7 +18,7 @@ import type { SupportedLocale } from '../../../../shared/types/supportedLocale.j
 // GET
 export const getInflationCalculator = catchAsync(async (req, res) => {
   const lang = req.params.lang as SupportedLocale
-  const tool = findToolById('inflacni-kalkulacka')
+  const tool = findToolById('inflation-calculator')
   if (!tool) throw new Error(`Tool not found: inflacni-kalkulacka`)
   if (!tool.enabled[lang]) throw new Error(`Tool not available in ${lang}`)
 
@@ -31,7 +31,7 @@ export const getInflationCalculator = catchAsync(async (req, res) => {
 // POST for forms
 export const postInflationCalculator = catchAsync(async (req, res) => {
   const lang = req.params.lang as SupportedLocale
-  const tool = findToolById('inflacni-kalkulacka')
+  const tool = findToolById('inflation-calculator')
   if (!tool) throw new Error(`Tool not found: inflacni-kalkulacka`)
   if (!tool.enabled[lang]) throw new Error(`Tool not available in ${lang}`)
 
@@ -59,7 +59,7 @@ export const postInflationCalculator = catchAsync(async (req, res) => {
 
     // Validate input
     if (!input.success) {
-      errorMessage = 'Zadány neplatné hodnoty.'
+      errorMessage = req.t('common:errors.invalidInput')
       status = 400
     } else {
       result = calculateInflationAdjustedValue(input.data)
@@ -77,7 +77,7 @@ export const postInflationCalculator = catchAsync(async (req, res) => {
 
     // Validate input
     if (!input.success) {
-      errorMessage = 'Zadány neplatné hodnoty.'
+      errorMessage = req.t('common:errors.invalidInput')
       status = 400
     } else {
       result = calculateCustomInflation(input.data)
@@ -97,7 +97,7 @@ export const postInflationCalculator = catchAsync(async (req, res) => {
 
     // Validate input
     if (!input.success) {
-      errorMessage = 'Zadány neplatné hodnoty.'
+      errorMessage = req.t('common:errors.invalidInput')
       status = 400
     } else {
       result = Math.round(calculateCAGR(input.data) * 10000) / 100
@@ -106,7 +106,7 @@ export const postInflationCalculator = catchAsync(async (req, res) => {
       inputYears = input.data.years
     }
   } else {
-    errorMessage = 'Vyskytla se chyba'
+    errorMessage = req.t('common:errors.general')
     status = 400
   }
 

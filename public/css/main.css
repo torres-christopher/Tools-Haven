@@ -884,7 +884,7 @@ code {
   font-size: var(--text-base);
   color: rgba(255, 255, 255, 0.6);
   font-weight: 400;
-  max-width: 600px;
+  max-width: 680px;
   line-height: 1.7;
 }
 
@@ -1051,6 +1051,37 @@ code {
   color: var(--c-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.1em;
+}
+
+.tool-section {
+  padding: var(--space-6) 0;
+}
+
+.tool-section__title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+}
+
+.tool-section__desc {
+  font-size: var(--text-sm);
+  color: var(--c-text-muted);
+  max-width: 640px;
+  line-height: 1.7;
+  margin-bottom: var(--space-2);
+}
+
+.tool-form {
+  background: var(--c-surface);
+  border: 1.5px solid var(--c-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+.tool-divider {
+  border: none;
+  border-top: 1px solid var(--c-border);
+  margin: 0;
 }
 
 .form-actions {
@@ -1814,7 +1845,7 @@ code {
 /* ── Text Tools  ─────────────────────────────── */
 /* ── Poček znaků ────────────────────── */
 
-.pocet-znaku-live {
+.word-count-live {
   margin: var(--space-6) 0;
 }
 
@@ -2094,37 +2125,6 @@ code {
 
 /* ── Czech tools  ─────────────────────────────── */
 /* Inflation calculator */
-
-.inflation-section {
-  padding: var(--space-6) 0;
-}
-
-.inflation-section__title {
-  font-size: var(--text-xl);
-  font-weight: 700;
-  margin-bottom: var(--space-2);
-}
-
-.inflation-section__desc {
-  font-size: var(--text-sm);
-  color: var(--c-text-muted);
-  max-width: 640px;
-  line-height: 1.7;
-  margin-bottom: var(--space-2);
-}
-
-.inflation-form {
-  background: var(--c-surface);
-  border: 1.5px solid var(--c-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-6);
-}
-
-.inflation-divider {
-  border: none;
-  border-top: 1px solid var(--c-border);
-  margin: 0;
-}
 
 .inflation-table {
   width: 100%;

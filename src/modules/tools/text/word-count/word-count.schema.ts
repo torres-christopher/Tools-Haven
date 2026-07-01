@@ -1,9 +1,9 @@
 import { z } from 'zod'
 
 // Plain string input --> not wrapped in an object, so controller passes req.body.text directly
-export const pocetZnakuInput = z.string().max(300000).default('')
+export const wordCountInput = z.string().max(300000).default('')
 
-export const pocetZnakuOutput = z.object({
+export const wordCountOutput = z.object({
   textLengthRaw: z.number().int().nonnegative(),
   textLengthNoSpace: z.number().int().nonnegative(),
   wordCount: z.number().int().nonnegative(),
@@ -13,5 +13,5 @@ export const pocetZnakuOutput = z.object({
   readingTime: z.number().int().nonnegative(),
 })
 
-export type PocetZnakuInput = z.infer<typeof pocetZnakuInput>
-export type PocetZnakuOutput = z.infer<typeof pocetZnakuOutput>
+export type WordCountInput = z.infer<typeof wordCountInput>
+export type WordCountOutput = z.infer<typeof wordCountOutput>
