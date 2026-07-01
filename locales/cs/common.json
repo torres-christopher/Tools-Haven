@@ -188,7 +188,7 @@
   },
   "contact": {
     "title": "Kontakt",
-    "description": "Kontaktujte nás — hlášení chyb, nápady na nástroje, dotazy k ochraně soukromí.",
+    "description": "Kontaktujte nás. Hlášení chyb, nápady na nástroje, dotazy k ochraně soukromí.",
     "page": {
       "subtitle": "Máte dotaz nebo narazili jste na chybu?"
     },
@@ -252,7 +252,7 @@
       "intro": "Tento web zpracovává pouze minimální množství dat nezbytných pro provoz:",
       "item1": {
         "label": "Analytická data (Google Analytics):",
-        "text": "anonymizovaná data o návštěvnosti — počet návštěv, použité nástroje, typ zařízení, přibližná geografická poloha (úroveň města). IP adresa je anonymizována před odesláním do Google."
+        "text": "anonymizovaná data o návštěvnosti, především počet návštěv, použité nástroje, typ zařízení, přibližná geografická poloha (úroveň města). IP adresa je anonymizována před odesláním do Google."
       },
       "item2": {
         "label": "Data zadaná do nástrojů:",
@@ -300,7 +300,7 @@
     },
     "s7": {
       "title": "7. Zabezpečení",
-      "p1": "Přenos dat mezi vaším prohlížečem a serverem je šifrován pomocí HTTPS/TLS. Data zadaná do nástrojů nejsou trvale ukládána — jsou zpracována v paměti serveru a po odeslání odpovědi okamžitě smazána."
+      "p1": "Přenos dat mezi vaším prohlížečem a serverem je šifrován pomocí HTTPS/TLS. Data zadaná do nástrojů nejsou trvale ukládána, nýbrž jsou zpracována v paměti serveru a po odeslání odpovědi okamžitě smazána."
     },
     "s8": {
       "title": "8. Změny těchto zásad",

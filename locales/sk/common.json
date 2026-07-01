@@ -188,7 +188,7 @@
   },
   "contact": {
     "title": "Kontakt",
-    "description": "Kontaktujte nás — hlásenie chýb, nápady na nástroje, otázky k ochrane súkromia.",
+    "description": "Kontaktujte nás. Hlásenie chýb, nápady na nástroje, otázky k ochrane súkromia.",
     "page": {
       "subtitle": "Máte otázku alebo narazili ste na chybu?"
     },
@@ -252,7 +252,7 @@
       "intro": "Tento web spracováva iba minimálne množstvo dát nevyhnutných pre prevádzku:",
       "item1": {
         "label": "Analytické dáta (Google Analytics):",
-        "text": "anonymizované dáta o návštevnosti — počet návštev, použité nástroje, typ zariadenia, približná geografická poloha (úroveň mesta). IP adresa je anonymizovaná pred odoslaním do Google."
+        "text": "anonymizované dáta o návštevnosti, predovšetkým počet návštev, použité nástroje, typ zariadenia, približná geografická poloha (úroveň mesta). IP adresa je anonymizovaná pred odoslaním do Google."
       },
       "item2": {
         "label": "Dáta zadané do nástrojov:",
