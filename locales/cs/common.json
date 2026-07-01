@@ -59,27 +59,27 @@
   "category": {
     "text": {
       "title": "Textové nástroje",
-      "description": "Bezplatné online nástroje pro práci s textem. Počítání znaků, převod písmen, čištění textu a další.",
+      "description": "Bezplatné online nástroje pro práci s textem. Počítání znaků, převod písmen, do budoucna čištění textu a další.",
       "categoryDescription": "Nástroje pro práci s textem: Počítání znaků, převod velikosti písmen, čištění textu a další."
     },
     "developer": {
       "title": "Vývojářské nástroje",
-      "description": "Bezplatné online nástroje pro vývojáře. JSON validace a formátování, enkódování do Base64, URL enkódování a další.",
+      "description": "Bezplatné online nástroje pro vývojáře. JSON validace a formátování, do budoucna i enkódování do Base64, URL enkódování a další.",
       "categoryDescription": "Nástroje pro vývojáře: Validace JSONu, formátování a porovnání textu."
     },
     "health": {
       "title": "Zdravotní nástroje",
-      "description": "Zdravotní nástroje online zdarma. BMI kalkulačka a další jednoduché zdravotní výpočty přehledně, rychle a bez registrace.",
+      "description": "Zdravotní nástroje online zdarma. BMI kalkulačka a do budoucna další jednoduché zdravotní výpočty.",
       "categoryDescription": "Kalkulačky pro zdraví a fitness: BMI, BMR, TDEE, ideální váha a další ukazatele."
     },
     "local": {
       "title": "Lokální data",
-      "description": "Bezplatné online nástroje s lokálními daty. Inflační kalkulačka, rodná čísla, svátky a další.",
+      "description": "Bezplatné online nástroje s lokálními daty. Inflační kalkulačka, v budoucnus i rodná čísla, svátky a další.",
       "categoryDescription": "Nástroje s lokálními daty: Inflační kalkulačka, rodná čísla, svátky, kurzy ČNB a další."
     },
     "datetime": {
       "title": "Datum a čas",
-      "description": "Bezplatné online nástroje pro práci s daty a časem. Výpočet rozdílu mezi daty, přičítání a odečítání dnů, týdnů, měsíců a let, číslo týdne podle ISO standardu a další.",
+      "description": "Bezplatné online nástroje pro práci s daty a časem. Výpočet rozdílu mezi daty, přičítání a odečítání času, číslo týdne a další.",
       "categoryDescription": "Nástroje pro datum a čas: Rozdíl mezi daty, přičítání a odečítání od data, číslo týdne a další."
     }
   },

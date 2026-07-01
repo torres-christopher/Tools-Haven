@@ -25,7 +25,7 @@ router.get('/', (req: Request<{ lang: string }>, res) => {
   res.render('pages/tools/tools', {
     ...buildSeoMeta({
       title: req.t('common:category.health.title'),
-      description: req.t('category.health.description'),
+      description: req.t('common:category.health.description'),
       path: `/${lang}/health`,
       lang,
     }),

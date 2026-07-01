@@ -59,27 +59,27 @@
   "category": {
     "text": {
       "title": "Textové nástroje",
-      "description": "Bezplatné online nástroje pre prácu s textom. Počítanie znakov, prevod písmen, čistenie textu a ďalšie.",
+      "description": "Bezplatné online nástroje pre prácu s textom. Počítanie znakov, prevod písmen, do budúcna aj čistenie textu a ďalšie.",
       "categoryDescription": "Nástroje pre prácu s textom: Počítanie znakov, prevod veľkosti písmen, čistenie textu a ďalšie."
     },
     "developer": {
       "title": "Vývojárske nástroje",
-      "description": "Bezplatné online nástroje pre vývojárov. JSON validácia a formátovanie, kódovanie do Base64, URL kódovanie a ďalšie.",
+      "description": "Bezplatné online nástroje pre vývojárov. JSON validácia a formátovanie, do budúcna aj kódovanie do Base64, URL kódovanie a ďalšie.",
       "categoryDescription": "Nástroje pre vývojárov: Validácia JSONu, formátovanie a porovnávanie textu."
     },
     "health": {
       "title": "Zdravotné nástroje",
-      "description": "Zdravotné nástroje online zadarmo. BMI kalkulačka a ďalšie jednoduché zdravotné výpočty prehľadne, rýchlo a bez registrácie.",
+      "description": "Zdravotné nástroje online zadarmo. BMI kalkulačka a do budúcna ďalšie jednoduché zdravotné výpočty.",
       "categoryDescription": "Kalkulačky pre zdravie a fitness: BMI, BMR, TDEE, ideálna váha a ďalšie ukazovatele."
     },
     "local": {
       "title": "Lokálne dáta",
-      "description": "Bezplatné online nástroje s lokálnymi dátami. Inflačná kalkulačka, rodné čísla, sviatky a ďalšie.",
+      "description": "Bezplatné online nástroje s lokálnymi dátami. Inflačná kalkulačka, do budúcna aj rodné čísla, sviatky a ďalšie.",
       "categoryDescription": "Nástroje s lokálnymi dátami: Inflačná kalkulačka, rodné čísla, sviatky, kurzy ČNB a ďalšie."
     },
     "datetime": {
       "title": "Dátum a čas",
-      "description": "Bezplatné online nástroje pre prácu s dátumami a časom. Výpočet rozdielu medzi dátumami, pripočítavanie a odčítavanie dní, týždňov, mesiacov a rokov, číslo týždňa podľa ISO štandardu a ďalšie.",
+      "description": "Bezplatné online nástroje pre prácu s dátumami a časom. Výpočet rozdielu medzi dátumami, pripočítavanie a odčítavanie času, číslo týždňa a ďalšie.",
       "categoryDescription": "Nástroje pre dátum a čas: Rozdiel medzi dátumami, pripočítavanie a odčítavanie od dátumu, číslo týždňa a ďalšie."
     }
   },
