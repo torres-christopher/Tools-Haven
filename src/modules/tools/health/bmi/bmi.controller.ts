@@ -38,7 +38,7 @@ export const postBmi = catchAsync(async (req, res) => {
   })
 
   if (!input.success) {
-    errorMessage = 'Zadejte svou váhu.'
+    errorMessage = req.t('bmi.errorNoWeight')
     status = 400
   } else {
     result = calculateBmi(input.data)

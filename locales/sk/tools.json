@@ -29,7 +29,8 @@
       "item3": "Vhodné pre slovenčinu aj bežné latinské texty",
       "item4": "Odhad viet a doby čítania je orientačný",
       "item5": "$t(common.worksWithoutJs)"
-    }
+    },
+    "errorTooLong": "Text je príliš dlhý. Maximálna dĺžka je 300 000 znakov."
   },
   "prevodVelikosti": {
     "placeholder": "$t(common.textPlaceholder)",
@@ -44,7 +45,8 @@
       "item1": "$t(common.noDataStored)",
       "item2": "Podporuje slovenčinu a diakritiku",
       "item3": "$t(common.worksWithoutJs)"
-    }
+    },
+    "errorTooLong": "Text je príliš dlhý. Maximálna dĺžka je 300 000 znakov."
   },
   "jsonValidator": {
     "validate": "Validovať",
@@ -56,7 +58,8 @@
     "validJson": "✓ Validný JSON",
     "invalidJson": "✗ Nevalidný JSON",
     "errorLine": "Riadok",
-    "errorColumn": "stĺpec"
+    "errorColumn": "stĺpec",
+    "errorTooLong": "Text je príliš dlhý. Maximálna dĺžka je 300 000 znakov."
   },
   "bmi": {
     "heightLabel": "Výška (cm)",
@@ -77,7 +80,8 @@
       "item1": "Dáta sa nikam neukladajú",
       "item2": "Výsledky predpokladajú vek 20 rokov a viac",
       "item3": "BMI nie je absolútny ukazateľ zdravia"
-    }
+    },
+    "errorNoWeight": "Zadajte svoju váhu."
   },
   "inflation": {
     "realTitle": "Reálna inflácia",

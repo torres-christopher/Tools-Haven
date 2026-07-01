@@ -34,7 +34,7 @@ export const postPocetZnaku = catchAsync(async (req, res) => {
 
   if (!input.success) {
     errorState = true
-    errorMessage = 'Text je příliš dlouhý. Maximální délka je 300 000 znaků.'
+    errorMessage = req.t('pocetZnaku.errorTooLong')
     status = 400
   } else {
     result = calculatePocetZnaku(input.data)

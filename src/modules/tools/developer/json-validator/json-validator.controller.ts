@@ -61,7 +61,7 @@ export const postJsonValidator = catchAsync(async (req, res) => {
   })
 
   if (!input.success) {
-    errorMessage = 'Text je příliš dlouhý. Maximální délka je 300 000 znaků.'
+    errorMessage = req.t('jsonValidator.errorTooLong')
     status = 400
   } else {
     result = jsonValidateFormat(input.data)
