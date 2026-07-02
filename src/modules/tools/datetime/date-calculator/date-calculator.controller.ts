@@ -111,6 +111,8 @@ export const postDateCalculator = catchAsync(async (req, res) => {
     arithmeticInput,
     weekInput,
     // What form was activated
+    formId: formType,
+    arithmeticType: arithmeticInput?.type,
     activeForm:
       formType === 'range'
         ? 'range'

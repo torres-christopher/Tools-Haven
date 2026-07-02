@@ -5,6 +5,9 @@ block content
   //- Tool header — breadcrumb + title
   include ../../../partials/tool-header
 
+  //- Tool tracking to GTM
+  include ../../../partials/tool-tracking
+
   .tool-layout
     .container-wide
 
@@ -98,3 +101,5 @@ block content
 block scripts
   script(src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.43.3/ace.js')
   script(src='/js/tools/json-validator.js' defer)
+  if result || errorMessage
+    +toolUseEvent('json-validator', 'developer', 'form', actionType, null, result && result.validJson ? 'success' : 'error')

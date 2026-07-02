@@ -120,6 +120,8 @@ export const postInflationCalculator = catchAsync(async (req, res) => {
     inputEndValue,
     inputInflationRate,
     inputYears,
+    formId: formType,
+    inputType: inputType,
     // What form was activated
     activeForm:
       formType === 'real_inflation'

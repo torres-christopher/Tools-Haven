@@ -87,4 +87,4 @@ block content
   //- Page script for live counting
   script(src='/js/tools/word-count.js' defer)
   if result || errorState
-    +toolUseEvent('word-count', 'text', 'form', null, result ? 'success' : 'error')
+    +toolUseEvent('word-count', 'text', 'form', null, null, result ? 'success' : 'error')

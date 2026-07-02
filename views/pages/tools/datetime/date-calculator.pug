@@ -3,6 +3,10 @@ extends ../../../layouts/main
 block content
 
   include ../../../partials/tool-header
+
+  //- Tool tracking to GTM
+  include ../../../partials/tool-tracking
+
   //- Today date for default input
   - const today = new Date().toISOString().slice(0, 10)
 
@@ -181,3 +185,6 @@ block content
 
     //- Related tools
     include ../../../partials/tool-related
+
+  if result || errorMessage
+    +toolUseEvent('date-calculator', 'datetime', 'form', formId, activeForm === 'arithmetic' ? arithmeticType : null, result ? 'success' : 'error')

@@ -5,6 +5,9 @@ block content
   //- Tool header — breadcrumb + title
   include ../../../partials/tool-header
 
+  //- Tool tracking to GTM
+  include ../../../partials/tool-tracking
+
   .tool-layout
     .container
       .tool-layout__inner
@@ -103,3 +106,7 @@ block content
               li #{t('bmi.sidebar.item1')}
               li #{t('bmi.sidebar.item2')}
               li #{t('bmi.sidebar.item3')}
+
+  //- GTM tool event use
+  if result || errorState
+    +toolUseEvent('bmi', 'health', 'form', null, null, result ? 'success' : 'error')
