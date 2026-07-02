@@ -5,6 +5,9 @@ block content
   //- Tool header — breadcrumb + title
   include ../../../partials/tool-header
 
+  //- Tool tracking to GTM
+  include ../../../partials/tool-tracking
+
   .tool-layout
     .container
       .tool-layout__inner
@@ -83,3 +86,5 @@ block content
 
   //- Page script for live counting
   script(src='/js/tools/word-count.js' defer)
+  if result || errorState
+    +toolUseEvent('word-count', 'text', 'form', null, result ? 'success' : 'error')

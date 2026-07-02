@@ -1,0 +1,11 @@
+//- Based on GTM/GA4 setup 
+mixin toolUseEvent(toolName, toolCategory, interaction, formId, status)
+  script(nonce=nonce).
+    window.dataLayer.push({
+      event: 'tool_use',
+      tool_name: '#{toolName}',
+      tool_category: '#{toolCategory}',
+      tool_interaction: '#{interaction}',
+      !{formId ? `tool_form_id: '${formId}',` : ''}
+      !{status ? `tool_status: '${status}',` : ''}
+    })
