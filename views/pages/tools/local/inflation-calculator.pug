@@ -4,6 +4,9 @@ block content
 
   include ../../../partials/tool-header
 
+  //- Tool tracking to GTM
+  include ../../../partials/tool-tracking
+
   section.tool-layout.tool-layout--compact
     .container
 
@@ -276,3 +279,6 @@ block content
 
     //- Related tools
     include ../../../partials/tool-related
+
+  if result !== null || errorMessage
+    +toolUseEvent('inflation-calculator', 'local', 'form', formId, formId === 'custom_inflation' ? inputType : null, result !== null ? 'success' : 'error')

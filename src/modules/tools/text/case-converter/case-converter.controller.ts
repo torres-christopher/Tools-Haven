@@ -75,6 +75,7 @@ export const postCaseConverter = catchAsync(async (req, res) => {
     ...buildSeoMeta(buildToolSeoInput(tool, lang)),
     faq,
     result: result,
+    conversionType: input.data?.conversionType,
     errorState,
     errorMessage,
   })

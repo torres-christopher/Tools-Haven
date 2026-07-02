@@ -75,6 +75,7 @@ export const postJsonValidator = catchAsync(async (req, res) => {
     space: input.data?.space,
     text: input.data?.text,
     inputLength: input.data?.text.length,
+    actionType: input.data?.actionType,
     result: result,
     // errorMessage prefers the schema validation error (too long) over the JSON parse error
     // Schema failure means result is null so result?.errorMessage would be undefined anyway.

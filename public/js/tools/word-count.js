@@ -54,9 +54,24 @@ function updateUI(result) {
   document.getElementById('stat-reading').textContent = result.readingTime
 }
 
+// Tracking — fire once on first meaningful input
+let toolUsedFired = false
+
 // Event listener for the text area
 const textArea = document.getElementById('text')
 textArea.addEventListener('input', function () {
   const result = calculate(textArea.value)
   updateUI(result)
+
+  // Send tracking data to GTM
+  if (!toolUsedFired && !isWhitespaceString(textArea.value)) {
+    window.dataLayer = window.dataLayer || []
+    window.dataLayer.push({
+      event: 'tool_use',
+      tool_name: 'word-count',
+      tool_category: 'text',
+      tool_interaction: 'live',
+    })
+    toolUsedFired = true
+  }
 })

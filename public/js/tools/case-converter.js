@@ -54,5 +54,15 @@ buttons.forEach((button) => {
         break
     }
     textArea.value = result
+
+    // Send tracking data to GTM
+    window.dataLayer = window.dataLayer || []
+    window.dataLayer.push({
+      event: 'tool_use',
+      tool_name: 'case-converter',
+      tool_category: 'text',
+      tool_interaction: 'live',
+      tool_form_id: conversionType,
+    })
   })
 })

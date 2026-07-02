@@ -175,6 +175,11 @@ code {
   font-family: var(--font-mono);
 }
 
+input[type='date'] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
 /* ── 3. Layout ────────────────────────────────────────────── */
 
 .container {
