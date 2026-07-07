@@ -2,6 +2,7 @@ import type { SupportedLocale } from './supportedLocale.js'
 
 export interface SeoInput {
   title: string
+  seoTitle?: string
   description: string
   path: string
   categoryName?: string

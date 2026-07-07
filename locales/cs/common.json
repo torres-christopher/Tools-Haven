@@ -84,12 +84,12 @@
     }
   },
   "allTools": {
-    "title": "Všechny nástroje",
+    "title": "Všechny nástroje — Tools Haven",
     "description": "Přehled všech bezplatných online nástrojů - počítadlo znaků, převod velikosti písmen, JSON validátor, BMI kalkulačka a inflační kalkulačka. Zdarma, bez registrace.",
     "showCategory": "Zobrazit kategorii →"
   },
   "home": {
-    "title": "Bezplatné české online nástroje",
+    "title": "Bezplatné české online nástroje — Tools Haven",
     "description": "Bezplatné české online nástroje pro práci s textem, převody jednotek a česká data. Zdarma, bez registrace.",
     "hero": {
       "titleLine1": "Bezplatné české",
@@ -133,7 +133,7 @@
     }
   },
   "faq": {
-    "title": "Časté dotazy",
+    "title": "Časté dotazy — Tools Haven",
     "description": "Nejčastěji kladené otázky",
     "page": {
       "subtitle": "Odpovídáme na nejčastější otázky o fungování nástrojů, ochraně soukromí, přesnosti dat."
@@ -187,7 +187,7 @@
     }
   },
   "contact": {
-    "title": "Kontakt",
+    "title": "Kontakt — Tools Haven",
     "description": "Kontaktujte nás. Hlášení chyb, nápady na nástroje, dotazy k ochraně soukromí.",
     "page": {
       "subtitle": "Máte dotaz nebo narazili jste na chybu?"
@@ -236,7 +236,7 @@
     }
   },
   "privacy": {
-    "title": "Ochrana osobních údajů",
+    "title": "Ochrana osobních údajů — Tools Haven",
     "description": "Zásady ochrany osobních údajů webu tools-haven.com. Informace o cookies, trackování a zpracování dat.",
     "page": {
       "meta": "Poslední aktualizace:"
@@ -308,7 +308,7 @@
     }
   },
   "terms": {
-    "title": "Podmínky použití",
+    "title": "Podmínky použití — Tools Haven",
     "description": "Podmínky použití bezplatných online nástrojů na webu tools-haven.com.",
     "page": {
       "meta": "Poslední aktualizace:"
