@@ -7,6 +7,10 @@ export const tools: ToolsDetails[] = [
       cs: 'Počet znaků',
       sk: 'Počet znakov',
     },
+    seoTitle: {
+      cs: 'Počet znaků - znaky, slova, věty a normostrany',
+      sk: 'Počet znakov - znaky, slová, vety a normostrany',
+    },
     description: {
       cs: 'Spočítejte počet znaků, slov, vět, řádků a normostran v textu. Zdarma, bez registrace.',
       sk: 'Spočítajte počet znakov, slov, viet, riadkov a normostráň v texte. Zadarmo, bez registrácie.',
@@ -32,6 +36,10 @@ export const tools: ToolsDetails[] = [
     title: {
       cs: 'Převod velikosti znaků',
       sk: 'Prevod veľkosti znakov',
+    },
+    seoTitle: {
+      cs: 'Převod velikosti písmen - velká, malá, bez diakritiky',
+      sk: 'Prevod veľkosti písmen - veľké, malé, bez diakritiky',
     },
     description: {
       cs: 'Převeďte text na velká, malá, titulková nebo větná písmena. Podporuje češtinu, azbuku i arabštinu.',
@@ -59,6 +67,10 @@ export const tools: ToolsDetails[] = [
       cs: 'Formátování a validace JSONu',
       sk: 'Formátovanie a validácia JSONu',
     },
+    seoTitle: {
+      cs: 'JSON validátor - formátování, minifikace a validace',
+      sk: 'JSON validátor - formátovanie, minifikácia a validácia',
+    },
     description: {
       cs: 'Validujte, formátujte a minifikujte JSON text.',
       sk: 'Validujte, formátujte a minifikujte JSON text.',
@@ -84,6 +96,10 @@ export const tools: ToolsDetails[] = [
     title: {
       cs: 'BMI kalkulačka',
       sk: 'BMI kalkulačka',
+    },
+    seoTitle: {
+      cs: 'BMI kalkulačka - výpočet indexu tělesné hmotnosti',
+      sk: 'BMI kalkulačka - výpočet indexu telesnej hmotnosti',
     },
     description: {
       cs: 'Spočítejte si BMI (Body Mass Index) podle své výšky a hmotnosti.',
@@ -111,6 +127,10 @@ export const tools: ToolsDetails[] = [
       cs: 'Inflační kalkulačka',
       sk: 'Inflačná kalkulačka',
     },
+    seoTitle: {
+      cs: 'Inflační kalkulačka - hodnota peněz a průměrný roční růst',
+      sk: 'Inflačná kalkulačka - hodnota peňazí a priemerný ročný rast',
+    },
     description: {
       cs: 'Spočítejte, jak inflace ovlivnila hodnotu peněz v čase. Reálná česká inflace nebo vlastní sazba.',
       sk: 'Vypočítajte, ako inflácia ovplyvnila hodnotu peňazí v čase. Reálna česká inflácia alebo vlastná sadzba.',
@@ -136,6 +156,10 @@ export const tools: ToolsDetails[] = [
     title: {
       cs: 'Datumový kalkulátor',
       sk: 'Dátumová kalkulačka',
+    },
+    seoTitle: {
+      cs: 'Datumový kalkulátor - rozdíl, sčítání dat a číslo týdne',
+      sk: 'Dátumový kalkulátor - rozdiel, sčítanie dátumov a číslo týždňa',
     },
     description: {
       cs: 'Vypočítejte rozdíl mezi dvěma daty, přičtěte nebo odečtěte dny, týdny, měsíce a roky, nebo zjistěte číslo týdne podle ISO standardu.',

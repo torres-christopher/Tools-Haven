@@ -8,6 +8,7 @@ import { buildToolPath } from './buildToolPath.js'
 // so controllers don't have to do it manually.
 export const buildToolSeoInput = (tool: ToolsDetails, lang: SupportedLocale): SeoInput => ({
   title: tool.title[lang],
+  seoTitle: tool.seoTitle?.[lang],
   description: tool.description[lang],
   path: buildToolPath(lang, tool.categoryPath, tool.slug),
   lang,

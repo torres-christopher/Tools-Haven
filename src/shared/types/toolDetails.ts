@@ -4,6 +4,7 @@ import type { SupportedLocale } from './supportedLocale.js'
 export interface ToolsDetails {
   id: string
   title: Record<SupportedLocale, string>
+  seoTitle?: Partial<Record<SupportedLocale, string>>
   description: Record<SupportedLocale, string>
   slug: Record<SupportedLocale, string>
   categoryName: Record<SupportedLocale, string>
