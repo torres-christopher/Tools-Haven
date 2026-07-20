@@ -108,8 +108,9 @@ html(lang=lang || "cs")
             ul
               li: a(href=`/${lang}/text`) #{ t('common:footer.text') }
               li: a(href=`/${lang}/developer`) #{ t('common:footer.developer') }
-              li: a(href=`/${lang}/local`) #{ t('common:footer.local') }
+              li: a(href=`/${lang}/datetime`) #{ t('common:footer.datetime') }
               li: a(href=`/${lang}/health`) #{ t('common:footer.health') }
+              li: a(href=`/${lang}/local`) #{ t('common:footer.local') }
           .site-footer__links
             h4.site-footer__heading #{ t('common:footer.info') }
             ul
@@ -117,6 +118,7 @@ html(lang=lang || "cs")
               li: a(href=`/${lang}/privacy`) #{ t('common:footer.privacy') }
               li: a(href=`/${lang}/terms`) #{ t('common:footer.terms') }
               li: a(href=`/${lang}/contact`) #{ t('common:footer.contact') }
+              li: button#cookieSettings.link-btn #{ t('common:footer.cookies') }
         .site-footer__bottom
           p &copy; #{ currentYear } #{ siteName }. #{ t('common:footer.rights') }
 

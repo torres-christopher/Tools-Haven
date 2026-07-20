@@ -32,13 +32,15 @@
     "categories": "Kategórie",
     "info": "Informácie",
     "text": "Textové nástroje",
-    "developer": "Pre vývojárov",
-    "local": "Lokálne dáta",
+    "developer": "Vývojárske nástroje",
+    "datetime": "Dátum a čas",
     "health": "Zdravie & fitness",
+    "local": "Lokálne dáta",
     "faq": "Časté otázky",
     "privacy": "Ochrana súkromia",
     "terms": "Podmienky použitia",
     "contact": "Kontakt",
+    "cookies": "Cookies",
     "rights": "Všetky práva vyhradené."
   },
   "layout": {
