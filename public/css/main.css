@@ -1469,6 +1469,10 @@ input[type='date'] {
   text-decoration: none;
 }
 
+.link-btn:hover {
+  color: white;
+}
+
 /* ── 28. Error page ───────────────────────────────────────── */
 
 .error-page {
