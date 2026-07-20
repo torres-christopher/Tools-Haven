@@ -32,13 +32,15 @@
     "categories": "Kategorie",
     "info": "Informace",
     "text": "Textové nástroje",
-    "developer": "Pro vývojáře",
-    "local": "Lokální data",
+    "developer": "Vývojářské nástroje",
+    "datetime": "Datum a čas",
     "health": "Zdraví & fitness",
+    "local": "Lokální data",
     "faq": "Časté dotazy",
     "privacy": "Ochrana soukromí",
     "terms": "Podmínky použití",
     "contact": "Kontakt",
+    "cookies": "Cookies",
     "rights": "Všechna práva vyhrazena."
   },
   "layout": {

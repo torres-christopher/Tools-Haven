@@ -92,6 +92,14 @@ if (cookieBanner) {
   }
 }
 
+// Show cookie banner on click
+const cookieSettings = document.getElementById('cookieSettings')
+if (cookieSettings) {
+  cookieSettings.addEventListener('click', () => {
+    cookieBanner.classList.add('is-visible')
+  })
+}
+
 // ── Copy button ────────────────────────────────────────────
 
 document.querySelectorAll('#copy-btn').forEach((btn) => {
