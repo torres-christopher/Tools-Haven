@@ -48,7 +48,7 @@ export const postAgeCalculator = catchAsync(async (req, res) => {
   res.status(status).render('pages/tools/datetime/age-calculator', {
     ...buildSeoMeta(buildToolSeoInput(tool, lang)),
     faq,
-    age: input.data ? input.data : req.body,
+    birthDate: input.success ? input.data.birthDate.toISOString().slice(0, 10) : req.body.birthDate,
     result,
     errorMessage,
   })
