@@ -5,6 +5,7 @@ import { buildToolPath } from '../../../shared/utils/buildToolPath.js'
 import { tools } from '../../../shared/data/tools.js'
 import type { SupportedLocale } from '../../../shared/types/supportedLocale.js'
 import dateCalculatorRouter from './date-calculator/date-calculator.routes.js'
+import ageCalculatorRouter from './age-calculator/age-calculator.routes.js'
 
 const router = Router({ mergeParams: true })
 
@@ -39,5 +40,6 @@ router.get('/', (req: Request<{ lang: string }>, res) => {
 
 router.use('/datumovy-kalkulator', dateCalculatorRouter) // cs
 router.use('/datumova-kalkulacka', dateCalculatorRouter) // sk
+router.use('/kalkulacka-veku', ageCalculatorRouter) // cs/sk
 
 export default router
