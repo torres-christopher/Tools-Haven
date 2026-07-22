@@ -16,13 +16,14 @@ block content
       const one = t('dateCalculator.plural.' + category + '.one')
       const few = t('dateCalculator.plural.' + category + '.few')
       const many = t('dateCalculator.plural.' + category + '.many')
-      if (n === 1) return n + ' ' + one
-      if (n >= 2 && n <= 4) return n + ' ' + few
-      return n + ' ' + many
+      if (n === 1) return one
+      if (n >= 2 && n <= 4) return few
+      return many
     }
 
   //- Locale string for date formatting
   - const dateLocale = lang === 'sk' ? 'sk-SK' : 'cs-CZ'
+  - const formatNum = (n) => n.toLocaleString(dateLocale)
 
   section.tool-layout.tool-layout--compact
     .container
@@ -39,16 +40,16 @@ block content
             span.tool-result__heading= t('dateCalculator.result')
           .tool-result__content
             p= t('dateCalculator.totalDays') + ': '
-              b= plural(result.daysTotal, 'day')
+              b= formatNum(result.daysTotal) + ' ' + plural(result.daysTotal, 'day')
             if result.weeksTotal > 0
               p= t('dateCalculator.weeksResult') + ': '
-                b= plural(result.weeksTotal, 'week') + ' a ' + plural(result.weeksRemainder, 'day')
+                b= formatNum(result.weeksTotal) + ' ' + plural(result.weeksTotal, 'week') + ' a ' + formatNum(result.weeksRemainder) + ' ' + plural(result.weeksRemainder, 'day')
             if result.monthsTotal > 0
               p= t('dateCalculator.monthsResult') + ': '
-                b= plural(result.monthsTotal, 'month') + ' a ' + plural(result.monthsRemainder, 'day')
+                b= formatNum(result.monthsTotal) + ' ' + plural(result.monthsTotal, 'month') + ' a ' + formatNum(result.monthsRemainder) + ' ' + plural(result.monthsRemainder, 'day')
             if result.yearsTotal > 0
               p= t('dateCalculator.yearsResult') + ': '
-                b= plural(result.yearsTotal, 'year') + ' a ' + plural(result.yearsRemainder, 'day')
+                b= formatNum(result.yearsTotal) + ' ' + plural(result.yearsTotal, 'year') + ' a ' + formatNum(result.yearsRemainder) + ' ' + plural(result.yearsRemainder, 'day')
 
       //- ── Result: Arithmetic ─────────────────────────────────────
       if result && activeForm === 'arithmetic'
