@@ -1,7 +1,10 @@
 import { z } from 'zod'
+import { isAfter } from 'date-fns'
 
 export const ageCalculatorInput = z.object({
-  birthDate: z.coerce.date(),
+  birthDate: z.coerce
+    .date()
+    .refine((date) => !isAfter(date, new Date()), { message: 'Birth date in the future' }),
 })
 
 export const ageCalculatorOutput = z.object({
