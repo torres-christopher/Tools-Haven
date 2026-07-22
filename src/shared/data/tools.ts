@@ -211,4 +211,34 @@ export const tools: ToolsDetails[] = [
     },
     featured: null,
   },
+  {
+    id: 'pace-calculator',
+    title: {
+      cs: 'Běžecká kalkulačka',
+      sk: 'Bežecká kalkulačka',
+    },
+    seoTitle: {
+      cs: 'Běžecká kalkulačka - tempo, čas a vzdálenost běhu',
+      sk: 'Bežecká kalkulačka - tempo, čas a vzdialenosť behu',
+    },
+    description: {
+      cs: 'Spočítejte tempo, čas nebo vzdálenost běhu. Kalkulačka také odhadne časy na oblíbených závodních tratích a ukáže rozpis mezičasů po kilometrech.',
+      sk: 'Vypočítajte tempo, čas alebo vzdialenosť behu. Kalkulačka tiež odhadne časy na obľúbených pretekárskych tratiach a ukáže rozpis medzičasov po kilometroch.',
+    },
+    slug: {
+      cs: 'bezecka-kalkulacka',
+      sk: 'bezecka-kalkulacka',
+    },
+    categoryName: {
+      cs: 'Zdravotní nástroje',
+      sk: 'Zdravotné nástroje',
+    },
+    categoryPath: '/health',
+    icon: '👟',
+    enabled: {
+      cs: false,
+      sk: false,
+    },
+    featured: null,
+  },
 ]
