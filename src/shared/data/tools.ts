@@ -89,7 +89,7 @@ export const tools: ToolsDetails[] = [
       cs: true,
       sk: false,
     },
-    featured: 1,
+    featured: 3,
   },
   {
     id: 'bmi-calculator',
@@ -119,7 +119,7 @@ export const tools: ToolsDetails[] = [
       cs: true,
       sk: false,
     },
-    featured: 1,
+    featured: 4,
   },
   {
     id: 'inflation-calculator',
@@ -149,7 +149,7 @@ export const tools: ToolsDetails[] = [
       cs: true,
       sk: false,
     },
-    featured: 1,
+    featured: 5,
   },
   {
     id: 'date-calculator',
@@ -179,6 +179,36 @@ export const tools: ToolsDetails[] = [
       cs: true,
       sk: false,
     },
-    featured: 1,
+    featured: 6,
+  },
+  {
+    id: 'age-calculator',
+    title: {
+      cs: 'Kalkulačka věku',
+      sk: 'Kalkulačka veku',
+    },
+    seoTitle: {
+      cs: 'Kalkulačka věku - kolik mi je let, měsíců a dní',
+      sk: 'Kalkulačka veku - koľko mám rokov, mesiacov a dní',
+    },
+    description: {
+      cs: 'Zjistěte přesný věk v letech, měsících a dnech. Kalkulačka věku také ukáže, za kolik dní máte narozeniny a jaký den v týdnu jste se narodili.',
+      sk: 'Zistite presný vek v rokoch, mesiacoch a dňoch. Kalkulačka veku tiež ukáže, za koľko dní máte narodeniny a aký deň v týždni ste sa narodili.',
+    },
+    slug: {
+      cs: 'kalkulacka-veku',
+      sk: 'kalkulacka-veku',
+    },
+    categoryName: {
+      cs: 'Datum a čas',
+      sk: 'Dátum a čas',
+    },
+    categoryPath: '/datetime',
+    icon: '🎂',
+    enabled: {
+      cs: true,
+      sk: false,
+    },
+    featured: null,
   },
 ]

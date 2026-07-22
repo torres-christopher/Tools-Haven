@@ -172,5 +172,30 @@
       "month": { "one": "mesiac", "few": "mesiace", "many": "mesiacov" },
       "year": { "one": "rok", "few": "roky", "many": "rokov" }
     }
+  },
+  "ageCalculator": {
+    "birthDateLabel": "Dátum narodenia",
+    "calculate": "Vypočítať",
+    "resultAge": "Váš vek",
+    "resultBirthday": "Najbližšie narodeniny",
+    "resultBirthdate": "Informácie o dátume narodenia",
+    "years": "rokov",
+    "months": "mesiacov",
+    "days": "dní",
+    "daysUntil": "Počet dní",
+    "birthdayWeekday": "Deň v týždni",
+    "birthdateWeekday": "Deň v týždni",
+    "birthdateWeek": "Týždeň v roku",
+    "birthdateDay": "Deň v roku",
+    "errorFutureDate": "Dátum narodenia nemôže byť v budúcnosti.",
+    "weekdays": {
+      "1": "Pondelok",
+      "2": "Utorok",
+      "3": "Streda",
+      "4": "Štvrtok",
+      "5": "Piatok",
+      "6": "Sobota",
+      "7": "Nedeľa"
+    }
   }
 }

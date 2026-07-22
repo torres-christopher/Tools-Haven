@@ -1,0 +1,84 @@
+extends ../../../layouts/main
+
+block content
+
+  include ../../../partials/tool-header
+
+  //- Tool tracking to GTM
+  include ../../../partials/tool-tracking
+
+  //- Today date for default input
+  - const today = new Date().toISOString().slice(0, 10)
+
+  //- Locale string for date formatting
+  - const dateLocale = lang === 'sk' ? 'sk-SK' : 'cs-CZ'
+
+  //- Weekday name lookup (1=Monday, 7=Sunday)
+  - const weekdayName = (n) => t('ageCalculator.weekdays.' + n)
+
+  section.tool-layout.tool-layout--compact
+    .container
+
+      //- ── Form ───────────────────────────────────────────────────
+      .tool-section
+        form.tool-form(method='POST' action='')
+          .form-row
+            .form-group
+              label.form-label(for='birth-date')= t('ageCalculator.birthDateLabel')
+              input.form-input#birth-date(
+                type='date'
+                name='birthDate'
+                required
+                value=birthDate || today
+              )
+          button.btn.btn--primary(type='submit')= t('ageCalculator.calculate')
+
+      //- Error message
+      if errorMessage
+        .alert.alert--error(role='alert' style='margin-top: var(--space-4)')
+          p= errorMessage
+
+      //- ── Result ─────────────────────────────────────────────────
+      if result
+        .tool-result.tool-result--compact(style='margin-top: var(--space-6)')
+
+          //- Age
+          .tool-result__header
+            span.tool-result__heading= t('ageCalculator.resultAge')
+          .tool-result__content
+            p
+              b= result.age.years + ' ' + t('ageCalculator.years') + ', ' + result.age.months + ' ' + t('ageCalculator.months') + ', ' + result.age.days + ' ' + t('ageCalculator.days')
+
+          //- Next birthday
+          .tool-result__header
+            span.tool-result__heading= t('ageCalculator.resultBirthday')
+          .tool-result__content
+            p= t('ageCalculator.daysUntil') + ': '
+              b #{result.birthday.days}
+            p= t('ageCalculator.birthdayWeekday') + ': '
+              b= weekdayName(result.birthday.weekday)
+
+          //- Birth date metadata
+          .tool-result__header
+            span.tool-result__heading= t('ageCalculator.resultBirthdate')
+          .tool-result__content
+            p= t('ageCalculator.birthDateLabel') + ': '
+              b= new Date(birthDate).toLocaleDateString(dateLocale)
+            p= t('ageCalculator.birthdateWeekday') + ': '
+              b= weekdayName(result.birthdate.weekday)
+            p= t('ageCalculator.birthdateWeek') + ': '
+              b #{result.birthdate.week}
+            p= t('ageCalculator.birthdateDay') + ': '
+              b #{result.birthdate.day}
+
+    //- FAQ
+    include ../../../partials/tool-faq
+
+    //- Ad slot
+    include ../../../partials/ad-slot
+
+    //- Related tools
+    include ../../../partials/tool-related
+
+  if result || errorMessage
+    +toolUseEvent('age-calculator', 'datetime', 'form', null, null, result ? 'success' : 'error')

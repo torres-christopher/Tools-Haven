@@ -172,5 +172,30 @@
       "month": { "one": "měsíc", "few": "měsíce", "many": "měsíců" },
       "year": { "one": "rok", "few": "roky", "many": "roků" }
     }
+  },
+  "ageCalculator": {
+    "birthDateLabel": "Datum narození",
+    "calculate": "Vypočítat",
+    "resultAge": "Váš věk",
+    "resultBirthday": "Příští narozeniny",
+    "resultBirthdate": "Informace o datu narození",
+    "years": "let",
+    "months": "měsíců",
+    "days": "dní",
+    "daysUntil": "Počet dní",
+    "birthdayWeekday": "Den v týdnu",
+    "birthdateWeekday": "Den v týdnu",
+    "birthdateWeek": "Týden v roce",
+    "birthdateDay": "Den v roce",
+    "errorFutureDate": "Datum narození nemůže být v budoucnosti.",
+    "weekdays": {
+      "1": "Pondělí",
+      "2": "Úterý",
+      "3": "Středa",
+      "4": "Čtvrtek",
+      "5": "Pátek",
+      "6": "Sobota",
+      "7": "Neděle"
+    }
   }
 }
