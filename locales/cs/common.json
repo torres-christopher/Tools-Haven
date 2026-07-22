@@ -15,7 +15,8 @@
         },
       "datetime": {
         "title": "Datumy",
-        "dateCalculator": "Datumový kalkulátor"
+        "dateCalculator": "Datumový kalkulátor",
+        "ageCalculator": "Kalkulačka věku"
         },
       "health": {
         "title": "Zdraví",
