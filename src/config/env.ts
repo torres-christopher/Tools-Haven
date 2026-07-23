@@ -7,7 +7,7 @@ const envSchema = z.object({
     .string()
     .default('8080')
     .transform((val) => parseInt(val, 10)),
-  SITE_URL: z.string().url().default('http://tools-haven.com'),
+  SITE_URL: z.url().default('http://tools-haven.com'),
   SITE_NAME: z.string().default('Tools Haven'),
   GTM_CONTAINER_ID: z.string().default(''),
   ADSENSE_CLIENT_ID: z.string().default(''),

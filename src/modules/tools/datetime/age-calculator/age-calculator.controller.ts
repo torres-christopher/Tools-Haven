@@ -34,7 +34,7 @@ export const postAgeCalculator = catchAsync(async (req, res) => {
   const input = ageCalculatorInput.safeParse(req.body)
 
   if (!input.success) {
-    const isFutureDate = input.error.errors.some(
+    const isFutureDate = input.error.issues.some(
       (error) => error.message === 'Birth date in the future',
     )
     errorMessage = isFutureDate
