@@ -1,11 +1,15 @@
 import { z } from 'zod'
 import { isAfter } from 'date-fns'
 
+// ───── Input ───────────────────────────────────
+
 export const ageCalculatorInput = z.object({
   birthDate: z.coerce
     .date()
     .refine((date) => !isAfter(date, new Date()), { message: 'Birth date in the future' }),
 })
+
+// ───── Output ───────────────────────────────────
 
 export const ageCalculatorOutput = z.object({
   age: z.object({
@@ -26,6 +30,8 @@ export const ageCalculatorOutput = z.object({
     week: z.number().nonnegative().max(53), // Week number in year
   }),
 })
+
+// ───── Types ───────────────────────────────────
 
 export type AgeCalculatorInput = z.infer<typeof ageCalculatorInput>
 export type AgeCalculatorOutput = z.infer<typeof ageCalculatorOutput>

@@ -1,7 +1,8 @@
 import { z } from 'zod'
 import { cpiMonthly, cpiYearly } from '../../../../shared/data/tools/czech/cpi.js'
 
-// -------- Helper Functions --------------- //
+// ───── Helper functions──────────────────────────────────
+
 // 'average' means yearly average mode
 const isAverageMode = (month: number | 'average'): month is 'average' => {
   return month === 'average'
@@ -41,7 +42,10 @@ const periodValue = (year: number, month: number | 'average'): number => {
   return year * 100 + month
 }
 
-// -------- Schema --------------- //
+// ───── Schema ───────────────────────────────────
+
+// ───── Input ───────────────────────────────────
+
 export const inflationRealInput = z
   .object({
     value: z.coerce.number().positive(),
@@ -92,8 +96,12 @@ export const inflationCAGRInput = z.object({
   years: z.coerce.number().positive(),
 })
 
+// ───── Output ───────────────────────────────────
+
 export const inflationOutput = z.number().nonnegative()
 export const inflationCAGROutput = z.number()
+
+// ───── Types ───────────────────────────────────
 
 export type InflationRealInput = z.infer<typeof inflationRealInput>
 export type InflationCustomInput = z.infer<typeof inflationCustomInput>

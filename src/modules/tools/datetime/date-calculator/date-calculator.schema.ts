@@ -1,5 +1,7 @@
 import { z } from 'zod'
 
+// ───── Input ───────────────────────────────────
+
 // Range between dates
 export const dateCalculatorRangeInput = z.object({
   startDate: z.coerce.date(),
@@ -20,6 +22,8 @@ export const dateCalculatorArithmeticInput = z.object({
 export const dateCalculatorWeekInput = z.object({
   inputDate: z.coerce.date(),
 })
+
+// ───── Output ───────────────────────────────────
 
 export const dateCalculatorRangeOutput = z.object({
   daysTotal: z.number().nonnegative(),
@@ -45,6 +49,8 @@ export const dateCalculatorWeekOutput = z.object({
     weekEnd: z.date(),
   }),
 })
+
+// ───── Types ───────────────────────────────────
 
 export type DateCalculatorRangeInput = z.infer<typeof dateCalculatorRangeInput>
 export type DateCalculatorArithmeticInput = z.infer<typeof dateCalculatorArithmeticInput>
