@@ -2,7 +2,9 @@
 // Segment count picks the format; regex upstream guarantees one of these three shapes.
 export const parseDuration = (input: string): number => {
   const split: string[] = input.split(':')
-  let [hours, minutes, seconds]: number[] = [0, 0, 0]
+  let hours = 0
+  let minutes = 0
+  let seconds: number
 
   switch (split.length) {
     case 1:
