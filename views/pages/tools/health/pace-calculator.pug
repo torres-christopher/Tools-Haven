@@ -1,0 +1,171 @@
+extends ../../../layouts/main
+
+block content
+
+  include ../../../partials/tool-header
+
+  //- Tool tracking to GTM
+  include ../../../partials/tool-tracking
+
+  //- Plural forms, hardcoded Czech words for now (translations come later)
+  //- Fractional values (e.g. 30.7 seconds) always take the genitive singular
+  //- ("sekundy"/"minuty"), which happens to match the "few" (2-4) form here.
+  -
+    const pluralWord = (n, one, few, many) => {
+      if (!Number.isInteger(n)) return few
+      if (n === 1) return one
+      if (n >= 2 && n <= 4) return few
+      return many
+    }
+
+  //- Czech labels for the standard race distances, keyed by id from the service
+  -
+    const raceLabels = {
+      '400m': '400 m',
+      '800m': '800 m',
+      '1k': '1 km',
+      '3k': '3 km',
+      '5k': '5 km',
+      '10k': '10 km',
+      'half-marathon': 'Půlmaraton',
+      'marathon': 'Maraton',
+    }
+
+  - const formatKm = (n) => n.toLocaleString('cs-CZ', { maximumFractionDigits: 3 })
+
+  section.tool-layout.tool-layout--compact
+    .container
+
+      //- Error message
+      if errorMessage
+        .alert.alert--error(role='alert' style='margin-bottom: var(--space-6)')
+          p= errorMessage
+
+      //- ── Result ──────────────────────────────────────────────
+      //- All three modes converge on the same result shape, so there's one
+      //- result block regardless of which form was submitted.
+      if result
+        - const paceParts = durationToParts(result.paceSecondsPerKm)
+        .tool-result.tool-result--compact
+          .tool-result__header
+            span.tool-result__heading Výsledek
+          .tool-result__content
+            p Tempo:
+              b= ' ' + formatDuration(result.paceSecondsPerKm) + ' /km'
+            p Čas:
+              b= ' ' + formatDuration(result.timeSeconds)
+            p Vzdálenost:
+              b= ' ' + formatKm(result.distanceKm) + ' km'
+
+            h3 Tempo v různých jednotkách
+            ul
+              li #{paceParts.minutes} #{pluralWord(paceParts.minutes, 'minuta', 'minuty', 'minut')} a #{paceParts.seconds.toLocaleString('cs-CZ', { maximumFractionDigits: 1 })} #{pluralWord(paceParts.seconds, 'sekunda', 'sekundy', 'sekund')} na kilometr
+              li= result.speedKmh.toLocaleString('cs-CZ', { maximumFractionDigits: 2 }) + ' km/h'
+              li= result.speedMPerMin.toLocaleString('cs-CZ', { maximumFractionDigits: 1 }) + ' m/min'
+              li= result.speedMPerSec.toLocaleString('cs-CZ', { maximumFractionDigits: 2 }) + ' m/s'
+
+            h3 Předpokládané časy na tratích
+            table
+              tbody
+                each race in result.racePredictions
+                  tr
+                    td= raceLabels[race.id]
+                    td= formatDuration(race.timeSeconds)
+
+      //- ── Form 1: Tempo (pace mode) ────────────────────────────
+      .tool-section
+        h2.tool-section__title Tempo
+        form.tool-form(method='POST' action='')
+          input(type='hidden' name='form_id' value='pace')
+          .form-row
+            .form-group
+              label.form-label(for='pace-time') Čas
+              input.form-input#pace-time(
+                type='text'
+                name='time'
+                required
+                placeholder='hh:mm:ss'
+                value=result ? formatDuration(result.timeSeconds) : ''
+              )
+            .form-group
+              label.form-label(for='pace-distance') Vzdálenost (km)
+              input.form-input#pace-distance(
+                type='number'
+                name='distance'
+                step='0.001'
+                min='0'
+                required
+                value=result ? result.distanceKm.toFixed(3) : ''
+              )
+          button.btn.btn--primary(type='submit') Vypočítat tempo
+
+      .tool-divider
+
+      //- ── Form 2: Čas (time mode) ──────────────────────────────
+      .tool-section
+        h2.tool-section__title Čas
+        form.tool-form(method='POST' action='')
+          input(type='hidden' name='form_id' value='time')
+          .form-row
+            .form-group
+              label.form-label(for='time-pace') Tempo (min:s / km)
+              input.form-input#time-pace(
+                type='text'
+                name='pace'
+                required
+                placeholder='mm:ss'
+                value=result ? formatDuration(result.paceSecondsPerKm) : ''
+              )
+            .form-group
+              label.form-label(for='time-distance') Vzdálenost (km)
+              input.form-input#time-distance(
+                type='number'
+                name='distance'
+                step='0.001'
+                min='0'
+                required
+                value=result ? result.distanceKm.toFixed(3) : ''
+              )
+          button.btn.btn--primary(type='submit') Vypočítat čas
+
+      .tool-divider
+
+      //- ── Form 3: Vzdálenost (distance mode) ───────────────────
+      .tool-section
+        h2.tool-section__title Vzdálenost
+        form.tool-form(method='POST' action='')
+          input(type='hidden' name='form_id' value='distance')
+          .form-row
+            .form-group
+              label.form-label(for='distance-time') Čas
+              input.form-input#distance-time(
+                type='text'
+                name='time'
+                required
+                placeholder='hh:mm:ss'
+                value=result ? formatDuration(result.timeSeconds) : ''
+              )
+            .form-group
+              label.form-label(for='distance-pace') Tempo (min:s / km)
+              input.form-input#distance-pace(
+                type='text'
+                name='pace'
+                required
+                placeholder='mm:ss'
+                value=result ? formatDuration(result.paceSecondsPerKm) : ''
+              )
+          button.btn.btn--primary(type='submit') Vypočítat vzdálenost
+
+      .tool-divider
+
+    //- FAQ
+    include ../../../partials/tool-faq
+
+    //- Ad slot
+    include ../../../partials/ad-slot
+
+    //- Related tools
+    include ../../../partials/tool-related
+
+  if result || errorMessage
+    +toolUseEvent('pace-calculator', 'health', 'form', formId, null, result ? 'success' : 'error')

@@ -4,7 +4,8 @@ import { buildSeoMeta } from '../../../shared/utils/seoMeta.js'
 import { buildToolPath } from '../../../shared/utils/buildToolPath.js'
 import { tools } from '../../../shared/data/tools.js'
 import type { SupportedLocale } from '../../../shared/types/supportedLocale.js'
-import bmiRoutes from './bmi/bmi.routes.js'
+import bmiRouter from './bmi/bmi.routes.js'
+import paceCalculatorRouter from './pace/pace-calculator.routes.js'
 
 const router = Router({ mergeParams: true })
 
@@ -37,6 +38,7 @@ router.get('/', (req: Request<{ lang: string }>, res) => {
   })
 })
 
-router.use('/bmi-kalkulacka', bmiRoutes) // cs + sk (same slug)
+router.use('/bmi-kalkulacka', bmiRouter) // cs + sk (same slug)
+router.use('/bezecka-kalkulacka', paceCalculatorRouter) // cs + sk (same slug)
 
 export default router

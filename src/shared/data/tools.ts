@@ -236,7 +236,7 @@ export const tools: ToolsDetails[] = [
     categoryPath: '/health',
     icon: '👟',
     enabled: {
-      cs: false,
+      cs: true,
       sk: false,
     },
     featured: null,

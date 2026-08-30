@@ -33,28 +33,8 @@ export const paceCalculatorDistanceInput = z.object({
     .transform(parseDuration),
 })
 
-// ───── Output ───────────────────────────────────
-
-// Pace
-export const paceCalculatorPaceOutput = z.object({
-  pace: z.number(),
-})
-
-// Time
-export const paceCalculatorTimeOutput = z.object({
-  time: z.number(),
-})
-
-// Distance
-export const paceCalculatorDistanceOutput = z.object({
-  distance: z.number().positive(),
-})
-
 // ───── Types ───────────────────────────────────
 
 export type PaceCalculatorPaceInput = z.infer<typeof paceCalculatorPaceInput>
 export type PaceCalculatorTimeInput = z.infer<typeof paceCalculatorTimeInput>
 export type PaceCalculatorDistanceInput = z.infer<typeof paceCalculatorDistanceInput>
-export type PaceCalculatorPaceOutput = z.infer<typeof paceCalculatorPaceOutput>
-export type PaceCalculatorTimeOutput = z.infer<typeof paceCalculatorTimeOutput>
-export type PaceCalculatorDistanceOutput = z.infer<typeof paceCalculatorDistanceOutput>
