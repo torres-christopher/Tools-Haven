@@ -9,7 +9,7 @@ export const paceCalculatorPaceInput = z.object({
     .string()
     .regex(/^\d+(:\d{1,2}){0,2}$/)
     .transform(parseDuration),
-  distance: z.number().positive(),
+  distance: z.coerce.number().positive(),
 })
 
 // Time
@@ -18,7 +18,7 @@ export const paceCalculatorTimeInput = z.object({
     .string()
     .regex(/^\d+(:\d{1,2}){0,1}$/)
     .transform(parseDuration),
-  distance: z.number().positive(),
+  distance: z.coerce.number().positive(),
 })
 
 // Distance
